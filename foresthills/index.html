@@ -3,1266 +3,1347 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>포레스타 힐즈(Foresta Hills) 부동산 투자분석 & 대출 시뮬레이터</title>
-  <!-- Tailwind CSS -->
+  <title>포레스타 힐즈 (Foresta Hills) 투자분석 &amp; 융자 시뮬레이터</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Google Fonts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Pretendard', 'Noto Sans JP', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f0f7ff',
-              100: '#e0effe',
-              500: '#0284c7',
-              600: '#0369a1',
-              700: '#075985',
-              800: '#0c4a6e',
-              900: '#082f49',
-            },
-            accent: {
-              gold: '#d97706',
-              emerald: '#059669',
-              rose: '#e11d48'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Pretendard', 'Noto Sans JP', sans-serif; }
-    .metric-card { transition: all 0.2s ease-in-out; }
-    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', 'Pretendard', system-ui, sans-serif; }
+    .metric-card { transition: all .2s ease-in-out; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.1); }
     input[type=range] { accent-color: #0284c7; }
     @media print {
       .no-print { display: none !important; }
-      body { background: white; color: black; }
-      .print-shadow-none { box-shadow: none !important; }
+      body { background: #fff; color: #000; }
     }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
 
-  <!-- TOP HEADER -->
+  <!-- ══════════ HEADER ══════════ -->
   <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-lg">
-          🏢
-        </div>
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-lg">🏢</div>
         <div>
-          <div class="flex items-center space-x-2">
-            <h1 class="text-lg font-extrabold tracking-tight" id="headerTitle">포레스타 힐즈 (フォレスタヒルズ)</h1>
-            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="badgeCert">검사필증 취득 물건 (H13確済 第00313号)</span>
+          <div class="flex items-center flex-wrap gap-2">
+            <h1 class="text-lg font-extrabold tracking-tight" data-t="headerTitle"></h1>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" data-t="badgeCert"></span>
           </div>
-          <p class="text-xs text-slate-400" id="headerSubtitle">지바현 야치요시 1동 RC 맨션 (1K 8실 + 2DK 6실 / 총 14세대) 투자분석 & 융자 시뮬레이터</p>
+          <p class="text-xs text-slate-400" data-t="headerSubtitle"></p>
         </div>
       </div>
-      
-      <div class="flex items-center space-x-3 no-print">
-        <!-- Back to Portfolio Hub -->
-        <a href="../" class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center space-x-1 transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          <span>포트폴리오 목록</span>
+      <div class="flex items-center space-x-2 no-print">
+        <a href="../" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center space-x-1 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span data-t="btnBackHub"></span>
         </a>
-        <!-- Language Switcher -->
         <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
-          <button id="langKO" onclick="setLanguage('ko')" class="px-3 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm transition">한국어</button>
-          <button id="langJA" onclick="setLanguage('ja')" class="px-3 py-1 text-xs font-semibold rounded-md text-slate-300 hover:text-white transition">日本語</button>
+          <button id="langKO" onclick="setLanguage('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
+          <button id="langJA" onclick="setLanguage('ja')" class="px-3 py-1 text-xs font-semibold rounded-md transition">日本語</button>
         </div>
-        <!-- Print / PDF -->
-        <button onclick="window.print()" class="px-3.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center space-x-1.5 transition">
-          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-          <span id="btnPrint">인쇄 / PDF 저장</span>
+        <button onclick="window.print()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center space-x-1.5 transition">
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z"/></svg>
+          <span data-t="btnPrint"></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <!-- HERO KEY HIGHLIGHTS -->
-    <section class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+    <!-- ══════════ HERO METRIC CARDS ══════════ -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_price">매매가격</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_price"></span>
         <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block" id="cardPriceDisplay">¥88,000,000</span>
-        <span class="text-[11px] text-amber-600 font-medium" id="cardPriceTag">권장 사시네(指値) 목표</span>
+        <span class="text-[11px] text-amber-600 font-medium" data-t="hero_price_tag"></span>
       </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_fcr">FCR (Cap Rate)</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_fcr"></span>
         <span class="text-xl sm:text-2xl font-black text-emerald-600 mt-1 block" id="cardCapRate">8.42%</span>
-        <span class="text-[11px] text-slate-400" id="cardNOIDisplay">NOI: ¥7,411,400</span>
+        <span class="text-[11px] text-slate-400" id="cardNOIDisplay">NOI: ¥0</span>
       </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_ccr">CCR (자기자본수익률)</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_ccr"></span>
         <span class="text-xl sm:text-2xl font-black text-sky-600 mt-1 block" id="cardCCR">15.28%</span>
-        <span class="text-[11px] text-slate-400" id="cardBTCFDisplay">세전CF: ¥3,842,000</span>
+        <span class="text-[11px] text-slate-400" id="cardBTCFDisplay">BTCF: ¥0</span>
       </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_dscr">DSCR (부채감당률)</span>
-        <span class="text-xl sm:text-2xl font-black text-indigo-600 mt-1 block" id="cardDSCR">2.08배</span>
-        <span class="text-[11px] text-emerald-600 font-medium" id="cardDSCRStatus">안정권 (≥1.30)</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_dscr"></span>
+        <span class="text-xl sm:text-2xl font-black text-indigo-600 mt-1 block" id="cardDSCR">2.08</span>
+        <span class="text-[11px] font-medium" id="cardDSCRStatus"></span>
       </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_ads">월 원리금 상환</span>
-        <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block" id="cardMonthlyADS">¥297,450</span>
-        <span class="text-[11px] text-slate-400" id="cardAnnualADS">연 ¥3,569,400</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_ads"></span>
+        <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block" id="cardMonthlyADS">¥0</span>
+        <span class="text-[11px] text-slate-400" id="cardAnnualADS"></span>
       </div>
       <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-i18n="hero_equity">초기 필요 자기자본</span>
-        <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block" id="cardTotalEquity">¥25,140,000</span>
-        <span class="text-[11px] text-slate-400" id="cardLoanAmountDisplay">대출: ¥70,400,000</span>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block" data-t="hero_equity"></span>
+        <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block" id="cardTotalEquity">¥0</span>
+        <span class="text-[11px] text-slate-400" id="cardLoanAmountDisplay"></span>
       </div>
     </section>
 
-    <!-- INTERACTIVE LOAN & PARAMETER SIMULATOR -->
+    <!-- ══════════ INTERACTIVE SIMULATOR ══════════ -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden no-print">
       <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 p-6 text-white flex flex-wrap justify-between items-center gap-4">
         <div>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center flex-wrap gap-2">
             <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-sky-500 text-white uppercase tracking-wider">Interactive Tool</span>
-            <h2 class="text-xl font-extrabold tracking-tight" data-i18n="sim_title">🧮 은행 융자 조건 & 수익률 실시간 시뮬레이터</h2>
+            <h2 class="text-xl font-extrabold tracking-tight" data-t="sim_title"></h2>
           </div>
-          <p class="text-xs text-slate-300 mt-1" data-i18n="sim_desc">금리, 융자기간, 융자비용, LTV 및 공실 시나리오를 실시간으로 조정하여 자금수지와 레버리지 효과를 즉시 판정합니다.</p>
+          <p class="text-xs text-slate-300 mt-1" data-t="sim_desc"></p>
         </div>
-        <!-- Price Quick Presets -->
-        <div class="flex items-center space-x-2">
-          <span class="text-xs text-slate-400" data-i18n="preset_label">매매가 프리셋:</span>
-          <button onclick="setPricePreset(88000000)" class="px-2.5 py-1 text-xs rounded bg-sky-600 hover:bg-sky-500 text-white font-medium transition">8,800만 (사시네)</button>
-          <button onclick="setPricePreset(100000000)" class="px-2.5 py-1 text-xs rounded bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition">1.0억 (절충)</button>
-          <button onclick="setPricePreset(123000000)" class="px-2.5 py-1 text-xs rounded bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition">1.23억 (호가)</button>
+        <div class="flex items-center flex-wrap gap-2">
+          <span class="text-xs text-slate-400" data-t="preset_label"></span>
+          <button onclick="setPricePreset(88000000)" id="presetA" class="px-2.5 py-1 text-xs rounded font-medium transition" data-t="preset_a"></button>
+          <button onclick="setPricePreset(100000000)" id="presetB" class="px-2.5 py-1 text-xs rounded font-medium transition" data-t="preset_b"></button>
+          <button onclick="setPricePreset(123000000)" id="presetC" class="px-2.5 py-1 text-xs rounded font-medium transition" data-t="preset_c"></button>
         </div>
       </div>
 
       <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <!-- COLUMN 1: LOAN PARAMETERS -->
+
+        <!-- COLUMN 1: LOAN TERMS -->
         <div class="space-y-5 bg-slate-50/70 p-5 rounded-xl border border-slate-100">
-          <h3 class="text-sm font-bold text-slate-900 border-b pb-2 flex items-center justify-between">
-            <span data-i18n="col1_title">🏦 은행 융자 조건 (Loan Terms)</span>
-            <span class="text-xs font-normal text-sky-600" id="loanSummaryBadge">LTV 80% / 2.1% / 25년</span>
+          <h3 class="text-sm font-bold text-slate-900 border-b pb-2 flex items-center justify-between gap-2">
+            <span data-t="col1_title"></span>
+            <span class="text-xs font-normal text-sky-600" id="loanSummaryBadge"></span>
           </h3>
 
-          <!-- Loan Ratio (LTV) -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_ltv">융자 비율 (LTV)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_ltv"></label>
               <span class="font-bold text-sky-700 text-sm" id="valLTV">80%</span>
             </div>
             <input type="range" id="sliderLTV" min="50" max="100" step="5" value="80" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>50% (보수적)</span>
-              <span>80% (표준)</span>
-              <span>100% (풀론)</span>
+              <span data-t="tick_ltv_1"></span><span data-t="tick_ltv_2"></span><span data-t="tick_ltv_3"></span>
             </div>
           </div>
 
-          <!-- Interest Rate -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_rate">대출 금리 (연이율)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_rate"></label>
               <span class="font-bold text-sky-700 text-sm" id="valRate">2.10%</span>
             </div>
             <input type="range" id="sliderRate" min="1.0" max="4.5" step="0.05" value="2.10" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>1.2% (메가뱅크)</span>
-              <span>2.1% (지방은행)</span>
-              <span>3.5% (논뱅크/SBJ)</span>
+              <span data-t="tick_rate_1"></span><span data-t="tick_rate_2"></span><span data-t="tick_rate_3"></span>
             </div>
           </div>
 
-          <!-- Loan Term -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_term">융자 기간 (상환년수)</label>
-              <span class="font-bold text-sky-700 text-sm" id="valTerm">25 년</span>
+              <label class="font-semibold text-slate-700" data-t="lbl_term"></label>
+              <span class="font-bold text-sky-700 text-sm" id="valTerm"></span>
             </div>
             <input type="range" id="sliderTerm" min="15" max="35" step="1" value="25" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>15년</span>
-              <span>22년 (법정잔존)</span>
-              <span>25년</span>
-              <span>30년</span>
+              <span data-t="tick_term_1"></span><span data-t="tick_term_2"></span><span data-t="tick_term_3"></span><span data-t="tick_term_4"></span>
             </div>
           </div>
 
-          <!-- Loan Fees % -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_loan_fee">융자 제비용율 (수수료·보증료)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_loan_fee"></label>
               <span class="font-bold text-sky-700 text-sm" id="valLoanFee">2.0%</span>
             </div>
             <input type="range" id="sliderLoanFee" min="0" max="3.0" step="0.1" value="2.0" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>0%</span>
-              <span>1.5%</span>
-              <span>2.0% (표준)</span>
-              <span>3.0%</span>
+              <span>0%</span><span>1.5%</span><span data-t="tick_fee_std"></span><span>3.0%</span>
             </div>
           </div>
-
         </div>
 
-        <!-- COLUMN 2: ACQUISITION & INCOME PARAMETERS -->
+        <!-- COLUMN 2: ACQUISITION & OPERATING -->
         <div class="space-y-5 bg-slate-50/70 p-5 rounded-xl border border-slate-100">
-          <h3 class="text-sm font-bold text-slate-900 border-b pb-2 flex items-center justify-between">
-            <span data-i18n="col2_title">🏷️ 취득원가 & 운영 시나리오</span>
-            <span class="text-xs font-normal text-emerald-600" id="incomeSummaryBadge">실적 공실 5.32% 반영</span>
+          <h3 class="text-sm font-bold text-slate-900 border-b pb-2 flex items-center justify-between gap-2">
+            <span data-t="col2_title"></span>
+            <span class="text-xs font-normal text-emerald-600" data-t="col2_badge"></span>
           </h3>
 
-          <!-- Purchase Price -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_price">매매가격 (원)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_price"></label>
               <span class="font-bold text-slate-900 text-sm" id="valPriceFormatted">¥88,000,000</span>
             </div>
             <input type="range" id="sliderPrice" min="70000000" max="130000000" step="1000000" value="88000000" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>7,000만</span>
-              <span>8,800만</span>
-              <span>1억</span>
-              <span>1.3억</span>
+              <span data-t="tick_price_1"></span><span data-t="tick_price_2"></span><span data-t="tick_price_3"></span><span data-t="tick_price_4"></span>
             </div>
           </div>
 
-          <!-- Acquisition Costs % -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_acq_fee">부동산 취득제비용율 (중개·세금·등기)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_acq_fee"></label>
               <span class="font-bold text-slate-700 text-sm" id="valAcqCost">7.0%</span>
             </div>
             <input type="range" id="sliderAcqCost" min="4.0" max="10.0" step="0.5" value="7.0" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>5.0%</span>
-              <span>7.0% (표준 616만)</span>
-              <span>9.0%</span>
+              <span>5.0%</span><span data-t="tick_acq_std"></span><span>9.0%</span>
             </div>
           </div>
 
-          <!-- Rent Scenario Selector -->
           <div>
-            <label class="font-semibold text-slate-700 text-xs block mb-1.5" data-i18n="lbl_rent_scenario">임대료 수입 시나리오</label>
+            <label class="font-semibold text-slate-700 text-xs block mb-1.5" data-t="lbl_rent_scenario"></label>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="setRentScenario('current')" id="btnRentCurrent" class="p-2 text-xs rounded-lg border border-slate-200 bg-white font-medium hover:border-sky-500 text-left transition">
-                <span class="block font-bold text-slate-900" data-i18n="rent_scen_curr">현황 가동</span>
-                <span class="text-[10px] text-slate-400">13실 입주 (79.5만/월)</span>
+              <button onclick="setRentScenario('current')" id="btnRentCurrent" class="p-2 text-xs rounded-lg text-left transition">
+                <span class="block font-bold" data-t="rent_scen_curr"></span>
+                <span class="text-[10px] text-slate-500" data-t="rent_scen_curr_sub"></span>
               </button>
-              <button onclick="setRentScenario('full')" id="btnRentFull" class="p-2 text-xs rounded-lg border-2 border-sky-600 bg-sky-50/50 font-medium text-left transition">
-                <span class="block font-bold text-sky-900" data-i18n="rent_scen_full">만실 표준</span>
-                <span class="text-[10px] text-sky-700">14실+주차 (88.2만/월)</span>
+              <button onclick="setRentScenario('full')" id="btnRentFull" class="p-2 text-xs rounded-lg text-left transition">
+                <span class="block font-bold" data-t="rent_scen_full"></span>
+                <span class="text-[10px] text-slate-500" data-t="rent_scen_full_sub"></span>
               </button>
-              <button onclick="setRentScenario('upside')" id="btnRentUpside" class="p-2 text-xs rounded-lg border border-slate-200 bg-white font-medium hover:border-sky-500 text-left transition">
-                <span class="block font-bold text-emerald-700" data-i18n="rent_scen_up">밸류애드</span>
-                <span class="text-[10px] text-slate-400">시세 정상화 (95.9만/월)</span>
+              <button onclick="setRentScenario('upside')" id="btnRentUpside" class="p-2 text-xs rounded-lg text-left transition">
+                <span class="block font-bold text-emerald-700" data-t="rent_scen_up"></span>
+                <span class="text-[10px] text-slate-500" data-t="rent_scen_up_sub"></span>
               </button>
             </div>
           </div>
 
-          <!-- Vacancy Rate Scenario -->
           <div>
             <div class="flex justify-between items-center text-xs mb-1.5">
-              <label class="font-semibold text-slate-700" data-i18n="lbl_vacancy">상정 공실률 (%)</label>
+              <label class="font-semibold text-slate-700" data-t="lbl_vacancy"></label>
               <span class="font-bold text-slate-900 text-sm" id="valVacancy">5.32%</span>
             </div>
             <input type="range" id="sliderVacancy" min="0" max="20" step="0.5" value="5.32" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 mt-1">
-              <span>0% (만실)</span>
-              <span>5.32% (실적회전치)</span>
-              <span>10% (보수)</span>
-              <span>15%</span>
+              <span data-t="tick_vac_1"></span><span data-t="tick_vac_2"></span><span data-t="tick_vac_3"></span><span>15%</span>
             </div>
           </div>
-
         </div>
 
-        <!-- COLUMN 3: REAL-TIME FINANCIAL ENGINE RESULTS -->
+        <!-- COLUMN 3: RESULTS -->
         <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-5 rounded-xl shadow-md space-y-4 flex flex-col justify-between">
           <div>
-            <h3 class="text-sm font-bold text-sky-400 border-b border-slate-700 pb-2 flex items-center justify-between">
-              <span data-i18n="col3_title">⚡ 자금 수지 실시간 계산 결과</span>
-              <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="badgeLeverage">Positive Leverage (FCR > K)</span>
+            <h3 class="text-sm font-bold text-sky-400 border-b border-slate-700 pb-2 flex items-center justify-between gap-2">
+              <span data-t="col3_title"></span>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded" id="badgeLeverage"></span>
             </h3>
-
             <div class="divide-y divide-slate-800/80 text-xs mt-3">
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_tot_acq">총 취득소요자금 (Total Cost)</span>
-                <span class="font-semibold text-white" id="resTotalCost">¥95,920,000</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_loan_amt">총 융자금액 (Loan Amount)</span>
-                <span class="font-semibold text-sky-300" id="resLoanAmount">¥70,400,000</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_equity">필요 자기자본 (Equity)</span>
-                <span class="font-semibold text-amber-300" id="resEquity">¥25,520,000</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_ads">연간 원리금상환 (ADS)</span>
-                <span class="font-semibold text-rose-300" id="resAnnualADS">¥3,569,400</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_loan_k">론 콘스턴트 (Loan Constant K)</span>
-                <span class="font-semibold text-white" id="resLoanK">5.07%</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_noi">순영업소득 (NOI)</span>
-                <span class="font-semibold text-emerald-400" id="resNOI">¥7,411,400</span>
-              </div>
-              <div class="py-2 flex justify-between bg-slate-800/50 px-2 rounded font-bold">
-                <span class="text-sky-300" data-i18n="calc_btcf">세전 현금흐름 (BTCF)</span>
-                <span class="text-sky-300 text-sm" id="resBTCF">¥3,842,000</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-slate-400" data-i18n="calc_breakeven">손익분기 입주율 (BER)</span>
-                <span class="font-semibold text-white" id="resBER">53.4% (안전)</span>
-              </div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_tot_acq"></span><span class="font-semibold text-white" id="resTotalCost"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_loan_amt"></span><span class="font-semibold text-sky-300" id="resLoanAmount"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_equity"></span><span class="font-semibold text-amber-300" id="resEquity"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_ads"></span><span class="font-semibold text-rose-300" id="resAnnualADS"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_loan_k"></span><span class="font-semibold text-white" id="resLoanK"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_noi"></span><span class="font-semibold text-emerald-400" id="resNOI"></span></div>
+              <div class="py-2 flex justify-between gap-2 bg-slate-800/50 px-2 rounded font-bold"><span class="text-sky-300" data-t="calc_btcf"></span><span class="text-sky-300 text-sm" id="resBTCF"></span></div>
+              <div class="py-2 flex justify-between gap-2"><span class="text-slate-400" data-t="calc_breakeven"></span><span class="font-semibold text-white" id="resBER"></span></div>
             </div>
           </div>
-
           <div class="pt-3 border-t border-slate-700/80">
-            <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700">
-              <div class="flex items-center space-x-2">
-                <span class="text-base" id="statusEmoji">✅</span>
-                <div>
-                  <span class="text-xs font-bold text-white block" id="statusVerdictTitle">우량 레버리지 투자 적격</span>
-                  <span class="text-[11px] text-slate-300 block" id="statusVerdictDesc">Cap Rate(8.42%)가 론 콘스턴트 K(5.07%)보다 높아, 부채 조달 시 자기자본수익률(15.28%)이 대폭 상승하는 정(+)의 레버리지가 발생합니다.</span>
-                </div>
+            <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700 flex items-start space-x-2">
+              <span class="text-base" id="statusEmoji">✅</span>
+              <div>
+                <span class="text-xs font-bold text-white block" id="statusVerdictTitle"></span>
+                <span class="text-[11px] text-slate-300 block mt-0.5" id="statusVerdictDesc"></span>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION: CHARTS & SENSITIVITY HEATMAP -->
+    <!-- ══════════ CHARTS & HEATMAP ══════════ -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      
-      <!-- Amortization & Equity Accumulation Chart -->
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
         <div>
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-base font-bold text-slate-900 flex items-center space-x-2">
-              <span>📈</span>
-              <span data-i18n="chart_amort_title">원금 상환 & 순자산 축적 추이 (30년 시뮬레이션)</span>
-            </h3>
-            <span class="text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-600 font-medium" id="chartTermBadge">25년 상환 완료</span>
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-base font-bold text-slate-900" data-t="chart_amort_title"></h3>
+            <span class="text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-600 font-medium whitespace-nowrap" id="chartTermBadge"></span>
           </div>
-          <p class="text-xs text-slate-500 mb-4" data-i18n="chart_amort_desc">시간 경과에 따른 대출 잔액 감소와 세입자의 임대료로 상환되는 누적 순자산(Equity Build-up) 형성 궤적입니다.</p>
-          <div class="h-64 sm:h-72 w-full">
-            <canvas id="amortizationChart"></canvas>
-          </div>
+          <p class="text-xs text-slate-500 mb-4" data-t="chart_amort_desc"></p>
+          <div class="h-64 sm:h-72 w-full"><canvas id="amortizationChart"></canvas></div>
         </div>
         <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
           <div class="bg-slate-50 p-2 rounded">
-            <span class="text-[10px] text-slate-400 block">5년 후 잔여대출</span>
-            <span class="font-bold text-slate-800" id="statLoan5y">¥59.2M</span>
+            <span class="text-[10px] text-slate-400 block" data-t="stat_loan5y"></span>
+            <span class="font-bold text-slate-800" id="statLoan5y"></span>
           </div>
           <div class="bg-slate-50 p-2 rounded">
-            <span class="text-[10px] text-slate-400 block">10년 후 누적원금상환</span>
-            <span class="font-bold text-emerald-600" id="statRepaid10y">¥24.8M</span>
+            <span class="text-[10px] text-slate-400 block" data-t="stat_repaid10y"></span>
+            <span class="font-bold text-emerald-600" id="statRepaid10y"></span>
           </div>
           <div class="bg-slate-50 p-2 rounded">
-            <span class="text-[10px] text-slate-400 block">상환완료 총이자</span>
-            <span class="font-bold text-rose-600" id="statTotalInterest">¥20.8M</span>
+            <span class="text-[10px] text-slate-400 block" data-t="stat_interest"></span>
+            <span class="font-bold text-rose-600" id="statTotalInterest"></span>
           </div>
         </div>
       </div>
 
-      <!-- Sensitivity Heatmap Matrix -->
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
         <div>
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-base font-bold text-slate-900 flex items-center space-x-2">
-              <span>🔥</span>
-              <span data-i18n="heat_title">금리 × LTV 감응도 분석 매트릭스 (Sensitivity Heatmap)</span>
-            </h3>
-            <div class="inline-flex rounded border border-slate-200 p-0.5 text-[11px]">
-              <button onclick="toggleHeatmapMetric('ccr')" id="btnHeatCCR" class="px-2 py-0.5 rounded bg-sky-600 text-white font-medium">CCR (%)</button>
-              <button onclick="toggleHeatmapMetric('dscr')" id="btnHeatDSCR" class="px-2 py-0.5 rounded text-slate-600 font-medium">DSCR</button>
+          <div class="flex justify-between items-center gap-2 mb-2">
+            <h3 class="text-base font-bold text-slate-900" data-t="heat_title"></h3>
+            <div class="inline-flex rounded border border-slate-200 p-0.5 text-[11px] whitespace-nowrap">
+              <button onclick="toggleHeatmapMetric('ccr')" id="btnHeatCCR" class="px-2 py-0.5 rounded font-medium">CCR (%)</button>
+              <button onclick="toggleHeatmapMetric('dscr')" id="btnHeatDSCR" class="px-2 py-0.5 rounded font-medium">DSCR</button>
             </div>
           </div>
-          <p class="text-xs text-slate-500 mb-3" data-i18n="heat_desc">은행 대출 금리와 LTV 변동에 따른 자기자본 수익률(CCR) 및 부채감당률(DSCR)의 안전성 구간을 교차 판정합니다.</p>
-          
+          <p class="text-xs text-slate-500 mb-3" data-t="heat_desc"></p>
           <div class="overflow-x-auto">
             <table class="w-full text-xs text-center border-collapse">
               <thead>
                 <tr class="bg-slate-100 text-slate-600 font-semibold">
-                  <th class="p-2 text-left">금리＼LTV</th>
-                  <th class="p-2">60%</th>
-                  <th class="p-2">70%</th>
-                  <th class="p-2">80%</th>
-                  <th class="p-2">90%</th>
-                  <th class="p-2">100%</th>
+                  <th class="p-2 text-left" data-t="heat_axis"></th>
+                  <th class="p-2">60%</th><th class="p-2">70%</th><th class="p-2">80%</th><th class="p-2">90%</th><th class="p-2">100%</th>
                 </tr>
               </thead>
-              <tbody id="heatmapBody" class="divide-y divide-slate-100">
-                <!-- Dynamically Generated via JS -->
-              </tbody>
+              <tbody id="heatmapBody" class="divide-y divide-slate-100"></tbody>
             </table>
           </div>
         </div>
-
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
           <div class="flex items-center space-x-3">
-            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span><span>초우량</span></span>
-            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span><span>적정</span></span>
-            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span><span>주의</span></span>
-            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span><span>위험</span></span>
+            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span><span data-t="legend_best"></span></span>
+            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span><span data-t="legend_good"></span></span>
+            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span><span data-t="legend_warn"></span></span>
+            <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span><span data-t="legend_risk"></span></span>
           </div>
-          <span class="text-slate-400">* 25년 원리금균등 상환 기준</span>
+          <span class="text-slate-400" id="heatFootnote"></span>
         </div>
       </div>
-
     </section>
 
-    <!-- NEW SECTION: NEWLY ADDED DOCUMENTS & LEGAL COMPLIANCE AUDIT -->
+    <!-- ══════════ LEGAL / DOCUMENT AUDIT CARDS ══════════ -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
       <div class="border-b border-slate-200 pb-4 flex flex-wrap justify-between items-center gap-4">
         <div>
-          <div class="flex items-center space-x-2">
-            <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider">신규 추가 공문서 완비</span>
-            <h2 class="text-xl font-extrabold text-slate-900" data-i18n="doc_title">📋 인허가·검사필증·소방·설비 실사 전수 대조</h2>
+          <div class="flex items-center flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800 uppercase tracking-wider" data-t="doc_pill"></span>
+            <h2 class="text-xl font-extrabold text-slate-900" data-t="doc_title"></h2>
           </div>
-          <p class="text-xs text-slate-500 mt-1" data-i18n="doc_subtitle">아츠기시청 건축확인대장 기재증명서, 건축계획개요서, 소방점검보고서, 저수조청소·수질검사표, 도쿄전력 전신주 사용료 원본 전수 반영</p>
+          <p class="text-xs text-slate-500 mt-1" data-t="doc_subtitle"></p>
         </div>
-        <span class="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200">
-          완전 적법 건축물 / 금융기관 대출 적격 판정
-        </span>
+        <span class="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200" data-t="doc_verdict"></span>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        
-        <!-- CARD 1: 建築確認台帳記載証明書 (검사필증) -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-emerald-100 text-emerald-800">최상급 법률 요건</span>
-            <span class="text-xs text-slate-400">厚証(建指) 第557号</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_cert_title">建築確認台帳記載証明書 (検査済証)</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_cert_desc">2026년 8월 21일 아츠기시청 발급. 신축 준공검사필증 완벽 보존 확인.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>확인번호:</span><span class="font-mono font-bold text-slate-800">H12確認建築厚木 01395</span></div>
-            <div class="flex justify-between"><span>확인일자:</span><span class="font-medium">2001년 1월 24일</span></div>
-            <div class="flex justify-between text-emerald-700 font-semibold"><span>검사필증번호:</span><span class="font-mono font-bold">H13確済建築厚木 00313</span></div>
-            <div class="flex justify-between"><span>검사필증일자:</span><span class="font-medium">2001년 8월 29일</span></div>
-            <div class="flex justify-between"><span>관할청:</span><span class="font-medium">厚木市長 (야마구치 타카히로)</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-emerald-700 font-medium">
-            ★ 일본 메가뱅크·지방은행 담보인정비율(LTV) 극대화 보장! 위반건축물 리스크 0%.
-          </div>
-        </div>
-
-        <!-- CARD 2: 建築計画概要書 -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-sky-100 text-sky-800">건축 스펙 원본</span>
-            <span class="text-xs text-slate-400">제1면~제3면 전수</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_spec_title">建築計画概要書 (크라스트 시공)</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_spec_desc">전국구 임대맨션 전문건설사 (주)크라스트 완공. 대지 741.60㎡ 대규모 정형지.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>시공자:</span><span class="font-bold text-slate-800">株式会社クラスト (대표 니토 슈이치)</span></div>
-            <div class="flex justify-between"><span>건축주:</span><span class="font-medium">재단법인 주택개량개발공사 외 1인</span></div>
-            <div class="flex justify-between"><span>부지/연면적:</span><span class="font-medium">대지 741.60㎡ / 연 451.42㎡</span></div>
-            <div class="flex justify-between"><span>건폐율/용적률:</span><span class="font-bold text-sky-700">20.18% / 58.09% (여유 102%)</span></div>
-            <div class="flex justify-between"><span>도로 접도:</span><span class="font-bold text-slate-800">폭원 4.01m 시도에 28.63m 접도</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-sky-700 font-medium">
-            ★ 도로후퇴(셋백) 완료. 향후 3배 규모 재건축 또는 필지 분할 매각 가능!
-          </div>
-        </div>
-
-        <!-- CARD 3: 消防用設備等点検結果報告書 -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-indigo-100 text-indigo-800">소방안전 적격</span>
-            <span class="text-xs text-slate-400">厚木市消防本部 予防課</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_fire_title">消防用設備等 点検結果報告書</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_fire_desc">2026년 4월 7일 기기종합점검 완료. 소방서 정식 수리 완료.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>점검업체:</span><span class="font-medium">有限会社 千代田興産</span></div>
-            <div class="flex justify-between"><span>소화기구 점검:</span><span class="font-bold text-emerald-600">良 (양호 / 이상 무)</span></div>
-            <div class="flex justify-between"><span>피난기구 점검:</span><span class="font-bold text-emerald-600">良 (양호 / 완강기 적합)</span></div>
-            <div class="flex justify-between"><span>지적사항/불량:</span><span class="font-bold text-emerald-600">0건 (지적사항 전무)</span></div>
-            <div class="flex justify-between text-indigo-700 font-semibold"><span>차기 점검보고:</span><span class="font-bold">2028년(R10) 10월 말</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-indigo-700 font-medium">
-            ★ 법적 소방점검 의무 완수. 2028년까지 차기 보고 의무 유예로 운영비 절감!
-          </div>
-        </div>
-
-        <!-- CARD 4: 貯水槽清掃 & 水質検査報告書 -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-teal-100 text-teal-800">위생·수질 적합</span>
-            <span class="text-xs text-slate-400">江東微生物研究所</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_water_title">貯水槽清掃 & 水質試験検査報告書</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_water_desc">2025년 12월 5일 청소 및 11일 수질검사 완료. 수도법 기준 100% 합격.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>청소시행사:</span><span class="font-medium">中央日化サービス株式会社</span></div>
-            <div class="flex justify-between"><span>수조 사양:</span><span class="font-medium">옥외 지상 1.3㎥ FRP 1조식</span></div>
-            <div class="flex justify-between"><span>가압급수펌프:</span><span class="font-bold text-slate-800">에바라 32MDPA 2대 (양호)</span></div>
-            <div class="flex justify-between"><span>일반세균 / 대장균:</span><span class="font-bold text-emerald-600">0개 / 불검출 (완전 무균)</span></div>
-            <div class="flex justify-between"><span>잔류염소 / pH:</span><span class="font-bold text-emerald-600">0.6 ppm / 7.6 (적합)</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-teal-700 font-medium">
-            ★ 급수배관 누수·녹물 리스크 없음. 입주자 만족도 및 음용수 안전 완벽 확보.
-          </div>
-        </div>
-
-        <!-- CARD 5: 東京電力 電柱敷地料 -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-100 text-amber-800">무위험 부대수입 확정</span>
-            <span class="text-xs text-slate-400">東京電力パワーグリッド</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_tepco_title">電柱敷地料等 お支払いの案内</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_tepco_desc">도쿄전력 부지점유 계약. 매년 4월 법인 계좌로 정기 지급되는 무위험 수입.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>설치장소:</span><span class="font-medium">厚木市飯山南4丁目 3547-1</span></div>
-            <div class="flex justify-between"><span>전신주 본주 (1본):</span><span class="font-mono font-medium">¥11,125 / 년</span></div>
-            <div class="flex justify-between"><span>전신주 지선 (2본):</span><span class="font-mono font-medium">¥22,250 / 년 (각 11,125엔)</span></div>
-            <div class="flex justify-between text-amber-700 font-bold"><span>연간 총 입금액:</span><span class="font-mono text-sm">¥33,375 / 년</span></div>
-            <div class="flex justify-between"><span>지급예정일:</span><span class="font-medium">매년 4월 정기 입금</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-amber-700 font-medium">
-            ★ 공실률과 무관한 100% 순현금 창출. 본 시뮬레이터 NOI에 기본 가산 반영 완료!
-          </div>
-        </div>
-
-        <!-- CARD 6: 2021~2022 대규모 갱신 완료 내역 -->
-        <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2 py-0.5 text-xs font-bold rounded bg-purple-100 text-purple-800">Capex 완료</span>
-            <span class="text-xs text-slate-400">6년간 집중 투자</span>
-          </div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5" data-i18n="doc_capex_title">대규모 설비 갱신 & 밸류애드 완료</h3>
-          <p class="text-xs text-slate-600 mb-3" data-i18n="doc_capex_desc">현 소유자(나기사하우스)가 핵심 노후 설비를 전면 교체 완료.</p>
-          <div class="space-y-1.5 text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-100">
-            <div class="flex justify-between"><span>2021.11:</span><span class="font-bold text-slate-800">전 14실 급탕기 전면 신품 교체</span></div>
-            <div class="flex justify-between"><span>2021.11:</span><span class="font-bold text-slate-800">전 14실 에어컨 전면 신품 교체</span></div>
-            <div class="flex justify-between"><span>2021.10:</span><span class="font-medium">현관 스마트키 디지털도어록 도입</span></div>
-            <div class="flex justify-between"><span>2022.05:</span><span class="font-medium">외벽 전면 도장 및 타일 보수 완료</span></div>
-            <div class="flex justify-between"><span>기타:</span><span class="font-medium">쓰레기수거장·우편포스트 교체</span></div>
-          </div>
-          <div class="mt-3 text-[11px] text-purple-700 font-medium">
-            ★ 인수 후 7~10년간 급탕기/에어컨 고장 수리비 제로! 안심 운영 가능.
-          </div>
-        </div>
-
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="docCardsGrid"></div>
     </section>
 
-    <!-- SECTION: 2D PRICE × SEASONALITY CROSS MATRIX (Section 5-4) -->
+    <!-- ══════════ 2D PRICE × SEASONALITY MATRIX ══════════ -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
       <div class="flex flex-wrap justify-between items-center gap-4 border-b border-slate-200 pb-4">
         <div>
-          <div class="flex items-center space-x-2">
-            <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-indigo-100 text-indigo-800 uppercase tracking-wider">특화 분석</span>
-            <h2 class="text-xl font-extrabold text-slate-900" data-i18n="mat_title">📊 [모집시기 × 가격대] 2차원 교차 매트릭스 & DOM 분석</h2>
+          <div class="flex items-center flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-bold rounded-full bg-indigo-100 text-indigo-800 uppercase tracking-wider" data-t="mat_pill"></span>
+            <h2 class="text-xl font-extrabold text-slate-900" data-t="mat_title"></h2>
           </div>
-          <p class="text-xs text-slate-500 mt-1" data-i18n="mat_subtitle">LIFULL HOME'S 모집이력(b-25342189) 전수 분석 기반: 302호 성약(68일) vs 305호 공실(95일+) 실증 규명</p>
+          <p class="text-xs text-slate-500 mt-1" data-t="mat_subtitle"></p>
         </div>
         <div class="text-right">
-          <span class="text-xs text-slate-400 block">임대료 저항선 (賃料の壁)</span>
-          <span class="text-base font-extrabold text-rose-600">월 63,000엔 (야칭 5.9만 + 관리비 4천)</span>
+          <span class="text-xs text-slate-400 block" data-t="mat_wall_label"></span>
+          <span class="text-base font-extrabold text-rose-600" data-t="mat_wall_value"></span>
         </div>
+      </div>
+
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 text-xs text-slate-600 leading-relaxed">
+        <span class="font-bold text-slate-900" data-t="dom_note_title"></span>
+        <span data-t="dom_note_body"></span>
       </div>
 
       <div class="overflow-x-auto">
         <table class="w-full text-xs text-center border-collapse">
           <thead>
             <tr class="bg-slate-900 text-white font-semibold">
-              <th class="p-3 text-left">가격대 (순수 야칭 기준)</th>
-              <th class="p-3">봄 극성수기<br><span class="text-[10px] font-normal text-slate-300">(1 – 3월)</span></th>
-              <th class="p-3">가을 준성수기<br><span class="text-[10px] font-normal text-slate-300">(9 – 10월)</span></th>
-              <th class="p-3">통상기<br><span class="text-[10px] font-normal text-slate-300">(4–6, 11–12월)</span></th>
-              <th class="p-3">여름 혹서기 비수기<br><span class="text-[10px] font-normal text-slate-300">(7 – 8월)</span></th>
+              <th class="p-3 text-left" data-t="mat_col_price"></th>
+              <th class="p-3"><span data-t="mat_col_spring"></span><br><span class="text-[10px] font-normal text-slate-300" data-t="mat_col_spring_sub"></span></th>
+              <th class="p-3"><span data-t="mat_col_autumn"></span><br><span class="text-[10px] font-normal text-slate-300" data-t="mat_col_autumn_sub"></span></th>
+              <th class="p-3"><span data-t="mat_col_normal"></span><br><span class="text-[10px] font-normal text-slate-300" data-t="mat_col_normal_sub"></span></th>
+              <th class="p-3"><span data-t="mat_col_summer"></span><br><span class="text-[10px] font-normal text-slate-300" data-t="mat_col_summer_sub"></span></th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-200">
-            <tr class="bg-rose-50/50">
-              <td class="p-3 text-left font-bold text-slate-900">
-                고가 도전가 (60,000 – 61,000엔)<br>
-                <span class="text-[10px] font-normal text-slate-500">총액 64,000 – 65,000엔</span>
-              </td>
-              <td class="p-3">
-                <span class="font-bold text-slate-800">45 – 60일</span><br>
-                <span class="text-[10px] text-slate-500">(총 2.5–3.0개월)</span><br>
-                <span class="inline-block mt-1 px-1.5 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] rounded">302호 성약성공</span>
-              </td>
-              <td class="p-3">
-                <span class="font-bold text-slate-800">60 – 80일</span><br>
-                <span class="text-[10px] text-slate-500">(총 3.0–3.7개월)</span>
-              </td>
-              <td class="p-3">
-                <span class="font-bold text-slate-800">75 – 100일</span><br>
-                <span class="text-[10px] text-slate-500">(총 3.5–4.3개월)</span>
-              </td>
-              <td class="p-3 bg-rose-100/70 border-2 border-rose-400">
-                <span class="font-bold text-rose-700">100 – 130일+</span><br>
-                <span class="text-[10px] text-rose-600 font-medium">(총 4.5–5.5개월)</span><br>
-                <span class="inline-block mt-1 px-1.5 py-0.5 bg-rose-600 text-white font-bold text-[10px] rounded">★ 305호 95일+ 공실</span>
-              </td>
-            </tr>
-            <tr class="bg-emerald-50/40 border-2 border-emerald-400">
-              <td class="p-3 text-left font-bold text-emerald-900">
-                ★ 시장 적정가 (57,000 – 59,000엔)<br>
-                <span class="text-[10px] font-semibold text-emerald-700">최적 임대료 구간 (총 61,000 – 63,000엔)</span>
-              </td>
-              <td class="p-3 font-bold text-emerald-700">20 – 30일 (총 1.7–2.0개월)</td>
-              <td class="p-3 font-bold text-emerald-700">30 – 45일 (총 2.0–2.5개월)</td>
-              <td class="p-3 font-bold text-emerald-700">40 – 55일 (총 2.3–2.8개월)</td>
-              <td class="p-3 font-bold text-emerald-700">50 – 70일 (총 2.7–3.3개월)</td>
-            </tr>
-            <tr>
-              <td class="p-3 text-left font-medium text-slate-700">
-                조기 소진가 (53,000 – 55,000엔)<br>
-                <span class="text-[10px] text-slate-400">총액 57,000 – 59,000엔</span>
-              </td>
-              <td class="p-3 text-slate-700">10 – 20일 (총 1.3–1.7개월)</td>
-              <td class="p-3 text-slate-700">20 – 30일 (총 1.7–2.0개월)</td>
-              <td class="p-3 text-slate-700">25 – 35일 (총 1.8–2.2개월)</td>
-              <td class="p-3 text-slate-700">35 – 45일 (총 2.2–2.5개월)</td>
-            </tr>
-            <tr class="bg-slate-50">
-              <td class="p-3 text-left font-medium text-slate-700">
-                급매가 (48,000 – 50,000엔)<br>
-                <span class="text-[10px] text-slate-400">총액 52,000 – 54,000엔</span>
-              </td>
-              <td class="p-3 text-slate-700">7 – 10일 (총 1.2개월)</td>
-              <td class="p-3 text-slate-700">10 – 15일 (총 1.4개월)</td>
-              <td class="p-3 text-slate-700">15 – 20일 (총 1.5–1.7개월)</td>
-              <td class="p-3 text-slate-700">20 – 30일 (총 1.7–2.0개월)</td>
-            </tr>
-          </tbody>
+          <tbody class="divide-y divide-slate-200" id="matrixBody"></tbody>
         </table>
       </div>
 
-      <!-- Action Box for 305 -->
       <div class="bg-slate-900 text-white p-5 rounded-xl flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-500 text-slate-950 uppercase">즉각 실행 처방</span>
-          <h4 class="text-sm font-bold mt-1 text-white">현재 공실인 305호(95일+) 해결 골든타임 전략</h4>
-          <p class="text-xs text-slate-300 mt-1">9월 가을 인사발령(10.1 부임) 직장인 타깃: 현 61,000엔에서 딱 2,000엔 인하(59,000엔/관리비 4,000엔) + 부대 주차장(5,500엔) 패키지 제안 시 2~3주 내 즉시 계약 달성.</p>
+        <div class="max-w-3xl">
+          <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-500 text-slate-950 uppercase" data-t="action_pill"></span>
+          <h4 class="text-sm font-bold mt-1.5 text-white" data-t="action_title"></h4>
+          <p class="text-xs text-slate-300 mt-1 leading-relaxed" data-t="action_desc"></p>
         </div>
         <div class="text-right">
-          <span class="text-xs text-slate-400 block">3개월 추가 공실 손실 메우는 기간</span>
-          <span class="text-base font-extrabold text-rose-400">97.5개월 (8년 1개월) 소요!</span>
+          <span class="text-xs text-slate-400 block" data-t="action_payback_label"></span>
+          <span class="text-base font-extrabold text-rose-400" data-t="action_payback_value"></span>
         </div>
       </div>
     </section>
 
-    <!-- SECTION: 14-UNIT RENT ROLL FORENSIC TABLE -->
+    <!-- ══════════ RENT ROLL ══════════ -->
     <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5">
-      <div class="flex justify-between items-center border-b border-slate-200 pb-4">
+      <div class="flex flex-wrap justify-between items-center gap-3 border-b border-slate-200 pb-4">
         <div>
-          <h2 class="text-xl font-extrabold text-slate-900" data-i18n="rentroll_title">📋 전 14개 호실 렌트롤 포렌식 감사표 (Rent Roll)</h2>
-          <p class="text-xs text-slate-500 mt-1" data-i18n="rentroll_subtitle">호실별 계약시점, 현재 거주기간, 직전 모집기간(DOM) 및 시세 대비 증액 여지(Upside) 전수 대조</p>
+          <h2 class="text-xl font-extrabold text-slate-900" data-t="rentroll_title"></h2>
+          <p class="text-xs text-slate-500 mt-1" data-t="rentroll_subtitle"></p>
         </div>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700">전실 1DK 30.29㎡</span>
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700" data-t="rentroll_badge"></span>
       </div>
-
       <div class="overflow-x-auto">
         <table class="w-full text-xs text-left border-collapse">
           <thead>
             <tr class="bg-slate-100 text-slate-600 font-semibold border-b">
-              <th class="p-2.5 text-center">호실</th>
-              <th class="p-2.5 text-center">층</th>
-              <th class="p-2.5 text-right">월 임대료</th>
-              <th class="p-2.5 text-right">관리비</th>
-              <th class="p-2.5 text-center">계약시작일</th>
-              <th class="p-2.5 text-center">거주기간</th>
-              <th class="p-2.5 text-center">직전 DOM</th>
-              <th class="p-2.5 text-right">시세 갭(증액여지)</th>
-              <th class="p-2.5">입주자 상태 및 운용 전략</th>
+              <th class="p-2.5 text-center" data-t="rr_h_unit"></th>
+              <th class="p-2.5 text-center" data-t="rr_h_floor"></th>
+              <th class="p-2.5 text-right" data-t="rr_h_rent"></th>
+              <th class="p-2.5 text-right" data-t="rr_h_fee"></th>
+              <th class="p-2.5 text-center" data-t="rr_h_start"></th>
+              <th class="p-2.5 text-center" data-t="rr_h_tenure"></th>
+              <th class="p-2.5 text-center" data-t="rr_h_dom"></th>
+              <th class="p-2.5 text-right" data-t="rr_h_gap"></th>
+              <th class="p-2.5" data-t="rr_h_note"></th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 font-normal">
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">101호</td><td class="p-2.5 text-center">1F</td><td class="p-2.5 text-right font-mono font-medium">¥47,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2022.10</td><td class="p-2.5 text-center">3년 11개월</td><td class="p-2.5 text-center">42일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥12,000</td><td class="p-2.5 text-slate-600">시세 대비 최대 저평가. 차기 퇴거 시 최대 증액 타깃.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">102호</td><td class="p-2.5 text-center">1F</td><td class="p-2.5 text-right font-mono font-medium">¥48,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2022.09</td><td class="p-2.5 text-center">3년 11개월</td><td class="p-2.5 text-center">38일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥11,000</td><td class="p-2.5 text-slate-600">시세 대비 -1.1만엔 갭. 중기 거주군.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">103호</td><td class="p-2.5 text-center">1F</td><td class="p-2.5 text-right font-mono font-medium">¥53,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2025.03</td><td class="p-2.5 text-center">1년 5개월</td><td class="p-2.5 text-center">35일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥6,000</td><td class="p-2.5 text-slate-600">안정적 거주 중.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">105호</td><td class="p-2.5 text-center">1F</td><td class="p-2.5 text-right font-mono font-medium">¥53,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2023.12</td><td class="p-2.5 text-center">2년 8개월</td><td class="p-2.5 text-center">45일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥6,000</td><td class="p-2.5 text-slate-600">중기 거주군.</td></tr>
-            <tr class="bg-sky-50/50 hover:bg-sky-50"><td class="p-2.5 text-center font-bold text-sky-800">201호</td><td class="p-2.5 text-center">2F</td><td class="p-2.5 text-right font-mono font-bold text-sky-900">¥59,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center font-bold text-sky-700">2026.08</td><td class="p-2.5 text-center">0개월 (신규)</td><td class="p-2.5 text-center font-bold">52일</td><td class="p-2.5 text-right font-bold text-slate-400">¥0 (적정가)</td><td class="p-2.5 text-sky-900 font-medium">★ 2026년 8월 최신 성약! 목표 임대료 5.9만엔 검증 완료.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">202호</td><td class="p-2.5 text-center">2F</td><td class="p-2.5 text-right font-mono font-medium">¥50,000</td><td class="p-2.5 text-right font-mono">¥3,000</td><td class="p-2.5 text-center">2015.07</td><td class="p-2.5 text-center font-bold text-purple-700">11년 1개월</td><td class="p-2.5 text-center">28일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥9,000</td><td class="p-2.5 text-slate-600">11년 장기 거주자. 연체 리스크 0%. 기초 CF 지탱.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">203호</td><td class="p-2.5 text-center">2F</td><td class="p-2.5 text-right font-mono font-medium">¥55,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2007.09</td><td class="p-2.5 text-center font-bold text-purple-700">18년 11개월</td><td class="p-2.5 text-center">21일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥4,000</td><td class="p-2.5 text-slate-600">19년 초장기 거주자. 극도로 우량한 임차인.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">205호</td><td class="p-2.5 text-center">2F</td><td class="p-2.5 text-right font-mono font-medium">¥55,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2026.01</td><td class="p-2.5 text-center">7개월</td><td class="p-2.5 text-center">33일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥4,000</td><td class="p-2.5 text-slate-600">학생 입주. 단기 퇴거 위험 낮음.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">301호</td><td class="p-2.5 text-center">3F</td><td class="p-2.5 text-right font-mono font-medium">¥55,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2026.03</td><td class="p-2.5 text-center">5개월</td><td class="p-2.5 text-center">40일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥4,000</td><td class="p-2.5 text-slate-600">봄 성수기 40일 성약.</td></tr>
-            <tr class="bg-emerald-50/50 hover:bg-emerald-50"><td class="p-2.5 text-center font-bold text-emerald-800">302호</td><td class="p-2.5 text-center">3F</td><td class="p-2.5 text-right font-mono font-bold text-emerald-900">¥60,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center font-bold">2026.03</td><td class="p-2.5 text-center">5개월</td><td class="p-2.5 text-center font-bold text-emerald-700">68일</td><td class="p-2.5 text-right font-bold text-slate-400">¥0 (최고가)</td><td class="p-2.5 text-emerald-900 font-medium">★ 봄 성수기 60,000엔 최고가 성약 실증 사례!</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">303호</td><td class="p-2.5 text-center">3F</td><td class="p-2.5 text-right font-mono font-medium">¥53,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2026.02</td><td class="p-2.5 text-center">6개월</td><td class="p-2.5 text-center">36일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥6,000</td><td class="p-2.5 text-slate-600">조기 소진 완료.</td></tr>
-            <tr class="bg-rose-50 hover:bg-rose-100/70 border-2 border-rose-400"><td class="p-2.5 text-center font-bold text-rose-700">305호</td><td class="p-2.5 text-center font-bold text-rose-700">3F</td><td class="p-2.5 text-right font-mono font-bold text-rose-700">¥61,000</td><td class="p-2.5 text-right font-mono text-rose-700">¥4,000</td><td class="p-2.5 text-center text-rose-600 font-bold">모집중</td><td class="p-2.5 text-center text-rose-600">—</td><td class="p-2.5 text-center font-bold text-rose-700">95일+</td><td class="p-2.5 text-right font-bold text-rose-600">-¥2,000 (과대)</td><td class="p-2.5 text-rose-700 font-bold">⚠️ 현재 유일 공실! 비수기에 6.1만엔 상한 초과 고집으로 정체 중. 5.9만엔 인하 즉시 처방 요망!</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">401호</td><td class="p-2.5 text-center">4F</td><td class="p-2.5 text-right font-mono font-medium">¥52,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2013.02</td><td class="p-2.5 text-center font-bold text-purple-700">13년 6개월</td><td class="p-2.5 text-center">25일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥7,000</td><td class="p-2.5 text-slate-600">13.5년 장기 거주자.</td></tr>
-            <tr class="hover:bg-slate-50"><td class="p-2.5 text-center font-bold">402호</td><td class="p-2.5 text-center">4F</td><td class="p-2.5 text-right font-mono font-medium">¥51,000</td><td class="p-2.5 text-right font-mono">¥4,000</td><td class="p-2.5 text-center">2023.03</td><td class="p-2.5 text-center">3년 5개월</td><td class="p-2.5 text-center">31일</td><td class="p-2.5 text-right font-bold text-emerald-600">+¥8,000</td><td class="p-2.5 text-slate-600">중기 거주군.</td></tr>
-          </tbody>
+          <tbody class="divide-y divide-slate-100" id="rentRollBody"></tbody>
         </table>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+          <span class="text-[11px] text-slate-500 block" data-t="rr_sum_occupancy"></span>
+          <span class="text-lg font-black text-slate-900">92.9%</span>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+          <span class="text-[11px] text-slate-500 block" data-t="rr_sum_avgdom"></span>
+          <span class="text-lg font-black text-sky-700">38.0<span class="text-xs font-bold" data-t="unit_days"></span></span>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+          <span class="text-[11px] text-slate-500 block" data-t="rr_sum_upside"></span>
+          <span class="text-lg font-black text-emerald-600">+¥77,000</span>
+        </div>
+        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+          <span class="text-[11px] text-slate-500 block" data-t="rr_sum_vacancy"></span>
+          <span class="text-lg font-black text-indigo-700">5.32%</span>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-2">
-      <p class="font-medium text-slate-300">포레스타 힐즈 (Foresta Hills / フォレスタヒルズ) 수익형 부동산 투자분석 시스템</p>
-      <p>본 시뮬레이터는 매도자 개시 렌트롤(2026.08.05), 건축확인대장 기재증명서(H13확제 第00313호), 소방점검보고서, 저수조검사표, 도쿄전력 부지사용료 원본을 바탕으로 계산되었습니다.</p>
-      <p class="text-[11px] text-slate-600">Produced by Real Estate Investment Analysis AI Engine • GitHub Pages Deployment Ready</p>
+      <p class="font-medium text-slate-300" data-t="foot_1"></p>
+      <p data-t="foot_2"></p>
+      <p class="text-[11px] text-slate-600">Produced by Real Estate Investment Analysis AI Engine • GitHub Pages Deployment</p>
     </div>
   </footer>
 
-  <!-- SCRIPT LOGIC -->
-  <script>
-    // State Store
-    const state = {
-      price: 88000000,
-      ltv: 80,
-      rate: 2.10,
-      term: 25,
-      loanFeePct: 2.0,
-      acqCostPct: 7.0,
-      rentScenario: 'full', // 'current', 'full', 'upside'
-      vacancyPct: 5.32,
-      heatmapMetric: 'ccr', // 'ccr' or 'dscr'
-      lang: 'ko'
-    };
+<script>
+/* ═══════════════════════════════════════════════════════════
+   1. FULL BILINGUAL STRING DICTIONARY (KO / JA)
+   Every visible string lives here. No hardcoded text in DOM.
+   ═══════════════════════════════════════════════════════════ */
+const T = {
+  ko: {
+    docTitle: "포레스타 힐즈 (Foresta Hills) 투자분석 & 융자 시뮬레이터",
+    headerTitle: "포레스타 힐즈 (フォレスタヒルズ)",
+    headerSubtitle: "카나가와현 아츠기시 이이야마미나미 4초메 · 1동 RC조 맨션 (1DK × 14세대) 투자분석 & 융자 시뮬레이터",
+    badgeCert: "검사필증 취득 물건 (H13確済 第00313호)",
+    btnBackHub: "포트폴리오 목록",
+    btnPrint: "인쇄 / PDF 저장",
 
-    // Constants
-    const TEPCO_INCOME = 33375; // Annual utility land lease income (yen)
-    const ANNUAL_OPEX = 1980000; // Normalized OPEX (yen)
+    hero_price: "매매가격",
+    hero_price_tag: "권장 사시네(指値) 목표가",
+    hero_fcr: "FCR (실질 순수익률)",
+    hero_ccr: "CCR (자기자본수익률)",
+    hero_dscr: "DSCR (부채감당률)",
+    hero_ads: "월 원리금 상환액",
+    hero_equity: "초기 필요 자기자본",
+    dscr_safe: "안정권 (≥1.30)",
+    dscr_ok: "적정권 (1.15~1.30)",
+    dscr_risk: "경계·위험 (<1.15)",
+    prefix_annual: "연 ",
+    prefix_loan: "대출: ",
+    prefix_btcf: "세전CF: ",
 
-    // Rent Scenario Monthly Revenues (Sum of Rent + Management + Parking)
-    const RENT_DATA = {
-      current: { monthly: 794800, annual: 794800 * 12 },  // 13 units + 9 cars
-      full: { monthly: 881800, annual: 881800 * 12 },        // 14 units + 14 cars
-      upside: { monthly: 958800, annual: 958800 * 12 }      // 5.9만엔 normalized + 14 cars
-    };
+    sim_title: "🧮 은행 융자 조건 & 수익률 실시간 시뮬레이터",
+    sim_desc: "금리, 융자기간, 융자비용, LTV 및 공실 시나리오를 실시간 조정하여 자금수지와 레버리지 효과를 즉시 판정합니다.",
+    preset_label: "매매가 프리셋:",
+    preset_a: "8,800만 (사시네)",
+    preset_b: "1.0억 (절충)",
+    preset_c: "1.23억 (호가)",
 
-    // DOM Elements
-    const sliderPrice = document.getElementById('sliderPrice');
-    const sliderLTV = document.getElementById('sliderLTV');
-    const sliderRate = document.getElementById('sliderRate');
-    const sliderTerm = document.getElementById('sliderTerm');
-    const sliderLoanFee = document.getElementById('sliderLoanFee');
-    const sliderAcqCost = document.getElementById('sliderAcqCost');
-    const sliderVacancy = document.getElementById('sliderVacancy');
+    col1_title: "🏦 은행 융자 조건 (Loan Terms)",
+    lbl_ltv: "융자 비율 (LTV)",
+    tick_ltv_1: "50% (보수적)", tick_ltv_2: "80% (표준)", tick_ltv_3: "100% (풀론)",
+    lbl_rate: "대출 금리 (연이율)",
+    tick_rate_1: "1.2% (메가뱅크)", tick_rate_2: "2.1% (지방은행)", tick_rate_3: "3.5% (논뱅크)",
+    lbl_term: "융자 기간 (상환년수)",
+    tick_term_1: "15년", tick_term_2: "22년 (법정잔존)", tick_term_3: "25년", tick_term_4: "30년",
+    lbl_loan_fee: "융자 제비용율 (수수료·보증료)",
+    tick_fee_std: "2.0% (표준)",
+    loanBadge: (ltv, rate, term) => `LTV ${ltv}% / ${rate}% / ${term}년`,
+    termLabel: (n) => `${n} 년`,
 
-    // Display Elements
-    const valPriceFormatted = document.getElementById('valPriceFormatted');
-    const valLTV = document.getElementById('valLTV');
-    const valRate = document.getElementById('valRate');
-    const valTerm = document.getElementById('valTerm');
-    const valLoanFee = document.getElementById('valLoanFee');
-    const valAcqCost = document.getElementById('valAcqCost');
-    const valVacancy = document.getElementById('valVacancy');
+    col2_title: "🏷️ 취득원가 & 운영 시나리오",
+    col2_badge: "실적 공실률 5.32% 반영",
+    lbl_price: "매매가격 (엔)",
+    tick_price_1: "7,000만", tick_price_2: "8,800만", tick_price_3: "1억", tick_price_4: "1.3억",
+    lbl_acq_fee: "부동산 취득제비용율 (중개·세금·등기)",
+    tick_acq_std: "7.0% (표준)",
+    lbl_rent_scenario: "임대료 수입 시나리오",
+    rent_scen_curr: "현황 가동", rent_scen_curr_sub: "13실 입주 (월 79.5만엔)",
+    rent_scen_full: "만실 표준", rent_scen_full_sub: "14실+주차 (월 88.2만엔)",
+    rent_scen_up: "밸류애드", rent_scen_up_sub: "시세 정상화 (월 95.9만엔)",
+    lbl_vacancy: "상정 공실률 (%)",
+    tick_vac_1: "0% (만실)", tick_vac_2: "5.32% (실적치)", tick_vac_3: "10% (보수적)",
 
-    // Cards
-    const cardPriceDisplay = document.getElementById('cardPriceDisplay');
-    const cardCapRate = document.getElementById('cardCapRate');
-    const cardCCR = document.getElementById('cardCCR');
-    const cardDSCR = document.getElementById('cardDSCR');
-    const cardMonthlyADS = document.getElementById('cardMonthlyADS');
-    const cardAnnualADS = document.getElementById('cardAnnualADS');
-    const cardTotalEquity = document.getElementById('cardTotalEquity');
-    const cardLoanAmountDisplay = document.getElementById('cardLoanAmountDisplay');
-    const cardNOIDisplay = document.getElementById('cardNOIDisplay');
-    const cardBTCFDisplay = document.getElementById('cardBTCFDisplay');
-    const cardDSCRStatus = document.getElementById('cardDSCRStatus');
+    col3_title: "⚡ 자금수지 실시간 계산 결과",
+    calc_tot_acq: "총 취득소요자금 (Total Cost)",
+    calc_loan_amt: "총 융자금액 (Loan Amount)",
+    calc_equity: "필요 자기자본 (Equity)",
+    calc_ads: "연간 원리금상환 (ADS)",
+    calc_loan_k: "론 콘스턴트 (Loan Constant K)",
+    calc_noi: "순영업소득 (NOI)",
+    calc_btcf: "세전 현금흐름 (BTCF)",
+    calc_breakeven: "손익분기 입주율 (BER)",
+    ber_safe: "(매우 안전)", ber_warn: "(주의)",
+    verdict_pos_title: "우량 레버리지 투자 적격",
+    verdict_pos_desc: (fcr, k, ccr) => `Cap Rate(${fcr}%)가 론 콘스턴트 K(${k}%)보다 높아, 부채를 조달할수록 자기자본수익률(${ccr}%)이 상승하는 정(+)의 레버리지가 성립합니다.`,
+    verdict_neg_title: "역레버리지 위험 구간",
+    verdict_neg_desc: (fcr, k) => `론 콘스턴트 K(${k}%)가 Cap Rate(${fcr}%)를 초과하여, 대출을 늘릴수록 자기자본수익률이 하락합니다. 금리 인하 또는 가격 협상(指値)이 필요합니다.`,
 
-    // Engine Results
-    const resTotalCost = document.getElementById('resTotalCost');
-    const resLoanAmount = document.getElementById('resLoanAmount');
-    const resEquity = document.getElementById('resEquity');
-    const resAnnualADS = document.getElementById('resAnnualADS');
-    const resLoanK = document.getElementById('resLoanK');
-    const resNOI = document.getElementById('resNOI');
-    const resBTCF = document.getElementById('resBTCF');
-    const resBER = document.getElementById('resBER');
-    const badgeLeverage = document.getElementById('badgeLeverage');
-    const statusVerdictTitle = document.getElementById('statusVerdictTitle');
-    const statusVerdictDesc = document.getElementById('statusVerdictDesc');
-    const statusEmoji = document.getElementById('statusEmoji');
+    chart_amort_title: "📈 원금 상환 & 순자산 축적 추이 (30년 시뮬레이션)",
+    chart_amort_desc: "시간 경과에 따른 대출 잔액 감소와, 세입자의 임대료로 상환되어 형성되는 누적 순자산(Equity Build-up)의 궤적입니다.",
+    chartTermBadge: (n) => `${n}년 상환 완료 기준`,
+    chart_legend_balance: "잔여 대출원금 (만엔)",
+    chart_legend_equity: "누적 순자산 형성액 (만엔)",
+    chart_x_year: (y) => `${y}년`,
+    stat_loan5y: "5년 후 잔여대출",
+    stat_repaid10y: "10년 후 누적 원금상환",
+    stat_interest: "상환완료 시 총이자",
 
-    let amortChartInstance = null;
+    heat_title: "🔥 금리 × LTV 감응도 매트릭스",
+    heat_desc: "은행 대출 금리와 LTV 변동에 따른 자기자본수익률(CCR) 및 부채감당률(DSCR)의 안전 구간을 교차 판정합니다.",
+    heat_axis: "금리 ＼ LTV",
+    legend_best: "초우량", legend_good: "적정", legend_warn: "주의", legend_risk: "위험",
+    heatFootnote: (n) => `* ${n}년 원리금균등 상환 기준`,
 
-    // Financial Calculation Core
-    function calculate() {
-      const P = state.price;
-      const ltvPct = state.ltv / 100;
-      const r = state.rate / 100;
-      const n = state.term;
-      const loanFeePct = state.loanFeePct / 100;
-      const acqCostPct = state.acqCostPct / 100;
-      const vacPct = state.vacancyPct / 100;
+    doc_pill: "신규 공문서 완비",
+    doc_title: "📋 인허가·검사필증·소방·설비 실사 전수 대조",
+    doc_subtitle: "아츠기시청 건축확인대장 기재증명서, 건축계획개요서, 소방용설비 점검보고서, 저수조청소·수질검사표, 도쿄전력 전신주 부지사용료 원본을 전수 반영",
+    doc_verdict: "완전 적법 건축물 / 금융기관 대출 적격 판정",
 
-      // Loan Amount
-      const L = Math.round(P * ltvPct);
-      const loanFee = Math.round(L * loanFeePct);
-      const acqCost = Math.round(P * acqCostPct);
-      const totalCost = P + acqCost + loanFee;
-      const equity = totalCost - L;
+    mat_pill: "특화 분석",
+    mat_title: "📊 [모집시기 × 가격대] 2차원 교차 매트릭스 & DOM 분석",
+    mat_subtitle: "LIFULL HOME'S 모집이력(b-25342189) 전수 분석: 302호 성약(68일) vs 305호 공실(95일+) 실증 대조",
+    mat_wall_label: "임대료 저항선 (賃料の壁)",
+    mat_wall_value: "월 63,000엔 (야칭 5.9만 + 관리비 4천)",
+    dom_note_title: "DOM이란? ",
+    dom_note_body: "DOM은 Days on Market(市場滞留日数)의 약자로, 임대 물건이 포털 사이트에 모집 게재된 시점부터 실제 계약(성약)이 체결되기까지 소요된 일수를 의미합니다. 본 분석에서는 가격대와 모집 시기를 두 축으로 하여 DOM이 어떻게 변동하는지를 교차 규명합니다.",
+    mat_col_price: "가격대 (순수 야칭 기준)",
+    mat_col_spring: "봄 극성수기", mat_col_spring_sub: "(1 – 3월)",
+    mat_col_autumn: "가을 준성수기", mat_col_autumn_sub: "(9 – 10월)",
+    mat_col_normal: "통상기", mat_col_normal_sub: "(4–6, 11–12월)",
+    mat_col_summer: "여름 혹서기 비수기", mat_col_summer_sub: "(7 – 8월)",
+    action_pill: "즉각 실행 처방",
+    action_title: "현재 공실인 305호(95일+) 해결 골든타임 전략",
+    action_desc: "9월 가을 인사발령(10월 1일 부임) 직장인을 타깃으로, 현 61,000엔에서 딱 2,000엔만 인하(야칭 59,000엔 + 관리비 4,000엔)하고 부대 주차장(5,500엔)을 패키지로 제안하면 2~3주 내 즉시 계약 달성이 가능합니다.",
+    action_payback_label: "3개월 추가 공실 손실을 메우는 기간",
+    action_payback_value: "97.5개월 (8년 1개월) 소요!",
 
-      // Monthly Debt Service (PMT formula)
-      let monthlyPayment = 0;
-      const monthlyRate = r / 12;
-      const numPayments = n * 12;
+    rentroll_title: "📋 전 14개 호실 렌트롤 포렌식 감사표",
+    rentroll_subtitle: "호실별 계약시점, 현재 거주기간, 직전 모집기간(DOM) 및 시세 대비 증액 여지(Upside) 전수 대조",
+    rentroll_badge: "전실 1DK 30.29㎡",
+    rr_h_unit: "호실", rr_h_floor: "층", rr_h_rent: "월 임대료", rr_h_fee: "관리비",
+    rr_h_start: "계약시작일", rr_h_tenure: "거주기간", rr_h_dom: "직전 DOM",
+    rr_h_gap: "시세 갭 (증액여지)", rr_h_note: "입주자 상태 및 운용 전략",
+    rr_sum_occupancy: "현재 입주율 (13/14실)",
+    rr_sum_avgdom: "평균 모집 소요일수 (DOM)",
+    rr_sum_upside: "월 임대료 증액 잠재력",
+    rr_sum_vacancy: "실적 회전 공실률",
+    unit_days: "일",
 
-      if (monthlyRate > 0) {
-        monthlyPayment = L * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
-      } else {
-        monthlyPayment = L / numPayments;
-      }
-      const annualADS = Math.round(monthlyPayment * 12);
-      const loanConstantK = (annualADS / L) * 100;
+    foot_1: "포레스타 힐즈 (Foresta Hills / フォレスタヒルズ) 수익형 부동산 투자분석 시스템",
+    foot_2: "본 시뮬레이터는 매도자 개시 렌트롤(2026.08.05), 건축확인대장 기재증명서(H13確済 第00313호), 소방용설비 점검결과보고서, 저수조청소·수질검사표, 도쿄전력 전신주 부지사용료 안내 원본을 근거로 산출되었습니다."
+  },
 
-      // Income (PGI, EGI, NOI)
-      const baseGross = RENT_DATA[state.rentScenario].annual;
-      const effectiveRentalIncome = baseGross * (1 - vacPct);
-      const totalEGI = Math.round(effectiveRentalIncome + TEPCO_INCOME);
-      const noi = Math.round(totalEGI - ANNUAL_OPEX);
+  ja: {
+    docTitle: "フォレスタヒルズ (Foresta Hills) 投資分析 & 融資シミュレーター",
+    headerTitle: "フォレスタヒルズ (Foresta Hills)",
+    headerSubtitle: "神奈川県厚木市飯山南四丁目 ・ 1棟RC造マンション (1DK × 14戸) 投資分析 & 融資シミュレーター",
+    badgeCert: "検査済証 取得済物件 (H13確済 第00313号)",
+    btnBackHub: "ポートフォリオ一覧",
+    btnPrint: "印刷 / PDF保存",
 
-      // Returns & Ratios
-      const capRate = (noi / P) * 100;
-      const btcf = noi - annualADS;
-      const ccr = (btcf / equity) * 100;
-      const dscr = annualADS > 0 ? (noi / annualADS) : 999;
-      const ber = ((ANNUAL_OPEX + annualADS) / (baseGross + TEPCO_INCOME)) * 100;
+    hero_price: "売買価格",
+    hero_price_tag: "推奨 指値目標価格",
+    hero_fcr: "FCR (総収益率)",
+    hero_ccr: "CCR (自己資本配当率)",
+    hero_dscr: "DSCR (返済余裕率)",
+    hero_ads: "月額 元利返済額",
+    hero_equity: "初期 自己資金",
+    dscr_safe: "安定圏 (≥1.30)",
+    dscr_ok: "適正圏 (1.15~1.30)",
+    dscr_risk: "警戒・危険 (<1.15)",
+    prefix_annual: "年間 ",
+    prefix_loan: "借入: ",
+    prefix_btcf: "税引前CF: ",
 
-      return {
-        P, L, loanFee, acqCost, totalCost, equity,
-        monthlyPayment: Math.round(monthlyPayment),
-        annualADS, loanConstantK,
-        totalEGI, noi, capRate, btcf, ccr, dscr, ber
-      };
+    sim_title: "🧮 銀行融資条件 & 利回りリアルタイム・シミュレーター",
+    sim_desc: "金利・融資期間・融資諸費用・LTV・空室シナリオをリアルタイムに操作し、キャッシュフローとレバレッジ効果を即時判定します。",
+    preset_label: "価格プリセット:",
+    preset_a: "8,800万 (指値)",
+    preset_b: "1.0億 (折衷)",
+    preset_c: "1.23億 (売出)",
+
+    col1_title: "🏦 銀行融資条件 (Loan Terms)",
+    lbl_ltv: "借入比率 (LTV)",
+    tick_ltv_1: "50% (保守的)", tick_ltv_2: "80% (標準)", tick_ltv_3: "100% (フルローン)",
+    lbl_rate: "借入金利 (年利)",
+    tick_rate_1: "1.2% (メガバンク)", tick_rate_2: "2.1% (地銀)", tick_rate_3: "3.5% (ノンバンク)",
+    lbl_term: "融資期間 (返済年数)",
+    tick_term_1: "15年", tick_term_2: "22年 (法定残存)", tick_term_3: "25年", tick_term_4: "30年",
+    lbl_loan_fee: "融資諸費用率 (手数料・保証料)",
+    tick_fee_std: "2.0% (標準)",
+    loanBadge: (ltv, rate, term) => `LTV ${ltv}% / ${rate}% / ${term}年`,
+    termLabel: (n) => `${n} 年`,
+
+    col2_title: "🏷️ 取得原価 & 運用シナリオ",
+    col2_badge: "実績空室率 5.32% 反映",
+    lbl_price: "物件価格 (円)",
+    tick_price_1: "7,000万", tick_price_2: "8,800万", tick_price_3: "1億", tick_price_4: "1.3億",
+    lbl_acq_fee: "取得諸費用率 (仲介・税金・登記)",
+    tick_acq_std: "7.0% (標準)",
+    lbl_rent_scenario: "賃料収入シナリオ",
+    rent_scen_curr: "現況稼働", rent_scen_curr_sub: "13戸入居 (月79.5万円)",
+    rent_scen_full: "満室標準", rent_scen_full_sub: "14戸+駐車 (月88.2万円)",
+    rent_scen_up: "バリューアップ", rent_scen_up_sub: "相場正常化 (月95.9万円)",
+    lbl_vacancy: "想定空室率 (%)",
+    tick_vac_1: "0% (満室)", tick_vac_2: "5.32% (実績値)", tick_vac_3: "10% (保守的)",
+
+    col3_title: "⚡ キャッシュフロー計算結果",
+    calc_tot_acq: "総取得所要資金 (Total Cost)",
+    calc_loan_amt: "総借入金額 (Loan Amount)",
+    calc_equity: "必要自己資金 (Equity)",
+    calc_ads: "年間元利返済額 (ADS)",
+    calc_loan_k: "ローンコンスタント (K%)",
+    calc_noi: "純営業収益 (NOI)",
+    calc_btcf: "税引前キャッシュフロー (BTCF)",
+    calc_breakeven: "損益分岐稼働率 (BER)",
+    ber_safe: "(極めて安全)", ber_warn: "(要注意)",
+    verdict_pos_title: "優良レバレッジ投資 適格",
+    verdict_pos_desc: (fcr, k, ccr) => `Cap Rate(${fcr}%)がローンコンスタントK(${k}%)を上回っており、融資を活用するほど自己資本利回り(${ccr}%)が向上する正(+)のレバレッジが成立します。`,
+    verdict_neg_title: "逆レバレッジ 警戒領域",
+    verdict_neg_desc: (fcr, k) => `ローンコンスタントK(${k}%)がCap Rate(${fcr}%)を超過しており、借入を増やすほど自己資本利回りが悪化します。金利交渉または価格指値が必要です。`,
+
+    chart_amort_title: "📈 元金返済 & 純資産蓄積シミュレーション (30年間)",
+    chart_amort_desc: "時間の経過に伴う借入残債の減少と、入居者の賃料により返済されて形成される純資産(Equity Build-up)の推移です。",
+    chartTermBadge: (n) => `${n}年 完済基準`,
+    chart_legend_balance: "残債残高 (万円)",
+    chart_legend_equity: "純資産形成額 (万円)",
+    chart_x_year: (y) => `${y}年`,
+    stat_loan5y: "5年後の残債",
+    stat_repaid10y: "10年後の累計元金返済",
+    stat_interest: "完済時の総支払利息",
+
+    heat_title: "🔥 金利 × LTV 感応度マトリクス",
+    heat_desc: "借入金利とLTVの変動に伴う自己資本利回り(CCR)および返済余裕率(DSCR)の安全領域をクロス判定します。",
+    heat_axis: "金利 ＼ LTV",
+    legend_best: "極めて優良", legend_good: "適正", legend_warn: "要注意", legend_risk: "危険",
+    heatFootnote: (n) => `* ${n}年 元利均等返済基準`,
+
+    doc_pill: "公的書類 完備",
+    doc_title: "📋 許認可・検査済証・消防・設備 実査全数照合",
+    doc_subtitle: "厚木市役所 建築確認台帳記載証明書、建築計画概要書、消防用設備等点検結果報告書、貯水槽清掃・水質検査報告書、東京電力 電柱敷地料の案内を全数反映",
+    doc_verdict: "完全適法建築物 / 金融機関融資 適格判定",
+
+    mat_pill: "特化分析",
+    mat_title: "📊 【募集時期 × 賃料設定】2次元クロスマトリクス & DOM分析",
+    mat_subtitle: "LIFULL HOME'S 掲載履歴(b-25342189)の全数解析: 302号室 成約(68日) vs 305号室 空室(95日超)の実証対照",
+    mat_wall_label: "賃料の壁 (賃料抵抗線)",
+    mat_wall_value: "月額 63,000円 (賃料5.9万 + 管理費4千)",
+    dom_note_title: "DOMとは? ",
+    dom_note_body: "DOMは Days on Market(市場滞留日数)の略称であり、賃貸物件がポータルサイトに募集掲載された時点から実際に契約(成約)に至るまでの所要日数を指します。本分析では賃料設定と募集時期の2軸により、DOMがどのように変動するかをクロス検証しています。",
+    mat_col_price: "賃料設定 (純賃料ベース)",
+    mat_col_spring: "春の最繁忙期", mat_col_spring_sub: "(1 – 3月)",
+    mat_col_autumn: "秋の準繁忙期", mat_col_autumn_sub: "(9 – 10月)",
+    mat_col_normal: "通常期", mat_col_normal_sub: "(4–6, 11–12月)",
+    mat_col_summer: "夏の閑散期", mat_col_summer_sub: "(7 – 8月)",
+    action_pill: "即時実行 処方",
+    action_title: "現在空室中の305号室(95日超)を解消するゴールデンタイム戦略",
+    action_desc: "9月の秋季人事異動(10月1日着任)の会社員をターゲットとし、現行61,000円からわずか2,000円の減額(賃料59,000円 + 管理費4,000円)を行い、附帯駐車場(5,500円)をパッケージ提案すれば、2~3週間以内の即時成約が可能です。",
+    action_payback_label: "3ヶ月の追加空室損失を回収する期間",
+    action_payback_value: "97.5ヶ月 (8年1ヶ月) を要します!",
+
+    rentroll_title: "📋 全14戸 レントロール・フォレンジック監査表",
+    rentroll_subtitle: "住戸別の契約時期、現在の入居期間、直前の募集期間(DOM)および相場対比の増額余地(Upside)を全数照合",
+    rentroll_badge: "全戸 1DK 30.29㎡",
+    rr_h_unit: "住戸", rr_h_floor: "階", rr_h_rent: "月額賃料", rr_h_fee: "管理費",
+    rr_h_start: "契約開始日", rr_h_tenure: "入居期間", rr_h_dom: "直前DOM",
+    rr_h_gap: "相場ギャップ (増額余地)", rr_h_note: "入居者状況および運用戦略",
+    rr_sum_occupancy: "現在の入居率 (13/14戸)",
+    rr_sum_avgdom: "平均募集所要日数 (DOM)",
+    rr_sum_upside: "月額賃料の増額ポテンシャル",
+    rr_sum_vacancy: "実績回転空室率",
+    unit_days: "日",
+
+    foot_1: "フォレスタヒルズ (Foresta Hills) 収益不動産 投資分析システム",
+    foot_2: "本シミュレーターは、売主開示のレントロール(2026.08.05)、建築確認台帳記載証明書(H13確済 第00313号)、消防用設備等点検結果報告書、貯水槽清掃・水質検査報告書、東京電力 電柱敷地料のお支払い案内の原本に基づいて算出されています。"
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════
+   2. BILINGUAL CONTENT DATA (Document Cards)
+   ═══════════════════════════════════════════════════════════ */
+const DOC_CARDS = [
+  {
+    accent: "emerald",
+    ko: {
+      pill: "최상급 법률 요건", ref: "厚証(建指) 第557号",
+      title: "建築確認台帳記載証明書 (검사필증)",
+      desc: "2026년 8월 21일 아츠기시청 발급. 신축 준공검사필증의 완벽 보존을 확인.",
+      rows: [
+        ["확인번호", "H12確認建築厚木 01395"],
+        ["확인일자", "2001년 1월 24일"],
+        ["검사필증 번호", "H13確済建築厚木 00313"],
+        ["검사필증 일자", "2001년 8월 29일"],
+        ["관할청", "厚木市長 (아츠기 시장)"]
+      ],
+      star: "★ 일본 메가뱅크·지방은행의 담보인정비율(LTV) 극대화 보장. 위반건축물 리스크 0%."
+    },
+    ja: {
+      pill: "最重要 法的要件", ref: "厚証(建指) 第557号",
+      title: "建築確認台帳記載証明書 (検査済証)",
+      desc: "2026年8月21日 厚木市役所発行。新築時の検査済証が完全に保存されていることを確認。",
+      rows: [
+        ["確認番号", "H12確認建築厚木 01395"],
+        ["確認年月日", "2001年1月24日"],
+        ["検査済証番号", "H13確済建築厚木 00313"],
+        ["検査済証 年月日", "2001年8月29日"],
+        ["所管行政庁", "厚木市長"]
+      ],
+      star: "★ メガバンク・地銀の担保掛目(LTV)最大化を担保。違反建築物リスクは0%です。"
     }
-
-    // Update UI Elements
-    function updateUI() {
-      const res = calculate();
-
-      // Sliders label updates
-      valPriceFormatted.textContent = '¥' + res.P.toLocaleString();
-      valLTV.textContent = state.ltv + '%';
-      valRate.textContent = state.rate.toFixed(2) + '%';
-      valTerm.textContent = state.term + ' 년';
-      valLoanFee.textContent = state.loanFeePct.toFixed(1) + '%';
-      valAcqCost.textContent = state.acqCostPct.toFixed(1) + '%';
-      valVacancy.textContent = state.vacancyPct.toFixed(2) + '%';
-
-      // Top Cards
-      cardPriceDisplay.textContent = '¥' + res.P.toLocaleString();
-      cardCapRate.textContent = res.capRate.toFixed(2) + '%';
-      cardCCR.textContent = res.ccr.toFixed(2) + '%';
-      cardDSCR.textContent = res.dscr.toFixed(2) + '배';
-      cardMonthlyADS.textContent = '¥' + res.monthlyPayment.toLocaleString();
-      cardAnnualADS.textContent = '연 ¥' + res.annualADS.toLocaleString();
-      cardTotalEquity.textContent = '¥' + res.equity.toLocaleString();
-      cardLoanAmountDisplay.textContent = '대출: ¥' + res.L.toLocaleString();
-      cardNOIDisplay.textContent = 'NOI: ¥' + res.noi.toLocaleString();
-      cardBTCFDisplay.textContent = '세전CF: ¥' + res.btcf.toLocaleString();
-
-      // DSCR badge
-      if (res.dscr >= 1.3) {
-        cardDSCRStatus.textContent = state.lang === 'ko' ? '안정권 (≥1.30)' : '安定圏 (≥1.30)';
-        cardDSCRStatus.className = 'text-[11px] text-emerald-600 font-medium';
-      } else if (res.dscr >= 1.15) {
-        cardDSCRStatus.textContent = state.lang === 'ko' ? '적정권 (1.15~1.30)' : '適正圏 (1.15~1.30)';
-        cardDSCRStatus.className = 'text-[11px] text-sky-600 font-medium';
-      } else {
-        cardDSCRStatus.textContent = state.lang === 'ko' ? '경계/위험 (<1.15)' : '警戒/危険 (<1.15)';
-        cardDSCRStatus.className = 'text-[11px] text-rose-600 font-medium';
-      }
-
-      // Column 3 Engine
-      resTotalCost.textContent = '¥' + res.totalCost.toLocaleString();
-      resLoanAmount.textContent = '¥' + res.L.toLocaleString();
-      resEquity.textContent = '¥' + res.equity.toLocaleString();
-      resAnnualADS.textContent = '¥' + res.annualADS.toLocaleString();
-      resLoanK.textContent = res.loanConstantK.toFixed(2) + '%';
-      resNOI.textContent = '¥' + res.noi.toLocaleString();
-      resBTCF.textContent = (res.btcf >= 0 ? '+' : '') + '¥' + res.btcf.toLocaleString();
-      resBER.textContent = res.ber.toFixed(1) + '% ' + (res.ber < 75 ? (state.lang === 'ko' ? '(매우 안전)' : '(極めて安全)') : (state.lang === 'ko' ? '(주의)' : '(注意)'));
-
-      // Leverage Badge & Verdict
-      const isPositiveLev = res.capRate > res.loanConstantK;
-      if (isPositiveLev) {
-        badgeLeverage.textContent = 'Positive Leverage (FCR > K)';
-        badgeLeverage.className = 'px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
-        statusEmoji.textContent = '✅';
-        statusVerdictTitle.textContent = state.lang === 'ko' ? '우량 레버리지 투자 적격' : '優良レバレッジ投資適格';
-        statusVerdictDesc.textContent = state.lang === 'ko'
-          ? `Cap Rate(${res.capRate.toFixed(2)}%)가 론 콘스턴트 K(${res.loanConstantK.toFixed(2)}%)보다 높아, 부채 조달 시 자기자본수익률(${res.ccr.toFixed(2)}%)이 상승하는 정(+)의 레버리지가 실현됩니다.`
-          : `Cap Rate(${res.capRate.toFixed(2)}%)がローンコンスタントK(${res.loanConstantK.toFixed(2)}%)を上回っており、融資活用により自己資本利回り(${res.ccr.toFixed(2)}%)が加速する正(+)のレバレッジが成立します。`;
-      } else {
-        badgeLeverage.textContent = 'Negative Leverage (FCR < K)';
-        badgeLeverage.className = 'px-2 py-0.5 text-[10px] font-bold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30';
-        statusEmoji.textContent = '⚠️';
-        statusVerdictTitle.textContent = state.lang === 'ko' ? '역레버리지 위험 구간' : '逆レバレッジ警戒領域';
-        statusVerdictDesc.textContent = state.lang === 'ko'
-          ? `론 콘스턴트 K(${res.loanConstantK.toFixed(2)}%)가 Cap Rate(${res.capRate.toFixed(2)}%)를 초과하여 대출을 받을수록 자기자본수익률이 하락합니다. 금리 인하 또는 가격 협상이 필요합니다.`
-          : `ローンコンスタントK(${res.loanConstantK.toFixed(2)}%)がCap Rate(${res.capRate.toFixed(2)}%)を超過し、借入比率が高いほど利回りが悪化する逆レバレッジ状態です。金利交渉または価格指値が必要です。`;
-      }
-
-      // Update Chart & Heatmap
-      updateAmortizationChart(res);
-      renderHeatmap();
+  },
+  {
+    accent: "sky",
+    ko: {
+      pill: "건축 스펙 원본", ref: "제1면 ~ 제3면 전수",
+      title: "建築計画概要書 (크라스트 시공)",
+      desc: "전국구 임대맨션 전문 건설사 (주)크라스트가 완공. 대지 741.60㎡의 대규모 정형지.",
+      rows: [
+        ["시공자", "株式会社クラスト"],
+        ["건축주", "재단법인 주택개량개발공사 외 1인"],
+        ["부지 / 연면적", "대지 741.60㎡ / 연 451.42㎡"],
+        ["건폐율 / 용적률", "20.18% / 58.09%"],
+        ["도로 접도", "폭원 4.01m 시도에 28.63m 접도"]
+      ],
+      star: "★ 도로후퇴(셋백) 완료. 법정 용적률 여유분이 커서 향후 재건축·분할매각 잠재력 보유."
+    },
+    ja: {
+      pill: "建築スペック原本", ref: "第1面 ~ 第3面 全数",
+      title: "建築計画概要書 (クラスト施工)",
+      desc: "全国規模の賃貸マンション専門建設会社 株式会社クラストが竣工。敷地741.60㎡の大規模整形地。",
+      rows: [
+        ["施工者", "株式会社クラスト"],
+        ["建築主", "財団法人 住宅改良開発公社 他1名"],
+        ["敷地 / 延床面積", "敷地741.60㎡ / 延451.42㎡"],
+        ["建ぺい率 / 容積率", "20.18% / 58.09%"],
+        ["道路接道", "幅員4.01m市道に28.63m接道"]
+      ],
+      star: "★ セットバック済み。法定容積率に大幅な余裕があり、将来の建替え・分割売却の潜在力を保有。"
     }
+  },
+  {
+    accent: "indigo",
+    ko: {
+      pill: "소방안전 적격", ref: "厚木市消防本部 予防課",
+      title: "消防用設備等 点検結果報告書",
+      desc: "2026년 4월 7일 기기·종합점검 완료. 관할 소방서에 정식 수리(접수) 완료.",
+      rows: [
+        ["점검업체", "有限会社 千代田興産"],
+        ["소화기구 점검", "良 (양호 / 이상 없음)"],
+        ["피난기구 점검", "良 (양호 / 완강기 적합)"],
+        ["지적사항·불량", "0건 (지적사항 전무)"],
+        ["차기 점검보고", "2028년(令和10년) 10월 말"]
+      ],
+      star: "★ 법정 소방점검 의무 완수. 2028년까지 차기 보고 의무가 유예되어 운영비 절감."
+    },
+    ja: {
+      pill: "消防安全 適格", ref: "厚木市消防本部 予防課",
+      title: "消防用設備等 点検結果報告書",
+      desc: "2026年4月7日 機器・総合点検完了。所轄消防署へ正式に受理済み。",
+      rows: [
+        ["点検業者", "有限会社 千代田興産"],
+        ["消火器具 点検", "良 (異常なし)"],
+        ["避難器具 点検", "良 (緩降機 適合)"],
+        ["指摘事項・不良", "0件 (指摘事項なし)"],
+        ["次回 点検報告", "2028年(令和10年) 10月末"]
+      ],
+      star: "★ 法定消防点検の義務を完遂。2028年まで次回報告義務が猶予されランニングコストを削減。"
+    }
+  },
+  {
+    accent: "teal",
+    ko: {
+      pill: "위생·수질 적합", ko_ref: "", ref: "江東微生物研究所",
+      title: "貯水槽清掃 & 水質試験検査報告書",
+      desc: "2025년 12월 5일 청소 및 12월 11일 수질검사 완료. 수도법 기준 100% 합격.",
+      rows: [
+        ["청소 시행사", "中央日化サービス株式会社"],
+        ["수조 사양", "옥외 지상 1.3㎥ FRP 1조식"],
+        ["가압급수펌프", "에바라 32MDPA 2대 (양호)"],
+        ["일반세균 / 대장균", "0개 / 불검출"],
+        ["잔류염소 / pH", "0.6 ppm / 7.6 (적합)"]
+      ],
+      star: "★ 급수배관 누수·적수(녹물) 리스크 없음. 입주자 음용수 안전성 완벽 확보."
+    },
+    ja: {
+      pill: "衛生・水質 適合", ref: "江東微生物研究所",
+      title: "貯水槽清掃 & 水質試験検査報告書",
+      desc: "2025年12月5日 清掃、同12月11日 水質検査を完了。水道法基準に100%合格。",
+      rows: [
+        ["清掃施行業者", "中央日化サービス株式会社"],
+        ["貯水槽仕様", "屋外地上 1.3㎥ FRP 1槽式"],
+        ["加圧給水ポンプ", "荏原 32MDPA 2台 (良好)"],
+        ["一般細菌 / 大腸菌", "0個 / 不検出"],
+        ["残留塩素 / pH", "0.6 ppm / 7.6 (適合)"]
+      ],
+      star: "★ 給水配管の漏水・赤水リスクなし。入居者の飲料水の安全性を完全に確保。"
+    }
+  },
+  {
+    accent: "amber",
+    ko: {
+      pill: "무위험 부대수입", ref: "東京電力パワーグリッド",
+      title: "電柱敷地料等 お支払いの案内",
+      desc: "도쿄전력 부지점유 계약. 매년 4월 정기 지급되는 공실률과 무관한 무위험 수입.",
+      rows: [
+        ["설치장소", "厚木市飯山南4丁目 3547-1"],
+        ["전신주 본주 (1본)", "¥11,125 / 년"],
+        ["전신주 지선 (2본)", "¥22,250 / 년"],
+        ["연간 총 입금액", "¥33,375 / 년"],
+        ["지급 예정일", "매년 4월 정기 입금"]
+      ],
+      star: "★ 공실률과 무관한 100% 순현금 창출. 본 시뮬레이터의 NOI에 기본 가산 반영 완료."
+    },
+    ja: {
+      pill: "無リスク 附帯収入", ref: "東京電力パワーグリッド",
+      title: "電柱敷地料等 お支払いのご案内",
+      desc: "東京電力との敷地占用契約。毎年4月に定期入金される、空室率に左右されない無リスク収入。",
+      rows: [
+        ["設置場所", "厚木市飯山南4丁目 3547-1"],
+        ["電柱 本柱 (1本)", "¥11,125 / 年"],
+        ["電柱 支線 (2条)", "¥22,250 / 年"],
+        ["年間 入金総額", "¥33,375 / 年"],
+        ["支払予定日", "毎年4月 定期入金"]
+      ],
+      star: "★ 空室率と無関係な100%純キャッシュ。本シミュレーターのNOIに標準で加算済みです。"
+    }
+  },
+  {
+    accent: "purple",
+    ko: {
+      pill: "Capex 완료", ref: "최근 6년간 집중 투자",
+      title: "대규모 설비 갱신 & 밸류애드 완료",
+      desc: "현 소유자가 핵심 노후 설비를 인수 전 전면 교체 완료한 상태.",
+      rows: [
+        ["2021.11", "전 14실 급탕기 전면 신품 교체"],
+        ["2021.11", "전 14실 에어컨 전면 신품 교체"],
+        ["2021.10", "현관 스마트키 디지털 도어록 도입"],
+        ["2022.05", "외벽 전면 도장 및 타일 보수"],
+        ["기타", "쓰레기 수거장·우편함 교체"]
+      ],
+      star: "★ 인수 후 7~10년간 급탕기·에어컨 고장 수리비 제로. 안심 운영이 가능합니다."
+    },
+    ja: {
+      pill: "Capex 完了", ref: "直近6年間の集中投資",
+      title: "大規模設備更新 & バリューアップ完了",
+      desc: "現オーナーが主要な老朽設備を引渡し前に全面交換済みの状態。",
+      rows: [
+        ["2021.11", "全14戸 給湯器を全面新品交換"],
+        ["2021.11", "全14戸 エアコンを全面新品交換"],
+        ["2021.10", "玄関スマートキー(電子錠)導入"],
+        ["2022.05", "外壁全面塗装およびタイル補修"],
+        ["その他", "ゴミ置場・郵便ポスト交換"]
+      ],
+      star: "★ 取得後7~10年間、給湯器・エアコンの故障修繕費はゼロ。安心した運営が可能です。"
+    }
+  }
+];
 
-    // Chart.js Amortization
-    function updateAmortizationChart(res) {
-      const L = res.L;
-      const r = state.rate / 100;
-      const n = state.term;
-      const monthlyRate = r / 12;
-      const annualADS = res.annualADS;
+/* ── 2D Price × Seasonality Matrix ── */
+const MATRIX_ROWS = [
+  {
+    style: "bg-rose-50/50", labelClass: "font-bold text-slate-900",
+    ko: { label: "고가 도전가 (60,000 – 61,000엔)", sub: "총액 64,000 – 65,000엔",
+      cells: [
+        { v: "45 – 60일", sub: "(총 2.5–3.0개월)", tag: "302호 성약 성공", tagClass: "bg-emerald-100 text-emerald-700" },
+        { v: "60 – 80일", sub: "(총 3.0–3.7개월)" },
+        { v: "75 – 100일", sub: "(총 3.5–4.3개월)" },
+        { v: "100 – 130일+", sub: "(총 4.5–5.5개월)", tag: "★ 305호 95일+ 공실", tagClass: "bg-rose-600 text-white", danger: true }
+      ] },
+    ja: { label: "強気設定 (60,000 – 61,000円)", sub: "総額 64,000 – 65,000円",
+      cells: [
+        { v: "45 – 60日", sub: "(計2.5–3.0ヶ月)", tag: "302号室 成約成功", tagClass: "bg-emerald-100 text-emerald-700" },
+        { v: "60 – 80日", sub: "(計3.0–3.7ヶ月)" },
+        { v: "75 – 100日", sub: "(計3.5–4.3ヶ月)" },
+        { v: "100 – 130日超", sub: "(計4.5–5.5ヶ月)", tag: "★ 305号室 95日超 空室", tagClass: "bg-rose-600 text-white", danger: true }
+      ] }
+  },
+  {
+    style: "bg-emerald-50/40 border-2 border-emerald-400", labelClass: "font-bold text-emerald-900", cellClass: "font-bold text-emerald-700",
+    ko: { label: "★ 시장 적정가 (57,000 – 59,000엔)", sub: "최적 임대료 구간 (총 61,000 – 63,000엔)", subClass: "text-emerald-700 font-semibold",
+      cells: [ { v: "20 – 30일", sub: "(총 1.7–2.0개월)" }, { v: "30 – 45일", sub: "(총 2.0–2.5개월)" }, { v: "40 – 55일", sub: "(총 2.3–2.8개월)" }, { v: "50 – 70일", sub: "(총 2.7–3.3개월)" } ] },
+    ja: { label: "★ 市場適正賃料 (57,000 – 59,000円)", sub: "最適賃料レンジ (総額 61,000 – 63,000円)", subClass: "text-emerald-700 font-semibold",
+      cells: [ { v: "20 – 30日", sub: "(計1.7–2.0ヶ月)" }, { v: "30 – 45日", sub: "(計2.0–2.5ヶ月)" }, { v: "40 – 55日", sub: "(計2.3–2.8ヶ月)" }, { v: "50 – 70日", sub: "(計2.7–3.3ヶ月)" } ] }
+  },
+  {
+    style: "", labelClass: "font-medium text-slate-700",
+    ko: { label: "조기 소진가 (53,000 – 55,000엔)", sub: "총액 57,000 – 59,000엔",
+      cells: [ { v: "10 – 20일", sub: "(총 1.3–1.7개월)" }, { v: "20 – 30일", sub: "(총 1.7–2.0개월)" }, { v: "25 – 35일", sub: "(총 1.8–2.2개월)" }, { v: "35 – 45일", sub: "(총 2.2–2.5개월)" } ] },
+    ja: { label: "早期消化賃料 (53,000 – 55,000円)", sub: "総額 57,000 – 59,000円",
+      cells: [ { v: "10 – 20日", sub: "(計1.3–1.7ヶ月)" }, { v: "20 – 30日", sub: "(計1.7–2.0ヶ月)" }, { v: "25 – 35日", sub: "(計1.8–2.2ヶ月)" }, { v: "35 – 45日", sub: "(計2.2–2.5ヶ月)" } ] }
+  },
+  {
+    style: "bg-slate-50", labelClass: "font-medium text-slate-700",
+    ko: { label: "급매가 (48,000 – 50,000엔)", sub: "총액 52,000 – 54,000엔",
+      cells: [ { v: "7 – 10일", sub: "(총 1.2개월)" }, { v: "10 – 15일", sub: "(총 1.4개월)" }, { v: "15 – 20일", sub: "(총 1.5–1.7개월)" }, { v: "20 – 30일", sub: "(총 1.7–2.0개월)" } ] },
+    ja: { label: "早期決着賃料 (48,000 – 50,000円)", sub: "総額 52,000 – 54,000円",
+      cells: [ { v: "7 – 10日", sub: "(計1.2ヶ月)" }, { v: "10 – 15日", sub: "(計1.4ヶ月)" }, { v: "15 – 20日", sub: "(計1.5–1.7ヶ月)" }, { v: "20 – 30日", sub: "(計1.7–2.0ヶ月)" } ] }
+  }
+];
 
-      const labels = [];
-      const balanceData = [];
-      const equityAccumData = [];
-      const interestPaidData = [];
+/* ── 14-Unit Rent Roll ── */
+const RENT_ROLL = [
+  { unit: "101", floor: "1F", rent: 47000, fee: 4000, start: "2022.10", dom: 42, gap: 12000,
+    ko: { tenure: "3년 11개월", note: "시세 대비 최대 저평가. 차기 퇴거 시 최대 증액 타깃." },
+    ja: { tenure: "3年11ヶ月", note: "相場対比で最も割安。次回退去時の最大増額ターゲット。" } },
+  { unit: "102", floor: "1F", rent: 48000, fee: 4000, start: "2022.09", dom: 38, gap: 11000,
+    ko: { tenure: "3년 11개월", note: "시세 대비 -1.1만엔 갭. 중기 거주군." },
+    ja: { tenure: "3年11ヶ月", note: "相場対比 -1.1万円のギャップ。中期入居層。" } },
+  { unit: "103", floor: "1F", rent: 53000, fee: 4000, start: "2025.03", dom: 35, gap: 6000,
+    ko: { tenure: "1년 5개월", note: "안정적 거주 중." },
+    ja: { tenure: "1年5ヶ月", note: "安定した入居継続中。" } },
+  { unit: "105", floor: "1F", rent: 53000, fee: 4000, start: "2023.12", dom: 45, gap: 6000,
+    ko: { tenure: "2년 8개월", note: "중기 거주군." },
+    ja: { tenure: "2年8ヶ月", note: "中期入居層。" } },
+  { unit: "201", floor: "2F", rent: 59000, fee: 4000, start: "2026.08", dom: 52, gap: 0, highlight: "sky",
+    ko: { tenure: "0개월 (신규)", note: "★ 2026년 8월 최신 성약! 목표 임대료 5.9만엔 검증 완료.", gapText: "¥0 (적정가)" },
+    ja: { tenure: "0ヶ月 (新規)", note: "★ 2026年8月の最新成約! 目標賃料5.9万円を検証済み。", gapText: "¥0 (適正賃料)" } },
+  { unit: "202", floor: "2F", rent: 50000, fee: 3000, start: "2015.07", dom: 28, gap: 9000, longTerm: true,
+    ko: { tenure: "11년 1개월", note: "11년 장기 거주자. 연체 리스크 0%. 기초 현금흐름 지탱." },
+    ja: { tenure: "11年1ヶ月", note: "11年の長期入居者。滞納リスク0%。基礎CFを下支え。" } },
+  { unit: "203", floor: "2F", rent: 55000, fee: 4000, start: "2007.09", dom: 21, gap: 4000, longTerm: true,
+    ko: { tenure: "18년 11개월", note: "19년 초장기 거주자. 극도로 우량한 임차인." },
+    ja: { tenure: "18年11ヶ月", note: "19年の超長期入居者。極めて優良な賃借人。" } },
+  { unit: "205", floor: "2F", rent: 55000, fee: 4000, start: "2026.01", dom: 33, gap: 4000,
+    ko: { tenure: "7개월", note: "학생 입주. 단기 퇴거 위험 낮음." },
+    ja: { tenure: "7ヶ月", note: "学生入居。短期退去リスクは低い。" } },
+  { unit: "301", floor: "3F", rent: 55000, fee: 4000, start: "2026.03", dom: 40, gap: 4000,
+    ko: { tenure: "5개월", note: "봄 성수기 40일 성약." },
+    ja: { tenure: "5ヶ月", note: "春の繁忙期に40日で成約。" } },
+  { unit: "302", floor: "3F", rent: 60000, fee: 4000, start: "2026.03", dom: 68, gap: 0, highlight: "emerald",
+    ko: { tenure: "5개월", note: "★ 봄 성수기 60,000엔 최고가 성약 실증 사례!", gapText: "¥0 (최고가)" },
+    ja: { tenure: "5ヶ月", note: "★ 春の繁忙期に60,000円の最高賃料で成約した実証事例!", gapText: "¥0 (最高賃料)" } },
+  { unit: "303", floor: "3F", rent: 53000, fee: 4000, start: "2026.02", dom: 36, gap: 6000,
+    ko: { tenure: "6개월", note: "조기 소진 완료." },
+    ja: { tenure: "6ヶ月", note: "早期消化にて成約済み。" } },
+  { unit: "305", floor: "3F", rent: 61000, fee: 4000, dom: "95+", gap: -2000, highlight: "rose",
+    ko: { start: "모집중", tenure: "—", note: "⚠️ 현재 유일 공실! 비수기에 6.1만엔 상한 초과를 고집하여 정체 중. 5.9만엔 인하 즉시 처방 요망!", gapText: "-¥2,000 (과대)" },
+    ja: { start: "募集中", tenure: "—", note: "⚠️ 現在唯一の空室! 閑散期に6.1万円の上限超過に固執し滞留中。5.9万円への減額処方が急務!", gapText: "-¥2,000 (強気)" } },
+  { unit: "401", floor: "4F", rent: 52000, fee: 4000, start: "2013.02", dom: 25, gap: 7000, longTerm: true,
+    ko: { tenure: "13년 6개월", note: "13.5년 장기 거주자." },
+    ja: { tenure: "13年6ヶ月", note: "13.5年の長期入居者。" } },
+  { unit: "402", floor: "4F", rent: 51000, fee: 4000, start: "2023.03", dom: 31, gap: 8000,
+    ko: { tenure: "3년 5개월", note: "중기 거주군." },
+    ja: { tenure: "3年5ヶ月", note: "中期入居層。" } }
+];
 
-      let currentBalance = L;
-      let cumulativePrincipal = 0;
-      let cumulativeInterest = 0;
+/* ═══════════════════════════════════════════════════════════
+   3. FINANCIAL ENGINE
+   ═══════════════════════════════════════════════════════════ */
+const state = {
+  price: 88000000, ltv: 80, rate: 2.10, term: 25,
+  loanFeePct: 2.0, acqCostPct: 7.0,
+  rentScenario: 'full', vacancyPct: 5.32,
+  heatmapMetric: 'ccr', lang: 'ko'
+};
 
-      const maxYear = 30;
-      for (let yr = 1; yr <= maxYear; yr++) {
-        labels.push(yr + '년');
-        if (yr <= n && currentBalance > 0) {
-          let yrInterest = 0;
-          let yrPrincipal = 0;
-          for (let m = 0; m < 12; m++) {
-            const intPart = currentBalance * monthlyRate;
-            const princPart = res.monthlyPayment - intPart;
-            yrInterest += intPart;
-            yrPrincipal += princPart;
-            currentBalance -= princPart;
-            if (currentBalance < 0) currentBalance = 0;
-          }
-          cumulativePrincipal += yrPrincipal;
-          cumulativeInterest += yrInterest;
-        }
+const TEPCO_INCOME = 33375;
+const ANNUAL_OPEX = 1980000;
+const RENT_DATA = {
+  current: { annual: 794800 * 12 },
+  full:    { annual: 881800 * 12 },
+  upside:  { annual: 958800 * 12 }
+};
 
-        balanceData.push(Math.round(currentBalance / 10000)); // 만엔 단위
-        equityAccumData.push(Math.round((state.price - currentBalance) / 10000));
-        interestPaidData.push(Math.round(cumulativeInterest / 10000));
+const $ = id => document.getElementById(id);
+const yen = n => '¥' + Math.round(n).toLocaleString();
+const t = () => T[state.lang];
+
+let amortChartInstance = null;
+
+function calculate() {
+  const P = state.price;
+  const L = Math.round(P * state.ltv / 100);
+  const loanFee = Math.round(L * state.loanFeePct / 100);
+  const acqCost = Math.round(P * state.acqCostPct / 100);
+  const totalCost = P + acqCost + loanFee;
+  const equity = totalCost - L;
+
+  const mRate = (state.rate / 100) / 12;
+  const numPmt = state.term * 12;
+  const monthlyPayment = mRate > 0
+    ? L * (mRate * Math.pow(1 + mRate, numPmt)) / (Math.pow(1 + mRate, numPmt) - 1)
+    : L / numPmt;
+  const annualADS = Math.round(monthlyPayment * 12);
+  const loanConstantK = L > 0 ? (annualADS / L) * 100 : 0;
+
+  const baseGross = RENT_DATA[state.rentScenario].annual;
+  const totalEGI = Math.round(baseGross * (1 - state.vacancyPct / 100) + TEPCO_INCOME);
+  const noi = totalEGI - ANNUAL_OPEX;
+
+  const capRate = (noi / P) * 100;
+  const btcf = noi - annualADS;
+  const ccr = equity > 0 ? (btcf / equity) * 100 : 0;
+  const dscr = annualADS > 0 ? noi / annualADS : 999;
+  const ber = ((ANNUAL_OPEX + annualADS) / (baseGross + TEPCO_INCOME)) * 100;
+
+  return { P, L, totalCost, equity, monthlyPayment: Math.round(monthlyPayment),
+           annualADS, loanConstantK, noi, capRate, btcf, ccr, dscr, ber };
+}
+
+function updateUI() {
+  const d = t();
+  const res = calculate();
+
+  $('valPriceFormatted').textContent = yen(res.P);
+  $('valLTV').textContent = state.ltv + '%';
+  $('valRate').textContent = state.rate.toFixed(2) + '%';
+  $('valTerm').textContent = d.termLabel(state.term);
+  $('valLoanFee').textContent = state.loanFeePct.toFixed(1) + '%';
+  $('valAcqCost').textContent = state.acqCostPct.toFixed(1) + '%';
+  $('valVacancy').textContent = state.vacancyPct.toFixed(2) + '%';
+  $('loanSummaryBadge').textContent = d.loanBadge(state.ltv, state.rate.toFixed(2), state.term);
+
+  $('cardPriceDisplay').textContent = yen(res.P);
+  $('cardCapRate').textContent = res.capRate.toFixed(2) + '%';
+  $('cardCCR').textContent = res.ccr.toFixed(2) + '%';
+  $('cardDSCR').textContent = res.dscr.toFixed(2);
+  $('cardMonthlyADS').textContent = yen(res.monthlyPayment);
+  $('cardAnnualADS').textContent = d.prefix_annual + yen(res.annualADS);
+  $('cardTotalEquity').textContent = yen(res.equity);
+  $('cardLoanAmountDisplay').textContent = d.prefix_loan + yen(res.L);
+  $('cardNOIDisplay').textContent = 'NOI: ' + yen(res.noi);
+  $('cardBTCFDisplay').textContent = d.prefix_btcf + yen(res.btcf);
+
+  const st = $('cardDSCRStatus');
+  if (res.dscr >= 1.3)       { st.textContent = d.dscr_safe; st.className = 'text-[11px] font-medium text-emerald-600'; }
+  else if (res.dscr >= 1.15) { st.textContent = d.dscr_ok;   st.className = 'text-[11px] font-medium text-sky-600'; }
+  else                       { st.textContent = d.dscr_risk; st.className = 'text-[11px] font-medium text-rose-600'; }
+
+  $('resTotalCost').textContent = yen(res.totalCost);
+  $('resLoanAmount').textContent = yen(res.L);
+  $('resEquity').textContent = yen(res.equity);
+  $('resAnnualADS').textContent = yen(res.annualADS);
+  $('resLoanK').textContent = res.loanConstantK.toFixed(2) + '%';
+  $('resNOI').textContent = yen(res.noi);
+  $('resBTCF').textContent = (res.btcf >= 0 ? '+' : '') + yen(res.btcf);
+  $('resBER').textContent = res.ber.toFixed(1) + '% ' + (res.ber < 75 ? d.ber_safe : d.ber_warn);
+
+  const badge = $('badgeLeverage');
+  if (res.capRate > res.loanConstantK) {
+    badge.textContent = 'Positive Leverage';
+    badge.className = 'px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+    $('statusEmoji').textContent = '✅';
+    $('statusVerdictTitle').textContent = d.verdict_pos_title;
+    $('statusVerdictDesc').textContent = d.verdict_pos_desc(res.capRate.toFixed(2), res.loanConstantK.toFixed(2), res.ccr.toFixed(2));
+  } else {
+    badge.textContent = 'Negative Leverage';
+    badge.className = 'px-2 py-0.5 text-[10px] font-bold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30';
+    $('statusEmoji').textContent = '⚠️';
+    $('statusVerdictTitle').textContent = d.verdict_neg_title;
+    $('statusVerdictDesc').textContent = d.verdict_neg_desc(res.capRate.toFixed(2), res.loanConstantK.toFixed(2));
+  }
+
+  $('chartTermBadge').textContent = d.chartTermBadge(state.term);
+  $('heatFootnote').textContent = d.heatFootnote(state.term);
+
+  updateChart(res);
+  renderHeatmap();
+}
+
+function updateChart(res) {
+  const d = t();
+  const mRate = (state.rate / 100) / 12;
+  const labels = [], balanceData = [], equityData = [], interestData = [];
+  let bal = res.L, cumInterest = 0;
+
+  for (let yr = 1; yr <= 30; yr++) {
+    labels.push(d.chart_x_year(yr));
+    if (yr <= state.term && bal > 0) {
+      for (let m = 0; m < 12; m++) {
+        const intPart = bal * mRate;
+        bal -= (res.monthlyPayment - intPart);
+        cumInterest += intPart;
+        if (bal < 0) bal = 0;
       }
-
-      // Quick Stats under chart
-      document.getElementById('statLoan5y').textContent = '¥' + (balanceData[4] * 10000 / 1000000).toFixed(1) + 'M';
-      document.getElementById('statRepaid10y').textContent = '¥' + ((equityAccumData[9] - equityAccumData[0]) * 10000 / 1000000).toFixed(1) + 'M';
-      document.getElementById('statTotalInterest').textContent = '¥' + (interestPaidData[n - 1] * 10000 / 1000000).toFixed(1) + 'M';
-
-      if (amortChartInstance) {
-        amortChartInstance.destroy();
-      }
-
-      const ctx = document.getElementById('amortizationChart').getContext('2d');
-      amortChartInstance = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: state.lang === 'ko' ? '잔여 대출원금 (만엔)' : '残債残高 (万円)',
-              data: balanceData,
-              borderColor: '#e11d48',
-              backgroundColor: 'rgba(225, 29, 72, 0.08)',
-              fill: true,
-              tension: 0.3,
-              pointRadius: 2
-            },
-            {
-              label: state.lang === 'ko' ? '누적 원금상환 순자산 (만엔)' : '純資産形成額 (万円)',
-              data: equityAccumData,
-              borderColor: '#059669',
-              backgroundColor: 'rgba(5, 150, 105, 0.08)',
-              fill: true,
-              tension: 0.3,
-              pointRadius: 2
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'top', labels: { boxWidth: 12, font: { size: 11 } } },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': ¥' + (context.raw * 10000).toLocaleString();
-                }
-              }
-            }
-          },
-          scales: {
-            y: {
-              ticks: { callback: v => '¥' + v.toLocaleString() + '만' },
-              grid: { color: '#f1f5f9' }
-            },
-            x: { grid: { display: false } }
-          }
-        }
-      });
     }
+    balanceData.push(Math.round(bal / 10000));
+    equityData.push(Math.round((state.price - bal) / 10000));
+    interestData.push(Math.round(cumInterest / 10000));
+  }
 
-    // Heatmap Matrix Generator
-    function renderHeatmap() {
-      const tbody = document.getElementById('heatmapBody');
-      tbody.innerHTML = '';
+  $('statLoan5y').textContent = '¥' + (balanceData[4] / 100).toFixed(1) + 'M';
+  $('statRepaid10y').textContent = '¥' + ((equityData[9] - equityData[0]) / 100).toFixed(1) + 'M';
+  $('statTotalInterest').textContent = '¥' + (interestData[state.term - 1] / 100).toFixed(1) + 'M';
 
-      const testRates = [1.5, 2.0, 2.5, 3.0, 3.5];
-      const testLTVs = [60, 70, 80, 90, 100];
-      const P = state.price;
-      const n = state.term;
-      const baseGross = RENT_DATA[state.rentScenario].annual;
-      const totalEGI = Math.round(baseGross * (1 - state.vacancyPct / 100) + TEPCO_INCOME);
-      const noi = totalEGI - ANNUAL_OPEX;
-
-      testRates.forEach(rVal => {
-        const tr = document.createElement('tr');
-        const th = document.createElement('td');
-        th.className = 'p-2 text-left font-bold text-slate-800 bg-slate-50';
-        th.textContent = rVal.toFixed(1) + '%';
-        tr.appendChild(th);
-
-        testLTVs.forEach(ltvVal => {
-          const td = document.createElement('td');
-          td.className = 'p-2 font-mono font-bold transition';
-
-          const L = P * (ltvVal / 100);
-          const loanFee = L * (state.loanFeePct / 100);
-          const acqCost = P * (state.acqCostPct / 100);
-          const eq = P + acqCost + loanFee - L;
-
-          const mRate = (rVal / 100) / 12;
-          const numPmt = n * 12;
-          const mPayment = L * (mRate * Math.pow(1 + mRate, numPmt)) / (Math.pow(1 + mRate, numPmt) - 1);
-          const ads = mPayment * 12;
-          const btcf = noi - ads;
-          const ccr = (btcf / eq) * 100;
-          const dscr = noi / ads;
-
-          if (state.heatmapMetric === 'ccr') {
-            td.textContent = ccr.toFixed(1) + '%';
-            if (ccr >= 15) td.classList.add('bg-emerald-100', 'text-emerald-800');
-            else if (ccr >= 10) td.classList.add('bg-sky-100', 'text-sky-800');
-            else if (ccr >= 5) td.classList.add('bg-amber-100', 'text-amber-800');
-            else td.classList.add('bg-rose-100', 'text-rose-800');
-          } else {
-            td.textContent = dscr.toFixed(2);
-            if (dscr >= 1.5) td.classList.add('bg-emerald-100', 'text-emerald-800');
-            else if (dscr >= 1.3) td.classList.add('bg-sky-100', 'text-sky-800');
-            else if (dscr >= 1.15) td.classList.add('bg-amber-100', 'text-amber-800');
-            else td.classList.add('bg-rose-100', 'text-rose-800');
-          }
-
-          // Highlight current selection
-          if (Math.abs(rVal - state.rate) <= 0.25 && ltvVal === state.ltv) {
-            td.classList.add('ring-2', 'ring-indigo-600', 'font-black');
-          }
-
-          tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-      });
-    }
-
-    function toggleHeatmapMetric(metric) {
-      state.heatmapMetric = metric;
-      const btnCCR = document.getElementById('btnHeatCCR');
-      const btnDSCR = document.getElementById('btnHeatDSCR');
-      if (metric === 'ccr') {
-        btnCCR.className = 'px-2 py-0.5 rounded bg-sky-600 text-white font-medium';
-        btnDSCR.className = 'px-2 py-0.5 rounded text-slate-600 font-medium';
-      } else {
-        btnDSCR.className = 'px-2 py-0.5 rounded bg-sky-600 text-white font-medium';
-        btnCCR.className = 'px-2 py-0.5 rounded text-slate-600 font-medium';
-      }
-      renderHeatmap();
-    }
-
-    function setPricePreset(priceVal) {
-      sliderPrice.value = priceVal;
-      state.price = priceVal;
-      updateUI();
-    }
-
-    function setRentScenario(scen) {
-      state.rentScenario = scen;
-      const btnCurr = document.getElementById('btnRentCurrent');
-      const btnFull = document.getElementById('btnRentFull');
-      const btnUp = document.getElementById('btnRentUpside');
-
-      [btnCurr, btnFull, btnUp].forEach(b => {
-        b.className = 'p-2 text-xs rounded-lg border border-slate-200 bg-white font-medium hover:border-sky-500 text-left transition';
-      });
-
-      if (scen === 'current') {
-        btnCurr.className = 'p-2 text-xs rounded-lg border-2 border-sky-600 bg-sky-50/50 font-medium text-left transition';
-      } else if (scen === 'full') {
-        btnFull.className = 'p-2 text-xs rounded-lg border-2 border-sky-600 bg-sky-50/50 font-medium text-left transition';
-      } else {
-        btnUp.className = 'p-2 text-xs rounded-lg border-2 border-emerald-600 bg-emerald-50/50 font-medium text-left transition';
-      }
-      updateUI();
-    }
-
-    // Bilingual I18n Engine
-    const I18N = {
-      ko: {
-        headerTitle: "포레스타 힐즈 (フォレスタヒルズ)",
-        headerSubtitle: "지바현 야치요시 1동 RC 맨션 (1K 8실 + 2DK 6실 / 총 14세대) 투자분석 & 융자 시뮬레이터",
-        badgeCert: "검사필증 취득 물건 (H13確済 第00313号)",
-        btnPrint: "인쇄 / PDF 저장",
-        hero_price: "매매가격",
-        hero_fcr: "FCR (Cap Rate)",
-        hero_ccr: "CCR (자기자본수익률)",
-        hero_dscr: "DSCR (부채감당률)",
-        hero_ads: "월 원리금 상환",
-        hero_equity: "초기 필요 자기자본",
-        sim_title: "🧮 은행 융자 조건 & 수익률 실시간 시뮬레이터",
-        sim_desc: "금리, 융자기간, 융자비용, LTV 및 공실 시나리오를 실시간으로 조정하여 자금수지와 레버리지 효과를 즉시 판정합니다.",
-        preset_label: "매매가 프리셋:",
-        col1_title: "🏦 은행 융자 조건 (Loan Terms)",
-        lbl_ltv: "융자 비율 (LTV)",
-        lbl_rate: "대출 금리 (연이율)",
-        lbl_term: "융자 기간 (상환년수)",
-        lbl_loan_fee: "융자 제비용율 (수수료·보증료)",
-        col2_title: "🏷️ 취득원가 & 운영 시나리오",
-        lbl_price: "매매가격 (원)",
-        lbl_acq_fee: "부동산 취득제비용율 (중개·세금·등기)",
-        lbl_rent_scenario: "임대료 수입 시나리오",
-        rent_scen_curr: "현황 가동",
-        rent_scen_full: "만실 표준",
-        rent_scen_up: "밸류애드",
-        lbl_vacancy: "상정 공실률 (%)",
-        col3_title: "⚡ 자금 수지 실시간 계산 결과",
-        calc_tot_acq: "총 취득소요자금 (Total Cost)",
-        calc_loan_amt: "총 융자금액 (Loan Amount)",
-        calc_equity: "필요 자기자본 (Equity)",
-        calc_ads: "연간 원리금상환 (ADS)",
-        calc_loan_k: "론 콘스턴트 (Loan Constant K)",
-        calc_noi: "순영업소득 (NOI)",
-        calc_btcf: "세전 현금흐름 (BTCF)",
-        calc_breakeven: "손익분기 입주율 (BER)",
-        chart_amort_title: "📈 원금 상환 & 순자산 축적 추이 (30년 시뮬레이션)",
-        chart_amort_desc: "시간 경과에 따른 대출 잔액 감소와 세입자의 임대료로 상환되는 누적 순자산 형성 궤적입니다.",
-        heat_title: "🔥 금리 × LTV 감응도 분석 매트릭스 (Sensitivity Heatmap)",
-        heat_desc: "은행 대출 금리와 LTV 변동에 따른 자기자본 수익률(CCR) 및 부채감당률(DSCR)의 안전성 구간을 교차 판정합니다.",
-        doc_title: "📋 인허가·검사필증·소방·설비 실사 전수 대조",
-        doc_subtitle: "야치요시청 건축확인대장 기재증명서(검사필증 확인), 건축계획개요서, 소방점검보고서, 저수조청소·수질검사표, 도쿄전력 전신주 사용료 원본 전수 반영",
-        mat_title: "📊 [모집시기 × 가격대] 2차원 교차 매트릭스 & DOM 분석",
-        mat_subtitle: "LIFULL HOME'S 모집이력(b-25342189) 전수 분석 기반: 302호 성약(68일) vs 305호 공실(95일+) 실증 규명",
-        rentroll_title: "📋 전 14개 호실 렌트롤 포렌식 감사표 (Rent Roll)",
-        rentroll_subtitle: "호실별 계약시점, 현재 거주기간, 직전 모집기간(DOM) 및 시세 대비 증액 여지(Upside) 전수 대조"
+  if (amortChartInstance) amortChartInstance.destroy();
+  amortChartInstance = new Chart($('amortizationChart').getContext('2d'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label: d.chart_legend_balance, data: balanceData, borderColor: '#e11d48',
+        backgroundColor: 'rgba(225,29,72,.08)', fill: true, tension: .3, pointRadius: 2 },
+      { label: d.chart_legend_equity, data: equityData, borderColor: '#059669',
+        backgroundColor: 'rgba(5,150,105,.08)', fill: true, tension: .3, pointRadius: 2 }
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { boxWidth: 12, font: { size: 11 } } },
+        tooltip: { callbacks: { label: c => c.dataset.label + ': ' + yen(c.raw * 10000) } }
       },
-      ja: {
-        headerTitle: "フォレスタヒルズ (Foresta Hills)",
-        headerSubtitle: "千葉県八千代市 1棟RC造マンション (1K 8戸 + 2DK 6戸 / 全14戸) 投資分析 & 融資シミュレーター",
-        badgeCert: "検査済証 取得済物件 (H13確済 第00313号)",
-        btnPrint: "印刷 / PDF保存",
-        hero_price: "売買想定価格",
-        hero_fcr: "FCR (総収益率)",
-        hero_ccr: "CCR (自己資本配当率)",
-        hero_dscr: "DSCR (返済余裕率)",
-        hero_ads: "月額元利返済額",
-        hero_equity: "初期自己資金",
-        sim_title: "🧮 銀行融資条件 & 利回りリアルタイム・シミュレーター",
-        sim_desc: "金利、融資期間、融資手数料、LTVおよび空室率シナリオを操作し、キャッシュフローとレバレッジ効果を即時判定します。",
-        preset_label: "価格プリセット:",
-        col1_title: "🏦 銀行融資条件 (Loan Terms)",
-        lbl_ltv: "借入比率 (LTV)",
-        lbl_rate: "借入金利 (年利)",
-        lbl_term: "融資期間 (返済年数)",
-        lbl_loan_fee: "融資諸経費率 (保証料・手数料)",
-        col2_title: "🏷️ 取得原価 & 運用シナリオ",
-        lbl_price: "物件価格 (円)",
-        lbl_acq_fee: "取得諸経費率 (仲介・税・登記)",
-        lbl_rent_scenario: "賃料収入シナリオ",
-        rent_scen_curr: "現況稼働",
-        rent_scen_full: "満室標準",
-        rent_scen_up: "バリューアップ",
-        lbl_vacancy: "想定空室率 (%)",
-        col3_title: "⚡ キャッシュフロー計算結果",
-        calc_tot_acq: "総取得所要資金 (Total Cost)",
-        calc_loan_amt: "総借入金 (Loan Amount)",
-        calc_equity: "自己資金 (Equity)",
-        calc_ads: "年間元利返済額 (ADS)",
-        calc_loan_k: "ローンコンスタント (K%)",
-        calc_noi: "純営業収益 (NOI)",
-        calc_btcf: "税引前CF (BTCF)",
-        calc_breakeven: "損益分岐稼働率 (BER)",
-        chart_amort_title: "📈 元金返済 & 純資産蓄積シミュレーション (30年間)",
-        chart_amort_desc: "借入元本の減少と、賃料返済により形成される純資産(Equity Build-up)の長期推移です。",
-        heat_title: "🔥 金利 × LTV 感応度マトリクス (Sensitivity Heatmap)",
-        heat_desc: "借入金利とLTVの変動に伴うCCR(自己資本利回り)およびDSCRの安全領域をクロス判定します。",
-        doc_title: "📋 許認可・検査済証・消防・設備 実査全数照合",
-        doc_subtitle: "八千代市役所 建築確認台帳記載証明書(検査済証確認)、建築計画概要書、消防用設備点検報告書、貯水槽・水質検査報告書、東電敷地料を全数反映",
-        mat_title: "📊 【募集時期 × 募集賃料】2次元クロスマトリクス & DOM分析",
-        mat_subtitle: "LIFULL HOME'S 掲載履歴(b-25342189)全数解析: 302号室成約(68日) vs 305号室空室(95日超)の実証対照",
-        rentroll_title: "📋 全14戸 レントロール・フォレンジック監査表 (Rent Roll)",
-        rentroll_subtitle: "各号室の契約年月、入居期間、直前DOMおよび相場対比値上げ余地(Upside)全数照合"
+      scales: {
+        y: { ticks: { callback: v => (v / 100).toFixed(0) + 'M' }, grid: { color: '#f1f5f9' } },
+        x: { grid: { display: false } }
       }
-    };
-
-    function setLanguage(lang) {
-      state.lang = lang;
-      const btnKO = document.getElementById('langKO');
-      const btnJA = document.getElementById('langJA');
-
-      if (lang === 'ko') {
-        btnKO.className = 'px-3 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm transition';
-        btnJA.className = 'px-3 py-1 text-xs font-semibold rounded-md text-slate-300 hover:text-white transition';
-      } else {
-        btnJA.className = 'px-3 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm transition';
-        btnKO.className = 'px-3 py-1 text-xs font-semibold rounded-md text-slate-300 hover:text-white transition';
-      }
-
-      // Translate text elements with data-i18n
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (I18N[lang][key]) {
-          el.textContent = I18N[lang][key];
-        }
-      });
-
-      // Specific header text
-      document.getElementById('headerTitle').textContent = I18N[lang].headerTitle;
-      document.getElementById('headerSubtitle').textContent = I18N[lang].headerSubtitle;
-      document.getElementById('badgeCert').textContent = I18N[lang].badgeCert;
-      document.getElementById('btnPrint').textContent = I18N[lang].btnPrint;
-
-      updateUI();
     }
+  });
+}
 
-    // Event Listeners
-    sliderPrice.addEventListener('input', e => { state.price = parseInt(e.target.value); updateUI(); });
-    sliderLTV.addEventListener('input', e => { state.ltv = parseInt(e.target.value); updateUI(); });
-    sliderRate.addEventListener('input', e => { state.rate = parseFloat(e.target.value); updateUI(); });
-    sliderTerm.addEventListener('input', e => { state.term = parseInt(e.target.value); updateUI(); });
-    sliderLoanFee.addEventListener('input', e => { state.loanFeePct = parseFloat(e.target.value); updateUI(); });
-    sliderAcqCost.addEventListener('input', e => { state.acqCostPct = parseFloat(e.target.value); updateUI(); });
-    sliderVacancy.addEventListener('input', e => { state.vacancyPct = parseFloat(e.target.value); updateUI(); });
+function renderHeatmap() {
+  const tbody = $('heatmapBody');
+  tbody.innerHTML = '';
+  const testRates = [1.5, 2.0, 2.5, 3.0, 3.5];
+  const testLTVs = [60, 70, 80, 90, 100];
+  const P = state.price, n = state.term;
+  const baseGross = RENT_DATA[state.rentScenario].annual;
+  const noi = Math.round(baseGross * (1 - state.vacancyPct / 100) + TEPCO_INCOME) - ANNUAL_OPEX;
 
-    // Initial Launch
-    window.addEventListener('DOMContentLoaded', () => {
+  testRates.forEach(rVal => {
+    const tr = document.createElement('tr');
+    const th = document.createElement('td');
+    th.className = 'p-2 text-left font-bold text-slate-800 bg-slate-50';
+    th.textContent = rVal.toFixed(1) + '%';
+    tr.appendChild(th);
+
+    testLTVs.forEach(ltvVal => {
+      const td = document.createElement('td');
+      td.className = 'p-2 font-mono font-bold transition';
+      const L = P * ltvVal / 100;
+      const eq = P + P * state.acqCostPct / 100 + L * state.loanFeePct / 100 - L;
+      const mRate = (rVal / 100) / 12, numPmt = n * 12;
+      const ads = L * (mRate * Math.pow(1 + mRate, numPmt)) / (Math.pow(1 + mRate, numPmt) - 1) * 12;
+      const ccr = ((noi - ads) / eq) * 100;
+      const dscr = noi / ads;
+
+      if (state.heatmapMetric === 'ccr') {
+        td.textContent = ccr.toFixed(1) + '%';
+        if (ccr >= 15)      td.classList.add('bg-emerald-100', 'text-emerald-800');
+        else if (ccr >= 10) td.classList.add('bg-sky-100', 'text-sky-800');
+        else if (ccr >= 5)  td.classList.add('bg-amber-100', 'text-amber-800');
+        else                td.classList.add('bg-rose-100', 'text-rose-800');
+      } else {
+        td.textContent = dscr.toFixed(2);
+        if (dscr >= 1.5)       td.classList.add('bg-emerald-100', 'text-emerald-800');
+        else if (dscr >= 1.3)  td.classList.add('bg-sky-100', 'text-sky-800');
+        else if (dscr >= 1.15) td.classList.add('bg-amber-100', 'text-amber-800');
+        else                   td.classList.add('bg-rose-100', 'text-rose-800');
+      }
+      if (Math.abs(rVal - state.rate) <= 0.25 && ltvVal === state.ltv) {
+        td.classList.add('ring-2', 'ring-indigo-600', 'font-black');
+      }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   4. CONTENT RENDERERS (language-pure)
+   ═══════════════════════════════════════════════════════════ */
+const ACCENT = {
+  emerald: { pill: 'bg-emerald-100 text-emerald-800', star: 'text-emerald-700' },
+  sky:     { pill: 'bg-sky-100 text-sky-800',         star: 'text-sky-700' },
+  indigo:  { pill: 'bg-indigo-100 text-indigo-800',   star: 'text-indigo-700' },
+  teal:    { pill: 'bg-teal-100 text-teal-800',       star: 'text-teal-700' },
+  amber:   { pill: 'bg-amber-100 text-amber-800',     star: 'text-amber-700' },
+  purple:  { pill: 'bg-purple-100 text-purple-800',   star: 'text-purple-700' }
+};
+
+function renderDocCards() {
+  const grid = $('docCardsGrid');
+  grid.innerHTML = '';
+  DOC_CARDS.forEach(card => {
+    const c = card[state.lang];
+    const a = ACCENT[card.accent];
+    const rows = c.rows.map(([k, v]) =>
+      `<div class="flex justify-between gap-3"><span class="text-slate-500 shrink-0">${k}</span><span class="font-semibold text-slate-800 text-right">${v}</span></div>`
+    ).join('');
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="border border-slate-200 rounded-xl p-5 hover:border-sky-300 transition bg-gradient-to-b from-white to-slate-50/50 shadow-sm">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <span class="px-2 py-0.5 text-xs font-bold rounded ${a.pill}">${c.pill}</span>
+          <span class="text-xs text-slate-400">${c.ref}</span>
+        </div>
+        <h3 class="text-sm font-bold text-slate-900 mb-1.5">${c.title}</h3>
+        <p class="text-xs text-slate-600 mb-3 leading-relaxed">${c.desc}</p>
+        <div class="space-y-1.5 text-xs bg-white p-3 rounded-lg border border-slate-100">${rows}</div>
+        <div class="mt-3 text-[11px] font-medium leading-relaxed ${a.star}">${c.star}</div>
+      </div>`);
+  });
+}
+
+function renderMatrix() {
+  const tbody = $('matrixBody');
+  tbody.innerHTML = '';
+  MATRIX_ROWS.forEach(row => {
+    const c = row[state.lang];
+    const cells = c.cells.map(cell => {
+      const danger = cell.danger ? ' bg-rose-100/70 border-2 border-rose-400' : '';
+      const vClass = cell.danger ? 'font-bold text-rose-700' : (row.cellClass || 'font-bold text-slate-800');
+      const subClass = cell.danger ? 'text-[10px] text-rose-600 font-medium' : 'text-[10px] text-slate-500';
+      const tag = cell.tag ? `<br><span class="inline-block mt-1 px-1.5 py-0.5 ${cell.tagClass} font-bold text-[10px] rounded">${cell.tag}</span>` : '';
+      return `<td class="p-3${danger}"><span class="${vClass}">${cell.v}</span><br><span class="${subClass}">${cell.sub}</span>${tag}</td>`;
+    }).join('');
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr class="${row.style}">
+        <td class="p-3 text-left ${row.labelClass}">${c.label}<br>
+          <span class="text-[10px] font-normal ${c.subClass || 'text-slate-500'}">${c.sub}</span>
+        </td>${cells}
+      </tr>`);
+  });
+}
+
+function renderRentRoll() {
+  const tbody = $('rentRollBody');
+  tbody.innerHTML = '';
+  RENT_ROLL.forEach(u => {
+    const c = u[state.lang];
+    let rowClass = 'hover:bg-slate-50';
+    let unitClass = 'font-bold', rentClass = 'font-mono font-medium', noteClass = 'text-slate-600';
+    if (u.highlight === 'sky')     { rowClass = 'bg-sky-50/50 hover:bg-sky-50'; unitClass = 'font-bold text-sky-800'; rentClass = 'font-mono font-bold text-sky-900'; noteClass = 'text-sky-900 font-medium'; }
+    if (u.highlight === 'emerald') { rowClass = 'bg-emerald-50/50 hover:bg-emerald-50'; unitClass = 'font-bold text-emerald-800'; rentClass = 'font-mono font-bold text-emerald-900'; noteClass = 'text-emerald-900 font-medium'; }
+    if (u.highlight === 'rose')    { rowClass = 'bg-rose-50 hover:bg-rose-100/70 border-2 border-rose-400'; unitClass = 'font-bold text-rose-700'; rentClass = 'font-mono font-bold text-rose-700'; noteClass = 'text-rose-700 font-bold'; }
+
+    const gapText = c.gapText || ('+¥' + u.gap.toLocaleString());
+    const gapClass = u.gap > 0 ? 'text-emerald-600' : (u.gap < 0 ? 'text-rose-600' : 'text-slate-400');
+    const tenureClass = u.longTerm ? 'font-bold text-purple-700' : '';
+    const startVal = c.start || u.start;
+    const startClass = u.highlight === 'rose' ? 'text-rose-600 font-bold' : '';
+
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr class="${rowClass}">
+        <td class="p-2.5 text-center ${unitClass}">${u.unit}</td>
+        <td class="p-2.5 text-center">${u.floor}</td>
+        <td class="p-2.5 text-right ${rentClass}">¥${u.rent.toLocaleString()}</td>
+        <td class="p-2.5 text-right font-mono">¥${u.fee.toLocaleString()}</td>
+        <td class="p-2.5 text-center ${startClass}">${startVal}</td>
+        <td class="p-2.5 text-center ${tenureClass}">${c.tenure}</td>
+        <td class="p-2.5 text-center font-medium">${u.dom}${typeof u.dom === 'number' ? t().unit_days : ''}</td>
+        <td class="p-2.5 text-right font-bold ${gapClass}">${gapText}</td>
+        <td class="p-2.5 ${noteClass}">${c.note}</td>
+      </tr>`);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   5. LANGUAGE SWITCHER
+   ═══════════════════════════════════════════════════════════ */
+function setLanguage(lang) {
+  state.lang = lang;
+  const d = T[lang];
+
+  document.documentElement.lang = lang;
+  document.title = d.docTitle;
+
+  const on  = 'px-3 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm transition';
+  const off = 'px-3 py-1 text-xs font-semibold rounded-md text-slate-300 hover:text-white transition';
+  $('langKO').className = lang === 'ko' ? on : off;
+  $('langJA').className = lang === 'ja' ? on : off;
+
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    const val = d[key];
+    if (typeof val === 'string') el.textContent = val;
+  });
+
+  renderDocCards();
+  renderMatrix();
+  renderRentRoll();
+  refreshScenarioButtons();
+  refreshPresetButtons();
+  updateUI();
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. CONTROLS
+   ═══════════════════════════════════════════════════════════ */
+function refreshScenarioButtons() {
+  const base = 'p-2 text-xs rounded-lg border border-slate-200 bg-white font-medium hover:border-sky-500 text-left transition';
+  const sel  = 'p-2 text-xs rounded-lg border-2 border-sky-600 bg-sky-50/50 font-medium text-left transition';
+  const selG = 'p-2 text-xs rounded-lg border-2 border-emerald-600 bg-emerald-50/50 font-medium text-left transition';
+  $('btnRentCurrent').className = state.rentScenario === 'current' ? sel : base;
+  $('btnRentFull').className    = state.rentScenario === 'full'    ? sel : base;
+  $('btnRentUpside').className  = state.rentScenario === 'upside'  ? selG : base;
+}
+
+function refreshPresetButtons() {
+  const on  = 'px-2.5 py-1 text-xs rounded bg-sky-600 hover:bg-sky-500 text-white font-medium transition';
+  const off = 'px-2.5 py-1 text-xs rounded bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium transition';
+  $('presetA').className = state.price === 88000000  ? on : off;
+  $('presetB').className = state.price === 100000000 ? on : off;
+  $('presetC').className = state.price === 123000000 ? on : off;
+}
+
+function setPricePreset(v) {
+  $('sliderPrice').value = v;
+  state.price = v;
+  refreshPresetButtons();
+  updateUI();
+}
+
+function setRentScenario(s) {
+  state.rentScenario = s;
+  refreshScenarioButtons();
+  updateUI();
+}
+
+function toggleHeatmapMetric(metric) {
+  state.heatmapMetric = metric;
+  const on  = 'px-2 py-0.5 rounded bg-sky-600 text-white font-medium';
+  const off = 'px-2 py-0.5 rounded text-slate-600 font-medium';
+  $('btnHeatCCR').className  = metric === 'ccr'  ? on : off;
+  $('btnHeatDSCR').className = metric === 'dscr' ? on : off;
+  renderHeatmap();
+}
+
+['sliderPrice','sliderLTV','sliderRate','sliderTerm','sliderLoanFee','sliderAcqCost','sliderVacancy']
+  .forEach(id => {
+    document.getElementById(id).addEventListener('input', e => {
+      const v = parseFloat(e.target.value);
+      if (id === 'sliderPrice')        { state.price = v; refreshPresetButtons(); }
+      else if (id === 'sliderLTV')     state.ltv = v;
+      else if (id === 'sliderRate')    state.rate = v;
+      else if (id === 'sliderTerm')    state.term = v;
+      else if (id === 'sliderLoanFee') state.loanFeePct = v;
+      else if (id === 'sliderAcqCost') state.acqCostPct = v;
+      else if (id === 'sliderVacancy') state.vacancyPct = v;
       updateUI();
     });
-  </script>
+  });
+
+window.addEventListener('DOMContentLoaded', () => {
+  toggleHeatmapMetric('ccr');
+  setLanguage('ko');
+});
+</script>
 </body>
 </html>
