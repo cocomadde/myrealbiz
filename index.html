@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyRealBiz | 부동산 투자 분석 포트폴리오</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-amber-500/20">
+          M
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-white">MyReal<span class="text-amber-400">Biz</span></span>
+          <span class="text-xs text-slate-400 ml-2 px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Portfolio</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/cocomadde/myrealbiz" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center space-x-1.5 transition">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-medium mb-4">
+        <span>🏢 일본 수익형 부동산 정밀 투자 실사 & 시뮬레이션 허브</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        수익형 부동산 분석 <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">포트폴리오</span>
+      </h1>
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        철저한 공문서(검사필증, 대지경계, 소방/수질) 실사와 실시간 금융 융자 시뮬레이터를 탑재한 물건별 정밀 투자 분석 플랫폼입니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Property Cards Grid -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center space-x-2">
+          <span>분석 검토 물건 목록</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">1 Active</span>
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">각 물건별 독립 서브디렉토리로 시뮬레이터 및 정밀 실사 리포트가 연결됩니다.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Card 1: Foresta Hills -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  실사 완료 · 적격
+                </span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+                  RC조 14세대
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition">
+                포레스타 힐즈 <span class="text-slate-400 text-base font-normal">(Foresta Hills)</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-center">
+                <svg class="w-3.5 h-3.5 mr-1 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                일본 지바현 야치요시 (八千代市) 요나모토 · 토요소쿠선 야치요츄오역
+              </p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-500 block">매매 희망가</span>
+              <span class="text-2xl font-extrabold text-amber-400 font-mono">¥8,700만</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1">표면 수익률</span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">10.36%</span>
+              <span class="text-[10px] text-slate-500 block">만실 연 ¥901.2만</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1">실질 순수익률(NOI)</span>
+              <span class="text-lg font-bold text-indigo-300 font-mono">8.25%</span>
+              <span class="text-[10px] text-slate-500 block">연 ¥717.8만</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1">실사 적격성</span>
+              <span class="text-lg font-bold text-emerald-300 font-mono">100%</span>
+              <span class="text-[10px] text-slate-500 block">검사필증·소방 완비</span>
+            </div>
+          </div>
+
+          <!-- Highlight Bullets -->
+          <ul class="text-xs text-slate-300 space-y-1.5 border-t border-slate-800 pt-4">
+            <li class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span><strong>준공검사필증 확인</strong>: H13確済 第00313호 (2001년 8월 준공), 1금융권 담보대출 100% 적격</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span><strong>실시간 융자 시뮬레이터</strong>: LTV, 금리, 기간 변경에 따른 월 Cash Flow 및 레버리지 즉시 산출</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span><strong>공실/회전 정밀 실사</strong>: 역사적 회전율 5.32% 반영 및 가격·계절성 2차원 교차 매트릭스 탑재</span>
+            </li>
+          </ul>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <a href="./foresthills/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center space-x-2">
+              <span>🚀 시뮬레이터 & 웹 대시보드 열기</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./foresthills/Foresta_Hills_Investment_Report_KO.md" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition">
+              종합 보고서 (MD)
+            </a>
+          </div>
+
+          <!-- Document Downloads -->
+          <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+            <span>정밀 PDF 보고서 다운로드:</span>
+            <div class="flex space-x-2">
+              <a href="./foresthills/Foresta_Hills_Vacancy_Turnover_Analysis_KO.pdf" download class="text-indigo-400 hover:text-indigo-300 underline font-medium">한국어 PDF</a>
+              <span class="text-slate-600">|</span>
+              <a href="./foresthills/Foresta_Hills_Vacancy_Turnover_Analysis_JA.pdf" download class="text-indigo-400 hover:text-indigo-300 underline font-medium">日本語 PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Placeholder for Future Properties -->
+      <div class="rounded-2xl border-2 border-dashed border-slate-800/80 bg-slate-900/20 p-8 flex flex-col items-center justify-center text-center group hover:border-slate-700 transition-colors">
+        <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-500 mb-4 group-hover:text-amber-400 group-hover:border-amber-500/40 transition">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-300 mb-1">차기 물건 추가 대기 중</h3>
+        <p class="text-xs text-slate-500 max-w-sm mb-4">
+          새로운 매물이 들어오면 <code class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">/물건명</code> 서브디렉토리를 생성하여 독립 리포트 및 시뮬레이터를 연속으로 확장할 수 있습니다.
+        </p>
+        <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">
+          Folder: /property-name/
+        </span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      MyRealBiz Portfolio &copy; 2026. Managed by cocomadde. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
