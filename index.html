@@ -111,7 +111,7 @@
               <span data-t="p1_cta"></span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="./foresthills/Foresta_Hills_Investment_Report_KO.md" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p1_report"></a>
+            <a href="./foresthills/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p1_report"></a>
           </div>
 
           <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
@@ -169,7 +169,7 @@ const T = {
     p1_b2: "<strong>실시간 융자 시뮬레이터</strong> — LTV·금리·기간·제비용 변경에 따른 월 현금흐름과 레버리지 판정을 즉시 산출.",
     p1_b3: "<strong>공실·회전율 정밀 실사</strong> — 실적 회전 공실률 5.32% 반영, 가격 × 모집시기 2차원 DOM 매트릭스 탑재.",
     p1_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
-    p1_report: "종합 보고서 (MD)",
+    p1_report: "📑 종합 분석 보고서",
     p1_dl_label: "정밀 PDF 보고서 다운로드:",
 
     ph_title: "차기 물건 추가 대기 중",
@@ -200,7 +200,7 @@ const T = {
     p1_b2: "<strong>リアルタイム融資シミュレーター</strong> — LTV・金利・期間・諸費用の変更に応じた月次CFとレバレッジ判定を即時算出。",
     p1_b3: "<strong>空室・回転率の精密実査</strong> — 実績回転空室率5.32%を反映し、賃料 × 募集時期の2次元DOMマトリクスを搭載。",
     p1_cta: "🚀 シミュレーター & ダッシュボードを開く",
-    p1_report: "総合レポート (MD)",
+    p1_report: "📑 総合分析レポート",
     p1_dl_label: "精密PDFレポートのダウンロード:",
 
     ph_title: "次の物件を追加待機中",
@@ -222,9 +222,6 @@ function setLang(lang) {
     const v = d[el.getAttribute('data-t')];
     if (typeof v === 'string') el.innerHTML = v;
   });
-
-  const report = document.querySelector('a[href*="Investment_Report"]');
-  if (report) report.setAttribute('href', './foresthills/Foresta_Hills_Investment_Report_KO.md');
 }
 
 window.addEventListener('DOMContentLoaded', () => setLang('ko'));
