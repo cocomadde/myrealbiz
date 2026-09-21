@@ -10,9 +10,9 @@ Handles the constructs actually used by the report:
   nested bullet/ordered lists, fenced code (mermaid + plain), thematic breaks,
   bold/italic/inline-code/links, and $inline$ / $$display$$ math.
 """
+import argparse
 import html
 import re
-import sys
 import pathlib
 
 # ── Raw inline HTML the source document is allowed to emit verbatim ──────────
@@ -543,8 +543,8 @@ tbody tr.total-row td {{
     <div class="brand">
       <div class="brand-badge">📑</div>
       <div class="brand-text">
-        <div class="brand-title">포레스타 힐즈 종합 투자분석 보고서</div>
-        <div class="brand-sub">카나가와현 아츠기시 · RC조 4층 14세대 · 2026.09.20</div>
+        <div class="brand-title">{brand_title}</div>
+        <div class="brand-sub">{brand_sub}</div>
       </div>
     </div>
     <div class="tools">
@@ -640,15 +640,32 @@ targets.forEach(t => spy.observe(t));
 
 
 def main():
-    src = pathlib.Path(sys.argv[1])
-    dst = pathlib.Path(sys.argv[2])
+    parser = argparse.ArgumentParser(
+        description='Convert a property investment report markdown file into a '
+        'styled, self-contained HTML reading page.')
+    parser.add_argument('source', help='input markdown file')
+    parser.add_argument('dest', help='output html file')
+    parser.add_argument(
+        '--title',
+        default='종합 투자분석 보고서',
+        help='report title shown in the sticky header and browser tab')
+    parser.add_argument(
+        '--subtitle',
+        default='MyRealBiz 부동산 투자 분석 아카이브',
+        help='one-line property summary shown under the title')
+    args = parser.parse_args()
+
+    src = pathlib.Path(args.source)
+    dst = pathlib.Path(args.dest)
 
     md = src.read_text(encoding='utf-8')
     body, toc = convert(md)
 
     dst.write_text(
         TEMPLATE.format(
-            title='포레스타 힐즈 종합 투자분석 보고서 | MyRealBiz',
+            title=f'{args.title} | MyRealBiz',
+            brand_title=args.title,
+            brand_sub=args.subtitle,
             toc=build_toc(toc),
             body=body),
         encoding='utf-8')

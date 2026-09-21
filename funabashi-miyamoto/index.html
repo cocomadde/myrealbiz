@@ -41,6 +41,10 @@
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span data-t="btnBackHub"></span>
         </a>
+        <a href="./report.html" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-sky-600 hover:bg-sky-500 text-white border border-sky-500 flex items-center space-x-1 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span data-t="btnReport"></span>
+        </a>
         <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
           <button id="langKO" onclick="setLanguage('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
           <button id="langJA" onclick="setLanguage('ja')" class="px-3 py-1 text-xs font-semibold rounded-md transition">日本語</button>
@@ -100,8 +104,8 @@
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_access_l"></span><span class="font-semibold text-right" data-t="ov_access_v"></span></div>
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_struct_l"></span><span class="font-semibold text-right" data-t="ov_struct_v"></span></div>
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_built_l"></span><span class="font-semibold text-right" data-t="ov_built_v"></span></div>
-        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_land_l"></span><span class="font-semibold text-right">107.80㎡ (32.60坪)</span></div>
-        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_floor_l"></span><span class="font-semibold text-right">200.61㎡ (60.68坪)</span></div>
+        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_land_l"></span><span class="font-semibold text-right" data-t="ov_land_v"></span></div>
+        <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_floor_l"></span><span class="font-semibold text-right" data-t="ov_floor_v"></span></div>
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_far_l"></span><span class="font-semibold text-right">157.94% / 160% (98.7%)</span></div>
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_zone_l"></span><span class="font-semibold text-right" data-t="ov_zone_v"></span></div>
         <div class="flex justify-between border-b border-slate-100 pb-2"><span class="text-slate-500" data-t="ov_deal_l"></span><span class="font-semibold text-right" data-t="ov_deal_v"></span></div>
@@ -137,7 +141,7 @@
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label class="text-sm font-semibold text-slate-700" data-t="sim_term"></label>
-              <span class="text-sm font-black text-sky-600 font-mono" id="valTerm">25년</span>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valTerm">25</span>
             </div>
             <input type="range" id="inTerm" min="10" max="35" step="1" value="25" class="w-full">
             <div class="text-xs text-amber-600 mt-1 font-medium" data-t="sim_term_note"></div>
@@ -389,6 +393,7 @@ const T = {
     badgeNew: "신축 · 2024.12 준공예정",
     headerSubtitle: "목조 3층 · 1K/1R 9세대 · JR 후나바시역 도보 8~9분",
     btnBackHub: "포트폴리오 허브",
+    btnReport: "📑 종합 보고서",
     btnPrint: "인쇄 / PDF",
 
     hero_price: "매매가격",
@@ -408,6 +413,7 @@ const T = {
     ov_struct_l: "구조 · 규모", ov_struct_v: "목조 3층 준방화 · 9세대 (1R 3 / 1K 6)",
     ov_built_l: "준공 · 성능", ov_built_v: "2024.12 준공예정 · 열화등급 3급",
     ov_land_l: "토지 면적", ov_floor_l: "연면적",
+    ov_land_v: "107.80㎡ (32.60평)", ov_floor_v: "200.61㎡ (60.68평)",
     ov_far_l: "용적률 (실적 / 법정)", ov_zone_l: "용도지역",
     ov_zone_v: "제2종 주거지역 · 준방화지역",
     ov_deal_l: "거래 형태", ov_deal_v: "매도자 직판 (중개수수료 무료)",
@@ -467,7 +473,8 @@ const T = {
     verdictDanger: "🚨 위험 구간",
     verdictDangerDesc: "NOI가 원리금상환액을 하회하여 매월 자기자금을 투입해야 하는 역마진 구조입니다. 해당 조건으로는 매입을 보류해야 합니다.",
     chartLabel1: "순영업소득 (NOI)", chartLabel2: "원리금상환 (ADS)", chartLabel3: "세전 캐시플로",
-    unitYear: "년", unitRoom: "실"
+    unitYear: "년", unitRoom: "실", unitMan: "만",
+    lbl_loanAmount: "융자액"
   },
   ja: {
     docTitle: "船橋市宮本1丁目 共同住宅 投資分析 & 融資シミュレーター",
@@ -475,6 +482,7 @@ const T = {
     badgeNew: "新築 ・ 2024.12 竣工予定",
     headerSubtitle: "木造3階 ・ 1K/1R 9戸 ・ JR船橋駅 徒歩8~9分",
     btnBackHub: "ポートフォリオ",
+    btnReport: "📑 総合レポート",
     btnPrint: "印刷 / PDF",
 
     hero_price: "物件価格",
@@ -494,6 +502,7 @@ const T = {
     ov_struct_l: "構造 ・ 規模", ov_struct_v: "木造3階 準防火 ・ 9戸 (1R3 / 1K6)",
     ov_built_l: "竣工 ・ 性能", ov_built_v: "2024.12竣工予定 ・ 劣化等級3級",
     ov_land_l: "土地面積", ov_floor_l: "延床面積",
+    ov_land_v: "107.80㎡ (32.60坪)", ov_floor_v: "200.61㎡ (60.68坪)",
     ov_far_l: "容積率 (実績 / 法定)", ov_zone_l: "用途地域",
     ov_zone_v: "第二種住居地域 ・ 準防火地域",
     ov_deal_l: "取引形態", ov_deal_v: "売主直販 (仲介手数料無料)",
@@ -553,7 +562,8 @@ const T = {
     verdictDanger: "🚨 危険ゾーン",
     verdictDangerDesc: "NOIが元利返済額を下回り、毎月自己資金を投入する逆ざや構造です。この条件での購入は見送るべきです。",
     chartLabel1: "純営業収益 (NOI)", chartLabel2: "元利返済 (ADS)", chartLabel3: "税引前CF",
-    unitYear: "年", unitRoom: "戸"
+    unitYear: "年", unitRoom: "戸", unitMan: "万",
+    lbl_loanAmount: "融資額"
   }
 };
 
@@ -596,7 +606,7 @@ function calculate() {
   const ccr = equity > 0 ? (cf / equity) * 100 : 0;
   const capRate = (noi / PRICE) * 100;
 
-  document.getElementById('loanAmountLabel').textContent = '융자액 / 融資額: ' + yen(loan);
+  document.getElementById('loanAmountLabel').textContent = d.lbl_loanAmount + ': ' + yen(loan);
   document.getElementById('occUnitsLabel').textContent =
     (currentLang === 'ko' ? '입주 ' : '入居 ') + (UNITS * occ / 100).toFixed(1) + ' / ' + UNITS + d.unitRoom;
 
@@ -608,7 +618,7 @@ function calculate() {
   document.getElementById('outCF').textContent = (cf >= 0 ? '+' : '') + yen(cf);
   document.getElementById('outDSCR').textContent = dscr.toFixed(2);
   document.getElementById('outBE').textContent = be.toFixed(1) + '%';
-  document.getElementById('outEquity').textContent = (equity / 10000).toLocaleString('en-US', {maximumFractionDigits: 0}) + '만';
+  document.getElementById('outEquity').textContent = (equity / 10000).toLocaleString('en-US', {maximumFractionDigits: 0}) + d.unitMan;
   document.getElementById('outCCR').textContent = ccr.toFixed(2) + '%';
 
   // Hero cards sync
@@ -689,7 +699,7 @@ function drawChart(noi, ads, cf) {
         tooltip: { callbacks: { label: (c) => '¥' + c.raw.toLocaleString('en-US') } }
       },
       scales: {
-        y: { ticks: { callback: (v) => (v / 10000).toLocaleString('en-US') + '만' }, grid: { color: '#f1f5f9' } },
+        y: { ticks: { callback: (v) => (v / 10000).toLocaleString('en-US') + T[currentLang].unitMan }, grid: { color: '#f1f5f9' } },
         x: { grid: { display: false } }
       }
     }
