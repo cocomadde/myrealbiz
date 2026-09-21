@@ -52,12 +52,12 @@
     <div class="mb-8">
       <h2 class="text-xl font-bold text-white flex items-center gap-2">
         <span data-t="listTitle"></span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">2 Active</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">3 Active</span>
       </h2>
       <p class="text-xs text-slate-400 mt-1" data-t="listDesc"></p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
       <!-- Property Card: Foresta Hills -->
       <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
@@ -191,6 +191,72 @@
         </div>
       </div>
 
+      <!-- Property Card: Matsudo Kawaharazuka (Exceed Arrow) -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center flex-wrap gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p3_status"></span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p3_spec"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p3_name"></h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
+                <svg class="w-3.5 h-3.5 mt-0.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span data-t="p3_address"></span>
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-slate-500 block" data-t="p3_price_label"></span>
+              <span class="text-2xl font-extrabold text-amber-400" data-t="p3_price"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between gap-6">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p3_m1_label"></span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">7.08%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p3_m1_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p3_m2_label"></span>
+              <span class="text-lg font-bold text-sky-400 font-mono">5.55%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p3_m2_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p3_m3_label"></span>
+              <span class="text-lg font-bold text-amber-300 font-mono">90.8%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p3_m3_sub"></span>
+            </div>
+          </div>
+
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p3_b1"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p3_b2"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p3_b3"></span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="./matsudo-kawaharazuka/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+              <span data-t="p3_cta"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./matsudo-kawaharazuka/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p3_report_html"></a>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span data-t="p3_dl_label"></span>
+            <div class="flex items-center gap-2">
+              <a href="./matsudo-kawaharazuka/README.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium" data-t="p3_dl_readme"></a>
+              <span class="text-slate-600">|</span>
+              <a href="./matsudo-kawaharazuka/metrics.json" class="text-indigo-400 hover:text-indigo-300 underline font-medium">metrics.json</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Placeholder -->
       <div class="rounded-2xl border-2 border-dashed border-slate-800/80 bg-slate-900/20 p-8 flex flex-col items-center justify-center text-center group hover:border-slate-700 transition-colors">
         <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-500 mb-4 group-hover:text-amber-400 group-hover:border-amber-500/40 transition">
@@ -258,6 +324,25 @@ const T = {
     p2_dl_label: "부속 자료:",
     p2_dl_readme: "물건 요약 (README)",
 
+    p3_status: "분석 완료 · 매수 추천",
+    p3_spec: "철골조 2층 · 8세대 (2DK) + 주차 5대",
+    p3_name: "익시드 애로우 (Exceed Arrow)",
+    p3_address: "치바현 마츠도시 카와하라즈카 29-1 · JR 무사시노선 「신야하시라」역 도보 10분",
+    p3_price_label: "판매가격 (세금포함)",
+    p3_price: "9,400만 엔",
+    p3_m1_label: "만실 표면수익률",
+    p3_m1_sub: "만실 연 665.6만 엔",
+    p3_m2_label: "NOI 수익률 (Cap Rate)",
+    p3_m2_sub: "순영업소득 연 522.1만 엔",
+    p3_m3_label: "토지 가치 비중",
+    p3_m3_sub: "189.67평 양면 공도 접도",
+    p3_b1: "<strong>압도적 토지 담보력 (90.8%)</strong> — 189.67평 대형 토지로 실거래 토지가격(평당 45만 엔) 기준 약 8,535만 엔에 달해 원금 손실 위험 완벽 차단.",
+    p3_b2: "<strong>남북 양면 공도 & 저용적률(60.9%)</strong> — 남 5.6m + 북동 4.8m 공도 접도. 법정 200% 대비 소화율 30% 수준으로 장래 택지 분할 매각 또는 재건축 잠재력 탁월.",
+    p3_b3: "<strong>DSCR 1.29 & 법인 절세 시너지</strong> — 1실 공실 시에도 흑자 유지(손익분기 82.4%), 건물분 5년 단기 감가상각으로 연 약 45.7만 엔의 법인세 절감 가능.",
+    p3_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
+    p3_report_html: "웹 정밀 보고서 ↗",
+    p3_dl_label: "부속 자료:",
+    p3_dl_readme: "물건 요약 (README)",
     ph_title: "차기 물건 추가 대기 중",
     ph_desc: "새로운 매물이 들어오면 물건명 서브디렉토리를 생성하여 독립 보고서와 시뮬레이터를 연속 확장할 수 있습니다."
   },
@@ -309,6 +394,25 @@ const T = {
     p2_dl_label: "付属資料:",
     p2_dl_readme: "物件サマリー (README)",
 
+    p3_status: "分析完了 ・ 買い推奨",
+    p3_spec: "鉄骨造2階 ・ 8戸 (2DK) + 駐車場5台",
+    p3_name: "エクシードアロー (松戸市河原塚)",
+    p3_address: "千葉県松戸市河原塚29-1 · JR武蔵野線「新八柱」駅 徒歩10分",
+    p3_price_label: "販売価格 (税込)",
+    p3_price: "9,400万円",
+    p3_m1_label: "満室想定 表面利回り",
+    p3_m1_sub: "満室想定 年間665.6万円",
+    p3_m2_label: "NOI利回り (Cap Rate)",
+    p3_m2_sub: "純営業収益 年間522.1万円",
+    p3_m3_label: "土地値比率",
+    p3_m3_sub: "189.67坪 両面公道接道",
+    p3_b1: "<strong>圧倒的な土地担保力 (90.8%)</strong> — 189.67坪の大型土地で実勢土地価格(坪45万円)約8,535万円に達し元本毀損リスクを徹底遮断。",
+    p3_b2: "<strong>南北両面公道＆低容積率(60.9%)</strong> — 南5.6m+北東4.8m公道接道。法定200%に対し消化率30%水準で将来の分筆分譲や再建築余地が極めて大。",
+    p3_b3: "<strong>DSCR 1.29＆法人節税シナジー</strong> — 1戸空室でも黒字維持(損益分岐82.4%)、建物分5年短期償却で年約45.7万円の法人税圧縮が可能。",
+    p3_cta: "🚀 シミュレーター & ダッシュボードを開く",
+    p3_report_html: "WEB精密レポート ↗",
+    p3_dl_label: "付属資料:",
+    p3_dl_readme: "物件サマリー (README)",
     ph_title: "次の物件を追加待機中",
     ph_desc: "新しい物件が入り次第、物件名のサブディレクトリを作成し、独立したレポートとシミュレーターを継続的に拡張していくことができます。"
   }

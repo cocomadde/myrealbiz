@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "foresthills",
+    "name_ko": "포레스타 힐즈 (Foresta Hills)",
+    "name_ja": "フォレスタヒルズ",
+    "structure": "RC조 지상 4층",
+    "units": 14,
+    "location": "카나가와현 아츠기시 이이야마미나미 4초메",
+    "price": 123000000.0,
+    "price_display": "1억 2,300만 엔",
+    "gross_yield_pct": 8.6,
+    "cap_rate_pct": 6.35,
+    "assessed_value_ratio_pct": 100.0,
+    "verdict": "매수 추천",
+    "verdict_badge": "recommend",
+    "score": 26,
+    "max_score": 30,
+    "key_highlights": [
+      "준공검사필증 100% 완비 (일본 은행 융자 100% 적격)",
+      "RC 4층 14세대 우량 관리",
+      "실시간 융자 시뮬레이터 및 회전율 실사 완료"
+    ],
+    "report_ko": "./foresthills/Foresta_Hills_Investment_Report_KO.md",
+    "report_ja": "./foresthills/Foresta_Hills_Vacancy_Turnover_Analysis_JA.md",
+    "folder": "foresthills"
+  },
+  {
+    "slug": "funabashi-miyamoto",
+    "name_ko": "후나바시 미야모토 1초메 (Funabashi Miyamoto)",
+    "name_ja": "船橋市宮本1丁目",
+    "structure": "목조 3층",
+    "units": 9,
+    "location": "치바현 후나바시시 미야모토 1초메 29-3",
+    "price": 108500000.0,
+    "price_display": "1억 850만 엔",
+    "gross_yield_pct": 6.8,
+    "cap_rate_pct": 5.09,
+    "assessed_value_ratio_pct": 68.2,
+    "verdict": "조건부 검토",
+    "verdict_badge": "review",
+    "score": 21,
+    "max_score": 30,
+    "key_highlights": [
+      "JR 총부쾌속선 후나바시역 도보 8~9분 (도쿄역 25분)",
+      "열화경감등급 3급 취득으로 25~30년 장기융자 유치 가능",
+      "토지 선행 결제 및 저지대 침수 상정구역 주의"
+    ],
+    "report_ko": "./funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md",
+    "report_ja": "./funabashi-miyamoto/report.html",
+    "folder": "funabashi-miyamoto"
+  },
+  {
+    "slug": "matsudo-kawaharazuka",
+    "name_ko": "익시드 애로우 (Exceed Arrow)",
+    "name_ja": "エクシードアロー",
+    "structure": "철골조 지상 2층",
+    "units": 8,
+    "location": "치바현 마츠도시 카와하라즈카 29-1",
+    "price": 94000000.0,
+    "price_display": "9,400만 엔",
+    "gross_yield_pct": 7.08,
+    "cap_rate_pct": 5.55,
+    "assessed_value_ratio_pct": 90.8,
+    "verdict": "매수 추천",
+    "verdict_badge": "recommend",
+    "score": 24,
+    "max_score": 30,
+    "key_highlights": [
+      "토지 면적 189.67평(627㎡) · 판매가격 중 90.8%가 토지가격(압도적 담보력)",
+      "남북 양면 공도 접도(남 5.6m + 북동 4.8m) 및 저용적률(60.9% 소화)로 출구전략 탁월",
+      "JR 무사시노선 신야하시라역 도보 10분 더블역세권 · DSCR 1.29 흑자 안정성"
+    ],
+    "report_ko": "./matsudo-kawaharazuka/Matsudo_Kawaharazuka_Investment_Report_KO.md",
+    "report_ja": "./matsudo-kawaharazuka/Matsudo_Kawaharazuka_Investment_Report_JA.md",
+    "folder": "matsudo-kawaharazuka"
+  }
+]

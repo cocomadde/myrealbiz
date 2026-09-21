@@ -1,0 +1,129 @@
+{
+  "price": 94000000.0,
+  "total_units": 8,
+  "specs": {
+    "name_ko": "익시드 애로우 (Exceed Arrow)",
+    "name_ja": "エクシードアロー",
+    "address": "千葉県松戸市河原塚29-1",
+    "station": "JR武蔵野線 新八柱駅 徒歩10分 / 新京成線 八柱駅 徒歩10分",
+    "structure": "鉄骨造（公課証明書: 軽量鉄骨造 金属板葺 2階建）",
+    "land_area_sqm": 627.0,
+    "land_area_tsubo": 189.67,
+    "building_area_sqm": 381.6,
+    "building_area_tsubo": 115.43,
+    "built_date": "1994年3月4日",
+    "zoning": "第一種住居地域 (建ぺい率60% / 容積率200%)",
+    "road_access": "南側公道 約5.60m / 北東側公道 約4.76m (南北両面接道)",
+    "utilities": "井戸水(飲用水) / 公共下水 / プロパンガス / 駐車場5台"
+  },
+  "yields": {
+    "monthly_gross_income": 554700.0,
+    "monthly_pure_rent": 496000.0,
+    "monthly_common_fee": 58700.0,
+    "current_annual_income": 6656400.0,
+    "current_gross_yield_pct": 7.08,
+    "full_annual_income": 6656400.0,
+    "full_gross_yield_pct": 7.08,
+    "pure_rent_gross_yield_pct": 6.33,
+    "real_opex_annual": 1435629.0,
+    "real_opex_ratio_pct": 21.57,
+    "full_noi_annual": 5220771.0,
+    "full_cap_rate_pct": 5.55
+  },
+  "valuations_cost_approach": {
+    "고정자산세 평가 기준 (공과증명서 실측)": {
+      "unit_price_sqm": 60804,
+      "land_value": 38124108.0,
+      "building_value": 7032406.0,
+      "total_assessed_value": 45156514.0,
+      "value_to_price_ratio_pct": 48.038844680851064
+    },
+    "상속세 노선가 기준 (7만엔/㎡ + 건물잔존)": {
+      "unit_price_sqm": 70000,
+      "land_value": 43890000.0,
+      "building_value": 7032406.0,
+      "total_assessed_value": 50922406.0,
+      "value_to_price_ratio_pct": 54.17277234042553
+    },
+    "실거래 토지가격 기준 (평당 45만엔 토지 실세가)": {
+      "unit_price_sqm": 136125,
+      "land_value": 85351500.0,
+      "building_value": 7032406.0,
+      "total_assessed_value": 92383906.0,
+      "value_to_price_ratio_pct": 98.28075106382978
+    }
+  },
+  "debt_service": {
+    "loan_amount": 75200000.0,
+    "loan_ltv_pct": 80.0,
+    "loan_rate_pct": 2.5,
+    "loan_term_years": 25,
+    "monthly_pmt": 337360.0,
+    "ads_annual": 4048317.0,
+    "first_year_interest": 1854981.0,
+    "first_year_principal": 2193336.0,
+    "full_annual_cf": 1172454.0,
+    "dscr": 1.29,
+    "breakeven_occupancy_pct": 82.39,
+    "allowable_vacant_units": 1.41
+  },
+  "initial_investment": {
+    "down_payment": 18799999.999999996,
+    "acquisition_costs": 7892000.0,
+    "initial_total_equity": 26691999.999999996,
+    "ccr_pct": 4.39
+  },
+  "corporate_landing": {
+    "standalone": {
+      "price": 94000000.0,
+      "loan": 75200000.0,
+      "tax_land": 38124108.0,
+      "tax_bldg": 7032406.0,
+      "gross_income": 6323580.0,
+      "opex": 1435629.0,
+      "depr": 3760000.0,
+      "ads": 4048317.4083072757,
+      "interest": 1854981.3480634883,
+      "principal": 2193336.0602437877,
+      "pretax_profit": 756954.7303873021,
+      "pretax_cf": 839633.5916927243,
+      "tax": 189238.68259682553,
+      "posttax_cf": 650394.9090958987,
+      "debt_years": 17.4
+    },
+    "moabiz_current": {
+      "name": "モアビズ4期現在",
+      "name_ko": "모아비즈 4기현재",
+      "price": 267538767,
+      "loan": 240729467,
+      "tax_land": 71857096,
+      "tax_bldg": 41905687,
+      "tax_total": 113762783,
+      "gross_income": 16929000,
+      "opex": 2539350,
+      "depr": 7188563,
+      "ads": 12647749,
+      "interest": 8123958,
+      "principal": 4523791,
+      "pretax_profit": 3722450,
+      "pretax_cf": 1741901,
+      "pretax_cf_yield": 0.0065,
+      "tax": 930613,
+      "posttax_cf": 811289,
+      "posttax_cf_yield": 0.003,
+      "debt_years": 24.1,
+      "easy_cf": 811289,
+      "icr": 0.9,
+      "dscr": 1.5,
+      "ltv_tax": 2.6108,
+      "roi": 0.0383
+    },
+    "merged_landing": {
+      "loan": 315929467.0,
+      "pretax_profit": 4479404.730387302,
+      "est_tax": 1119851.1825968255,
+      "posttax_cf": 1461683.4090958987,
+      "debt_years": 22.1
+    }
+  }
+}

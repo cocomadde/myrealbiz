@@ -13,6 +13,8 @@ GitHub Pages 배포 후 다음 링크를 통해 웹 브라우저 및 모바일�
 - **[물건 1] 종합 투자분석 보고서**: `https://cocomadde.github.io/myrealbiz/foresthills/report.html`
 - **[물건 2] 후나바시 미야모토 1초메 대시보드**: `https://cocomadde.github.io/myrealbiz/funabashi-miyamoto/`
 - **[물건 2] 종합 투자분석 보고서**: `https://cocomadde.github.io/myrealbiz/funabashi-miyamoto/report.html`
+- **[물건 3] 익시드 애로우 (마츠도시 카와하라즈카) 대시보드**: `https://cocomadde.github.io/myrealbiz/matsudo-kawaharazuka/`
+- **[물건 3] 익시드 애로우 정밀 웹 보고서 (KO/JA)**: `https://cocomadde.github.io/myrealbiz/matsudo-kawaharazuka/report.html`
 
 ---
 
@@ -36,11 +38,19 @@ myrealbiz/
 │   ├── Foresta_Hills_Vacancy_Turnover_Analysis_KO.pdf # 인쇄용 공실/회전율 분석 PDF (KO)
 │   └── Foresta_Hills_Vacancy_Turnover_Analysis_JA.pdf # 印刷用 空室・回転率分析 PDF (JA)
 │
-└── funabashi-miyamoto/                  # [물건 2] 치바현 후나바시시 미야모토 1초메 (목조 신축 9세대)
+├── funabashi-miyamoto/                  # [물건 2] 치바현 후나바시시 미야모토 1초메 (목조 신축 9세대)
+│   ├── index.html                       # 실시간 융자 시뮬레이터 & 웹 대시보드 (SPA, KO/JA)
+│   ├── report.html                      # 종합 정밀 투자분석 웹 보고서
+│   ├── README.md                        # 물건 상세 개요 및 지표 요약
+│   ├── Funabashi_Miyamoto_Investment_Report_KO.md    # 종합 투자분석 실사 보고서 (한국어)
+│   └── metrics.json                     # 정량 재무 모델링 계산 결과 원본
+│
+└── matsudo-kawaharazuka/                # [물건 3] 치바현 마츠도시 카와하라즈카 (철골조 8세대 + 주차장 5대 · 토지 189.67평)
     ├── index.html                       # 실시간 융자 시뮬레이터 & 웹 대시보드 (SPA, KO/JA)
-    ├── report.html                      # 종합 투자분석 보고서 웹 열람판 (목차·차트·수식)
+    ├── report.html                      # 종합 정밀 투자분석 웹 보고서 (KO/JA 통합)
     ├── README.md                        # 물건 상세 개요 및 지표 요약
-    ├── Funabashi_Miyamoto_Investment_Report_KO.md    # 종합 투자분석 실사 보고서 (한국어)
+    ├── Matsudo_Kawaharazuka_Investment_Report_KO.md # 종합 투자분석 실사 보고서 (한국어)
+    ├── Matsudo_Kawaharazuka_Investment_Report_JA.md # 精密投資分析実査レポート (日本語)
     └── metrics.json                     # 정량 재무 모델링 계산 결과 원본
 ```
 
@@ -83,6 +93,24 @@ myrealbiz/
   4. **⚠️ 손익분기 가동률 91.0%**: 9세대 중 1세대 공실 시 즉시 현금흐름 역마진 (허용 공실 0.81실).
   5. **⚠️ 에비가와 저지대 침수**: 표고 2.0~3.6m, 0.5~3.0m 홍수 침수 상정구역 + 도쿄만 고조 영향권 + 액상화 가능성.
 - **종합 판정**: **21/30점 · 조건부 매수 (Conditional BUY)** — 25년 이상 융자 승인 + 검사필증 특약 + 1억 300만 엔 수준 가격 절충 시 추진 권고.
+
+---
+
+## 🏢 등록 물건 3: 익시드 애로우 (Exceed Arrow / エクシードアロー)
+
+- **소재지**: 일본 치바현 마츠도시 카와하라즈카 29-1 외 3필지 (計 4필지) / JR 무사시노선 「신야하시라」역 도보 10분 · 신경성선 「야하시라」역 도보 10분
+- **구조/규모**: 철골조 지상 2층건 (공과: 경량철골조) / 8세대 (전실 2DK 45.00~47.88㎡) + 부지 내 지상 주차장 5대
+- **준공일**: 1994년 3월 4일 (만 32년 경과)
+- **토지/연면적**: 토지 627.00㎡ (189.67평) · 연면적 381.60㎡ (115.43평)
+- **접도 조건**: **남측 공도 5.60m + 북동측 공도 4.76m (남북 양면 접도)**
+- **판매가격**: **9,400만 엔** (표면 수익률 **7.08%**, 실질 NOI 수익률 **5.55%**)
+- **핵심 실사 결과**:
+  1. **압도적인 토지 담보력 (토지값 비중 90.8%)**: 189.67평 대형 대지로 인근 실거래가(평당 45만 엔) 기준 토지값만 약 8,535만 엔에 달해 원금 손실 위험 완벽 차단.
+  2. **남북 양면 공도 & 초저용적률(60.9%)**: 법정 200% 대비 30% 수준만 소화 중으로 향후 택지 4~5필지 분할 매각 또는 3~4층 공동주택 재건축 개발 잠재력 탁월.
+  3. **DSCR 1.29배 & 손익분기 82.4%**: LTV 80% 25년 융자 시 연간 세전 CF +117.2만 엔(월 9.76만 엔) 창출, 1실 공실 시에도 흑자 유지.
+  4. **법인 5년 단기 감가상각 절세**: 건물분(약 1,880만 엔) 5년 단기 상각(연 약 376만 엔)으로 기존 법인세 연 약 45.7만 엔 절감 가능.
+  5. **⚠️ 사전 실사 필수**: 음용수 자가 우물물(井戸水) 펌프 수질 및 공공상수도 인입 공사비 확인, 경계 비명시 조건에 따른 경계표 확인 및 측량도 협상.
+- **종합 판정**: **24/30점 · 적극 매수 추천 (BUY / Recommended)** — 토지 담보력 기반 하방 안전성과 법인 절세 현금흐름이 결합된 우량 자산.
 
 ---
 

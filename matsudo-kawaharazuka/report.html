@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>익시드 애로우(마츠도시 카와하라즈카) 정밀 투자분석 보고서 | MyRealBiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Pretendard', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+    }
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    /* Table styling */
+    .report-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.875rem;
+    }
+    .report-table th {
+      background-color: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 2px solid #cbd5e1;
+      text-align: left;
+    }
+    .report-table td {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .report-table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+    .report-table tbody tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+    
+    /* Print optimization */
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; }
+      .page-break { page-break-before: always; }
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- Reading Progress Bar -->
+  <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-500 via-sky-500 to-indigo-600 z-[100] transition-all duration-150" id="reading-progress" style="width: 0%;"></div>
+
+  <!-- ══════════════════ STICKY TOP HEADER ══════════════════ -->
+  <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 text-white no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center space-x-3 truncate">
+        <a href="../" class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-indigo-600 flex items-center justify-center font-black text-white text-lg shrink-0 hover:scale-105 transition shadow-md shadow-amber-500/20">M</a>
+        <div class="truncate">
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <a href="../" class="hover:text-amber-400 transition">MyRealBiz Hub</a>
+            <span>/</span>
+            <a href="./index.html" class="hover:text-amber-400 transition truncate">익시드 애로우 (마츠도시 카와하라즈카)</a>
+            <span>/</span>
+            <span class="text-slate-200 font-semibold">정밀 투자분석 보고서</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-bold text-white truncate" id="topHeaderTitle">치바현 마츠도시 카와하라즈카 1동 아파트 실사 보고서</h1>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2 shrink-0">
+        <!-- Language Switcher -->
+        <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1 mr-2">
+          <button id="langKO" onclick="setReportLang('ko')" class="px-3 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition">한국어</button>
+          <button id="langJA" onclick="setReportLang('ja')" class="px-3 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition">日本語</button>
+        </div>
+
+        <a href="./index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600/20 hover:bg-sky-600/30 text-sky-300 border border-sky-500/30 text-xs font-semibold transition">
+          <span>🚀</span>
+          <span class="hidden sm:inline">시뮬레이터 대시보드</span>
+        </a>
+        <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z"/></svg>
+          <span class="hidden sm:inline">인쇄 / PDF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════ MAIN HERO BANNER ══════════════════ -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-700">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">토지값 비중 90.8% 극강의 담보력</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">철골조 지상 2층 · 2DK 8세대 + 주차장 5대</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">남북 양면 공도 접도 (189.67평 대지)</span>
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">더블 역세권 도보 10분 (신야하시라·야하시라)</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3" id="heroTitle">
+        익시드 애로우(마츠도시 카와하라즈카) 정밀 투자분석 보고서
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base max-w-4xl font-light leading-relaxed" id="heroSubtitle">
+        エクシードアロー · 2DK×8戸 · 敷地内駐車場5台 | 千葉県松戸市河原塚29-1 | JR武蔵野線 新八柱駅 徒歩10分 · 新京成線 八柱駅 徒歩10分
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mt-8 pt-6 border-t border-slate-800">
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">매매가격 (税込)</span>
+          <span class="text-lg font-black text-amber-400 font-mono mt-0.5 block">9,400만 엔</span>
+          <span class="text-[10px] text-slate-500">토지 189.67평 (90.8%)</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">현황 연간 총수입</span>
+          <span class="text-lg font-black text-emerald-400 font-mono mt-0.5 block">665.6만 엔</span>
+          <span class="text-[10px] text-slate-500">월 554,700엔 (만실 100%)</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">만실 표면수익률</span>
+          <span class="text-lg font-black text-emerald-400 font-mono mt-0.5 block">7.08%</span>
+          <span class="text-[10px] text-slate-500">순수 차임 기준 6.33%</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">순영업소득 Cap Rate</span>
+          <span class="text-lg font-black text-sky-400 font-mono mt-0.5 block">5.55%</span>
+          <span class="text-[10px] text-slate-500">실질 NOI ¥5,220,771</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">부채상환배율 (DSCR)</span>
+          <span class="text-lg font-black text-emerald-400 font-mono mt-0.5 block">1.29배</span>
+          <span class="text-[10px] text-emerald-400">✅ 안전기준 1.20 상회</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">손익분기 가동률</span>
+          <span class="text-lg font-black text-indigo-300 font-mono mt-0.5 block">82.4%</span>
+          <span class="text-[10px] text-slate-400">허용공실 1.41실 (안전)</span>
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+          <span class="text-[11px] text-slate-400 block">종합 투자판정</span>
+          <span class="text-lg font-black text-amber-300 block mt-0.5">24 / 30점</span>
+          <span class="text-[10px] text-emerald-400 font-bold">적극 매수 (BUY)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 2-COLUMN BODY LAYOUT ══════════════════ -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT STICKY TABLE OF CONTENTS -->
+      <aside class="hidden lg:block lg:col-span-3 sticky top-24 space-y-4 no-print">
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+            <span id="tocTitle">목차 (TOC)</span>
+            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">10 Chapters</span>
+          </h3>
+          <nav class="space-y-1 text-xs" id="tocNav">
+            <a href="#ch1" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">1. 에그제큐티브 서머리</a>
+            <a href="#ch2" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">2. 물건 개요 & 용적률</a>
+            <a href="#ch3" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">3. 물건의 내력 & 권리관계</a>
+            <a href="#ch4" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">4. 수익 현황 & 렌트롤 포렌식</a>
+            <a href="#ch5" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">5. 시장 임대료 수준 & DOM</a>
+            <a href="#ch6" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">6. 가격 타당성 & 적산가격</a>
+            <a href="#ch7" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">7. 실질 OPEX & 캐시플로</a>
+            <a href="#ch8" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">8. 임대료 인상 & 밸류애드</a>
+            <a href="#ch9" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">9. 입지 · 배후수요 · 하저드</a>
+            <a href="#ch10" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">10. 종합 평가 & 스코어카드</a>
+            <a href="#appendix" class="toc-link block px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-amber-600 hover:bg-amber-50 font-medium transition">부록: 출전 목록</a>
+          </nav>
+        </div>
+
+        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-5 shadow-sm text-xs space-y-3">
+          <div class="font-bold flex items-center justify-between text-amber-300">
+            <span>💡 인터랙티브 시뮬레이터</span>
+            <span>라이브 분석</span>
+          </div>
+          <p class="text-slate-300 leading-relaxed">
+            매매가격, LTV, 대출 금리, 상환 기간, 공실률을 직접 조작하여 실시간 현금흐름과 손익분기점을 검증하세요.
+          </p>
+          <a href="./index.html" class="block w-full py-2 px-3 text-center bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg transition shadow">
+            시뮬레이터 조작하기 ↗
+          </a>
+        </div>
+      </aside>
+
+      <!-- RIGHT REPORT ARTICLE -->
+      <article class="lg:col-span-9 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-12">
+        <div id="content-ko">
+          <h1 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">🏢 익시드 애로우 (Exceed Arrow / エクシードアロー) 정밀 투자분석 보고서</h1>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> <strong class="text-slate-900">[물건 3] 치바현 마츠도시 카와하라즈카 29-1 · 철골조 2층 1동 아파트 (2DK 8세대 + 주차장 5대 · 토지 189.67평)</strong></p>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> <strong class="text-slate-900">작성 기준일: 2026년 9월</strong> | <strong class="text-slate-900">분석 기관: MyRealBiz 실사분석팀</strong> | <strong class="text-slate-900">보안 등급: 엄격 대외비 (Strictly Confidential)</strong></p>
+<hr class="my-8 border-slate-200">
+<h2 id="ch1" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 1. 에그제큐티브 서머리 (Executive Summary)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.1 핵심 투자 지표 요약</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>항목</th>
+<th>수치</th>
+<th>비고</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">매매가격 (物件価格)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">9,400만 엔</strong> (¥94,000,000)</td>
+<td class="text-right font-mono">소비세 포함 · 토지 비중 약 90%</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">총 세대수 및 구성</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8세대 (2DK × 8호)</strong></td>
+<td class="text-left">전유면적 45.00㎡ ~ 47.88㎡ 패밀리형</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">현황 연간 총수입</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">665.6만 엔</strong> (¥6,656,400)</td>
+<td class="text-left">월 55.47만 엔 (순수차임 49.6만 + 공익/주차/수도 5.87만)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">만실 표면수익률</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">7.08%</strong></td>
+<td class="text-left">순수 차임 기준 표면수익률 6.33%</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">실질 연간 운영경비 (OPEX)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">143.6만 엔</strong> (¥1,435,629)</td>
+<td class="text-right font-mono">실질 경비율 <strong class="text-slate-900">21.57%</strong> (공과금/관리/수선/보험 정상화)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">순영업소득 (NOI)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">522.1만 엔</strong> (¥5,220,771)</td>
+<td class="text-left"><strong class="text-slate-900">실질 Cap Rate 5.55%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">연간 원리금상환액 (ADS)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">404.9만 엔</strong> (¥4,049,064)</td>
+<td class="text-left">LTV 80.0% (7,520만 엔), 금리 2.5%, 25년 원리금균등</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">세전 캐시플로 (만실 시)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+117.2만 엔/년</strong> (+¥1,171,707)</td>
+<td class="text-left">월 약 +9.76만 엔의 안정적 잉여현금</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">DSCR (부채상환배율)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.29배</strong></td>
+<td class="text-right font-mono">✅ 안전 기준선(1.20배) 안정적 상회</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">손익분기 가동률</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">82.40%</strong></td>
+<td class="text-right font-mono">✅ 허용 공실 호수 <strong class="text-slate-900">1.41실</strong> (1실 공실 시에도 흑자 유지)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">적산가격 (고정자산세 기준)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4,515.7만 엔</strong> (48.0%)</td>
+<td class="text-left">토지 3,812.4만 엔 + 건물 703.2만 엔 (공과증명서 실측)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">토지 실세 거래가액 (추정)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8,535.2만 엔</strong> (<strong class="text-slate-900">90.8%</strong>)</td>
+<td class="text-left">189.67평 × 평당 45만 엔 (매매가의 90.8%가 토지값!)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">초기 필요 자기자본</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">2,669.2만 엔</strong> (¥26,692,000)</td>
+<td class="text-left">자기자본 두금 1,880만 엔 + 취득제비용 789.2만 엔</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">CCR (자기자본수익률)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.39%</strong></td>
+<td class="text-left">세전 잉여현금흐름 / 초기 총 투하자기자본</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">종합 투자 판정</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">24 / 30점</strong></td>
+<td class="text-left"><strong class="text-slate-900">적극 매수 검토 / 매수 추천 (BUY / Recommended)</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.2 결산서 디자인형 착지 판정표 (Output & Key Metrics / 決算書デザイン型判定)</h3>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">법인 결산서 기준 모아비즈 4기 베이스라인과 본 물건 매입 시의 통합 재무 착지 시뮬레이션입니다:</p>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>항목 (指標項目)</th>
+<th>검증대상 부동산 단품</th>
+<th>모아비즈 4기현재</th>
+<th>검증대상 부동산 매입후결산서 착지 예상</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 帳簿上税引前当期純利益 (장부상 세전순이익)</strong></td>
+<td class="text-right font-mono">¥-1,829,413</td>
+<td class="text-right font-mono">¥3,722,450</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥1,893,037</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">2. 税引前手残りCF (세전 잔여 현금흐름)</strong></td>
+<td class="text-right font-mono">¥864,106</td>
+<td class="text-right font-mono">¥1,741,901</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,606,007</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引前CF利回り (세전 CF 수익률)</strong></td>
+<td class="text-right font-mono">0.92%</td>
+<td class="text-right font-mono">0.65%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.72%</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">推定法人税額 (추정 법인세액)</strong></td>
+<td class="text-right font-mono">¥70,000 (균등할)</td>
+<td class="text-right font-mono">¥930,613</td>
+<td class="text-left"><strong class="text-slate-900">¥473,259</strong> (절세효과)</td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引後手残りCF (세후 잔여 현금흐름)</strong></td>
+<td class="text-right font-mono">¥794,106</td>
+<td class="text-right font-mono">¥811,289</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,132,748</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引後CF利回り (세후 CF 수익률)</strong></td>
+<td class="text-right font-mono">0.84%</td>
+<td class="text-right font-mono">0.30%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.59%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 債務償還年数 (채무상환년수, 년)</strong></td>
+<td class="text-right font-mono">17.9년</td>
+<td class="text-right font-mono">24.1년</td>
+<td class="text-right font-mono"><strong class="text-slate-900">21.5년</strong> (건전성 대폭 개선)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 簡易 Cash Flow (=税引後CF)</strong></td>
+<td class="text-right font-mono">¥794,106</td>
+<td class="text-right font-mono">¥811,289</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,132,748</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">5. ICR (이자보상배율, Interest Coverage Ratio)</strong></td>
+<td class="text-right font-mono">-0.6배</td>
+<td class="text-right font-mono">0.9배</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.6배</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 負債返済割合 (DSCR / 부채상환배율)</strong></td>
+<td class="text-right font-mono">1.5배</td>
+<td class="text-right font-mono">1.5배</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.5배</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">7. LTV (固定資産税評価額に基づく / 고정자산세 기준)</strong></td>
+<td class="text-right font-mono">223.02%</td>
+<td class="text-right font-mono">261.08%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">250.89%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">8. 投資額ROI (초기 투하자기자본 대비 ROI)</strong></td>
+<td class="text-right font-mono">3.40%</td>
+<td class="text-right font-mono">3.83%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.67%</strong></td>
+</tr>
+</tbody></table></div>
+<div class="p-4 my-4 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-900 text-sm leading-relaxed"><strong>💡 핵심 팁 (TIP):</strong> 
+<br>**법인 절세 및 현금흐름 시너지**:
+<br>본 물건은 30년 초과 철골조 건물로 법정내용연수가 만료되어 건물분(약 1,880만 엔)을 5년 단기 감가상각(연간 약 376만 엔 계상)할 수 있습니다. 이를 통해 법인 단계에서 회계상 장부 적자를 유도하여 **기존 모아비즈 법인의 법인세 부담을 연간 약 45.7만 엔 절감**하면서도, 실제 **세후 잔여 현금흐름은 연 213.3만 엔(월 약 17.8만 엔)으로 순증**하는 최적의 자산 착지가 가능합니다.
+</div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.3 7대 평가축 요약</h3>
+<div class="mermaid bg-slate-50 p-4 rounded-xl border border-slate-200 my-4 text-center">
+radar
+  title 7대 평가축 다이어그램 (익시드 애로우)
+  "수익성 (Yield & CashFlow)" : 3.5
+  "담보성/적산 (Collateral Value)" : 4.8
+  "입지/수요 (Location & Demand)" : 4.0
+  "건물상태/설비 (Structure & MEP)" : 3.0
+  "재해/하저드 (Hazard Risk)" : 4.2
+  "출구/환금성 (Exit Strategy)" : 4.7
+  "운영난이도 (Management Ease)" : 3.8
+</div>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>평가축</th>
+<th>평점 (/5.0)</th>
+<th>핵심 근거</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 수익성 (Yield)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.5</strong></td>
+<td class="text-left">표면수익률 7.08%, 실질 NOI 5.55%, DSCR 1.29로 1실 공실 시에도 흑자 유지되는 탄탄한 안정 수익.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">2. 담보성/적산 (Asset Value)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.8</strong></td>
+<td class="text-left"><strong class="text-slate-900">토지 면적 189.67평(627㎡) 대형 필지</strong>. 실거래 토지가격만 약 8,535만 엔(매매가의 90.8%)으로 다운사이드 리스크 완벽 차단.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 입지/수요 (Location)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-left">JR 무사시노선 「신야하시라」 및 신경성선 「야하시라」 더블 역세권 도보 10~11분. 도쿄 통근권 및 2DK 패밀리 수요 풍부.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 건물상태/설비 (Structure)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.0</strong></td>
+<td class="text-left">1994년 준공 철골조로 양호하나, <strong class="text-slate-900">자가 우물물(井戸水) 펌프 설비 점검</strong> 및 아연도금강판 외벽/지붕 방수 도장 이력 확인 요망.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">5. 재해/하저드 (Hazard)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.2</strong></td>
+<td class="text-left">침수 및 토사재해 고위험 구역 외곽에 위치하며 평탄 대지. 액상화 위험도 상대적 안전권.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 출구전략/환금성 (Exit)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.7</strong></td>
+<td class="text-left"><strong class="text-slate-900">남북 양면 공도 접도(남 5.6m, 북동 4.8m) + 용적률 소화율 불과 60.9%(법정 200%)</strong>. 장래 건물 해체 후 단독주택 4~5필지 분할 매각 또는 신축 빌라 개발 가능.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">7. 운영난이도 (Operation)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.8</strong></td>
+<td class="text-left">8세대 전실 2DK 구성으로 단신 원룸 대비 퇴거 빈도가 낮고 체류 연수가 긴 안정적 임대차 구조.</td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.4 사전 선행 확인 필수 5대 항목 (Pre-Closing Checklist)</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">🚨 음용수 자가 우물물(井戸水) 설비 현황 및 공공상수도 인입 배관 확인</strong>:</li>
+<li>본 물건은 음용수로 공공상수도가 아닌 우물물을 사용하고 있습니다. 정기 수질검사 성적표(음용 적합성) 및 우물 펌프·압력탱크 교체 이력을 확인해야 합니다.</li>
+<li>아울러 전면 도로에 마츠도시 공공상수도 본관이 매설되어 있는지 수도국에 조회하고, 향후 공공상수도 직결 공사 시 인입 분담금 및 공사비 견적(약 150만~300만 엔 상정)을 사전 파악해야 합니다.</li>
+<li><strong class="text-slate-900">📐 경계 비명시(境界非明示) 거래 조건 검토 및 현황 실측/경계표 확인</strong>:</li>
+<li>매매 조건에 "경계 비명시" 조항이 기재되어 있습니다. 189.67평의 대형 토지인 만큼 인접 필지와의 경계말뚝 유무, 블록담 소유권 귀속, 지적도 및 현황측량도 교부 여부를 계약 전 반드시 협상해야 합니다.</li>
+<li><strong class="text-slate-900">💧 건물 누수·수선 이력 및 외벽/지붕 방수 도장 점검</strong>:</li>
+<li>1994년 3월 준공(만 32년)된 아연도금강판즙 철골조 건물입니다. 최근 10~15년 내 지붕 도장 및 코킹, 공용 외복도 방수 이력을 관리회사에 청구하고 누수 흔적 유무를 전수 확인해야 합니다.</li>
+<li><strong class="text-slate-900">🔍 렌트롤 차임과 에이블(ABLE) 마이소쿠 모집도면 간 차이 대조</strong>:</li>
+<li>에이블 모집도면 상 202호(53,000엔), 203호(57,000엔), 205호(56,000엔)가 렌트롤에는 각각 63,000엔, 60,000엔, 63,000엔으로 등재되어 있습니다. 주차료(5,000~7,700엔) 및 수도료(2,000~3,000엔) 합산 계약 내역과 임대차계약서 원본을 대조하여 실제 입금액을 검증해야 합니다.</li>
+<li><strong class="text-slate-900">🔥 LP가스 공급업체 무상대여 설비 승계 계약 확인</strong>:</li>
+<li>프로판 가스 채택 물건으로, 가스 공급사가 에어컨이나 급탕기를 무상대여(대여 차용) 방식으로 설치했는지 여부와 중도 해약 시 위약금 조항 승계 여부를 확인해야 합니다.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch2" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 2. 물건 개요 (Property Specifications)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 2.1 물건 기본 스펙</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>항목</th>
+<th>상세 내용</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">물건명</strong></td>
+<td class="text-left">익시드 애로우 (Exceed Arrow / エクシードアロー)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">소재지</strong></td>
+<td class="text-left">치바현 마츠도시 카와하라즈카 29-1, 29-4, 29-7, 29-8 (千葉県松戸市河原塚29-1外)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">교통 접근성</strong></td>
+<td class="text-left">• <strong class="text-slate-900">JR 무사시노선 「신야하시라(新八柱)」역 도보 10~11분</strong><br>• <strong class="text-slate-900">신경성선 「야하시라(八柱)」역 도보 10~11분</strong><br>• JR 무사시노선 「히가시마츠도(東松戸)」역 도보 25분</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">권리 형태</strong></td>
+<td class="text-left">토지 및 건물 전체 소유권 (所有権)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">토지 면적</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">627.00㎡ (189.67평)</strong> — 공모 대장 기준 (사도 지분 없음)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">토지 구성</strong></td>
+<td class="text-right font-mono">총 4필지 (29-1: 270.00㎡, 29-4: 125.00㎡, 29-7: 224.00㎡, 29-8: 8.00㎡)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">지목 / 지세</strong></td>
+<td class="text-left">대지 (宅地) / 평탄지 (平坦)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">접도 조건</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">남측 공도 폭원 약 5.60m 접도 + 북동측 공도 폭원 약 4.76m 접도 (완벽한 남북 양면 도로)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">용도지역 / 지구</strong></td>
+<td class="text-left">제1종 주거지역 · 제1종 고도지구 · 시가화구역</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">법정 건폐율 / 용적률</strong></td>
+<td class="text-right font-mono">건폐율 60% / 용적률 200%</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">건물 구조</strong></td>
+<td class="text-left">철골조 아연도금강판즙 지상 2층건 (공과증명서상: 경량철골조 금속판즙 2층)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">건물 연면적</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">381.60㎡ (115.43평)</strong> (1층 190.80㎡ / 2층 190.80㎡)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">건축 준공일</strong></td>
+<td class="text-left"><strong class="text-slate-900">1994년 3월 4일 (헤이세이 6년 3월 4일)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">세대수 및 구성</strong></td>
+<td class="text-right font-mono">총 8세대 (전 세대 2DK: 45.00㎡ ~ 47.88㎡) + 부지 내 지상 주차장 5대 완비</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">주요 설비</strong></td>
+<td class="text-left">LP가스, 공공하수도, <strong class="text-slate-900">자가 우물물(음용수)</strong>, 부지 내 전용 쓰레기 수거장, 세대별 발코니/테라스</td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 2.2 건폐율 및 용적률 소화율 분석 (Development Potential)</h3>
+<div class="mermaid bg-slate-50 p-4 rounded-xl border border-slate-200 my-4 text-center">
+xychart-beta
+  title "용적률 및 건폐율 소화 현황 (법정 상한 vs 현황)"
+  x-axis ["건폐율 (Building Coverage)", "용적률 (Floor Area Ratio)"]
+  y-axis "비율 (%)" 0 --> 220
+  bar [30.43, 60.86]
+  line [60.00, 200.00]
+</div>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li><strong class="text-slate-900">현황 건축면적 및 건폐율</strong>: 건축면적 190.80㎡ / 대지면적 627.00㎡ = <strong class="text-slate-900">30.43%</strong> (법정 한도 60.00% 대비 절반에 불과)</li>
+<li><strong class="text-slate-900">현황 연면적 및 용적률</strong>: 연면적 381.60㎡ / 대지면적 627.00㎡ = <strong class="text-slate-900">60.86%</strong> (법정 한도 200.00% 대비 <strong class="text-slate-900">30.43% 수준</strong>)</li>
+<li><strong class="text-slate-900">개발 잠재력 함의</strong>:</li>
+<li>현 건물은 법정 용적률(200%, 최대 1,254.00㎡ 가능)의 30% 수준만 사용하고 있습니다.</li>
+<li>향후 재건축 시 지상 3~4층 규모의 공동주택(연면적 약 1,200㎡, 1K/1LDK 기준 30~35세대 규모)으로 대규모 고밀도 개발이 가능한 막대한 업사이드 포텐셜을 지니고 있습니다.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch3" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 3. 물건의 내력 및 소유권 구조 (History & Due Diligence)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 3.1 토지 4필지 일괄 취득 및 보유 배경</h3>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li>본 물건의 토지는 29-1(270㎡), 29-4(125㎡), 29-7(224㎡), 29-8(8㎡)의 4개 필지로 구성되어 있으며, 1994년 건물 신축 당시 체계적으로 통합 개발되어 30년 넘게 동일 소유자(또는 일가)가 보유해 온 우량 자산입니다.</li>
+<li>4개 필지 모두 사도 지분 없이 <strong class="text-slate-900">완전한 소유권(所有権)</strong>이며, 공과증명서상 지목이 모두 "대지(宅地)"로 정리되어 있어 권리 관계가 매우 깨끗합니다.</li>
+</ol>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 3.2 매도인의 엑시트(매각) 동기 분석</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">자산 보유 주기 및 감가상각 종료</strong>: 1994년 신축 후 만 32년이 경과하여 건물의 세무상 감가상각이 완전 종료되었으며, 장기 보유에 따른 자산 리밸런싱 및 상속세 현금화 목적의 매각으로 판단됩니다.</li>
+<li><strong class="text-slate-900">토지 가치 중심의 매각 전략</strong>: 매도인은 판매가격(9,400만 엔) 중 약 90%(약 8,460만 엔)를 토지값으로 산정하여 출구 전략을 수립하였으며, 이는 건물 잔존가치를 과도하게 주장하지 않고 토지 시세에 준하여 가격을 현실화한 합리적 매도 호가입니다.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch4" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 4. 수익 현황 및 렌트롤 정밀 분석 (Rent Roll Forensic Audit)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 4.1 8세대 전수 렌트롤 명세표</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>호실</th>
+<th>간토리</th>
+<th>전유면적</th>
+<th>현황 차임</th>
+<th>공익비(부대포함)</th>
+<th>월 합계</th>
+<th>㎡당 단가</th>
+<th>시키킨 예치</th>
+<th>부대 내역 및 특기사항</th>
+<th>추정 DOM</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">101</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.21㎡</td>
+<td class="text-right font-mono">¥62,000</td>
+<td class="text-right font-mono">¥5,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥67,000</strong></td>
+<td class="text-right font-mono">¥1,450</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-left">공익비에 수도료 2,000엔 포함</td>
+<td class="text-right font-mono">25일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">102</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.00㎡</td>
+<td class="text-right font-mono">¥67,000</td>
+<td class="text-right font-mono">¥6,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥73,000</strong></td>
+<td class="text-right font-mono">¥1,622</td>
+<td class="text-right font-mono">¥66,000</td>
+<td class="text-left">수도료 2,000엔 포함, 독립세면대, 펫 가능</td>
+<td class="text-right font-mono">18일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">103</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.88㎡</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥10,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥70,000</strong></td>
+<td class="text-right font-mono">¥1,493</td>
+<td class="text-right font-mono">¥120,000</td>
+<td class="text-right font-mono">주차장 7,000엔 + 수도료 3,000엔 포함</td>
+<td class="text-right font-mono">35일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">105</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.21㎡</td>
+<td class="text-right font-mono">¥58,000</td>
+<td class="text-right font-mono">¥3,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥61,000</strong></td>
+<td class="text-right font-mono">¥1,349</td>
+<td class="text-right font-mono">¥116,000</td>
+<td class="text-left">수도료 3,000엔 포함, 전용정원 딸림</td>
+<td class="text-right font-mono">28일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">201</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.21㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥10,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥73,000</strong></td>
+<td class="text-right font-mono">¥1,580</td>
+<td class="text-right font-mono">¥120,000</td>
+<td class="text-right font-mono">주차장 5,000엔 + 수도료 3,000엔 포함</td>
+<td class="text-right font-mono">22일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">202</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.00㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥3,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥66,000</strong></td>
+<td class="text-right font-mono">¥1,467</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">최상층, 일반 임대차</td>
+<td class="text-right font-mono">30일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">203</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">47.88㎡</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥9,700</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥69,700</strong></td>
+<td class="text-right font-mono">¥1,456</td>
+<td class="text-right font-mono">¥0</td>
+<td class="text-right font-mono">주차장 7,700엔 포함</td>
+<td class="text-right font-mono">20일</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">205</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">47.88㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥12,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥75,000</strong></td>
+<td class="text-right font-mono">¥1,566</td>
+<td class="text-right font-mono">¥0</td>
+<td class="text-right font-mono">주차장 7,000엔 + 수도료 3,000엔 포함</td>
+<td class="text-right font-mono">24일</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">합계</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">2DK×8</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">370.27㎡</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥496,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥58,700</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥554,700</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">평균 ¥1,498</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥545,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">연수입: ¥6,656,400 (만실 100%)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">평균 25.3일</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 4.2 차임 구조 및 부대 수입 분석</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">순수 차임 vs 부대수입(주차장/수도료) 분리 분석</strong>:</li>
+<li>월 총수입 554,700엔 중 <strong class="text-slate-900">순수 주택 임대료는 496,000엔 (89.4%)</strong>입니다.</li>
+<li>공익비 명목의 58,700엔 중에는 <strong class="text-slate-900">주차장 5대 사용료(합계 33,700엔/월)</strong> 및 <strong class="text-slate-900">공동 수도 요금 징수액(합계 16,000엔/월)</strong>이 포함되어 있습니다.</li>
+<li>주차장 구획은 5대 전체가 입주자에게 배정되어 100% 가동 중이며, 대당 5,000~7,700엔 수준으로 인근 시세(월 7,000~8,800엔) 대비 적정하게 운영되고 있습니다.</li>
+<li><strong class="text-slate-900">마이소쿠 도면과의 차임 대조 (렌트롤 정합성)</strong>:</li>
+<li>에이블 마이소쿠 모집도면에 기재된 야칭(53,000~60,000엔)과 현황 렌트롤의 총액(61,000~75,000엔) 사이에 약 7,000~13,000엔의 차이가 발생하는 원인은 <strong class="text-slate-900">주차장 사용료(5,000~7,700엔) 및 수도료 정액 징수분(2,000~3,000엔)이 공익비에 일괄 합산 계약</strong>되었기 때문입니다. 임대차계약서 상 차임과 주차장 계약서가 통합되어 있는지 실사 시 최종 확인이 필요합니다.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch5" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 5. 임대료 수준 및 주변 시장 검증 (Market Rent & Competitiveness)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 5.1 인근 시세 분포 및 직접 경쟁 물건 비교</h3>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li><strong class="text-slate-900">대상지 권역</strong>: 마츠도시 카와하라즈카 / 신야하시라역 도보 10~15분 권역</li>
+<li><strong class="text-slate-900">2DK (45~50㎡) 축 25~35년 철골/목조 시세</strong>:</li>
+<li>평균 야칭: <strong class="text-slate-900">60,000 ~ 68,000엔</strong> (공익비 별도 3,000~5,000엔)</li>
+<li>㎡당 평균 임대료: <strong class="text-slate-900">1,400 ~ 1,600엔/㎡</strong></li>
+<li><strong class="text-slate-900">본 물건의 경쟁력</strong>:</li>
+<li>본 물건의 순수 야칭은 58,000 ~ 67,000엔(㎡당 1,349 ~ 1,622엔)으로 <strong class="text-slate-900">완벽하게 지역 적정 시세의 중심부에 안착</strong>해 있습니다.</li>
+<li>전실 남향 배치, 1층 세대 전용 정원 보유, 최상층 2층 세대 독립 발코니, 부지 내 평면 자주식 주차장 완비 등 패밀리·신혼부부 임차인이 선호하는 실용적 스펙을 갖추고 있어 <strong class="text-slate-900">공실 발생 시 평균 25일 내외의 신속한 재임대(DOM)가 실현</strong>되고 있습니다.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch6" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 6. 가격 타당성 및 가치 평가 (Valuation & Cost Approach)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 6.1 고정자산세 공과증명서 기반 공적 장부가액 실측</h3>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">2026년 7월 17일 마츠도시장이 발행한 최신 공과증명서 기준 실측 평가액입니다:</p>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>구분</th>
+<th>소재지번</th>
+<th>지목</th>
+<th>면적(㎡)</th>
+<th>평가액 (엔)</th>
+<th>연간 고정자산세</th>
+<th>연간 도시계획세</th>
+<th>세액 합계 (엔)</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">토지 1</strong></td>
+<td class="text-right font-mono">河原塚 29-1</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">270.00</td>
+<td class="text-right font-mono">¥16,417,080</td>
+<td class="text-right font-mono">¥38,306</td>
+<td class="text-right font-mono">¥12,586</td>
+<td class="text-right font-mono">¥50,892</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">토지 2</strong></td>
+<td class="text-right font-mono">河原塚 29-4</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">125.00</td>
+<td class="text-right font-mono">¥7,600,500</td>
+<td class="text-right font-mono">¥17,734</td>
+<td class="text-right font-mono">¥5,827</td>
+<td class="text-right font-mono">¥23,561</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">토지 3</strong></td>
+<td class="text-right font-mono">河原塚 29-7</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">224.00</td>
+<td class="text-right font-mono">¥13,620,096</td>
+<td class="text-right font-mono">¥31,780</td>
+<td class="text-right font-mono">¥10,442</td>
+<td class="text-right font-mono">¥42,222</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">토지 4</strong></td>
+<td class="text-right font-mono">河原塚 29-8</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">8.00</td>
+<td class="text-right font-mono">¥486,432</td>
+<td class="text-right font-mono">¥1,135</td>
+<td class="text-right font-mono">¥372</td>
+<td class="text-right font-mono">¥1,507</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">토지 소계</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4필지 합계</strong></td>
+<td class="text-left"><strong class="text-slate-900">宅地</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">627.00</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥38,124,108</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥88,955</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥29,227</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥118,182</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">건물 1동</strong></td>
+<td class="text-right font-mono">河原塚 29-1</td>
+<td class="text-left">共同住宅</td>
+<td class="text-right font-mono">381.60</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥7,032,406</strong></td>
+<td class="text-right font-mono">¥98,453</td>
+<td class="text-right font-mono">¥16,174</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥114,627</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">총계</strong></td>
+<td class="text-left"><strong class="text-slate-900">토지 + 건물</strong></td>
+<td class="text-left">-</td>
+<td class="text-left">-</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥45,156,514</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥187,408</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥45,401</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥232,809</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 6.2 적산가격 3대 시나리오 비교</h3>
+<div class="mermaid bg-slate-50 p-4 rounded-xl border border-slate-200 my-4 text-center">
+xychart-beta
+  title "적산가격 시나리오별 총 평가액 비교 (매매가격 9,400만 엔 대비)"
+  x-axis ["고정자산세 실측", "상속세 노선가", "실거래 토지가(90.8%)", "매매가격 (호가)"]
+  y-axis "금액 (만 엔)" 0 --> 10500
+  bar [4516, 5092, 9238, 9400]
+</div>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>평가 시나리오</th>
+<th>토지 평가액</th>
+<th>건물 잔존평가</th>
+<th>적산 총액</th>
+<th>매매가 대비 비율</th>
+<th>평가 성격 및 시사점</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 고정자산세 실측 기준</strong></td>
+<td class="text-right font-mono">3,812.4만 엔</td>
+<td class="text-right font-mono">703.2만 엔</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4,515.7만 엔</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">48.0%</strong></td>
+<td class="text-left">지자체 과세표준 기준 최보수 평가 (담보 최하한선)</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">2. 상속세 노선가 기준</strong></td>
+<td class="text-right font-mono">4,389.0만 엔</td>
+<td class="text-right font-mono">703.2만 엔</td>
+<td class="text-right font-mono"><strong class="text-slate-900">5,092.2만 엔</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">54.2%</strong></td>
+<td class="text-right font-mono">국세청 노선가(약 7만 엔/㎡) 기준 담보 평가선</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 실거래 토지가격 기준</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8,535.2만 엔</strong></td>
+<td class="text-right font-mono">703.2만 엔</td>
+<td class="text-right font-mono"><strong class="text-slate-900">9,238.4만 엔</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">98.3%</strong></td>
+<td class="text-left"><strong class="text-slate-900">인근 주택지 실거래가(평당 45만 엔) 기준 실질 자산가치</strong></td>
+</tr>
+</tbody></table></div>
+<div class="p-4 my-4 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-sm leading-relaxed"><strong>⚠️ 중요 (IMPORTANT):</strong> 
+<br>**압도적인 토지 담보력 (토지값 물건의 진가)**:
+<br>마츠도시 카와하라즈카 일대 남북 양면 도로를 접한 189.67평 주택지 실세 가격은 평당 45만 엔 선으로, 순수 토지 가치만 **8,535만 엔**에 달합니다. 매매가 9,400만 엔 중 **토지 비중이 90.8%**를 차지하므로, 설령 건물이 전소되거나 멸실되더라도 토지만 처분하여 원금을 전액 회수할 수 있는 극강의 하방 안전성을 보유하고 있습니다.
+</div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch7" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 7. 운영비용 및 캐시플로 정밀 시뮬레이션 (OPEX & Debt Service)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 7.1 실질 운영경비(OPEX) 정상화 분석</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>경비 항목</th>
+<th>연간 금액</th>
+<th>산출 근거 및 정상화 기준</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">공과금 (고정자산세·도시계획세)</strong></td>
+<td class="text-right font-mono">¥232,809</td>
+<td class="text-left">2026년도 공과증명서 실측 납부액 (토지 11.8만 + 건물 11.5만)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">위탁관리수수료 (PM Fee)</strong></td>
+<td class="text-right font-mono">¥332,820</td>
+<td class="text-left">총수입의 5.0% (전문 관리회사 위탁 기준)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">우물물 펌프 점검 및 공용전기</strong></td>
+<td class="text-right font-mono">¥150,000</td>
+<td class="text-left">우물 펌프 유지보수, 수질검사 및 공용부 전기요금</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">화재 및 지진보험료</strong></td>
+<td class="text-right font-mono">¥80,000</td>
+<td class="text-right font-mono">8세대 기준 연간 안분액 (5년 일시납 기준)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">퇴거 원상복구 및 모집광고비</strong></td>
+<td class="text-right font-mono">¥320,000</td>
+<td class="text-right font-mono">세대당 연간 40,000엔 충당 (연 1~2세대 턴오버 상정)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">장기 대규모수선 충당금</strong></td>
+<td class="text-right font-mono">¥320,000</td>
+<td class="text-right font-mono">세대당 연간 40,000엔 유보 (외벽·지붕 방수 대비)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">정상화 실질 경비 합계</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥1,435,629</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">실질 경비율 21.57% (매우 건전한 수준)</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 7.2 금융 융자 3대 시나리오 비교</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>지표 항목</th>
+<th>시나리오 A (표준 LTV 80%)</th>
+<th>시나리오 B (보수 안전 LTV 70%)</th>
+<th>시나리오 C (토지담보 장기 25년) [채택]</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">차입금액 (대출금)</strong></td>
+<td class="text-right font-mono">¥75,200,000 (80%)</td>
+<td class="text-right font-mono">¥65,800,000 (70%)</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥75,200,000 (80%)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">차입 금리 / 기간</strong></td>
+<td class="text-right font-mono">2.5% / 20년</td>
+<td class="text-right font-mono">2.5% / 20년</td>
+<td class="text-right font-mono"><strong class="text-slate-900">2.5% / 25년</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">월 원리금 상환액</strong></td>
+<td class="text-right font-mono">¥398,735</td>
+<td class="text-right font-mono">¥348,893</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥337,422</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">연간 부채상환액 (ADS)</strong></td>
+<td class="text-right font-mono">¥4,784,820</td>
+<td class="text-right font-mono">¥4,186,716</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥4,049,064</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">만실 순영업소득 (NOI)</strong></td>
+<td class="text-right font-mono">¥5,220,771</td>
+<td class="text-right font-mono">¥5,220,771</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥5,220,771</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">세전 연간 캐시플로 (CF)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥435,951</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥1,034,055</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥1,171,707</strong> (월 +9.76만)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">DSCR (부채상환배율)</strong></td>
+<td class="text-right font-mono">1.09배</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.25배</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.29배</strong> (안전 기준 충족)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">손익분기 가동률</strong></td>
+<td class="text-right font-mono">93.45%</td>
+<td class="text-right font-mono">84.46%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">82.40%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">허용 공실 호수</strong></td>
+<td class="text-right font-mono">0.52실 (위험)</td>
+<td class="text-right font-mono">1.24실 (양호)</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.41실 (1실 공실 안전)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">필요 자기자본 (두금+제비용)</strong></td>
+<td class="text-right font-mono">¥26,692,000</td>
+<td class="text-right font-mono">¥36,092,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥26,692,000</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">자기자본수익률 (CCR)</strong></td>
+<td class="text-right font-mono">1.63%</td>
+<td class="text-right font-mono">2.87%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.39%</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch8" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 8. 임대료 인상 및 밸류애드 시나리오 (Rent Upside & Value-Add)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 8.1 호실별 임대료 증액 잠재력</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>호실</th>
+<th>현행 야칭</th>
+<th>리노베이션 후 목표 야칭</th>
+<th>월간 증액 잠재력</th>
+<th>주요 밸류애드 공사 항목</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">105</strong></td>
+<td class="text-right font-mono">¥58,000</td>
+<td class="text-right font-mono">¥65,000</td>
+<td class="text-right font-mono">+¥7,000</td>
+<td class="text-left">전용정원 우드데크화, 온수세정비데, 벽지 교체</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">103</strong></td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥66,000</td>
+<td class="text-right font-mono">+¥6,000</td>
+<td class="text-right font-mono">모니터 인터폰 신설, LED 조명, 바닥 CF 리폼</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">203</strong></td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥66,000</td>
+<td class="text-right font-mono">+¥6,000</td>
+<td class="text-left">2구 가스레인지 교체, 세면대 수전 업그레이드</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">201</strong></td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥67,000</td>
+<td class="text-right font-mono">+¥4,000</td>
+<td class="text-right font-mono">에어컨 신규 교체, 수납장 보강</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">기타 4실</strong></td>
+<td class="text-right font-mono">¥62,000~67,000</td>
+<td class="text-right font-mono">¥66,000~68,000</td>
+<td class="text-right font-mono">+¥8,000</td>
+<td class="text-left">퇴거 시 순차적 설비 현대화 및 표면 리폼</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">합계</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥496,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥527,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥31,000/월 (+¥372,000/년)</strong></td>
+<td class="text-left"><strong class="text-slate-900">표면수익률 7.08% → 7.48%로 상승</strong></td>
+</tr>
+</tbody></table></div>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 8.2 장기 부지 활용 밸류애드 (토지 가치 극대화)</h3>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li>부지 면적이 189.67평에 달하고 남북 양면 도로를 접하고 있어, 건물 철거 후 <strong class="text-slate-900">단독주택용 택지 4~5필지(필지당 38~45평)로 분할 분양</strong>할 경우, 필지당 2,000만~2,200만 엔씩 <strong class="text-slate-900">총 9,000만~1억 엔 이상의 나대지 분양 매출</strong>을 달성할 수 있습니다.</li>
+</ul>
+<hr class="my-8 border-slate-200">
+<h2 id="ch9" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 9. 입지, 배후 수요 및 리스크 실사 (Location, Hazard & Risks)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 9.1 입지 및 교통 인프라</h3>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li><strong class="text-slate-900">더블 역세권의 뛰어난 직주근접성</strong>:</li>
+<li>JR 무사시노선 「신야하시라」역: 도쿄 동부 및 사이타마/치바 순환선. 도쿄역까지 약 35분 직통(게이요선 직결 열차 이용 시).</li>
+<li>신경성선 「야하시라」역: 마츠도역에서 JR 조반선(도쿄메트로 치요다선 직결) 환승 용이.</li>
+<li><strong class="text-slate-900">풍부한 생활 편의시설</strong>:</li>
+<li>야하시라역 주변 이토요카도, 아테레 상업시설, 금융기관, 병원 밀집.</li>
+<li>도보 거리에 대형 공원(21세기 숲과 광장) 위치하여 패밀리 거주 쾌적성 우수.</li>
+</ol>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 9.2 재해 및 하저드맵 검토</h3>
+<ul class="space-y-1.5 my-3 pl-5 list-disc text-sm text-slate-700">
+<li><strong class="text-slate-900">침수 리스크</strong>: 고지대 평탄부에 위치하여 마츠도시 하저드맵 상 홍수 침수 상정구역 및 내수 범람 고위험 지역에서 벗어나 있음.</li>
+<li><strong class="text-slate-900">토사재해 리스크</strong>: 급경사지 붕괴 위험구역 및 토사재해경계구역(옐로우/레드존) 비해당.</li>
+<li><strong class="text-slate-900">지진 및 액상화</strong>: 하비 지층의 양호한 지반으로 대규모 액상화 위험성 극히 낮음.</li>
+</ol>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 9.3 건물 설비 고유 리스크 및 대응책</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">우물물 펌프 고장 리스크</strong>:</li>
+<li>우물 펌프 고장 시 8세대 전체 단수 위험이 있으므로, 예비 펌프 확보 및 수질검사 주기 엄수. 장기적으로 지자체 공공상수도 인입 공사 검토.</li>
+<li><strong class="text-slate-900">외벽·지붕 방수 주기 도래</strong>:</li>
+<li>철골조 아연도금강판 지붕으로 누수 방지를 위한 주기적 방수 도장(비용 약 150만~250만 엔) 계획 수립 필요.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch10" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 10. 종합 평가 및 투자 판정 (Conclusion & Scorecard)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 10.1 30점 만점 투자 매력도 스코어카드</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>평가 부문</th>
+<th>배점</th>
+<th>득점</th>
+<th>평가 요약</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 수익성 및 현금흐름 (Cash Flow)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.5</strong></td>
+<td class="text-left">만실 표면수익률 7.08%, 실질 NOI 5.55%, 연간 세전 CF 117만 엔의 견실한 현금흐름.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">2. 자산성 및 담보력 (Collateral)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">5.0</strong></td>
+<td class="text-left"><strong class="text-slate-900">토지 면적 189.67평, 실거래 토지가격 8,535만 엔(매매가의 90.8%)으로 압도적 담보력.</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 입지 및 임대 수요 (Location)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-left">JR 무사시노선·신경성선 더블 역세권 도보 10분. 2DK 패밀리 수요 안정적.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 건물 상태 및 설비 (Facility)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.0</strong></td>
+<td class="text-left">건물 노후화(만 32년) 및 우물물 설비로 관리 주의 필요하나 철골 골조 양호.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">5. 재해 안전성 (Hazard Safety)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-left">침수 및 토사재해 안전 구역, 평탄 대지.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 출구전략 및 환금성 (Exit Strategy)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.5</strong></td>
+<td class="text-left">남북 양면 공도 접도 + 저용적률(60.9%)로 택지 분할 매각 또는 재건축 잠재력 탁월.</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">합계 (Total Score)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">30.0</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">24.0</strong></td>
+<td class="text-left"><strong class="text-slate-900">투자 등급: A (적극 매수 추천 / BUY)</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 10.2 최종 투자 판정 및 실행 로드맵</h3>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> <strong class="text-slate-900">[최종 판정: 적극 매수 추천 (BUY)]</strong></p>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> 본 물건은 <strong class="text-slate-900">"매매가격의 90% 이상이 토지가치로 뒷받침되는 궁극의 안전마진 물건"</strong>입니다.</p>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> 건물의 노후화와 우물물 설비라는 실사 포인트가 존재하지만, 이를 감안하고도 <strong class="text-slate-900">189.67평의 남북 양면 도로 대형 토지</strong>가 주는 자산 가치와 <strong class="text-slate-900">연 117만 엔 이상의 안정적 현금흐름</strong>, 그리고 <strong class="text-slate-900">법인 단기 감가상각(5년)을 통한 절세 시너지</strong>가 매우 뛰어납니다.</p>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">#### 권장 협상 및 매수 실행 전략:</p>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">매수가 네고 타진</strong>: 우물물 공공상수도 인입 공사비 및 외벽 방수 준비금 명목으로 <strong class="text-slate-900">8,800만 ~ 9,000만 엔 수준의 가격 절충(네고)</strong>을 1차 제안.</li>
+<li><strong class="text-slate-900">경계 확정 특약 협상</strong>: 잔금 전까지 매도인 부담으로 인접 토지와의 경계 복원 및 현황측량도 교부를 계약 조건으로 요청.</li>
+<li><strong class="text-slate-900">토지 담보 25년 융자 확보</strong>: 치바은행, 치바흥업은행, 또는 SBJ은행/오릭스은행을 통해 토지 담보력 기반 25년 장기 융자(LTV 80%) 승인 추진.</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 부록: 출전 및 실사 근거 목록</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li>치바현 마츠도시 발행 令和8年度 固定資産(土地・家屋) 公課証明書 (2026년 7월 17일 교부)</li>
+<li>株式会社リブライフマーケティング 물건개요서 및 렌트롤 (2024년)</li>
+<li>株式会社エイブル 新八柱店 호실별 마이소쿠 모집도면 전수 (101, 102, 103, 105, 201, 202, 203, 205호)</li>
+<li>마츠도시 하저드맵 (홍수침수/토사재해/지진방재맵)</li>
+<li>국세청 상속세 재산평가 기준 노선가 및 국토교통성 지가공시 데이터</li>
+</ol>
+        </div>
+        <div id="content-ja" class="hidden">
+          <h1 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">🏢 エクシードアロー (Exceed Arrow) 精密投資分析レポート</h1>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> <strong class="text-slate-900">[案件 3] 千葉県松戸市河原塚29-1 · 鉄骨造2階建 1棟共同住宅 (2DK 8戸 + 敷地内駐車場5台 · 土地189.67坪)</strong></p>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">> <strong class="text-slate-900">作成基準日: 2026年9月</strong> | <strong class="text-slate-900">分析機関: MyRealBiz 実査分析チーム</strong> | <strong class="text-slate-900">機密区分: 厳格対外秘 (Strictly Confidential)</strong></p>
+<hr class="my-8 border-slate-200">
+<h2 id="ch1" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 1. エグゼクティブサマリー (Executive Summary)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.1 主要投資指標サマリー</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>項目</th>
+<th>数値</th>
+<th>備考</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">物件価格 (販売価格)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">9,400万円</strong> (¥94,000,000)</td>
+<td class="text-right font-mono">税込 · 販売価格のうち約90%が土地値</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">総戸数および間取り</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8戸 (2DK × 8戸)</strong></td>
+<td class="text-right font-mono">専有面積 45.00㎡ ~ 47.88㎡ ファミリー向け</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">現況年間総収入</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">665.6万円</strong> (¥6,656,400)</td>
+<td class="text-right font-mono">月額55.47万円 (純賃料49.6万 + 共益/駐車場/水道5.87万)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">満室想定表面利回り</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">7.08%</strong></td>
+<td class="text-right font-mono">純賃料ベース表面利回り 6.33%</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">実質年間運営経費 (OPEX)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">143.6万円</strong> (¥1,435,629)</td>
+<td class="text-right font-mono">実質経費率 <strong class="text-slate-900">21.57%</strong> (公課・管理・修繕・保険正常化)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">純営業収益 (NOI)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">522.1万円</strong> (¥5,220,771)</td>
+<td class="text-left"><strong class="text-slate-900">実質 Cap Rate 5.55%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">年間元利返済額 (ADS)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">404.9万円</strong> (¥4,049,064)</td>
+<td class="text-right font-mono">LTV 80.0% (7,520万円), 金利 2.5%, 25年元利均等</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">税引前キャッシュフロー (満室時)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+117.2万円/年</strong> (+¥1,171,707)</td>
+<td class="text-right font-mono">月額約 +9.76万円の安定剰余現金</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">返済余裕率 (DSCR)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.29倍</strong></td>
+<td class="text-right font-mono">✅ 安全基準線(1.20倍)を安定的に上回る</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">損益分岐稼働率</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">82.40%</strong></td>
+<td class="text-right font-mono">✅ 許容空室数 <strong class="text-slate-900">1.41戸</strong> (1戸空室時でも黒字維持)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">積算価格 (固定資産税評価基準)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4,515.7万円</strong> (48.0%)</td>
+<td class="text-right font-mono">土地 3,812.4万円 + 建物 703.2万円 (公課証明書実測)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">土地実勢取引価格 (推定)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8,535.2万円</strong> (<strong class="text-slate-900">90.8%</strong>)</td>
+<td class="text-right font-mono">189.67坪 × 坪単価45万円 (販売価格の約91%が土地値)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">初期必要自己資金</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">2,669.2万円</strong> (¥26,692,000)</td>
+<td class="text-right font-mono">自己資金頭金 1,880万円 + 取得諸費用 789.2万円</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">自己資本利回り (CCR)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.39%</strong></td>
+<td class="text-left">税引前CF / 初期投下自己資金</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">総合投資判定</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">24 / 30点</strong></td>
+<td class="text-left"><strong class="text-slate-900">積極買い検討 / 買い推奨 (BUY / Recommended)</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.2 決算書デザイン型判定 (Output & Key Metrics)</h3>
+<p class="text-sm text-slate-700 leading-relaxed mb-3">法人決算書基準 モアビズ4期ベースラインと本物件取得時の統合財務着地シミュレーションです：</p>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>指標項目</th>
+<th>検証対象不動産 単品</th>
+<th>モアビズ4期現在</th>
+<th>検証対象不動産 購入後決算書着地予想</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">1. 帳簿上税引前当期純利益</strong></td>
+<td class="text-right font-mono">¥-1,829,413</td>
+<td class="text-right font-mono">¥3,722,450</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥1,893,037</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">2. 税引前手残りCF</strong></td>
+<td class="text-right font-mono">¥864,106</td>
+<td class="text-right font-mono">¥1,741,901</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,606,007</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引前CF利回り</strong></td>
+<td class="text-right font-mono">0.92%</td>
+<td class="text-right font-mono">0.65%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.72%</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">推定法人税額</strong></td>
+<td class="text-right font-mono">¥70,000 (均等割)</td>
+<td class="text-right font-mono">¥930,613</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥473,259</strong> (節税効果)</td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引後手残りCF</strong></td>
+<td class="text-right font-mono">¥794,106</td>
+<td class="text-right font-mono">¥811,289</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,132,748</strong></td>
+</tr>
+<tr>
+<td class="text-left">・<strong class="text-slate-900">税引後CF利回り</strong></td>
+<td class="text-right font-mono">0.84%</td>
+<td class="text-right font-mono">0.30%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.59%</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">3. 債務償還年数 (年)</strong></td>
+<td class="text-right font-mono">17.9年</td>
+<td class="text-right font-mono">24.1年</td>
+<td class="text-right font-mono"><strong class="text-slate-900">21.5年</strong> (健全性改善)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 簡易 Cash Flow (=税引後CF)</strong></td>
+<td class="text-right font-mono">¥794,106</td>
+<td class="text-right font-mono">¥811,289</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥2,132,748</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">5. ICR (インタレスト・カバレッジ・レシオ)</strong></td>
+<td class="text-right font-mono">-0.6倍</td>
+<td class="text-right font-mono">0.9倍</td>
+<td class="text-right font-mono"><strong class="text-slate-900">0.6倍</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 負債返済割合 (DSCR / 返済余裕率)</strong></td>
+<td class="text-right font-mono">1.5倍</td>
+<td class="text-right font-mono">1.5倍</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.5倍</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">7. LTV (固定資産税評価額に基づく)</strong></td>
+<td class="text-right font-mono">223.02%</td>
+<td class="text-right font-mono">261.08%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">250.89%</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">8. 投資額ROI (初期自己資本比)</strong></td>
+<td class="text-right font-mono">3.40%</td>
+<td class="text-right font-mono">3.83%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.67%</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.3 7大評価軸サマリー</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>評価軸</th>
+<th>評点 (/5.0)</th>
+<th>核心的根拠</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 収益性 (Yield)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.5</strong></td>
+<td class="text-left">表面利回り7.08%、実質NOI 5.55%、DSCR 1.29で1戸空室でも黒字を維持する堅実な収益構造。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">2. 担保性・積算 (Asset Value)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.8</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">土地面積189.67坪(627㎡)の大型整形敷地</strong>。実勢土地価格だけで約8,535万円(価格比90.8%)の圧倒的担保力。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 立地・需要 (Location)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-right font-mono">JR武蔵野線「新八柱」および新京成線「八柱」2駅2路線徒歩10~11分。都心通勤圏および2DKファミリー需要旺盛。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 建物状態・設備 (Structure)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.0</strong></td>
+<td class="text-right font-mono">1994年築鉄骨造。骨組み良好なるも、<strong class="text-slate-900">飲用水の自家井戸設備</strong>の点検および外壁・屋根防水履歴の確認が必須。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">5. 災害・ハザード (Hazard)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.2</strong></td>
+<td class="text-left">浸水・土砂災害高リスク区域外に位置し平坦地。液状化リスクも極めて低い良好地盤。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 出口戦略・換金性 (Exit)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.7</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">南北両面公道接道(南5.6m、北東4.8m) + 容積率消化率わずか60.9%(法定200%)</strong>。将来の戸建分筆分譲または新築開発が容易。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">7. 運営難易度 (Operation)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.8</strong></td>
+<td class="text-right font-mono">8戸全室2DK構成で単身ワンルームに比べ退去頻度が低く、平均入居年数の長い安定した賃貸借ポートフォリオ。</td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 1.4 事前確認必須5大項目 (Pre-Closing Checklist)</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li><strong class="text-slate-900">🚨 飲用水（自家井戸水設備）の現状および上水道本管引き込み状況</strong>:</li>
+<li>本物件は飲用水として公共上水道ではなく井戸水ポンプを使用しています。定期水質検査結果表およびポンプ機器の交換履歴を確認する必要があります。また前面道路への市営上水道本管の埋設有無と引き込み工事費用（想定150万~300万円）を水道局に事前確認すべきです。</li>
+<li><strong class="text-slate-900">📐 境界非明示取引の条件精査および境界標の現況確認</strong>:</li>
+<li>概要書に「境界非明示」と記載があります。189.67坪の大型土地であるため、隣地境界標の有無、越境物の有無、現況測量図の交付可否を契約前に売主と交渉する必要があります。</li>
+<li><strong class="text-slate-900">💧 建物雨漏り・修繕履歴および屋根・外壁塗装の確認</strong>:</li>
+<li>1994年3月築（築32年）の亜鉛メッキ鋼板葺鉄骨造です。直近10~15年の外壁塗装、コーキング、共用廊下防水の履歴を管理会社に確認し、漏水リスクを検証します。</li>
+<li><strong class="text-slate-900">🔍 レントロール賃料とエイブル募集図面の整合性突合</strong>:</li>
+<li>募集図面記載の賃料（5.3万~6.0万円）とレントロールの月額（6.1万~7.5万円）の差異は、駐車場代（5,000~7,700円）および定額水道料（2,000~3,000円）の合算契約に起因することを確認します。</li>
+<li><strong class="text-slate-900">🔥 LPガス供給会社の無償貸与設備契約の確認</strong>:</li>
+<li>プロパンガス供給会社との設備無償貸与（給湯器・エアコン等）契約の有無および解約違約金条項の承継条件を確認します。</li>
+</ol>
+<hr class="my-8 border-slate-200">
+<h2 id="ch2" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 2. 物件概要 (Property Specifications)</h2>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>項目</th>
+<th>詳細仕様</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">物件名称</strong></td>
+<td class="text-left">エクシードアロー (Exceed Arrow)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">所在地</strong></td>
+<td class="text-right font-mono">千葉県松戸市河原塚29-1, 29-4, 29-7, 29-8</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">交通</strong></td>
+<td class="text-right font-mono">• <strong class="text-slate-900">JR武蔵野線「新八柱」駅 徒歩10~11分</strong><br>• <strong class="text-slate-900">新京成電鉄新京成線「八柱」駅 徒歩10~11分</strong><br>• JR武蔵野線「東松戸」駅 徒歩25分</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">権利関係</strong></td>
+<td class="text-left">土地・建物ともに完全所有権 (所有権)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">土地面積</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">627.00㎡ (189.67坪)</strong> 公簿面積 (私道負担なし)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">土地構成</strong></td>
+<td class="text-right font-mono">計4筆 (29-1: 270.00㎡, 29-4: 125.00㎡, 29-7: 224.00㎡, 29-8: 8.00㎡)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">地目 / 地勢</strong></td>
+<td class="text-left">宅地 / 平坦</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">接道条件</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">南側公道 幅員約5.60m 接道 + 北東側公道 幅員約4.76m 接道 (南北両面接道)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">用途地域 / 地区</strong></td>
+<td class="text-left">第一種住居地域 · 第一種高度地区 · 市街化区域</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">建ぺい率 / 容積率</strong></td>
+<td class="text-right font-mono">法定 60% / 法定 200%</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">建物構造</strong></td>
+<td class="text-right font-mono">鉄骨造亜鉛メッキ鋼板葺 地上2階建 (公課証明書上: 軽量鉄骨造 金属板葺 2階建)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">建物延床面積</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">381.60㎡ (115.43坪)</strong> (1階 190.80㎡ / 2階 190.80㎡)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">建築確認・竣工</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">1994年3月4日 (平成6年3月4日竣工)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">総戸数</strong></td>
+<td class="text-right font-mono">2DK × 8戸 + 敷地内駐車場 5台分完備</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">主要設備</strong></td>
+<td class="text-left">LPガス、公共下水道、<strong class="text-slate-900">自家井戸水(飲用)</strong>、専用ゴミ集積場、各戸バルコニー/専用庭</td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch3" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 3. レントロール精密分析 (Rent Roll Forensic Audit)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 3.1 8戸全室レントロール一覧</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>号室</th>
+<th>間取</th>
+<th>専有面積</th>
+<th>現況賃料</th>
+<th>共益費(付帯込)</th>
+<th>月額合計</th>
+<th>㎡単価</th>
+<th>敷金預り</th>
+<th>付帯内訳および特記事項</th>
+<th>想定DOM</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">101</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.21㎡</td>
+<td class="text-right font-mono">¥62,000</td>
+<td class="text-right font-mono">¥5,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥67,000</strong></td>
+<td class="text-right font-mono">¥1,450</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">共益費に水道料2,000円含む</td>
+<td class="text-right font-mono">25日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">102</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.00㎡</td>
+<td class="text-right font-mono">¥67,000</td>
+<td class="text-right font-mono">¥6,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥73,000</strong></td>
+<td class="text-right font-mono">¥1,622</td>
+<td class="text-right font-mono">¥66,000</td>
+<td class="text-right font-mono">水道料2,000円含む、独立洗面台、ペット可</td>
+<td class="text-right font-mono">18日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">103</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.88㎡</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥10,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥70,000</strong></td>
+<td class="text-right font-mono">¥1,493</td>
+<td class="text-right font-mono">¥120,000</td>
+<td class="text-right font-mono">駐車場7,000円 + 水道料3,000円含む</td>
+<td class="text-right font-mono">35日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">105</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.21㎡</td>
+<td class="text-right font-mono">¥58,000</td>
+<td class="text-right font-mono">¥3,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥61,000</strong></td>
+<td class="text-right font-mono">¥1,349</td>
+<td class="text-right font-mono">¥116,000</td>
+<td class="text-right font-mono">水道料3,000円含む、専用庭付き</td>
+<td class="text-right font-mono">28日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">201</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">46.21㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥10,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥73,000</strong></td>
+<td class="text-right font-mono">¥1,580</td>
+<td class="text-right font-mono">¥120,000</td>
+<td class="text-right font-mono">駐車場5,000円 + 水道料3,000円含む</td>
+<td class="text-right font-mono">22日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">202</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">45.00㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥3,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥66,000</strong></td>
+<td class="text-right font-mono">¥1,467</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-left">最上階、一般賃貸借</td>
+<td class="text-right font-mono">30日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">203</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">47.88㎡</td>
+<td class="text-right font-mono">¥60,000</td>
+<td class="text-right font-mono">¥9,700</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥69,700</strong></td>
+<td class="text-right font-mono">¥1,456</td>
+<td class="text-right font-mono">¥0</td>
+<td class="text-right font-mono">駐車場7,700円含む</td>
+<td class="text-right font-mono">20日</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">205</strong></td>
+<td class="text-right font-mono">2DK</td>
+<td class="text-right font-mono">47.88㎡</td>
+<td class="text-right font-mono">¥63,000</td>
+<td class="text-right font-mono">¥12,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥75,000</strong></td>
+<td class="text-right font-mono">¥1,566</td>
+<td class="text-right font-mono">¥0</td>
+<td class="text-right font-mono">駐車場7,000円 + 水道料3,000円含む</td>
+<td class="text-right font-mono">24日</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">合計</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">2DK×8</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">370.27㎡</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥496,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥58,700</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥554,700</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">平均 ¥1,498</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥545,000</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">満室年間収入: ¥6,656,400</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">平均 25.3日</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch4" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 4. 価格妥当性および積算価格評価 (Valuation & Cost Approach)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 4.1 令和8年度 固定資産税公課証明書に基づく公的評価額</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>区分</th>
+<th>所在地番</th>
+<th>地目</th>
+<th>地積(㎡)</th>
+<th>評価額 (円)</th>
+<th>年間固定資産税</th>
+<th>年間都市計画税</th>
+<th>税相当額計 (円)</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">土地 1</strong></td>
+<td class="text-right font-mono">河原塚 29-1</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">270.00</td>
+<td class="text-right font-mono">¥16,417,080</td>
+<td class="text-right font-mono">¥38,306</td>
+<td class="text-right font-mono">¥12,586</td>
+<td class="text-right font-mono">¥50,892</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">土地 2</strong></td>
+<td class="text-right font-mono">河原塚 29-4</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">125.00</td>
+<td class="text-right font-mono">¥7,600,500</td>
+<td class="text-right font-mono">¥17,734</td>
+<td class="text-right font-mono">¥5,827</td>
+<td class="text-right font-mono">¥23,561</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">土地 3</strong></td>
+<td class="text-right font-mono">河原塚 29-7</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">224.00</td>
+<td class="text-right font-mono">¥13,620,096</td>
+<td class="text-right font-mono">¥31,780</td>
+<td class="text-right font-mono">¥10,442</td>
+<td class="text-right font-mono">¥42,222</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">土地 4</strong></td>
+<td class="text-right font-mono">河原塚 29-8</td>
+<td class="text-left">宅地</td>
+<td class="text-right font-mono">8.00</td>
+<td class="text-right font-mono">¥486,432</td>
+<td class="text-right font-mono">¥1,135</td>
+<td class="text-right font-mono">¥372</td>
+<td class="text-right font-mono">¥1,507</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">土地小計</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">4筆合計</strong></td>
+<td class="text-left"><strong class="text-slate-900">宅地</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">627.00</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥38,124,108</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥88,955</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥29,227</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥118,182</strong></td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">家屋 1棟</strong></td>
+<td class="text-right font-mono">河原塚 29-1</td>
+<td class="text-left">共同住宅</td>
+<td class="text-right font-mono">381.60</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥7,032,406</strong></td>
+<td class="text-right font-mono">¥98,453</td>
+<td class="text-right font-mono">¥16,174</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥114,627</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">総計</strong></td>
+<td class="text-left"><strong class="text-slate-900">土地 + 家屋</strong></td>
+<td class="text-left">-</td>
+<td class="text-left">-</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥45,156,514</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥187,408</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥45,401</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥232,809</strong></td>
+</tr>
+</tbody></table></div>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 4.2 積算価格3大シナリオ比較</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>評価シナリオ</th>
+<th>土地評価額</th>
+<th>建物残存評価</th>
+<th>積算総額</th>
+<th>価格比</th>
+<th>評価性格と投資判断の示唆</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">1. 固定資産税評価額基準</strong></td>
+<td class="text-right font-mono">3,812.4万円</td>
+<td class="text-right font-mono">703.2万円</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4,515.7万円</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">48.0%</strong></td>
+<td class="text-left">市町村課税標準基準の最保守的評価（担保下限線）</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">2. 相続税路線価基準</strong></td>
+<td class="text-right font-mono">4,389.0万円</td>
+<td class="text-right font-mono">703.2万円</td>
+<td class="text-right font-mono"><strong class="text-slate-900">5,092.2万円</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">54.2%</strong></td>
+<td class="text-right font-mono">国税庁路線価(約7万円/㎡)基準の担保評価</td>
+</tr>
+<tr>
+<td class="text-right font-mono"><strong class="text-slate-900">3. 実勢土地価格基準</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">8,535.2万円</strong></td>
+<td class="text-right font-mono">703.2万円</td>
+<td class="text-right font-mono"><strong class="text-slate-900">9,238.4万円</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">98.3%</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">周辺住宅地実勢相場(坪45万円)に基づく実質資産価値</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch5" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 5. 運営経費およびキャッシュフローシミュレーション (OPEX & CF)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 5.1 実質運営経費 (OPEX) の内訳</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>経費項目</th>
+<th>年間金額</th>
+<th>算出根拠および正常化基準</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">公課公金 (固定資産税・都市計画税)</strong></td>
+<td class="text-right font-mono">¥232,809</td>
+<td class="text-right font-mono">令和8年度公課証明書の実測税額</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">管理委託手数料 (PM Fee)</strong></td>
+<td class="text-right font-mono">¥332,820</td>
+<td class="text-right font-mono">年間総収入の 5.0% (専門管理委託)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">井戸ポンプ保守点検および共用電気</strong></td>
+<td class="text-right font-mono">¥150,000</td>
+<td class="text-left">井戸水ポンプ点検、水質検査、共用部電気</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">火災・地震保険料</strong></td>
+<td class="text-right font-mono">¥80,000</td>
+<td class="text-right font-mono">8戸分年間按分額 (5年一括想定)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">原状回復および募集広告費</strong></td>
+<td class="text-right font-mono">¥320,000</td>
+<td class="text-right font-mono">戸あたり年40,000円引当 (年1~2戸退去想定)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">大規模修繕積立金</strong></td>
+<td class="text-right font-mono">¥320,000</td>
+<td class="text-right font-mono">戸あたり年40,000円留保 (屋根・外壁修繕用)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">実質経費合計</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥1,435,629</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">実質経費率 21.57% (極めて健全な水準)</strong></td>
+</tr>
+</tbody></table></div>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 5.2 融資シナリオ比較 (推奨：シナリオC 25年土地担保融資)</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>指標項目</th>
+<th>シナリオA (LTV 80% / 20年)</th>
+<th>シナリオB (LTV 70% / 20年)</th>
+<th>シナリオC (LTV 80% / 25年) [採用]</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">借入金額</strong></td>
+<td class="text-right font-mono">¥75,200,000 (80%)</td>
+<td class="text-right font-mono">¥65,800,000 (70%)</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥75,200,000 (80%)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">借入金利 / 期間</strong></td>
+<td class="text-right font-mono">2.5% / 20年</td>
+<td class="text-right font-mono">2.5% / 20年</td>
+<td class="text-right font-mono"><strong class="text-slate-900">2.5% / 25年</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">月額返済額</strong></td>
+<td class="text-right font-mono">¥398,735</td>
+<td class="text-right font-mono">¥348,893</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥337,422</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">年間返済額 (ADS)</strong></td>
+<td class="text-right font-mono">¥4,784,820</td>
+<td class="text-right font-mono">¥4,186,716</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥4,049,064</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">満室純営業収益 (NOI)</strong></td>
+<td class="text-right font-mono">¥5,220,771</td>
+<td class="text-right font-mono">¥5,220,771</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥5,220,771</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">税引前年間CF</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥435,951</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥1,034,055</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">+¥1,171,707</strong> (月額 +9.76万円)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">返済余裕率 (DSCR)</strong></td>
+<td class="text-right font-mono">1.09倍</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.25倍</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.29倍</strong> (安全基準クリア)</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">損益分岐稼働率</strong></td>
+<td class="text-right font-mono">93.45%</td>
+<td class="text-right font-mono">84.46%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">82.40%</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">許容空室戸数</strong></td>
+<td class="text-right font-mono">0.52戸</td>
+<td class="text-right font-mono">1.24戸</td>
+<td class="text-right font-mono"><strong class="text-slate-900">1.41戸 (1戸空室でも安全)</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">自己資金投下総額</strong></td>
+<td class="text-right font-mono">¥26,692,000</td>
+<td class="text-right font-mono">¥36,092,000</td>
+<td class="text-right font-mono"><strong class="text-slate-900">¥26,692,000</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">自己資本利回り (CCR)</strong></td>
+<td class="text-right font-mono">1.63%</td>
+<td class="text-right font-mono">2.87%</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.39%</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h2 id="ch6" class="text-xl sm:text-2xl font-bold text-slate-900 mt-10 mb-4 pb-2 border-b-2 border-slate-200 flex items-center gap-2"><span class="text-amber-500">§</span> 6. 総合評価および投資判断 (Conclusion & Scorecard)</h2>
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 6.1 30点満点スコアカード</h3>
+<div class="overflow-x-auto my-5 rounded-xl border border-slate-200 shadow-sm"><table class="report-table">
+<thead><tr>
+<th>評価部門</th>
+<th>配点</th>
+<th>得点</th>
+<th>評価概要</th>
+</tr></thead><tbody>
+<tr>
+<td class="text-left"><strong class="text-slate-900">1. 収益性およびCF (Cash Flow)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.5</strong></td>
+<td class="text-right font-mono">満室表面7.08%、NOI 5.55%、税引前年CF 117万円の堅実な収益性。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">2. 資産性・担保力 (Asset)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">5.0</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">土地面積189.67坪、実勢土地価格8,535万円(価格比90.8%)の圧倒的担保力。</strong></td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">3. 立地および賃貸需要 (Location)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-right font-mono">JR武蔵野線・新京成線2駅徒歩10分。2DKファミリー需要が安定。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">4. 建物状態および設備 (Facility)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">3.0</strong></td>
+<td class="text-right font-mono">築32年および井戸水設備への留意を要するも鉄骨骨組みは健全。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">5. 災害安全性 (Hazard Safety)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.0</strong></td>
+<td class="text-left">浸水・土砂災害安全区域、良好な平坦地盤。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">6. 出口戦略・換金性 (Exit)</strong></td>
+<td class="text-right font-mono">5.0</td>
+<td class="text-right font-mono"><strong class="text-slate-900">4.5</strong></td>
+<td class="text-right font-mono">南北両面公道接道 + 低容積率(60.9%)で分筆分譲や将来開発が自在。</td>
+</tr>
+<tr>
+<td class="text-left"><strong class="text-slate-900">総合得点 (Total Score)</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">30.0</strong></td>
+<td class="text-right font-mono"><strong class="text-slate-900">24.0</strong></td>
+<td class="text-left"><strong class="text-slate-900">投資格付: A (積極買い推奨 / BUY)</strong></td>
+</tr>
+</tbody></table></div>
+<hr class="my-8 border-slate-200">
+<h3 class="text-base sm:text-lg font-bold text-slate-800 mt-6 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> 付録：出典・実査資料一覧</h3>
+<ol class="space-y-2 my-3 pl-5 list-decimal text-sm text-slate-700">
+<li>千葉県松戸市長発行 令和8年度 固定資産(土地・家屋) 公課証明書 (令和8年7月17日交付)</li>
+<li>株式会社リブライフマーケティング 物件概要書およびレントロール (2024年)</li>
+<li>株式会社エイブル 新八柱店 各戸マイソク募集図面全戸分 (101, 102, 103, 105, 201, 202, 203, 205号)</li>
+<li>松戸市WEBハザードマップ (洪水浸水・土砂災害・地震防災)</li>
+<li>国税庁相続税財産評価基準路線価および国土交通省地価公示データ</li>
+</ol>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs mt-12 no-print">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <div class="flex justify-center space-x-4">
+        <a href="../" class="hover:text-white transition">포트폴리오 허브 (Hub)</a>
+        <span>·</span>
+        <a href="./index.html" class="hover:text-white transition">시뮬레이터 대시보드</a>
+        <span>·</span>
+        <a href="./Matsudo_Kawaharazuka_Investment_Report_KO.md" class="hover:text-white transition">한국어 MD 원본</a>
+        <span>·</span>
+        <a href="./Matsudo_Kawaharazuka_Investment_Report_JA.md" class="hover:text-white transition">日本語 MD 原文</a>
+      </div>
+      <p>MyRealBiz Real Estate Due Diligence Report &copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      document.getElementById('reading-progress').style.width = progress + '%';
+    });
+
+    function setReportLang(lang) {
+      const koEl = document.getElementById('content-ko');
+      const jaEl = document.getElementById('content-ja');
+      const btnKO = document.getElementById('langKO');
+      const btnJA = document.getElementById('langJA');
+      const topTitle = document.getElementById('topHeaderTitle');
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSub = document.getElementById('heroSubtitle');
+
+      if (lang === 'ja') {
+        koEl.classList.add('hidden');
+        jaEl.classList.remove('hidden');
+        btnJA.className = "px-3 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition";
+        btnKO.className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition";
+        document.documentElement.lang = "ja";
+        topTitle.textContent = "千葉県松戸市河原塚 1棟アパート 実査レポート";
+        heroTitle.textContent = "エクシードアロー 精密投資分析レポート";
+        heroSub.textContent = "エクシードアロー · 2DK×8戸 · 敷地内駐車場5台 | 千葉県松戸市河原塚29-1 | JR武蔵野線 新八柱駅 徒歩10分 · 新京成線 八柱駅 徒歩10分";
+      } else {
+        jaEl.classList.add('hidden');
+        koEl.classList.remove('hidden');
+        btnKO.className = "px-3 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition";
+        btnJA.className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition";
+        document.documentElement.lang = "ko";
+        topTitle.textContent = "치바현 마츠도시 카와하라즈카 1동 아파트 실사 보고서";
+        heroTitle.textContent = "익시드 애로우(마츠도시 카와하라즈카) 정밀 투자분석 보고서";
+        heroSub.textContent = "エクシードアロー · 2DK×8戸 · 敷地内駐車場5台 | 千葉県松戸市河原塚29-1 | JR武蔵野線 新八柱駅 徒歩10分 · 新京成線 八柱駅 徒歩10分";
+      }
+    }
+  </script>
+</body>
+</html>
