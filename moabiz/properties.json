@@ -32,7 +32,9 @@
     "moabiz_simulator_html": "./moabiz/foresthills/index.html",
     "moabiz_report_html": "./moabiz/foresthills/report.html",
     "report_ja_html": "./foresthills/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/foresthills/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/foresthills/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/foresthills/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/foresthills/suitability_report.html"
   },
   {
     "slug": "funabashi-miyamoto",
@@ -67,7 +69,9 @@
     "moabiz_simulator_html": "./moabiz/funabashi-miyamoto/index.html",
     "moabiz_report_html": "./moabiz/funabashi-miyamoto/report.html",
     "report_ja_html": "./funabashi-miyamoto/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/funabashi-miyamoto/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/funabashi-miyamoto/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/funabashi-miyamoto/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/funabashi-miyamoto/suitability_report.html"
   },
   {
     "slug": "matsudo-kawaharazuka",
@@ -102,7 +106,9 @@
     "moabiz_simulator_html": "./moabiz/matsudo-kawaharazuka/index.html",
     "moabiz_report_html": "./moabiz/matsudo-kawaharazuka/report.html",
     "report_ja_html": "./matsudo-kawaharazuka/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/matsudo-kawaharazuka/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/matsudo-kawaharazuka/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/matsudo-kawaharazuka/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/matsudo-kawaharazuka/suitability_report.html"
   },
   {
     "slug": "clio-kikuna",
@@ -137,7 +143,9 @@
     "moabiz_simulator_html": "./moabiz/clio-kikuna/index.html",
     "moabiz_report_html": "./moabiz/clio-kikuna/report.html",
     "report_ja_html": "./clio-kikuna/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/clio-kikuna/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/clio-kikuna/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/clio-kikuna/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/clio-kikuna/suitability_report.html"
   },
   {
     "slug": "erfolg-tsudanuma",
@@ -172,7 +180,9 @@
     "moabiz_simulator_html": "./moabiz/erfolg-tsudanuma/index.html",
     "moabiz_report_html": "./moabiz/erfolg-tsudanuma/report.html",
     "report_ja_html": "./erfolg-tsudanuma/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/erfolg-tsudanuma/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/erfolg-tsudanuma/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/erfolg-tsudanuma/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/erfolg-tsudanuma/suitability_report.html"
   },
   {
     "slug": "vinocity-kitakashiwa",
@@ -207,7 +217,9 @@
     "moabiz_simulator_html": "./moabiz/vinocity-kitakashiwa/index.html",
     "moabiz_report_html": "./moabiz/vinocity-kitakashiwa/report.html",
     "report_ja_html": "./vinocity-kitakashiwa/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/vinocity-kitakashiwa/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/vinocity-kitakashiwa/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/vinocity-kitakashiwa/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/vinocity-kitakashiwa/suitability_report.html"
   },
   {
     "slug": "g-crest-hatogaya",
@@ -242,6 +254,8 @@
     "moabiz_simulator_html": "./moabiz/g-crest-hatogaya/index.html",
     "moabiz_report_html": "./moabiz/g-crest-hatogaya/report.html",
     "report_ja_html": "./g-crest-hatogaya/report_ja.html",
-    "moabiz_report_ja_html": "./moabiz/g-crest-hatogaya/report_ja.html"
+    "moabiz_report_ja_html": "./moabiz/g-crest-hatogaya/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/g-crest-hatogaya/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/g-crest-hatogaya/suitability_report.html"
   }
 ]

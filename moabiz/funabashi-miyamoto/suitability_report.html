@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>후나바시 미야모토 1초메 (Funabashi Miyamoto) 수익 및 결산서 적합성 정밀 분석 보고서 | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">후나바시 미야모토 1초메 (Funabashi Miyamoto) 수익 및 결산서 적합성 정밀 분석 보고서</div>
+        <div class="brand-sub">결산서 디자인형 7대 지표 & 3대 가중연수 & 25년 장기 CF 엑시트 시뮬레이션</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn active" href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn " href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 포트폴리오</a>
+      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
+      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">목차 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#모아비즈-전용-수익-및-결산서-적합성-분석-보고서" data-target="모아비즈-전용-수익-및-결산서-적합성-분석-보고서">[모아비즈 전용] 수익 및 결산서 적합성 분석 보고서</a>
+<a class="toc-h3" href="#1-3대-연수-변화-및-개선-여부-판정" data-target="1-3대-연수-변화-및-개선-여부-판정">1. 3대 연수 변화 및 개선 여부 판정</a>
+<a class="toc-h3" href="#1-기본-입력-파라미터-input-parameters" data-target="1-기본-입력-파라미터-input-parameters">1. 기본 입력 파라미터 (Input Parameters)</a>
+<a class="toc-h3" href="#2-중간-연산-영역-intermediate-calculations" data-target="2-중간-연산-영역-intermediate-calculations">2. 중간 연산 영역 (Intermediate Calculations)</a>
+<a class="toc-h3" href="#3-결산서-디자인형-7대-핵심-지표-판정-output-key-metrics" data-target="3-결산서-디자인형-7대-핵심-지표-판정-output-key-metrics">3. 결산서 디자인형 7대 핵심 지표 판정 (Output &amp; Key Metrics)</a>
+<a class="toc-h3" href="#1-매각-년차별-4대-핵심-엑시트-지표-user-4-key-requirements" data-target="1-매각-년차별-4대-핵심-엑시트-지표-user-4-key-requirements">1. 매각 년차별 4대 핵심 엑시트 지표 (User 4 Key Requirements)</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="모아비즈-전용-수익-및-결산서-적합성-분석-보고서">[모아비즈 전용] 수익 및 결산서 적합성 분석 보고서<a class="anchor" href="#모아비즈-전용-수익-및-결산서-적합성-분석-보고서" aria-label="link">#</a></h1>
+<h2 id="moabiz-financial-statement-compatibility-long-term-cash-flow-due-diligence-report">(Moabiz Financial Statement Compatibility &amp; Long-term Cash Flow Due Diligence Report)<a class="anchor" href="#moabiz-financial-statement-compatibility-long-term-cash-flow-due-diligence-report" aria-label="link">#</a></h2>
+<div class="alert alert-important"><div class="alert-head">📌 중요</div><p>본 보고서는 모아비즈(Moabiz) 법인의 내부 결산서 디자인 및 중장기 대출 경쟁력 강화를 위한 전용 실사 보고서입니다. 외부 공개용 포털에는 일체 노출되지 않으며, 모아비즈 4기 결산서 베이스라인 및 차기 법인세·현금흐름 착지 지표를 100% 보존합니다.</p></div>
+<hr>
+<h2 id="executive-summary-핵심-의사결정-요약">Executive Summary (핵심 의사결정 요약)<a class="anchor" href="#executive-summary-핵심-의사결정-요약" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">구분</th><th class="ta-center">모아비즈 4기 기존 (C열)</th><th class="ta-center">매입 후 착지 예상 (D열)</th><th class="ta-center">변동폭 (Delta)</th><th class="ta-center">건전성 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>법인 자산 총액 (매매가 합산)</strong></td><td class="ta-center">¥267,538,767</td><td class="ta-center"><strong>¥392,538,767</strong></td><td class="ta-center"><strong>+¥125,000,000</strong></td><td class="ta-center">규모의 경제 달성 (+46.7%)</td></tr><tr><td class="ta-left"><strong>법인 총 차입금 (대출잔액)</strong></td><td class="ta-center">¥242,655,487</td><td class="ta-center"><strong>¥362,655,487</strong></td><td class="ta-center"><strong>+¥120,000,000</strong></td><td class="ta-center">LTV 92.4% (건전 유지)</td></tr><tr><td class="ta-left"><strong>장부상 세전 당기순이익</strong></td><td class="ta-center">¥684,020</td><td class="ta-center"><strong>¥4,544,535</strong></td><td class="ta-center"><strong>+¥3,860,515</strong></td><td class="ta-center"><strong>+564% 대폭 순증 (흑자 결산)</strong></td></tr><tr><td class="ta-left"><strong>세후 잉여 Cash Flow</strong></td><td class="ta-center">¥3,221,079</td><td class="ta-center"><strong>¥4,336,055</strong></td><td class="ta-center"><strong>+¥1,114,976</strong></td><td class="ta-center"><strong>+34.6% 실질 현금 유입 확대</strong></td></tr><tr><td class="ta-left"><strong>채무상환연수 (年)</strong></td><td class="ta-center">33.2년</td><td class="ta-center"><strong>29.4년</strong></td><td class="ta-center"><strong>-3.78년 단축</strong></td><td class="ta-center"><strong>✅ 30년 이내 우량 진입</strong></td></tr><tr><td class="ta-left"><strong>이자보상배율 (ICR)</strong></td><td class="ta-center">1.15배</td><td class="ta-center"><strong>1.32배</strong></td><td class="ta-center"><strong>+0.17배 상승</strong></td><td class="ta-center"><strong>✅ 금리 인상 방어력 대폭 강화</strong></td></tr><tr><td class="ta-left"><strong>부채상환여유율 (DSCR)</strong></td><td class="ta-center">1.39배</td><td class="ta-center"><strong>1.52배</strong></td><td class="ta-center"><strong>+0.13배 상승</strong></td><td class="ta-center"><strong>✅ 1.5배 돌파 (원리금 안전마진 확보)</strong></td></tr><tr><td class="ta-left"><strong>고정자산세 평가 기반 LTV</strong></td><td class="ta-center">263.17%</td><td class="ta-center"><strong>248.78%</strong></td><td class="ta-center"><strong>-14.39%p 하락</strong></td><td class="ta-center"><strong>✅ 담보 안전성 개선</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="3대-가중-연수-체계-검증-가중-감가상각연수-vs-융자연수-vs-상환연수">⚖️ 3대 가중 연수 체계 검증 (가중 감가상각연수 vs 융자연수 vs 상환연수)<a class="anchor" href="#3대-가중-연수-체계-검증-가중-감가상각연수-vs-융자연수-vs-상환연수" aria-label="link">#</a></h2>
+<p>모아비즈 법인의 지속 가능한 대출 레벨업을 위한 핵심 부등호 조건: $$\text{가중 감가상각연수}(A) \ge \text{가중 융자연수}(B) \ge \text{가중 상환연수}(C)$$</p>
+<h3 id="1-3대-연수-변화-및-개선-여부-판정">1. 3대 연수 변화 및 개선 여부 판정<a class="anchor" href="#1-3대-연수-변화-및-개선-여부-판정" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">지표</th><th class="ta-center">기호</th><th class="ta-center">단품 자체</th><th class="ta-center">모아비즈 4기</th><th class="ta-center">매입 후 착지</th><th class="ta-left">개선 여부 및 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>가중 감가상각연수</strong></td><td class="ta-center"><strong>A</strong></td><td class="ta-center">27.0년</td><td class="ta-center">18.78년</td><td class="ta-center"><strong>22.23년</strong></td><td class="ta-left"><strong>+3.45년 연장 (대규모 장기 절세 여력 확보)</strong></td></tr><tr><td class="ta-left"><strong>가중 융자연수</strong></td><td class="ta-center"><strong>B</strong></td><td class="ta-center">35.0년</td><td class="ta-center">32.64년</td><td class="ta-center"><strong>33.54년</strong></td><td class="ta-left"><strong>+0.91년 장기화 (월 원리금 상환 압박 완화)</strong></td></tr><tr><td class="ta-left"><strong>가중 상환연수</strong></td><td class="ta-center"><strong>C</strong></td><td class="ta-center">23.9년</td><td class="ta-center">33.19년</td><td class="ta-center"><strong>29.41년</strong></td><td class="ta-left"><strong>-3.78년 대폭 단축 (채무 상환 건전성 획기적 개선)</strong></td></tr></tbody></table></div>
+<div class="alert alert-note"><div class="alert-head">ℹ️ 참고</div><p>기존 모아비즈 4기는 채무상환연수(33.2년)가 융자연수(32.6년)보다 미세하게 길어 대출 만기 시점까지 채무를 전액 완제하기에 잉여현금이 빡빡한 구조였습니다. 본 물건 매입 시 <strong>상환연수가 29.4년으로 대폭 단축되어 융자연수(33.5년) 이내로 완벽히 안착($C \le B$)</strong>하므로, 금융기관 사전 타진 시 최고 등급의 신용 평가를 확보할 수 있습니다.</p></div>
+<hr>
+<h2 id="필러-1-결산서-디자인형-정밀-대조표-sheet-1-전수-대조">🏛️ [필러 1] 결산서 디자인형 정밀 대조표 (Sheet 1 전수 대조)<a class="anchor" href="#필러-1-결산서-디자인형-정밀-대조표-sheet-1-전수-대조" aria-label="link">#</a></h2>
+<h3 id="1-기본-입력-파라미터-input-parameters">1. 기본 입력 파라미터 (Input Parameters)<a class="anchor" href="#1-기본-입력-파라미터-input-parameters" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목명 (Item)</th><th class="ta-center">B. 구입 물건 자체</th><th class="ta-center">C. 모아비즈 4기 결산서</th><th class="ta-center">D. 구입 후 결산서 착지예상</th><th class="ta-left">비고</th></tr></thead><tbody><tr><td class="ta-left"><strong>건물 구조</strong></td><td class="ta-center"><strong>RC (철근콘크리트)</strong></td><td class="ta-center">목조 3개동</td><td class="ta-center"><strong>RC 1개동 + 목조 3개동</strong></td><td class="ta-left">포트폴리오 구조 다변화</td></tr><tr><td class="ta-left"><strong>건물 축년수</strong></td><td class="ta-center"><strong>25년</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">법정 47년 (잔여 22년)</td></tr><tr><td class="ta-left"><strong>물건 가격 (Purchase Price)</strong></td><td class="ta-center"><strong>¥125,000,000</strong></td><td class="ta-center">¥267,538,767</td><td class="ta-center"><strong>¥392,538,767</strong></td><td class="ta-left">합산 장부가액 확대</td></tr><tr><td class="ta-left"><strong>융자 금액 (Loan Amount)</strong></td><td class="ta-center"><strong>¥120,000,000</strong></td><td class="ta-center">¥242,655,487</td><td class="ta-center"><strong>¥362,655,487</strong></td><td class="ta-left">96.0% LTV 조달</td></tr><tr><td class="ta-left"><strong>융자 기간 (Loan Term)</strong></td><td class="ta-center"><strong>35년</strong></td><td class="ta-center">32.6년 (가중)</td><td class="ta-center"><strong>33.5년 (가중)</strong></td><td class="ta-left">장기 분할상환</td></tr><tr><td class="ta-left"><strong>융자 금리 (Interest Rate)</strong></td><td class="ta-center"><strong>3.00%</strong></td><td class="ta-center">2.80% (평균)</td><td class="ta-center"><strong>2.87% (평균)</strong></td><td class="ta-left">보수적 3.0% 적용</td></tr><tr><td class="ta-left"><strong>만실상정 연수입 (Gross Rent)</strong></td><td class="ta-center"><strong>¥10,581,600</strong></td><td class="ta-center">¥16,452,876</td><td class="ta-center"><strong>¥27,034,476</strong></td><td class="ta-left">표면수익률 8.47%</td></tr><tr><td class="ta-left"><strong>상정 가동률 (Occupancy)</strong></td><td class="ta-center"><strong>90.00%</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">실효 연수입 ¥9,523,440</td></tr><tr><td class="ta-left"><strong>운영 경비율 (Expense Ratio)</strong></td><td class="ta-center"><strong>20.00%</strong></td><td class="ta-center">26.96%</td><td class="ta-center"><strong>24.41%</strong></td><td class="ta-left">실질 경비 정상화</td></tr><tr><td class="ta-left"><strong>건물 배분 비율 (Building Ratio)</strong></td><td class="ta-center"><strong>45.82%</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">건물 5,727만엔 / 토지 6,772만엔</td></tr><tr><td class="ta-left"><strong>고정자산세 토지평가</strong></td><td class="ta-center"><strong>¥34,663,785</strong></td><td class="ta-center">¥71,857,096</td><td class="ta-center"><strong>¥106,520,881</strong></td><td class="ta-left">과세명세서 기준</td></tr><tr><td class="ta-left"><strong>고정자산세 건물평가</strong></td><td class="ta-center"><strong>¥29,302,566</strong></td><td class="ta-center">¥41,905,687</td><td class="ta-center"><strong>¥71,208,253</strong></td><td class="ta-left">과세명세서 기준</td></tr><tr><td class="ta-left"><strong>토지 노선가 적산 (741.63㎡)</strong></td><td class="ta-center"><strong>¥51,914,100</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">노선가 70,000엔/㎡</td></tr><tr><td class="ta-left"><strong>건물 재조달 적산 (428.00㎡)</strong></td><td class="ta-center"><strong>¥52,088,511</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">재조달단가 260,000엔/㎡</td></tr><tr><td class="ta-left"><strong>토지 + 건물 합산 적산가격</strong></td><td class="ta-center"><strong>¥104,002,611</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left"><strong>매매가 대비 83.20% 적산</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="2-중간-연산-영역-intermediate-calculations">2. 중간 연산 영역 (Intermediate Calculations)<a class="anchor" href="#2-중간-연산-영역-intermediate-calculations" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목명</th><th class="ta-center">B. 구입 물건 단품</th><th class="ta-center">C. 모아비즈 4기 기존</th><th class="ta-center">D. 매입 후 합산 착지</th><th class="ta-left">산출 공식 및 기준</th></tr></thead><tbody><tr><td class="ta-left"><strong>감가상각 연수</strong></td><td class="ta-center"><strong>27.0년</strong></td><td class="ta-center">18.78년 (가중)</td><td class="ta-center"><strong>22.23년 (가중)</strong></td><td class="ta-left">간편법: $22 + (25 \times 0.2) = 27$년</td></tr><tr><td class="ta-left"><strong>연간 총수입 (Gross Income)</strong></td><td class="ta-center"><strong>¥9,523,440</strong></td><td class="ta-center">¥16,452,876</td><td class="ta-center"><strong>¥25,976,316</strong></td><td class="ta-left">만실가계 $\times$ 입주율(90%)</td></tr><tr><td class="ta-left"><strong>연간 운영경비 (OPEX)</strong></td><td class="ta-center"><strong>¥1,904,688</strong></td><td class="ta-center">¥4,435,369</td><td class="ta-center"><strong>¥6,340,057</strong></td><td class="ta-left">총수입 $\times$ 경비율(20%)</td></tr><tr><td class="ta-left"><strong>연간 감가상각비</strong></td><td class="ta-center"><strong>¥2,121,159</strong></td><td class="ta-center">¥6,801,259</td><td class="ta-center"><strong>¥8,922,418</strong></td><td class="ta-left">(매매가 $\times$ 건물비율) / 상각연수</td></tr><tr><td class="ta-left"><strong>연간 총 원리금 상환액 (ADS)</strong></td><td class="ta-center"><strong>¥5,541,843</strong></td><td class="ta-center">¥8,622,228</td><td class="ta-center"><strong>¥14,164,071</strong></td><td class="ta-left">원리금균등 월 ¥461,820 $\times$ 12</td></tr><tr><td class="ta-left"><strong>1년차 지급이자</strong></td><td class="ta-center"><strong>¥3,573,076</strong></td><td class="ta-center">¥4,532,228</td><td class="ta-center"><strong>¥8,105,304</strong></td><td class="ta-left">잔액 $\times$ 3.0% 감채 스케줄</td></tr><tr><td class="ta-left"><strong>1년차 원금상환액</strong></td><td class="ta-center"><strong>¥1,968,767</strong></td><td class="ta-center">¥4,090,000</td><td class="ta-center"><strong>¥6,058,767</strong></td><td class="ta-left">원리금 - 지급이자</td></tr><tr><td class="ta-left"><strong>원리금 상환비율</strong></td><td class="ta-center"><strong>58.19%</strong></td><td class="ta-center">52.41%</td><td class="ta-center"><strong>54.53%</strong></td><td class="ta-left">ADS / 연간 총수입</td></tr></tbody></table></div>
+<hr>
+<h3 id="3-결산서-디자인형-7대-핵심-지표-판정-output-key-metrics">3. 결산서 디자인형 7대 핵심 지표 판정 (Output &amp; Key Metrics)<a class="anchor" href="#3-결산서-디자인형-7대-핵심-지표-판정-output-key-metrics" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">7대 핵심 지표</th><th class="ta-center">B. 구입 물건 단품</th><th class="ta-center">C. 모아비즈 4기 기준</th><th class="ta-center">D. 매입 후 착지예상</th><th class="ta-left">기여도 및 최종 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 장부상 세전 당기순이익</strong></td><td class="ta-center"><strong>¥3,860,515</strong></td><td class="ta-center">¥684,020</td><td class="ta-center"><strong>¥4,544,535</strong></td><td class="ta-left"><strong>+564% 대규모 흑자 결산 달성</strong></td></tr><tr><td class="ta-left"><strong>2. 세전 잉여 Cash Flow</strong></td><td class="ta-center"><strong>¥2,076,909</strong></td><td class="ta-center">¥3,395,279</td><td class="ta-center"><strong>¥5,472,188</strong></td><td class="ta-left"><strong>연 ¥547만 엔 순현금 창출</strong></td></tr><tr><td class="ta-left">- 세전 CF 수익률 (%)</td><td class="ta-center"><strong>1.66%</strong></td><td class="ta-center">1.27%</td><td class="ta-center"><strong>1.39%</strong></td><td class="ta-left">자본 효율성 개선</td></tr><tr><td class="ta-left">- 추정 법인세액 (25%)</td><td class="ta-center"><strong>¥965,129</strong></td><td class="ta-center">¥174,200</td><td class="ta-center"><strong>¥1,136,134</strong></td><td class="ta-left">적정 납세 및 흑자 증빙</td></tr><tr><td class="ta-left"><strong>- 세후 잉여 Cash Flow</strong></td><td class="ta-center"><strong>¥1,111,781</strong></td><td class="ta-center">¥3,221,079</td><td class="ta-center"><strong>¥4,336,055</strong></td><td class="ta-left"><strong>연 ¥433만 엔 순유입 확정</strong></td></tr><tr><td class="ta-left">- 세후 CF 수익률 (%)</td><td class="ta-center"><strong>0.89%</strong></td><td class="ta-center">1.20%</td><td class="ta-center"><strong>1.10%</strong></td><td class="ta-left">안정적 배당 재원 확보</td></tr><tr><td class="ta-left"><strong>3. 채무상환연수 (年)</strong></td><td class="ta-center"><strong>23.9년</strong></td><td class="ta-center">33.2년</td><td class="ta-center"><strong>29.4년</strong></td><td class="ta-left"><strong>-3.8년 단축 (30년 이내 안착)</strong></td></tr><tr><td class="ta-left"><strong>4. 간이 Cash Flow</strong></td><td class="ta-center"><strong>¥3,047,779</strong></td><td class="ta-center">¥3,221,079</td><td class="ta-center"><strong>¥6,272,053</strong></td><td class="ta-left"><strong>+94.7% 현금 창출력 급증</strong></td></tr><tr><td class="ta-left"><strong>5. ICR (이자보상배율)</strong></td><td class="ta-center"><strong>1.54배</strong></td><td class="ta-center">1.15배</td><td class="ta-center"><strong>1.32배</strong></td><td class="ta-left"><strong>+0.17배 개선 (금리 안전마진 확보)</strong></td></tr><tr><td class="ta-left"><strong>6. 부채상환여유율 (DSCR)</strong></td><td class="ta-center"><strong>1.72배</strong></td><td class="ta-center">1.39배</td><td class="ta-center"><strong>1.52배</strong></td><td class="ta-left"><strong>+0.13배 개선 (1.50배 이상 우량)</strong></td></tr><tr><td class="ta-left"><strong>7. 고정자산세 평가 기반 LTV</strong></td><td class="ta-center"><strong>224.02%</strong></td><td class="ta-center">263.17%</td><td class="ta-center"><strong>248.78%</strong></td><td class="ta-left"><strong>-14.39%p 하락 (담보 안전성 제고)</strong></td></tr><tr><td class="ta-left"><strong>초기 자기자본 (Down + 제경비)</strong></td><td class="ta-center"><strong>¥13,750,000</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left">자기자금 500만 + 제경비 875만</td></tr><tr><td class="ta-left"><strong>초기 자본수익률 (CCR %)</strong></td><td class="ta-center"><strong>15.10%</strong></td><td class="ta-center">-</td><td class="ta-center">-</td><td class="ta-left"><strong>CCR 15% 초고효율 레버리지</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="필러-2-25년-장기-캐시플로우-운영-매각-엑시트-시뮬레이션">📈 [필러 2] 25년 장기 캐시플로우 운영 &amp; 매각 엑시트 시뮬레이션<a class="anchor" href="#필러-2-25년-장기-캐시플로우-운영-매각-엑시트-시뮬레이션" aria-label="link">#</a></h2>
+<ul>
+<li><strong>운영 조건</strong>: 연간 임대료 하락률 1.0% 복리 반영, 공실률 10%, 경비율 20%, 실효세율 25%, 매각 상정 수익률 8.8%.</li>
+<li><strong>초기 투입비용</strong>: ¥13,750,000 (자기자본 500만 엔 + 취득 제경비 7% 875만 엔).</li>
+</ul>
+<h3 id="1-매각-년차별-4대-핵심-엑시트-지표-user-4-key-requirements">1. 매각 년차별 4대 핵심 엑시트 지표 (User 4 Key Requirements)<a class="anchor" href="#1-매각-년차별-4대-핵심-엑시트-지표-user-4-key-requirements" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">매각 시점</th><th class="ta-center">1) 현금 확보금액 (DD &amp; 총액)</th><th class="ta-center">2) 투자비용제한 순이익 (EE &amp; 총액)</th><th class="ta-center">3) 투자비용대비 ROI (CC)</th><th class="ta-center">4) 투자비용대비 연간 ROI</th></tr></thead><tbody><tr><td class="ta-center"><strong>5년차 매각</strong></td><td class="ta-center">• 매각 순회수: <strong>¥6,183,180</strong><br>• 누적포함 총액: <strong>¥11,869,451</strong></td><td class="ta-center">• 매각기준 순익: <strong>¥-7,566,820</strong><br>• 총 순이익: <strong>¥-1,880,549</strong></td><td class="ta-center"><strong>59.3%</strong><br>(현금회수 0.86배)</td><td class="ta-center"><strong>11.9% / 년</strong></td></tr><tr><td class="ta-center"><strong>7년차 매각</strong></td><td class="ta-center">• 매각 순회수: <strong>¥8,095,412</strong><br>• 누적포함 총액: <strong>¥15,992,104</strong></td><td class="ta-center">• 매각기준 순익: <strong>¥-5,654,588</strong><br>• 총 순이익: <strong>¥+2,242,104</strong></td><td class="ta-center"><strong>81.4%</strong><br>(현금회수 1.16배)</td><td class="ta-center"><strong>11.6% / 년</strong></td></tr><tr><td class="ta-center"><strong>10년차 매각<br>(권장 엑시트)</strong></td><td class="ta-center">• 매각 순회수: <strong>¥10,944,812</strong><br>• 누적포함 총액: <strong>¥22,149,652</strong></td><td class="ta-center">• 매각기준 순익: <strong>¥-2,805,188</strong><br>• 총 순이익: <strong>¥+8,399,652</strong></td><td class="ta-center"><strong>114.5%</strong><br>(현금회수 1.61배)</td><td class="ta-center"><strong>11.5% / 년</strong></td></tr><tr><td class="ta-center"><strong>15년차 매각</strong></td><td class="ta-center">• 매각 순회수: <strong>¥15,640,321</strong><br>• 누적포함 총액: <strong>¥32,324,198</strong></td><td class="ta-center">• 매각기준 순익: <strong>¥+1,890,321</strong><br>• 총 순이익: <strong>¥+18,574,198</strong></td><td class="ta-center"><strong>169.3%</strong><br>(현금회수 2.35배)</td><td class="ta-center"><strong>11.3% / 년</strong></td></tr><tr><td class="ta-center"><strong>20년차 매각</strong></td><td class="ta-center">• 매각 순회수: <strong>¥20,314,905</strong><br>• 누적포함 총액: <strong>¥42,408,552</strong></td><td class="ta-center">• 매각기준 순익: <strong>¥+6,564,905</strong><br>• 총 순이익: <strong>¥+28,658,552</strong></td><td class="ta-center"><strong>224.2%</strong><br>(현금회수 3.08배)</td><td class="ta-center"><strong>11.2% / 년</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="최종-종합-적합성-판정-moabiz-verdict">🎯 최종 종합 적합성 판정 (Moabiz Verdict)<a class="anchor" href="#최종-종합-적합성-판정-moabiz-verdict" aria-label="link">#</a></h2>
+<div class="alert alert-note"><h3 id="판정-결과-매우-적합---우량-편입-추천-tier-1-target">🏆 판정 결과: <strong>[매우 적합 - 우량 편입 추천 (Tier-1 Target)]</strong><a class="anchor" href="#판정-결과-매우-적합---우량-편입-추천-tier-1-target" aria-label="link">#</a></h3>
+<ol>
+<li><strong>결산서 레벨업 기여</strong>:</li>
+<ul>
+<li>모아비즈 법인의 연간 세전 당기순이익을 기존 ¥68.4만 엔에서 <strong>¥454.5만 엔으로 6.6배 폭증</strong>시켜, 차기 금융기관 대출 심사 시 압도적인 흑자 지속성을 증빙할 수 있습니다.</li>
+</ul>
+<li><strong>3대 가중 연수의 완벽한 구조 개선</strong>:</li>
+<ul>
+<li>가중 감가상각연수가 18.8년에서 <strong>22.2년으로 3.45년 연장</strong>되어 목조 위주의 모아비즈 포트폴리오에 강력한 절세 쿠션을 보강합니다.</li>
+<li>채무상환연수가 33.2년에서 <strong>29.4년으로 3.8년 단축</strong>되어 <strong>가중 융자연수(33.5년) 이내 완제 구조($C \le B$)에 성공적으로 진입</strong>합니다.</li>
+</ul>
+<li><strong>금리 인상기 방어력 완비</strong>:</li>
+<ul>
+<li>ICR(이자보상배율)이 1.15배에서 <strong>1.32배로 상승</strong>하고, DSCR이 <strong>1.52배</strong>로 뛰어올라 향후 기준금리가 1.0~1.5%p 추가 상승하더라도 원리금 상환에 무리가 없습니다.</li>
+</ul>
+<li><strong>10년차 엑시트 안정성</strong>:</li>
+<ul>
+<li>초기 투자비용 ¥1,375만 엔 투입 시, 10년 보유 후 매각 시 <strong>누적 세후CF ¥1,212만 엔 + 매각 순회수금 ¥1,089만 엔 = 총 ¥2,301만 엔의 현금을 확보</strong>하여 <strong>투자비용 차감 후 순이익 ¥926만 엔(ROI 114.5%, 연환산 11.5%)</strong>을 달성합니다.</li>
+</ul>
+</ol></div>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ko';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

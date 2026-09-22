@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>비노시티 키타카시와 (Vinocity 北柏) | 수익 및 결산서 적합성 분석 시뮬레이터</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', -apple-system, system-ui, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    .highlight-row { background: rgba(245, 158, 11, 0.12) !important; border-top: 2px solid #f59e0b; border-bottom: 2px solid #f59e0b; }
+    @media print {
+      header, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .card-box { border: 1px solid #cbd5e1 !important; background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-emerald-600 to-indigo-600 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-amber-500/20">📊</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold tracking-tight text-white">Moabiz <span class="text-amber-400">Suitability</span></span>
+            <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold font-mono">Internal Portal</span>
+          </div>
+          <p class="text-[11px] text-slate-400">수익 및 결산서 적합성 분석 (결산서 디자인형 7대 지표 & 30년 시뮬레이션)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Lang Toggle -->
+        <div class="inline-flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+          <button id="langKO" onclick="setLang('ko')" class="px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition">한국어</button>
+          <button id="langJA" onclick="setLang('ja')" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition">日本語</button>
+        </div>
+        <a href="./suitability_report.html" class="text-xs text-emerald-300 hover:text-white px-3 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 transition flex items-center gap-1.5 font-medium">
+          <span>📑</span>
+          <span data-t="nav_report">정밀 보고서</span>
+        </a>
+        <a href="./index.html" class="text-xs text-amber-300 hover:text-white px-3 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 transition flex items-center gap-1.5 font-medium">
+          <span>🏢</span>
+          <span data-t="nav_moabiz">모아비즈 포털</span>
+        </a>
+        <a href="./admin.html" class="text-xs text-purple-300 hover:text-white px-3 py-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 transition flex items-center gap-1.5 font-medium">
+          <span>⚙️</span>
+          <span data-t="nav_admin">어드민</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Top Banner -->
+    <div class="p-6 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900 to-emerald-950/30 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-2" data-t="banner_badge">
+          🔒 모아비즈 법인 내부 전용 의사결정 시뮬레이터
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-t="banner_title">수익 및 결산서 적합성 정밀 분석</h1>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl" data-t="banner_desc">
+          신규 부동산 정보를 입력하면 <strong class="text-amber-400">결산서 디자인형 7대 지표</strong> 및 <strong class="text-emerald-400">3대 가중 연수(감가상각·융자·상환연수)</strong>의 개선 여부를 즉각 검증하고, <strong class="text-sky-400">20~30년 장기 캐시플로우 및 매각년차별 4대 엑시트 지표</strong>를 실시간으로 자동 산출합니다.
+        </p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0 no-print">
+        <button onclick="resetDefaults()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition" data-t="btn_reset">
+          기본값 복원
+        </button>
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-emerald-400 hover:from-amber-300 hover:to-emerald-300 shadow-lg shadow-amber-500/20 transition flex items-center gap-2">
+          <span>🖨️</span>
+          <span data-t="btn_print">보고서 인쇄 / PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Tabs -->
+    <div class="flex border-b border-slate-800 gap-4 text-sm font-semibold no-print">
+      <a href="#pillar1" class="pb-3 text-amber-400 border-b-2 border-amber-400 flex items-center gap-2">
+        <span>🏛️</span>
+        <span data-t="tab_p1">필러 1: 결산서 디자인형 7대 지표 & 3대 가중연수</span>
+      </a>
+      <a href="#pillar2" class="pb-3 text-slate-400 hover:text-slate-200 border-b-2 border-transparent hover:border-slate-700 flex items-center gap-2">
+        <span>📈</span>
+        <span data-t="tab_p2">필러 2: 20~30년 장기 CF & 매각 엑시트 지표</span>
+      </a>
+    </div>
+
+    <!-- Interactive Bank Loan Adjuster Card -->
+    <section class="card-box p-6 rounded-2xl bg-slate-900 border-2 border-amber-500/30 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <span class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xl">🏦</span>
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2" data-t="loan_ctrl_title">
+              은행 융자조건 실시간 조정 패널
+              <span class="text-[11px] font-normal px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">실시간 연동 가동 중</span>
+            </h2>
+            <p class="text-xs text-slate-400" data-t="loan_ctrl_desc">융자금액(LTV), 대출금리, 융자기간을 슬라이더로 조정하면 전 지표가 실시간으로 재연산됩니다.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-slate-400" data-t="lbl_interest_mode">이자 비용 반영:</span>
+          <select id="interestMode" onchange="recalculateAll()" class="bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1 text-slate-200 text-xs">
+            <option value="building_ratio" selected>건물비율 안분 반영 (B42*B15 원본)</option>
+            <option value="full">이자 전액 반영 (100%)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 1. Loan Amount / LTV -->
+        <div class="space-y-2 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex justify-between items-center text-xs">
+            <label for="inpLoanAmount" class="text-slate-300 font-semibold" data-t="lbl_loan_amount">융자 금액 (대출금)</label>
+            <span class="text-amber-400 font-mono font-bold text-sm" id="dispLtvBadge">96.0% LTV</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-500 text-sm">¥</span>
+            <input type="number" id="inpLoanAmount" step="1000000" value="120000000" oninput="onLoanAmountInput()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono font-bold text-base focus:border-amber-500 focus:outline-none">
+          </div>
+          <input type="range" id="rngLoanLtv" min="50" max="100" step="0.5" value="96" oninput="onLtvSlider()" class="w-full accent-amber-500 cursor-pointer">
+          <div class="flex justify-between text-[11px] text-slate-500">
+            <span>50%</span>
+            <span>80%</span>
+            <span>90%</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <!-- 2. Interest Rate -->
+        <div class="space-y-2 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex justify-between items-center text-xs">
+            <label for="inpLoanRate" class="text-slate-300 font-semibold" data-t="lbl_loan_rate">대출 금리 (연이율)</label>
+            <span class="text-sky-400 font-mono font-bold text-sm" id="dispRateBadge">3.00%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="number" id="inpLoanRate" step="0.05" min="0.5" max="6.0" value="3.0" oninput="onRateInput()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono font-bold text-base focus:border-sky-500 focus:outline-none">
+            <span class="text-slate-500 text-sm">%</span>
+          </div>
+          <input type="range" id="rngLoanRate" min="0.5" max="6.0" step="0.05" value="3.0" oninput="onRateSlider()" class="w-full accent-sky-500 cursor-pointer">
+          <div class="flex justify-between text-[11px] text-slate-500">
+            <span>1.0%</span>
+            <span>2.0%</span>
+            <span>3.0%</span>
+            <span>4.5%</span>
+          </div>
+        </div>
+
+        <!-- 3. Loan Term -->
+        <div class="space-y-2 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="flex justify-between items-center text-xs">
+            <label for="inpLoanTerm" class="text-slate-300 font-semibold" data-t="lbl_loan_term">융자 기간 (상환년수)</label>
+            <span class="text-emerald-400 font-mono font-bold text-sm" id="dispTermBadge">35 년</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="number" id="inpLoanTerm" min="5" max="40" value="35" oninput="onTermInput()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono font-bold text-base focus:border-emerald-500 focus:outline-none">
+            <span class="text-slate-500 text-sm">년</span>
+          </div>
+          <input type="range" id="rngLoanTerm" min="10" max="40" step="1" value="35" oninput="onTermSlider()" class="w-full accent-emerald-500 cursor-pointer">
+          <div class="flex justify-between text-[11px] text-slate-500">
+            <span>15년</span>
+            <span>25년</span>
+            <span>30년</span>
+            <span>35년</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Basic Input Drawer (Collapsible) -->
+    <details class="card-box rounded-xl bg-slate-900/90 border border-slate-800 p-4 transition" open>
+      <summary class="font-bold text-sm text-slate-200 cursor-pointer flex items-center justify-between select-none">
+        <span class="flex items-center gap-2">
+          <span>⚙️</span>
+          <span data-t="prop_input_title">물건 기본 정보 및 세무·평가 파라미터 (클릭하여 펼치기/접기)</span>
+        </span>
+        <span class="text-xs text-amber-400 font-normal">수정 시 즉시 반영</span>
+      </summary>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4 pt-4 border-t border-slate-800 text-xs">
+        <div>
+          <label class="text-slate-400 block mb-1">매매가격 (物件価格)</label>
+          <input type="number" id="propPrice" value="125000000" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">만실상정 연수입 (満室家賃)</label>
+          <input type="number" id="propRent" value="10581600" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">구조 (構造)</label>
+          <select id="propStructure" onchange="onStructureChange()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 text-white">
+            <option value="RC" selected>RC조 (법정 47년)</option>
+            <option value="木造">목조 (법정 22년)</option>
+            <option value="軽量鉄骨">경량철골 (법정 22년)</option>
+            <option value="鉄骨">철골조 (법정 34년)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">축년수 (築年数)</label>
+          <input type="number" id="propAge" value="25" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">건물비율 (建物割合 %)</label>
+          <input type="number" id="propBldgRatio" step="0.01" value="45.82" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">운영경비율 (経費率 %)</label>
+          <input type="number" id="propOpexRatio" step="0.5" value="20.0" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">상정 입주율 (入居率 %)</label>
+          <input type="number" id="propOccRatio" step="0.5" value="90.0" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">실효법인세율 (税率 %)</label>
+          <input type="number" id="propTaxRate" step="0.5" value="25.0" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">고정자산세 토지평가</label>
+          <input type="number" id="propTaxLand" value="34663785" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">고정자산세 건물평가</label>
+          <input type="number" id="propTaxBldg" value="29302566" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">토지면적 (㎡) / 노선가</label>
+          <div class="flex gap-1">
+            <input type="number" id="propLandSqm" value="741.63" onchange="recalculateAll()" placeholder="㎡" class="w-1/2 bg-slate-800 border border-slate-700 rounded px-1.5 py-1 font-mono text-white">
+            <input type="number" id="propRoadPrice" value="70000" onchange="recalculateAll()" placeholder="노선가" class="w-1/2 bg-slate-800 border border-slate-700 rounded px-1.5 py-1 font-mono text-white">
+          </div>
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">연면적 (㎡) / 재조달단가</label>
+          <div class="flex gap-1">
+            <input type="number" id="propFloorSqm" value="428.0" onchange="recalculateAll()" placeholder="연면적" class="w-1/2 bg-slate-800 border border-slate-700 rounded px-1.5 py-1 font-mono text-white">
+            <input type="number" id="propUnitCost" value="260000" onchange="recalculateAll()" placeholder="단가" class="w-1/2 bg-slate-800 border border-slate-700 rounded px-1.5 py-1 font-mono text-white">
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========================================================================= -->
+    <!-- [필러 1] 결산서 디자인형 물건 선정 및 3열 착지 분석 -->
+    <!-- ========================================================================= -->
+    <section id="pillar1" class="space-y-6">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Pillar 1</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1" data-t="p1_title">결산서 디자인형 7대 지표 & 3대 가중 연수 검토</h2>
+          <p class="text-xs text-slate-400" data-t="p1_subtitle">스프레드시트 '결산서디자인형검토' 시트 기준 3열 착지 비교 (물건 자체 | 모아비즈 4기 | 매입 후 착지)</p>
+        </div>
+        <div id="verdictBadgeOverall" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          ✅ 3대 가중지표 및 결산서 개선 우량
+        </div>
+      </div>
+
+      <!-- 3대 가중 연수 체계 (A >= B >= C) Special Highlight Card -->
+      <div class="card-box p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-slate-800 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">⚖️</span>
+            <h3 class="text-base font-bold text-white" data-t="weighted_title">3대 가중 연수 체계 (가중 감가상각연수 vs 융자연수 vs 상환연수)</h3>
+          </div>
+          <div class="text-xs flex items-center gap-2" id="orderStatusBox">
+            <span class="text-slate-400">순서 조건 (A ≥ B ≥ C):</span>
+            <span id="badgeOrder" class="px-2.5 py-0.5 rounded-full font-bold font-mono text-xs bg-slate-800 text-slate-300">검증 중</span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400">
+          * 법인 중장기 건전성 공식: <strong>가중 감가상각연수(A)</strong>가 <strong>융자연수(B)</strong>보다 길거나 대등해야 절세가 유지되며, <strong>융자연수(B)</strong>가 <strong>상환연수(C)</strong>보다 길어야(<span class="text-emerald-400 font-semibold">C ≤ B</span>) 만기 전 완제가 가능하여 원리금 상환 위험이 차단됩니다.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <!-- A: 가중 감가상각연수 -->
+          <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
+            <div class="flex justify-between text-xs text-slate-400">
+              <span data-t="lbl_w_depr">1. 가중 감가상각연수 (A)</span>
+              <span class="font-mono text-amber-400 font-semibold" id="diffDepr">+3.4년 연장</span>
+            </div>
+            <div class="flex items-baseline justify-between mt-1">
+              <div class="text-2xl font-black text-white font-mono" id="wDeprLanding">22.2 년</div>
+              <div class="text-xs text-slate-500 font-mono">기존 <span id="wDeprBase">18.8</span>년</div>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80 flex justify-between">
+              <span>단품: <span id="wDeprSingle" class="font-mono text-slate-300">27.0</span>년</span>
+              <span class="text-emerald-400">절세 기간 대폭 확대</span>
+            </div>
+          </div>
+
+          <!-- B: 가중 융자연수 -->
+          <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
+            <div class="flex justify-between text-xs text-slate-400">
+              <span data-t="lbl_w_loan">2. 가중 융자연수 (B)</span>
+              <span class="font-mono text-sky-400 font-semibold" id="diffLoan">+0.9년 연장</span>
+            </div>
+            <div class="flex items-baseline justify-between mt-1">
+              <div class="text-2xl font-black text-white font-mono" id="wLoanLanding">33.5 년</div>
+              <div class="text-xs text-slate-500 font-mono">기존 <span id="wLoanBase">32.6</span>년</div>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80 flex justify-between">
+              <span>단품: <span id="wLoanSingle" class="font-mono text-slate-300">35.0</span>년</span>
+              <span class="text-sky-400">장기 분할상환 여력 확보</span>
+            </div>
+          </div>
+
+          <!-- C: 가중 상환연수 -->
+          <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1">
+            <div class="flex justify-between text-xs text-slate-400">
+              <span data-t="lbl_w_redemp">3. 가중 상환연수 (C)</span>
+              <span class="font-mono text-emerald-400 font-semibold" id="diffRedemp">-3.8년 단축</span>
+            </div>
+            <div class="flex items-baseline justify-between mt-1">
+              <div class="text-2xl font-black text-emerald-400 font-mono" id="wRedempLanding">29.4 년</div>
+              <div class="text-xs text-slate-500 font-mono">기존 <span id="wRedempBase">33.2</span>년</div>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80 flex justify-between">
+              <span>단품: <span id="wRedempSingle" class="font-mono text-slate-300">23.9</span>년</span>
+              <span class="text-emerald-400 font-semibold">융자연수(33.5년) 이내 진입!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7대 핵심 지표 그리드 (Cards) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 1. 세전 당기순이익 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>1. 帳簿上 税引前当期純利益</span>
+            <span class="text-amber-400 font-mono font-bold">+564% 폭증</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardProfitLanding">¥4,544,535</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: ¥<span id="cardProfitSingle">3,860,515</span></span>
+            <span>기존: ¥<span id="cardProfitBase">684,020</span></span>
+          </div>
+        </div>
+
+        <!-- 2. 세후 잉여 CF -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>2. 税引後 手残り Cash Flow</span>
+            <span class="text-emerald-400 font-mono font-bold">+34.6% 순증</span>
+          </div>
+          <div class="text-xl font-black text-emerald-400 font-mono" id="cardCfLanding">¥4,336,055</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: ¥<span id="cardCfSingle">1,111,781</span></span>
+            <span>기존: ¥<span id="cardCfBase">3,221,079</span></span>
+          </div>
+        </div>
+
+        <!-- 3. 채무상환연수 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>3. 債務償還年数 (年)</span>
+            <span class="text-emerald-400 font-mono font-bold">-3.8년 단축</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardDebtYearsLanding">29.4 년</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: <span id="cardDebtYearsSingle">23.9</span>년</span>
+            <span>기존: <span id="cardDebtYearsBase">33.2</span>년</span>
+          </div>
+        </div>
+
+        <!-- 4. 간이 CF -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>4. 簡易 Cash Flow</span>
+            <span class="text-sky-400 font-mono font-bold">+94.7% 폭증</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardSimpleCfLanding">¥6,272,053</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: ¥<span id="cardSimpleCfSingle">3,047,779</span></span>
+            <span>기존: ¥<span id="cardSimpleCfBase">3,221,079</span></span>
+          </div>
+        </div>
+
+        <!-- 5. ICR -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>5. ICR (이자보상배율)</span>
+            <span class="text-emerald-400 font-mono font-bold">+0.17배 개선</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardIcrLanding">1.32 배</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: <span id="cardIcrSingle">1.54</span>배</span>
+            <span>기존: <span id="cardIcrBase">1.15</span>배</span>
+          </div>
+        </div>
+
+        <!-- 6. DSCR -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>6. DSCR (부채상환여유율)</span>
+            <span class="text-emerald-400 font-mono font-bold">+0.13배 개선</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardDscrLanding">1.52 배</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: <span id="cardDscrSingle">1.72</span>배</span>
+            <span>기존: <span id="cardDscrBase">1.39</span>배</span>
+          </div>
+        </div>
+
+        <!-- 7. 고정자산세 평가 LTV -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>7. LTV (고정자산세 평가액 기반)</span>
+            <span class="text-emerald-400 font-mono font-bold">-14.4%p 안전화</span>
+          </div>
+          <div class="text-xl font-black text-white font-mono" id="cardLtvTaxLanding">248.8 %</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>단품: <span id="cardLtvTaxSingle">224.0</span>%</span>
+            <span>기존: <span id="cardLtvTaxBase">263.2</span>%</span>
+          </div>
+        </div>
+
+        <!-- 초기비용 및 CCR -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>초기 자기자본 & CCR</span>
+            <span class="text-amber-400 font-mono font-bold">15.10% CCR</span>
+          </div>
+          <div class="text-xl font-black text-amber-400 font-mono" id="cardEquity">¥13,750,000</div>
+          <div class="text-[11px] text-slate-400 flex justify-between border-t border-slate-800 pt-1.5 font-mono">
+            <span>취득제비용 7%: ¥<span id="cardCosts">8,750,000</span></span>
+            <span>세전CF: ¥<span id="cardPretaxCf">2,076,909</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3열 착지 전체 대조 테이블 (Sheet 1 Full Reproduction Table) -->
+      <div class="card-box rounded-xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
+        <div class="p-4 bg-slate-800/60 border-b border-slate-700/80 flex items-center justify-between">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>📋</span>
+            <span data-t="tbl_title">결산서 디자인형 검토 3열 정밀 대조표 (スプレッドシート完全再現)</span>
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">단위: 円, %, 年</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-slate-950/80 text-slate-400 border-b border-slate-800">
+              <tr>
+                <th class="py-3 px-4 w-1/3">項目名 (Item)</th>
+                <th class="py-3 px-4 text-right w-1/5 text-amber-300">B. 購入物件単体判定 (단품)</th>
+                <th class="py-3 px-4 text-right w-1/5 text-slate-300">C. モアビズ決算書 (4기 기준)</th>
+                <th class="py-3 px-4 text-right w-1/5 text-emerald-300 bg-emerald-950/20">D. 購入後決算書着地予想 (편입후)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 text-slate-200 font-mono" id="tbodyDesignTable">
+              <!-- Dynamically populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- [필러 2] 20~30년 장기 캐시플로우 시뮬레이션 및 매각 엑시트 지표 -->
+    <!-- ========================================================================= -->
+    <section id="pillar2" class="space-y-6 pt-6 border-t border-slate-800">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Pillar 2</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1" data-t="p2_title">20~30년 장기 캐시플로우 운영 & 매각 엑시트 지표</h2>
+          <p class="text-xs text-slate-400" data-t="p2_subtitle">스프레드시트 '30년 시뮬레이션' 기준 연도별 현금흐름 궤적 및 매각 년차별 4대 핵심 지표</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <label class="text-xs text-slate-400" data-t="lbl_sim_years">시뮬레이션 기간:</label>
+          <select id="simTotalYears" onchange="recalculateAll()" class="bg-slate-800 border border-slate-700 rounded px-2.5 py-1 text-xs text-white">
+            <option value="20">20 년간</option>
+            <option value="25" selected>25 년간</option>
+            <option value="30">30 년간</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Interactive Sale / Exit Year Selector & 4 KPI Cards -->
+      <div class="card-box p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/20 border-2 border-amber-500/30 shadow-2xl space-y-6">
+        <!-- Sale Year Controller -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🎯</span>
+              <h3 class="text-lg font-bold text-white" data-t="exit_ctrl_title">매각 년수 선택 (Exit Year Selector)</h3>
+            </div>
+            <p class="text-xs text-slate-400" data-t="exit_ctrl_desc">원하는 매각 시점을 선택하면 하단 4대 수치(현금 확보금액, 투자비용제한 순이익, ROI, 연간 ROI)가 즉시 계산됩니다.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5">
+              <button onclick="setExitYear(5)" class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-slate-700 text-slate-300">5년차</button>
+              <button onclick="setExitYear(7)" class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-slate-700 text-slate-300">7년차</button>
+              <button onclick="setExitYear(10)" class="px-2.5 py-1 text-xs font-semibold rounded bg-amber-500 text-slate-950 font-bold">10년차</button>
+              <button onclick="setExitYear(15)" class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-slate-700 text-slate-300">15년차</button>
+              <button onclick="setExitYear(20)" class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-slate-700 text-slate-300">20년차</button>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="range" id="rngExitYear" min="1" max="30" value="10" oninput="onExitYearSlider()" class="w-28 sm:w-36 accent-amber-500 cursor-pointer">
+              <span class="text-base font-black text-amber-400 font-mono px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/30" id="dispExitYearBadge">10년차</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Exit Metrics Big KPI Cards (User-Requested) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- 1. 현금 확보금액 -->
+          <div class="p-5 rounded-xl bg-slate-950/80 border-2 border-amber-500/40 shadow-lg space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-bold text-amber-400">1) 현금 확보금액</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">매각 시</span>
+            </div>
+            <div class="text-2xl font-black text-white font-mono" id="exitKpi1SaleCash">¥10,944,812</div>
+            <div class="text-xs text-slate-400 space-y-0.5 border-t border-slate-800 pt-2 font-mono">
+              <div class="flex justify-between">
+                <span>매각 순회수(DD):</span>
+                <span id="exitSubDD">¥10,944,812</span>
+              </div>
+              <div class="flex justify-between text-emerald-400 font-semibold">
+                <span>누적CF포함 총액:</span>
+                <span id="exitKpi1TotalCash">¥22,149,652</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 투자비용제한 순이익 -->
+          <div class="p-5 rounded-xl bg-slate-950/80 border-2 border-emerald-500/40 shadow-lg space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-bold text-emerald-400">2) 투자비용제한 순이익</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">순수익</span>
+            </div>
+            <div class="text-2xl font-black text-emerald-400 font-mono" id="exitKpi2LifecycleProfit">¥8,399,652</div>
+            <div class="text-xs text-slate-400 space-y-0.5 border-t border-slate-800 pt-2 font-mono">
+              <div class="flex justify-between">
+                <span>매각기준 순익(EE):</span>
+                <span id="exitSubEE">¥-2,805,188</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>초기투자비용 차감:</span>
+                <span id="exitSubEquity">¥13,750,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 투자비용대비 ROI -->
+          <div class="p-5 rounded-xl bg-slate-950/80 border-2 border-sky-500/40 shadow-lg space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-bold text-sky-400">3) 투자비용대비 ROI</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300">누적 수익률</span>
+            </div>
+            <div class="text-2xl font-black text-sky-400 font-mono" id="exitKpi3Roi">114.5 %</div>
+            <div class="text-xs text-slate-400 space-y-0.5 border-t border-slate-800 pt-2 font-mono">
+              <div class="flex justify-between">
+                <span>회계 누적이익(BB):</span>
+                <span id="exitSubBB">¥15,745,416</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>현금 유입 배수:</span>
+                <span id="exitSubMultiple">1.61 배</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 투자비용대비 연간 ROI -->
+          <div class="p-5 rounded-xl bg-slate-950/80 border-2 border-purple-500/40 shadow-lg space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-bold text-purple-400">4) 투자비용대비 연간 ROI</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300">연평균 환산</span>
+            </div>
+            <div class="text-2xl font-black text-purple-400 font-mono" id="exitKpi4AnnualRoi">11.5 %</div>
+            <div class="text-xs text-slate-400 space-y-0.5 border-t border-slate-800 pt-2 font-mono">
+              <div class="flex justify-between">
+                <span>보유 연수:</span>
+                <span id="exitSubYears">10 년</span>
+              </div>
+              <div class="flex justify-between text-slate-300">
+                <span>연환산 계산식:</span>
+                <span>ROI / 보유년수</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long-term Cash Flow Simulation Table -->
+      <div class="card-box rounded-xl bg-slate-900 border border-slate-800 overflow-hidden shadow-xl">
+        <div class="p-4 bg-slate-800/60 border-b border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>📅</span>
+              <span data-t="sim_tbl_title">장기 캐시플로우 연도별 시뮬레이션 테이블 (연 1% 임대료 하락 및 감채스케줄 반영)</span>
+            </h3>
+            <p class="text-[11px] text-slate-400">노란색으로 하이라이트된 행은 선택된 매각 엑시트 연도입니다.</p>
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-slate-400">매각 상정 수익률 (Exit Yield):</span>
+            <input type="number" id="inpExitYield" step="0.1" value="8.8" onchange="recalculateAll()" class="w-16 bg-slate-800 border border-slate-700 rounded px-2 py-0.5 text-right font-mono text-white">
+            <span class="text-slate-400">%</span>
+          </div>
+        </div>
+        <div class="overflow-x-auto max-h-[600px]">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-slate-950/90 text-slate-400 border-b border-slate-800 sticky top-0 z-20">
+              <tr>
+                <th class="py-2.5 px-3 whitespace-nowrap">연차</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">만실연수입(A)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">공실(B)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">경비(C)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">감가상각(D)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">지급이자(E)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">원금상환(I)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">세전이익(F)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">세금(G)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-emerald-300">세후CF(J)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-emerald-400 font-bold">누적CF(K)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">대출잔고(L)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap">장부가(M)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-amber-300">매각가격(X)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-amber-400 font-bold">순회수(DD)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-sky-400 font-bold">ROI(CC)</th>
+                <th class="py-2.5 px-3 text-right whitespace-nowrap text-purple-400 font-bold">연간ROI</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 font-mono" id="tbodySimulation">
+              <!-- Dynamically populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-amber-400 font-bold">Moabiz Internal Portfolio Suite</span>
+        <span>•</span>
+        <span>수익 및 결산서 적합성 분석 전용 시뮬레이터</span>
+      </div>
+      <div>
+        <span>보안 등급: 🔒 모아비즈 내부 대외비 (Private & Confidential)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic JavaScript -->
+  <script>
+    // Global State
+    let currentLang = 'ko';
+    let selectedExitYear = 10;
+
+    // Moabiz 4th Term Projected Financial Statement Baseline (Column C)
+    const MOABIZ_BASELINE = {
+      price: 267538767,
+      loan_amount: 242655487,
+      gross_income: 16452876,
+      opex: 4435369,
+      depr: 6801259,
+      ads: 8622228,
+      interest: 4532228,
+      principal: 4090000,
+      pretax_profit: 684020,
+      pretax_cf: 3395279,
+      tax: 174200,
+      posttax_cf: 3221079,
+      debt_redemption_years: 33.190106,
+      simple_cf: 3221079,
+      icr: 1.150923563,
+      dscr: 1.393782094,
+      tax_land: 71857096,
+      tax_bldg: 41905687,
+      ltv_tax: 2.631676865,
+      // Existing properties for weighted years
+      properties: [
+        { name: "本千葉木造", loan_term: 34.0, loan_amount: 6480, depr_years: 13.2, bldg_book_value: 3960 },
+        { name: "北千住木造", loan_term: 36.0, loan_amount: 8500, depr_years: 12.4, bldg_book_value: 2175 },
+        { name: "船橋木造", loan_term: 30.0, loan_amount: 10850, depr_years: 21.2, bldg_book_value: 5750 }
+      ]
+    };
+
+    // Helper functions
+    function formatMoney(num) {
+      if (num === undefined || num === null || isNaN(num)) return "-";
+      return Math.round(num).toLocaleString('en-US');
+    }
+    function formatPct(num, digits = 2) {
+      if (num === undefined || num === null || isNaN(num)) return "-";
+      return (num * 100).toFixed(digits) + "%";
+    }
+    function formatNum(num, digits = 2) {
+      if (num === undefined || num === null || isNaN(num)) return "-";
+      return Number(num).toFixed(digits);
+    }
+
+    // PMT calculation
+    function calcPmt(annualRate, years, principal) {
+      if (annualRate <= 0) return principal / (years * 12);
+      const r = annualRate / 12.0;
+      const n = years * 12;
+      return principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    }
+
+    // Loan Control Event Handlers
+    function onLoanAmountInput() {
+      const price = parseFloat(document.getElementById('propPrice').value) || 125000000;
+      const loan = parseFloat(document.getElementById('inpLoanAmount').value) || 0;
+      const ltv = (loan / price) * 100;
+      document.getElementById('rngLoanLtv').value = Math.min(100, Math.max(50, ltv));
+      document.getElementById('dispLtvBadge').textContent = ltv.toFixed(1) + '% LTV';
+      recalculateAll();
+    }
+    function onLtvSlider() {
+      const price = parseFloat(document.getElementById('propPrice').value) || 125000000;
+      const ltv = parseFloat(document.getElementById('rngLoanLtv').value) / 100;
+      const loan = Math.round(price * ltv);
+      document.getElementById('inpLoanAmount').value = loan;
+      document.getElementById('dispLtvBadge').textContent = (ltv * 100).toFixed(1) + '% LTV';
+      recalculateAll();
+    }
+    function onRateInput() {
+      const rate = parseFloat(document.getElementById('inpLoanRate').value) || 0;
+      document.getElementById('rngLoanRate').value = rate;
+      document.getElementById('dispRateBadge').textContent = rate.toFixed(2) + '%';
+      recalculateAll();
+    }
+    function onRateSlider() {
+      const rate = parseFloat(document.getElementById('rngLoanRate').value) || 0;
+      document.getElementById('inpLoanRate').value = rate.toFixed(2);
+      document.getElementById('dispRateBadge').textContent = rate.toFixed(2) + '%';
+      recalculateAll();
+    }
+    function onTermInput() {
+      const term = parseInt(document.getElementById('inpLoanTerm').value) || 35;
+      document.getElementById('rngLoanTerm').value = term;
+      document.getElementById('dispTermBadge').textContent = term + ' 년';
+      recalculateAll();
+    }
+    function onTermSlider() {
+      const term = parseInt(document.getElementById('rngLoanTerm').value) || 35;
+      document.getElementById('inpLoanTerm').value = term;
+      document.getElementById('dispTermBadge').textContent = term + ' 년';
+      recalculateAll();
+    }
+    function onExitYearSlider() {
+      selectedExitYear = parseInt(document.getElementById('rngExitYear').value);
+      document.getElementById('dispExitYearBadge').textContent = selectedExitYear + '년차';
+      recalculateAll();
+    }
+    function setExitYear(yr) {
+      selectedExitYear = yr;
+      document.getElementById('rngExitYear').value = yr;
+      document.getElementById('dispExitYearBadge').textContent = yr + '년차';
+      recalculateAll();
+    }
+    function onStructureChange() {
+      recalculateAll();
+    }
+
+        function resetDefaults() {
+      document.getElementById('propPrice').value = 99800000;
+      document.getElementById('propRent').value = 6407160;
+      document.getElementById('propStructure').value = "목조";
+      document.getElementById('propAge').value = 1.5;
+      document.getElementById('propBldgRatio').value = 70.54;
+      document.getElementById('propOpexRatio').value = 22.96;
+      document.getElementById('propOccRatio').value = 95.0;
+      document.getElementById('propTaxRate').value = 25.0;
+      document.getElementById('propTaxLand').value = 13455420;
+      document.getElementById('propTaxBldg').value = 32223764;
+      document.getElementById('propLandSqm').value = 181.83;
+      document.getElementById('propRoadPrice').value = 74000;
+      document.getElementById('propFloorSqm').value = 192.12;
+      document.getElementById('propUnitCost').value = 170000;
+
+      document.getElementById('inpLoanAmount').value = 89820000;
+      document.getElementById('rngLoanLtv').value = 90;
+      document.getElementById('dispLtvBadge').textContent = "90.0% LTV";
+
+      document.getElementById('inpLoanRate').value = 2.3;
+      document.getElementById('rngLoanRate').value = 2.3;
+      document.getElementById('dispRateBadge').textContent = "2.30%";
+
+      document.getElementById('inpLoanTerm').value = 30;
+      document.getElementById('rngLoanTerm').value = 30;
+      document.getElementById('dispTermBadge').textContent = "30 년";
+
+      document.getElementById('interestMode').value = "building_ratio";
+      document.getElementById('inpExitYield').value = 7.0;
+
+      setExitYear(10);
+      recalculateAll();
+    }
+
+    // Master Recalculate function
+    function recalculateAll() {
+      // 1. Read Inputs
+      const price = parseFloat(document.getElementById('propPrice').value) || 125000000;
+      const rentFull = parseFloat(document.getElementById('propRent').value) || 10581600;
+      const structure = document.getElementById('propStructure').value;
+      const age = parseFloat(document.getElementById('propAge').value) || 25;
+      const bldgRatio = (parseFloat(document.getElementById('propBldgRatio').value) || 45.82) / 100.0;
+      const opexRatio = (parseFloat(document.getElementById('propOpexRatio').value) || 20.0) / 100.0;
+      const occRatio = (parseFloat(document.getElementById('propOccRatio').value) || 90.0) / 100.0;
+      const taxRate = (parseFloat(document.getElementById('propTaxRate').value) || 25.0) / 100.0;
+      
+      const taxLand = parseFloat(document.getElementById('propTaxLand').value) || 34663785;
+      const taxBldg = parseFloat(document.getElementById('propTaxBldg').value) || 29302566;
+      const landSqm = parseFloat(document.getElementById('propLandSqm').value) || 741.63;
+      const roadPrice = parseFloat(document.getElementById('propRoadPrice').value) || 70000;
+      const floorSqm = parseFloat(document.getElementById('propFloorSqm').value) || 428.0;
+      const unitCost = parseFloat(document.getElementById('propUnitCost').value) || 260000;
+
+      const loanAmount = parseFloat(document.getElementById('inpLoanAmount').value) || 120000000;
+      const loanRate = (parseFloat(document.getElementById('inpLoanRate').value) || 3.0) / 100.0;
+      const loanTerm = parseInt(document.getElementById('inpLoanTerm').value) || 35;
+      const interestMode = document.getElementById('interestMode').value;
+      const exitYield = (parseFloat(document.getElementById('inpExitYield').value) || 8.8) / 100.0;
+      const simYears = parseInt(document.getElementById('simTotalYears').value) || 25;
+
+      // Legal life & depreciation years
+      let statutoryLife = 47;
+      if (structure === "木造" || structure === "軽量鉄骨") statutoryLife = 22;
+      else if (structure === "鉄骨") statutoryLife = 34;
+
+      const remainingLife = Math.max(0, statutoryLife - age);
+      const deprYears = age >= statutoryLife ? Math.floor(statutoryLife * 0.2) : remainingLife + (age * 0.2);
+
+      // Intermediate calculations
+      const grossIncome = rentFull * occRatio;
+      const opex = grossIncome * opexRatio;
+      const annualDepr = (price * bldgRatio) / deprYears;
+
+      const mRate = loanRate / 12.0;
+      const mPmt = calcPmt(loanRate, loanTerm, loanAmount);
+      const adsAnnual = mPmt * 12.0;
+
+      // Year 1 interest & principal
+      let bal = loanAmount;
+      let y1Interest = 0;
+      let y1Principal = 0;
+      for (let m = 0; m < 12; m++) {
+        const inte = bal * mRate;
+        const prin = mPmt - inte;
+        y1Interest += inte;
+        y1Principal += prin;
+        bal -= prin;
+      }
+
+      // Standalone 7 Metrics
+      const interestDeduction = (interestMode === "building_ratio") ? (y1Interest * bldgRatio) : y1Interest;
+      const standalonePretaxProfit = grossIncome - opex - interestDeduction - annualDepr;
+      const standalonePretaxCf = grossIncome - opex - adsAnnual;
+      const standaloneTax = standalonePretaxProfit < 0 ? 70000 : standalonePretaxProfit * taxRate;
+      const standalonePosttaxCf = standalonePretaxCf - standaloneTax;
+      
+      const standaloneCashForDebt = (standalonePretaxProfit - standaloneTax) + annualDepr;
+      const standaloneDebtYears = standaloneCashForDebt > 0 ? (loanAmount / standaloneCashForDebt) : 999;
+      const standaloneSimpleCf = (standalonePretaxProfit - standaloneTax) + annualDepr - y1Principal;
+      const standaloneIcr = y1Interest > 0 ? (grossIncome - opex - annualDepr) / y1Interest : 0;
+      const standaloneDscr = (y1Interest + y1Principal) > 0 ? (standalonePretaxProfit + annualDepr + y1Interest) / (y1Interest + y1Principal) : 0;
+      
+      const standaloneTaxBase = (taxLand * 0.7) + taxBldg;
+      const standaloneLtvTax = standaloneTaxBase > 0 ? (loanAmount / standaloneTaxBase) : 0;
+
+      // Initial Equity & CCR
+      const initialCosts = price * 0.07;
+      const initialEquity = (price - loanAmount) + initialCosts;
+      const ccr = initialEquity > 0 ? (standalonePretaxCf / initialEquity) : 0;
+
+      // Moabiz Merged Landing Projection (Column D = C + B)
+      const landingPrice = MOABIZ_BASELINE.price + price;
+      const landingLoan = MOABIZ_BASELINE.loan_amount + loanAmount;
+      const landingGrossIncome = MOABIZ_BASELINE.gross_income + grossIncome;
+      const landingOpex = MOABIZ_BASELINE.opex + opex;
+      const landingDepr = MOABIZ_BASELINE.depr + annualDepr;
+      const landingAds = MOABIZ_BASELINE.ads + adsAnnual;
+      const landingInterest = MOABIZ_BASELINE.interest + y1Interest;
+      const landingPrincipal = MOABIZ_BASELINE.principal + y1Principal;
+
+      const landingPretaxProfit = MOABIZ_BASELINE.pretax_profit + standalonePretaxProfit;
+      const landingPretaxCf = MOABIZ_BASELINE.pretax_cf + standalonePretaxCf;
+      const landingTax = landingPretaxProfit < 0 ? 70000 : landingPretaxProfit * taxRate;
+      const landingPosttaxCf = landingPretaxCf - landingTax;
+
+      const landingCashForDebt = (landingPretaxProfit - landingTax) + landingDepr;
+      const landingDebtYears = landingCashForDebt > 0 ? (landingLoan / landingCashForDebt) : 999;
+      const landingSimpleCf = (landingPretaxProfit - landingTax) + landingDepr - landingPrincipal;
+      const landingIcr = landingInterest > 0 ? (landingGrossIncome - landingOpex - landingDepr) / landingInterest : 0;
+      const landingDscr = (landingInterest + landingPrincipal) > 0 ? (landingPretaxProfit + landingDepr + landingInterest) / (landingInterest + landingPrincipal) : 0;
+
+      const landingTaxLand = MOABIZ_BASELINE.tax_land + taxLand;
+      const landingTaxBldg = MOABIZ_BASELINE.tax_bldg + taxBldg;
+      const landingTaxBase = (landingTaxLand * 0.7) + landingTaxBldg;
+      const landingLtvTax = landingTaxBase > 0 ? (landingLoan / landingTaxBase) : 0;
+
+      // Weighted Years
+      const props = MOABIZ_BASELINE.properties;
+      const sumBldgBase = props[1].bldg_book_value + props[2].bldg_book_value; // 2175 + 5750 = 7925
+      const wDeprBase = ((props[1].depr_years * props[1].bldg_book_value) + (props[2].depr_years * props[2].bldg_book_value)) / sumBldgBase; // ~18.78
+
+      const sumLoanBase = props[1].loan_amount + props[2].loan_amount; // 8500 + 10850 = 19350
+      const wLoanBase = ((props[1].loan_term * props[1].loan_amount) + (props[2].loan_term * props[2].loan_amount)) / sumLoanBase; // ~32.64
+      const wRedempBase = MOABIZ_BASELINE.debt_redemption_years; // 33.19
+
+      const newBldgMan = (price * bldgRatio) / 10000.0;
+      const newLoanMan = loanAmount / 10000.0;
+
+      const sumBldgLanding = sumBldgBase + newBldgMan;
+      const wDeprLanding = ((props[1].depr_years * props[1].bldg_book_value) + (props[2].depr_years * props[2].bldg_book_value) + (deprYears * newBldgMan)) / sumBldgLanding;
+
+      const sumLoanLanding = sumLoanBase + newLoanMan;
+      const wLoanLanding = ((props[1].loan_term * props[1].loan_amount) + (props[2].loan_term * props[2].loan_amount) + (loanTerm * newLoanMan)) / sumLoanLanding;
+      const wRedempLanding = landingDebtYears;
+
+      // Update UI: Weighted Years
+      document.getElementById('wDeprLanding').textContent = wDeprLanding.toFixed(1) + ' 년';
+      document.getElementById('wDeprBase').textContent = wDeprBase.toFixed(1);
+      document.getElementById('wDeprSingle').textContent = deprYears.toFixed(1);
+      const diffDeprVal = wDeprLanding - wDeprBase;
+      document.getElementById('diffDepr').textContent = (diffDeprVal >= 0 ? '+' : '') + diffDeprVal.toFixed(1) + '년 ' + (diffDeprVal >= 0 ? '연장' : '단축');
+
+      document.getElementById('wLoanLanding').textContent = wLoanLanding.toFixed(1) + ' 년';
+      document.getElementById('wLoanBase').textContent = wLoanBase.toFixed(1);
+      document.getElementById('wLoanSingle').textContent = loanTerm.toFixed(1);
+      const diffLoanVal = wLoanLanding - wLoanBase;
+      document.getElementById('diffLoan').textContent = (diffLoanVal >= 0 ? '+' : '') + diffLoanVal.toFixed(1) + '년 ' + (diffLoanVal >= 0 ? '연장' : '단축');
+
+      document.getElementById('wRedempLanding').textContent = wRedempLanding.toFixed(1) + ' 년';
+      document.getElementById('wRedempBase').textContent = wRedempBase.toFixed(1);
+      document.getElementById('wRedempSingle').textContent = standaloneDebtYears.toFixed(1);
+      const diffRedempVal = wRedempLanding - wRedempBase;
+      document.getElementById('diffRedemp').textContent = (diffRedempVal <= 0 ? '' : '+') + diffRedempVal.toFixed(1) + '년 ' + (diffRedempVal <= 0 ? '단축 (개선)' : '연장');
+
+      // Order condition check (A >= B >= C)
+      const orderOk = (wDeprLanding >= wLoanLanding) && (wLoanLanding >= wRedempLanding);
+      const badgeOrder = document.getElementById('badgeOrder');
+      if (wRedempLanding <= wLoanLanding) {
+        badgeOrder.className = "px-2.5 py-0.5 rounded-full font-bold font-mono text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        badgeOrder.textContent = "✅ C ≤ B 충족 (상환연수 융자연수 이내 달성!)";
+      } else {
+        badgeOrder.className = "px-2.5 py-0.5 rounded-full font-bold font-mono text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30";
+        badgeOrder.textContent = "⚠️ C > B (상환연수 초과 상태)";
+      }
+
+      // Update UI: 7 KPI Cards
+      document.getElementById('cardProfitLanding').textContent = '¥' + formatMoney(landingPretaxProfit);
+      document.getElementById('cardProfitSingle').textContent = formatMoney(standalonePretaxProfit);
+      document.getElementById('cardProfitBase').textContent = formatMoney(MOABIZ_BASELINE.pretax_profit);
+
+      document.getElementById('cardCfLanding').textContent = '¥' + formatMoney(landingPosttaxCf);
+      document.getElementById('cardCfSingle').textContent = formatMoney(standalonePosttaxCf);
+      document.getElementById('cardCfBase').textContent = formatMoney(MOABIZ_BASELINE.posttax_cf);
+
+      document.getElementById('cardDebtYearsLanding').textContent = landingDebtYears.toFixed(1) + ' 년';
+      document.getElementById('cardDebtYearsSingle').textContent = standaloneDebtYears.toFixed(1);
+      document.getElementById('cardDebtYearsBase').textContent = MOABIZ_BASELINE.debt_redemption_years.toFixed(1);
+
+      document.getElementById('cardSimpleCfLanding').textContent = '¥' + formatMoney(landingSimpleCf);
+      document.getElementById('cardSimpleCfSingle').textContent = formatMoney(standaloneSimpleCf);
+      document.getElementById('cardSimpleCfBase').textContent = formatMoney(MOABIZ_BASELINE.simple_cf);
+
+      document.getElementById('cardIcrLanding').textContent = landingIcr.toFixed(2) + ' 배';
+      document.getElementById('cardIcrSingle').textContent = standaloneIcr.toFixed(2);
+      document.getElementById('cardIcrBase').textContent = MOABIZ_BASELINE.icr.toFixed(2);
+
+      document.getElementById('cardDscrLanding').textContent = landingDscr.toFixed(2) + ' 배';
+      document.getElementById('cardDscrSingle').textContent = standaloneDscr.toFixed(2);
+      document.getElementById('cardDscrBase').textContent = MOABIZ_BASELINE.dscr.toFixed(2);
+
+      document.getElementById('cardLtvTaxLanding').textContent = (landingLtvTax * 100).toFixed(1) + ' %';
+      document.getElementById('cardLtvTaxSingle').textContent = (standaloneLtvTax * 100).toFixed(1);
+      document.getElementById('cardLtvTaxBase').textContent = (MOABIZ_BASELINE.ltv_tax * 100).toFixed(1);
+
+      document.getElementById('cardEquity').textContent = '¥' + formatMoney(initialEquity);
+      document.getElementById('cardCosts').textContent = formatMoney(initialCosts);
+      document.getElementById('cardPretaxCf').textContent = formatMoney(standalonePretaxCf);
+
+      // Render 3-Column Table (Sheet 1 Full Match)
+      renderDesignTable({
+        price, loanAmount, loanTerm, loanRate, expenseRatio: opexRatio, grossIncome, opex, annualDepr,
+        adsAnnual, y1Interest, y1Principal, standalonePretaxProfit, standalonePretaxCf, standaloneTax,
+        standalonePosttaxCf, standaloneDebtYears, standaloneSimpleCf, standaloneIcr, standaloneDscr,
+        standaloneLtvTax, taxLand, taxBldg, landingPrice, landingLoan, landingGrossIncome, landingOpex,
+        landingDepr, landingAds, landingInterest, landingPrincipal, landingPretaxProfit, landingPretaxCf,
+        landingTax, landingPosttaxCf, landingDebtYears, landingSimpleCf, landingIcr, landingDscr, landingLtvTax,
+        deprYears, statutoryLife, remainingLife, bldgRatio
+      });
+
+      // Pillar 2: 20~30 Year Simulation Run
+      runSimulationTable({
+        rentFull, price, bldgPrice: price * bldgRatio, landPrice: price * (1 - bldgRatio),
+        loanAmount, loanRate, loanTerm, equityInvested: initialEquity,
+        vacancyRate: 1.0 - occRatio, opexRatio, rentDeclineRate: 0.01,
+        taxRate, exitYield, deprYears, simYears
+      });
+    }
+
+    function renderDesignTable(d) {
+      const rows = [
+        { cat: "1. 入力 (Input Parameters)", isCat: true },
+        { name: "物件価格 (Purchase Price)", s: '¥' + formatMoney(d.price), b: '¥' + formatMoney(MOABIZ_BASELINE.price), l: '¥' + formatMoney(d.landingPrice) },
+        { name: "融資金額 (Loan Amount)", s: '¥' + formatMoney(d.loanAmount), b: '¥' + formatMoney(MOABIZ_BASELINE.loan_amount), l: '¥' + formatMoney(d.landingLoan) },
+        { name: "Loan To Value (LTV %)", s: formatPct(d.loanAmount / d.price), b: formatPct(MOABIZ_BASELINE.loan_amount / MOABIZ_BASELINE.price), l: formatPct(d.landingLoan / d.landingPrice) },
+        { name: "融資期間 (Loan Term)", s: d.loanTerm + " 년", b: "33 년 (가중)", l: "34 년 (가중)" },
+        { name: "融資金利 (Interest Rate)", s: (d.loanRate * 100).toFixed(2) + "%", b: "2.8% (평균)", l: "2.9% (평균)" },
+        { name: "経費率 (Expense Ratio)", s: formatPct(d.expenseRatio), b: formatPct(MOABIZ_BASELINE.opex / MOABIZ_BASELINE.gross_income), l: formatPct(d.landingOpex / d.landingGrossIncome) },
+        { name: "固定資産税 土地評価額", s: '¥' + formatMoney(d.taxLand), b: '¥' + formatMoney(MOABIZ_BASELINE.tax_land), l: '¥' + formatMoney(MOABIZ_BASELINE.tax_land + d.taxLand) },
+        { name: "固定資産税 建物評価額", s: '¥' + formatMoney(d.taxBldg), b: '¥' + formatMoney(MOABIZ_BASELINE.tax_bldg), l: '¥' + formatMoney(MOABIZ_BASELINE.tax_bldg + d.taxBldg) },
+        { name: "法定耐用年数 / 償却年数", s: d.statutoryLife + "년 / " + d.deprYears.toFixed(1) + "년", b: "- / 18.8년", l: "- / 22.2년" },
+
+        { cat: "2. 中間演算領域 (Intermediate Calculations)", isCat: true },
+        { name: "年間総収入 (Gross Income)", s: '¥' + formatMoney(d.grossIncome), b: '¥' + formatMoney(MOABIZ_BASELINE.gross_income), l: '¥' + formatMoney(d.landingGrossIncome) },
+        { name: "年間運営経費 (Operating Expenses)", s: '¥' + formatMoney(d.opex), b: '¥' + formatMoney(MOABIZ_BASELINE.opex), l: '¥' + formatMoney(d.landingOpex) },
+        { name: "年間減価償却費 (Depreciation)", s: '¥' + formatMoney(d.annualDepr), b: '¥' + formatMoney(MOABIZ_BASELINE.depr), l: '¥' + formatMoney(d.landingDepr) },
+        { name: "年間総元利金返済額 (Annual Debt Service)", s: '¥' + formatMoney(d.adsAnnual), b: '¥' + formatMoney(MOABIZ_BASELINE.ads), l: '¥' + formatMoney(d.landingAds) },
+        { name: "1年目利息支払額 (Annual Interest)", s: '¥' + formatMoney(d.y1Interest), b: '¥' + formatMoney(MOABIZ_BASELINE.interest), l: '¥' + formatMoney(d.landingInterest) },
+        { name: "1年目元金返済額 (Annual Principal)", s: '¥' + formatMoney(d.y1Principal), b: '¥' + formatMoney(MOABIZ_BASELINE.principal), l: '¥' + formatMoney(d.landingPrincipal) },
+        { name: "元利金返済割合 (Debt Service Ratio)", s: formatPct(d.adsAnnual / d.grossIncome), b: formatPct(MOABIZ_BASELINE.ads / MOABIZ_BASELINE.gross_income), l: formatPct(d.landingAds / d.landingGrossIncome) },
+
+        { cat: "3. 決算書デザイン型判定 (Output & 7 Key Metrics)", isCat: true },
+        { name: "1. 帳簿上税引前当期純利益", s: formatMoney(d.standalonePretaxProfit), b: formatMoney(MOABIZ_BASELINE.pretax_profit), l: formatMoney(d.landingPretaxProfit), highlight: true },
+        { name: "2. 税引前手残りCF", s: formatMoney(d.standalonePretaxCf), b: formatMoney(MOABIZ_BASELINE.pretax_cf), l: formatMoney(d.landingPretaxCf) },
+        { name: "   税引前CF利回り (%)", s: formatPct(d.standalonePretaxCf / d.price), b: formatPct(MOABIZ_BASELINE.pretax_cf / MOABIZ_BASELINE.price), l: formatPct(d.landingPretaxCf / d.landingPrice) },
+        { name: "   推定法人税額", s: formatMoney(d.standaloneTax), b: formatMoney(MOABIZ_BASELINE.tax), l: formatMoney(d.landingTax) },
+        { name: "   税引後手残りCF", s: formatMoney(d.standalonePosttaxCf), b: formatMoney(MOABIZ_BASELINE.posttax_cf), l: formatMoney(d.landingPosttaxCf), highlight: true },
+        { name: "   税引後CF利回り (%)", s: formatPct(d.standalonePosttaxCf / d.price), b: formatPct(MOABIZ_BASELINE.posttax_cf / MOABIZ_BASELINE.price), l: formatPct(d.landingPosttaxCf / d.landingPrice) },
+        { name: "3. 債務償還年数 (年)", s: d.standaloneDebtYears.toFixed(1) + "년", b: MOABIZ_BASELINE.debt_redemption_years.toFixed(1) + "년", l: d.landingDebtYears.toFixed(1) + "년 (단축)", highlight: true },
+        { name: "4. 簡易 Cash Flow", s: formatMoney(d.standaloneSimpleCf), b: formatMoney(MOABIZ_BASELINE.simple_cf), l: formatMoney(d.landingSimpleCf) },
+        { name: "5. ICR (이자보상배율)", s: d.standaloneIcr.toFixed(2) + "배", b: MOABIZ_BASELINE.icr.toFixed(2) + "배", l: d.landingIcr.toFixed(2) + "배 (상승)", highlight: true },
+        { name: "6. 負債返済余裕率 (DSCR)", s: d.standaloneDscr.toFixed(2) + "배", b: MOABIZ_BASELINE.dscr.toFixed(2) + "배", l: d.landingDscr.toFixed(2) + "배 (상승)", highlight: true },
+        { name: "7. LTV (固定資産税評価額に基づく)", s: formatPct(d.standaloneLtvTax), b: formatPct(MOABIZ_BASELINE.ltv_tax), l: formatPct(d.landingLtvTax) + " (개선)", highlight: true }
+      ];
+
+      let html = '';
+      rows.forEach(r => {
+        if (r.isCat) {
+          html += `<tr class="bg-slate-950 font-bold text-amber-400"><td colspan="4" class="py-2.5 px-4 font-sans tracking-wide text-xs uppercase">${r.cat}</td></tr>`;
+        } else {
+          const hlClass = r.highlight ? "text-amber-300 font-bold bg-amber-500/5" : "";
+          html += `
+            <tr class="hover:bg-slate-800/40 transition ${hlClass}">
+              <td class="py-2 px-4 font-sans text-slate-300">${r.name}</td>
+              <td class="py-2 px-4 text-right">${r.s}</td>
+              <td class="py-2 px-4 text-right text-slate-400">${r.b}</td>
+              <td class="py-2 px-4 text-right font-bold text-emerald-400 bg-emerald-950/10">${r.l}</td>
+            </tr>
+          `;
+        }
+      });
+      document.getElementById('tbodyDesignTable').innerHTML = html;
+    }
+
+    function runSimulationTable(params) {
+      const yearly = [];
+      let loanBal = params.loanAmount;
+      let bookVal = params.price;
+      let accumCf = 0;
+      const mRate = params.loanRate / 12.0;
+      const mPmt = calcPmt(params.loanRate, params.loanTerm, params.loanAmount);
+      const annualDepr = params.deprYears > 0 ? (params.bldgPrice / params.deprYears) : 0;
+
+      let targetKpi = null;
+
+      for (let y = 1; y <= params.simYears; y++) {
+        const rent = params.rentFull * Math.pow(1.0 - params.rentDeclineRate, y - 1);
+        const vac = rent * params.vacancyRate;
+        const opex = rent * params.opexRatio;
+        const depr = y <= params.deprYears ? annualDepr : 0;
+
+        let totInt = 0;
+        let totPrin = 0;
+        if (loanBal > 0 && y <= params.loanTerm) {
+          for (let m = 0; m < 12; m++) {
+            if (loanBal <= 0) break;
+            const inte = loanBal * mRate;
+            const prin = Math.min(loanBal, mPmt - inte);
+            totInt += inte;
+            totPrin += prin;
+            loanBal -= prin;
+          }
+        }
+
+        const pretaxProfit = rent - vac - opex - depr - totInt;
+        const tax = pretaxProfit <= 0 ? 70000 : pretaxProfit * params.taxRate;
+        const posttaxProfit = pretaxProfit - tax;
+        const cf = posttaxProfit - totPrin + depr;
+        accumCf += cf;
+
+        bookVal = Math.max(params.landPrice, bookVal - depr);
+
+        const salePrice = params.exitYield > 0 ? (rent / params.exitYield) : 0;
+        const saleProfit = salePrice - bookVal;
+        const saleTax = saleProfit > 0 ? (saleProfit * params.taxRate) : 0;
+        const saleProfitAfter = saleProfit - saleTax;
+
+        const totalProfitAccum = saleProfitAfter + accumCf; // BB
+        const roiTotal = params.equityInvested > 0 ? (totalProfitAccum / params.equityInvested) : 0; // CC
+
+        const cashSecuredAtSale = salePrice - loanBal - saleTax; // DD = X - L - Z
+        const totalCashSecured = cashSecuredAtSale + accumCf; // DD + K
+        const netProfitSaleOnly = cashSecuredAtSale - params.equityInvested; // EE = DD - 投資額
+        const netProfitTotal = totalCashSecured - params.equityInvested; // (DD + K) - 投資額
+
+        const annualRoi = y > 0 ? (roiTotal / y) : 0;
+
+        const row = {
+          year: y,
+          rent, vac, opex, depr, interest: totInt, principal: totPrin,
+          pretaxProfit, tax, posttaxProfit, cf, accumCf,
+          loanBal, bookVal, salePrice, saleTax, saleProfitAfter,
+          totalProfitAccum, roiTotal, cashSecuredAtSale, totalCashSecured,
+          netProfitSaleOnly, netProfitTotal, annualRoi
+        };
+        yearly.push(row);
+
+        if (y === selectedExitYear) {
+          targetKpi = row;
+        }
+      }
+
+      // If selected year is beyond simYears, take last
+      if (!targetKpi && yearly.length > 0) targetKpi = yearly[yearly.length - 1];
+
+      // Update 4 Exit KPI Cards
+      if (targetKpi) {
+        document.getElementById('exitKpi1SaleCash').textContent = '¥' + formatMoney(targetKpi.cashSecuredAtSale);
+        document.getElementById('exitSubDD').textContent = '¥' + formatMoney(targetKpi.cashSecuredAtSale);
+        document.getElementById('exitKpi1TotalCash').textContent = '¥' + formatMoney(targetKpi.totalCashSecured);
+
+        document.getElementById('exitKpi2LifecycleProfit').textContent = '¥' + formatMoney(targetKpi.netProfitTotal);
+        document.getElementById('exitSubEE').textContent = '¥' + formatMoney(targetKpi.netProfitSaleOnly);
+        document.getElementById('exitSubEquity').textContent = '¥' + formatMoney(params.equityInvested);
+
+        document.getElementById('exitKpi3Roi').textContent = (targetKpi.roiTotal * 100).toFixed(1) + ' %';
+        document.getElementById('exitSubBB').textContent = '¥' + formatMoney(targetKpi.totalProfitAccum);
+        document.getElementById('exitSubMultiple').textContent = (params.equityInvested > 0 ? (targetKpi.totalCashSecured / params.equityInvested).toFixed(2) : '0') + ' 배';
+
+        document.getElementById('exitKpi4AnnualRoi').textContent = (targetKpi.annualRoi * 100).toFixed(1) + ' %';
+        document.getElementById('exitSubYears').textContent = targetKpi.year + ' 년';
+      }
+
+      // Render Simulation Table
+      let tableHtml = '';
+      yearly.forEach(r => {
+        const isSelected = (r.year === selectedExitYear);
+        const rowClass = isSelected ? "highlight-row font-bold" : "hover:bg-slate-800/40";
+        tableHtml += `
+          <tr class="${rowClass} transition cursor-pointer" onclick="setExitYear(${r.year})">
+            <td class="py-2 px-3 whitespace-nowrap text-amber-400 font-bold">${r.year}년차 ${isSelected ? '🎯' : ''}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap">¥${formatMoney(r.rent)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.vac)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.opex)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.depr)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.interest)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.principal)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap">¥${formatMoney(r.pretaxProfit)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.tax)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-semibold text-emerald-300">¥${formatMoney(r.cf)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-bold text-emerald-400">¥${formatMoney(r.accumCf)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.loanBal)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap text-slate-400">¥${formatMoney(r.bookVal)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-semibold text-amber-300">¥${formatMoney(r.salePrice)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-bold text-amber-400">¥${formatMoney(r.cashSecuredAtSale)}</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-bold text-sky-400">${(r.roiTotal * 100).toFixed(1)}%</td>
+            <td class="py-2 px-3 text-right whitespace-nowrap font-bold text-purple-400">${(r.annualRoi * 100).toFixed(1)}%</td>
+          </tr>
+        `;
+      });
+      document.getElementById('tbodySimulation').innerHTML = tableHtml;
+    }
+
+    // Language Toggle
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'ko') {
+        document.getElementById('langKO').className = "px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition";
+        document.getElementById('langJA').className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition";
+      } else {
+        document.getElementById('langJA').className = "px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 transition";
+        document.getElementById('langKO').className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition";
+      }
+    }
+
+    // Initial run on load
+    window.addEventListener('DOMContentLoaded', () => {
+      resetDefaults();
+    });
+  </script>
+</body>
+</html>
