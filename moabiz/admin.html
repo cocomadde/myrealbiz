@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>MyRealBiz Admin | 외부공개 포트폴리오 관리 콘솔</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', -apple-system, system-ui, sans-serif; }
+    /* Toggle switch styling */
+    .toggle-checkbox:checked {
+      right: 0;
+      border-color: #10B981;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #10B981;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Admin Header -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-500 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-purple-500/20">⚙️</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold tracking-tight text-white">MyReal<span class="text-amber-400">Biz</span></span>
+            <span class="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 font-semibold font-mono">Admin Console</span>
+          </div>
+          <p class="text-[11px] text-slate-400">포트폴리오 외부공개 온오프(On/Off) 및 듀얼 배포 관리자</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="text-xs text-amber-300 hover:text-white px-3 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 transition flex items-center gap-1.5 font-medium">
+          <span>🏢</span>
+          <span>모아비즈 포털</span>
+        </a>
+        <a href="../index.html" target="_blank" class="text-xs text-sky-300 hover:text-white px-3 py-1.5 rounded-lg border border-sky-500/30 bg-sky-500/10 hover:bg-sky-500/20 transition flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span>외부공개 사이트 ↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+
+    <!-- Overview Banner -->
+    <div class="p-6 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-semibold mb-2">
+          🔒 보안 분리 관리 정책 가동 중
+        </div>
+        <h1 class="text-2xl font-bold text-white tracking-tight">부동산 물건별 외부공개(Public) 제어</h1>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+          외부 공개 스위치를 <span class="text-emerald-400 font-semibold">ON</span>으로 설정하면 메인 인트로(<a href="../index.html" class="underline hover:text-sky-400" target="_blank">/myrealbiz/</a>)에 물건이 노출되며, 모아비즈 법인 결산서·베이스라인은 자동 마스킹 처리됩니다.
+          <span class="text-purple-400 font-semibold">OFF</span> 설정 시 모아비즈 내부 전용 포털(<a href="./index.html" class="underline hover:text-purple-300">/myrealbiz/moabiz/</a>)에만 보존됩니다.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button id="btnReset" onclick="resetToInitial()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+          초기화
+        </button>
+        <button id="btnApply" onclick="applyChanges()" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 shadow-lg shadow-emerald-500/20 transition flex items-center gap-2">
+          <span>💾</span>
+          <span>설정 적용 및 저장</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Summary Row -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+        <span class="text-xs text-slate-400 font-medium block">총 검토 물건 수</span>
+        <span class="text-2xl font-extrabold text-white font-mono mt-1 block" id="statTotal">0 건</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block">모아비즈 내부 전수</span>
+      </div>
+      <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+        <span class="text-xs text-emerald-400 font-medium block">외부 공개 (Public ON)</span>
+        <span class="text-2xl font-extrabold text-emerald-400 font-mono mt-1 block" id="statPublic">0 건</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block">루트 인트로 노출</span>
+      </div>
+      <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+        <span class="text-xs text-purple-400 font-medium block">내부 전용 (Private OFF)</span>
+        <span class="text-2xl font-extrabold text-purple-400 font-mono mt-1 block" id="statPrivate">0 건</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block">외부 노출 완전 차단</span>
+      </div>
+      <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
+        <span class="text-xs text-amber-400 font-medium block">외부공개 파이프라인 금액</span>
+        <span class="text-2xl font-extrabold text-amber-400 font-mono mt-1 block" id="statVolume">0.0 억 엔</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block">공개 물건 매매가 합계</span>
+      </div>
+    </div>
+
+    <!-- Properties Management Table -->
+    <div class="bg-slate-900/80 rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between flex-wrap gap-3 bg-slate-900">
+        <div class="flex items-center gap-2">
+          <span class="text-base font-bold text-white">물건별 외부 공개 상태 설정</span>
+          <span class="text-xs text-slate-400 font-mono" id="tableCountBadge"></span>
+        </div>
+        <div class="text-xs text-slate-400">
+          * 토글 스위치 조작 후 상단 <span class="text-emerald-400 font-semibold">[설정 적용 및 저장]</span>을 누르면 즉시 동기화됩니다.
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-950/60 text-slate-400 border-b border-slate-800 uppercase text-[11px] tracking-wider">
+            <tr>
+              <th class="px-6 py-3.5 font-semibold">외부공개 설정</th>
+              <th class="px-6 py-3.5 font-semibold">물건 정보</th>
+              <th class="px-6 py-3.5 font-semibold">구조 / 규모</th>
+              <th class="px-6 py-3.5 font-semibold text-right">매매가격</th>
+              <th class="px-6 py-3.5 font-semibold text-right">표면 / Cap Rate</th>
+              <th class="px-6 py-3.5 font-semibold text-center">투자 판정</th>
+              <th class="px-6 py-3.5 font-semibold text-right">링크 바로가기</th>
+            </tr>
+          </thead>
+          <tbody id="propertiesTableBody" class="divide-y divide-slate-800/80">
+            <!-- Rendered by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Export & CLI Sync Modal / Section -->
+    <div id="syncSection" class="p-6 rounded-2xl border border-emerald-500/30 bg-emerald-950/20 shadow-xl space-y-4">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-sm">✓</div>
+          <div>
+            <h3 class="text-base font-bold text-white">외부공개 설정이 브라우저 및 로컬에 적용되었습니다</h3>
+            <p class="text-xs text-slate-400">현재 변경된 설정을 Git 저장소와 원격 포털에 배포하려면 아래 스크립트를 실행하거나 JSON을 내려받으세요.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="downloadUpdatedJson()" class="px-3 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition">
+            <span>📥</span>
+            <span>properties.json 다운로드</span>
+          </button>
+          <button onclick="copyCliCommand()" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 flex items-center gap-1.5 transition font-mono">
+            <span>📋</span>
+            <span>Git 자동 배포 명령어 복사</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 flex items-center justify-between gap-4 overflow-x-auto">
+        <code id="cliCommandText">python3 /google/src/cloud/leeseunghee/private_real_estate_agent/configs/users/leeseunghee/_agents/skills/real-estate-github-publisher/scripts/publish_to_github.py --rebuild-index</code>
+        <button onclick="copyCliCommand()" class="text-xs text-emerald-400 hover:text-emerald-300 shrink-0 underline">복사</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">MyRealBiz Admin Console &bull; Confidential &bull; Managed by cocomadde</div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs shadow-2xl transition-all duration-300 transform translate-y-16 opacity-0 flex items-center gap-2">
+    <span>✓</span>
+    <span id="toastMsg">설정이 성공적으로 저장되었습니다.</span>
+  </div>
+
+  <script>
+    // Properties Data
+    let properties = [];
+    let initialProperties = [];
+
+    async function loadProperties() {
+      try {
+        const res = await fetch('./properties.json?t=' + Date.now());
+        properties = await res.json();
+      } catch (e) {
+        console.warn('Direct fetch failed, falling back to embedded defaults:', e);
+        properties = [
+          {
+            slug: "foresthills",
+            name_ko: "포레스타 힐즈 (Foresta Hills)",
+            name_ja: "フォレスタヒルズ",
+            structure: "RC조 지상 4층",
+            units: 14,
+            location: "카나가와현 아츠기시 이이야마미나미 4초메",
+            price: 123000000.0,
+            price_display: "1억 2,300만 엔",
+            gross_yield_pct: 8.6,
+            cap_rate_pct: 6.35,
+            public_enabled: true,
+            verdict: "매수 추천",
+            verdict_badge: "recommend"
+          },
+          {
+            slug: "funabashi-miyamoto",
+            name_ko: "후나바시 미야모토 1초메 (Funabashi Miyamoto)",
+            name_ja: "船橋市宮本1丁目",
+            structure: "목조 3층",
+            units: 9,
+            location: "치바현 후나바시시 미야모토 1초메 29-3",
+            price: 108500000.0,
+            price_display: "1억 850만 엔",
+            gross_yield_pct: 6.8,
+            cap_rate_pct: 5.09,
+            public_enabled: false,
+            verdict: "조건부 검토",
+            verdict_badge: "review"
+          },
+          {
+            slug: "matsudo-kawaharazuka",
+            name_ko: "익시드 애로우 (Exceed Arrow)",
+            name_ja: "エクシードアロー",
+            structure: "철골조 지상 2층",
+            units: 8,
+            location: "치바현 마츠도시 카와하라즈카 29-1",
+            price: 94000000.0,
+            price_display: "9,400만 엔",
+            gross_yield_pct: 7.08,
+            cap_rate_pct: 5.55,
+            public_enabled: true,
+            verdict: "매수 추천",
+            verdict_badge: "recommend"
+          },
+          {
+            slug: "clio-kikuna",
+            name_ko: "크리오 키쿠나 이번관 (Clio Kikuna Nibankan)",
+            name_ja: "クリオ菊名弐番館",
+            structure: "RC조 지상 4층",
+            units: 21,
+            location: "카나가와현 요코하마시 코호쿠구 키쿠나 4-6-38",
+            price: 275000000.0,
+            price_display: "2억 7,500만 엔",
+            gross_yield_pct: 6.4,
+            cap_rate_pct: 5.17,
+            public_enabled: true,
+            verdict: "매수 추천",
+            verdict_badge: "recommend"
+          }
+        ];
+      }
+
+      // Check localStorage for persisted toggles
+      const saved = localStorage.getItem('myrealbiz_admin_public_flags');
+      if (saved) {
+        try {
+          const flags = JSON.parse(saved);
+          properties.forEach(p => {
+            if (p.slug in flags) {
+              p.public_enabled = flags[p.slug];
+            }
+          });
+        } catch (err) {
+          console.error('Error parsing localStorage:', err);
+        }
+      }
+
+      initialProperties = JSON.parse(JSON.stringify(properties));
+      renderTable();
+      updateStats();
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('propertiesTableBody');
+      tbody.innerHTML = '';
+
+      properties.forEach((p, idx) => {
+        const isPublic = !!p.public_enabled;
+        const tr = document.createElement('tr');
+        tr.className = isPublic ? 'hover:bg-slate-800/40 transition' : 'hover:bg-slate-800/40 bg-purple-950/10 transition';
+
+        const verdictBadge = p.verdict_badge === 'recommend' 
+          ? '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">매수 추천</span>'
+          : '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">조건부 검토</span>';
+
+        const statusTag = isPublic
+          ? '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 외부 공개 ON</span>'
+          : '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> 내부 전용 OFF</span>';
+
+        tr.innerHTML = `
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center gap-3">
+              <label class="relative inline-block w-12 h-6 cursor-pointer">
+                <input type="checkbox" class="sr-only peer" ${isPublic ? 'checked' : ''} onchange="togglePublic(${idx}, this.checked)">
+                <div class="w-12 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+              </label>
+              <div id="statusTag_${idx}">${statusTag}</div>
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            <div class="font-bold text-white text-sm">${p.name_ko}</div>
+            <div class="text-xs text-slate-400 mt-0.5">${p.name_ja || ''}</div>
+            <div class="text-[11px] text-slate-500 mt-1">📍 ${p.location}</div>
+          </td>
+          <td class="px-6 py-4 text-xs text-slate-300 whitespace-nowrap">
+            <div>${p.structure}</div>
+            <div class="text-slate-400 mt-0.5">${p.units}세대</div>
+          </td>
+          <td class="px-6 py-4 text-right whitespace-nowrap font-mono font-bold text-amber-400">
+            ${p.price_display}
+          </td>
+          <td class="px-6 py-4 text-right whitespace-nowrap">
+            <div class="font-mono text-emerald-400 font-bold">${p.gross_yield_pct ? p.gross_yield_pct.toFixed(2) + '%' : '-'}</div>
+            <div class="text-[11px] font-mono text-sky-400 mt-0.5">Cap ${p.cap_rate_pct ? p.cap_rate_pct.toFixed(2) + '%' : '-'}</div>
+          </td>
+          <td class="px-6 py-4 text-center whitespace-nowrap">
+            ${verdictBadge}
+          </td>
+          <td class="px-6 py-4 text-right whitespace-nowrap space-y-1">
+            <div>
+              <a href="../${p.slug}/index.html" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1">
+                <span>🌐 외부용 ↗</span>
+              </a>
+            </div>
+            <div>
+              <a href="./${p.slug}/index.html" class="text-xs text-amber-400 hover:text-amber-300 hover:underline inline-flex items-center gap-1">
+                <span>🏢 모아비즈용 ↗</span>
+              </a>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('tableCountBadge').textContent = `(총 ${properties.length}개 물건)`;
+    }
+
+    function togglePublic(idx, checked) {
+      properties[idx].public_enabled = checked;
+      const statusTag = checked
+        ? '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 외부 공개 ON</span>'
+        : '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> 내부 전용 OFF</span>';
+      
+      document.getElementById(`statusTag_${idx}`).innerHTML = statusTag;
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = properties.length;
+      const pubCount = properties.filter(p => p.public_enabled).length;
+      const privCount = total - pubCount;
+
+      const pubVolume = properties
+        .filter(p => p.public_enabled)
+        .reduce((sum, p) => sum + (p.price || 0), 0);
+
+      document.getElementById('statTotal').textContent = total + ' 건';
+      document.getElementById('statPublic').textContent = pubCount + ' 건';
+      document.getElementById('statPrivate').textContent = privCount + ' 건';
+      document.getElementById('statVolume').textContent = (pubVolume / 100000000).toFixed(1) + ' 억 엔';
+    }
+
+    function applyChanges() {
+      // 1. Save to localStorage
+      const flags = {};
+      properties.forEach(p => {
+        flags[p.slug] = !!p.public_enabled;
+      });
+      localStorage.setItem('myrealbiz_admin_public_flags', JSON.stringify(flags));
+
+      // 2. Show toast
+      showToast('외부 공개 설정이 성공적으로 저장되었습니다!');
+
+      // 3. Highlight sync section
+      document.getElementById('syncSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetToInitial() {
+      localStorage.removeItem('myrealbiz_admin_public_flags');
+      properties = JSON.parse(JSON.stringify(initialProperties));
+      renderTable();
+      updateStats();
+      showToast('초기 설정으로 복원되었습니다.');
+    }
+
+    function downloadUpdatedJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(properties, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", "properties.json");
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast('properties.json 다운로드가 완료되었습니다.');
+    }
+
+    function copyCliCommand() {
+      const cmd = document.getElementById('cliCommandText').innerText;
+      navigator.clipboard.writeText(cmd).then(() => {
+        showToast('CLI 배포 명령어가 클립보드에 복사되었습니다!');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('translate-y-16', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-16', 'opacity-0');
+      }, 3000);
+    }
+
+    window.addEventListener('DOMContentLoaded', loadProperties);
+  </script>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <title>MyRealBiz | 수익형 부동산 투자분석 포트폴리오</title>
+  <title>MyRealBiz [Moabiz] | 모아비즈 법인 전용 포트폴리오</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,16 +17,24 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
-  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-amber-500/20">M</div>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-indigo-600 flex items-center justify-center font-black text-white text-xl shadow-lg shadow-amber-500/20">M</div>
         <div>
           <span class="text-xl font-bold tracking-tight text-white">MyReal<span class="text-amber-400">Biz</span></span>
-          <span class="text-xs text-slate-400 ml-2 px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Portfolio</span>
+          <span class="text-xs text-amber-400 ml-2 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 font-semibold">Moabiz Internal</span>
         </div>
       </div>
       <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs text-slate-400 hover:text-white px-2.5 py-1.5 rounded-lg border border-slate-800 bg-slate-900 hover:bg-slate-800 transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span data-t="navPublic">외부공개 포털 ↗</span>
+        </a>
+        <a href="./admin.html" class="text-xs text-amber-300 hover:text-amber-200 px-2.5 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 transition flex items-center gap-1.5 font-semibold">
+          <span>⚙️</span>
+          <span data-t="navAdmin">외부공개 관리 (Admin)</span>
+        </a>
         <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
           <button id="langKO" onclick="setLang('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
           <button id="langJA" onclick="setLang('ja')" class="px-3 py-1 text-xs font-semibold rounded-md transition">日本語</button>
@@ -46,17 +54,24 @@
         <span data-t="heroTitle1"></span>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200" data-t="heroTitle2"></span>
       </h1>
-      <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" data-t="heroDesc"></p>
+      <p class="text-slate-400 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" data-t="heroDesc"></p>
     </div>
   </section>
 
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-8">
-      <h2 class="text-xl font-bold text-white flex items-center gap-2">
-        <span data-t="listTitle"></span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">3 Active</span>
-      </h2>
-      <p class="text-xs text-slate-400 mt-1" data-t="listDesc"></p>
+    <div class="mb-8 flex items-center justify-between flex-wrap gap-4">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span data-t="listTitle"></span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono border border-indigo-500/30">4 Total (Internal All)</span>
+        </h2>
+        <p class="text-xs text-slate-400 mt-1" data-t="listDesc"></p>
+      </div>
+      <div class="text-xs text-slate-400 flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400"></span> 외부 공개 3건
+        <span class="text-slate-600">|</span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-purple-400"></span> 내부 전용 1건 (후나바시)
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,6 +84,7 @@
               <div class="flex items-center flex-wrap gap-2 mb-1.5">
                 <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p1_status"></span>
                 <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p1_spec"></span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-500/15 text-sky-400 border border-sky-500/30">🌐 외부 공개</span>
               </div>
               <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p1_name"></h3>
               <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
@@ -109,7 +125,7 @@
           </ul>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="./foresthills/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+            <a href="./foresthills/index.html" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
               <span data-t="p1_cta"></span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
@@ -127,7 +143,77 @@
         </div>
       </div>
 
-      <!-- Property Card 2: Matsudo Kawaharazuka (Exceed Arrow) -->
+      <!-- Property Card 2: Funabashi Miyamoto 1-chome (Internal Only) -->
+      <div class="rounded-2xl border-2 border-purple-500/40 bg-slate-900/80 hover:border-purple-400 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl relative">
+        <div class="absolute top-0 right-0 bg-gradient-to-l from-purple-600 to-indigo-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl shadow">INTERNAL ONLY</div>
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center flex-wrap gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30" data-t="p2_status"></span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p2_spec"></span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40">🔒 내부 전용</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p2_name"></h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
+                <svg class="w-3.5 h-3.5 mt-0.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span data-t="p2_address"></span>
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-slate-500 block" data-t="p2_price_label"></span>
+              <span class="text-2xl font-extrabold text-amber-400" data-t="p2_price"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between gap-6">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p2_m1_label"></span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">6.80%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p2_m1_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p2_m2_label"></span>
+              <span class="text-lg font-bold text-indigo-300 font-mono">5.09%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p2_m2_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p2_m3_label"></span>
+              <span class="text-lg font-bold text-amber-300 font-mono">91.0%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p2_m3_sub"></span>
+            </div>
+          </div>
+
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p2_b1"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p2_b2"></span></li>
+            <li class="flex gap-2"><span class="text-amber-400 shrink-0">!</span><span data-t="p2_b3"></span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="./funabashi-miyamoto/index.html" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+              <span data-t="p2_cta"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./funabashi-miyamoto/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p2_report"></a>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span data-t="p2_dl_label"></span>
+            <div class="flex items-center gap-2">
+              <a href="./funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium">KO MD</a>
+              <span class="text-slate-600">|</span>
+              <a href="./funabashi-miyamoto/README.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium" data-t="p2_dl_readme"></a>
+              <span class="text-slate-600">|</span>
+              <a href="./funabashi-miyamoto/metrics.json" class="text-indigo-400 hover:text-indigo-300 underline font-medium">metrics.json</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Card 3: Matsudo Kawaharazuka (Exceed Arrow) -->
       <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
         <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
           <div class="flex items-start justify-between gap-4">
@@ -135,6 +221,7 @@
               <div class="flex items-center flex-wrap gap-2 mb-1.5">
                 <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p3_status"></span>
                 <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p3_spec"></span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-500/15 text-sky-400 border border-sky-500/30">🌐 외부 공개</span>
               </div>
               <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p3_name"></h3>
               <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
@@ -175,7 +262,7 @@
           </ul>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="./matsudo-kawaharazuka/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+            <a href="./matsudo-kawaharazuka/index.html" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
               <span data-t="p3_cta"></span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
@@ -193,7 +280,7 @@
         </div>
       </div>
 
-      <!-- Property Card 3: Clio Kikuna Nibankan -->
+      <!-- Property Card 4: Clio Kikuna Nibankan -->
       <div class="rounded-2xl border-2 border-amber-500/40 bg-slate-900/80 hover:border-amber-400 transition-all duration-300 overflow-hidden flex flex-col group shadow-2xl relative">
         <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-orange-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl shadow">NEW FLAGSHIP</div>
         <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
@@ -202,6 +289,7 @@
               <div class="flex items-center flex-wrap gap-2 mb-1.5">
                 <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p4_status"></span>
                 <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p4_spec"></span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-500/15 text-sky-400 border border-sky-500/30">🌐 외부 공개</span>
               </div>
               <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p4_name"></h3>
               <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
@@ -230,7 +318,7 @@
             </div>
             <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
               <span class="text-xs text-slate-400 block mb-1" data-t="p4_m3_label"></span>
-              <span class="text-lg font-bold text-emerald-300 font-mono">1.72배</span>
+              <span class="text-lg font-bold text-emerald-300 font-mono">1.23배</span>
               <span class="text-[10px] text-slate-500 block" data-t="p4_m3_sub"></span>
             </div>
           </div>
@@ -242,7 +330,7 @@
           </ul>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="./clio-kikuna/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+            <a href="./clio-kikuna/index.html" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
               <span data-t="p4_cta"></span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
@@ -264,19 +352,21 @@
   </main>
 
   <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto px-4">MyRealBiz Portfolio &copy; 2026 · Managed by cocomadde</div>
+    <div class="max-w-7xl mx-auto px-4">MyRealBiz [Moabiz Internal Portfolio] &copy; 2026 · Managed by cocomadde</div>
   </footer>
 
 <script>
 const T = {
   ko: {
-    docTitle: "MyRealBiz | 수익형 부동산 투자분석 포트폴리오",
-    heroPill: "🏢 일본 수익형 부동산 정밀 실사 & 융자 시뮬레이션 허브",
-    heroTitle1: "수익형 부동산 분석",
-    heroTitle2: "포트폴리오",
-    heroDesc: "검사필증·건축개요·소방·수질 등 공문서 전수 실사와 실시간 융자 시뮬레이터를 탑재한 물건별 정밀 투자 분석 플랫폼입니다.",
-    listTitle: "분석 검토 물건 목록",
-    listDesc: "각 물건은 독립 서브디렉토리로 관리되며, 전용 시뮬레이터와 정밀 실사 보고서가 연결됩니다.",
+    docTitle: "MyRealBiz [Moabiz] | 모아비즈 법인 전용 포트폴리오",
+    navPublic: "외부공개 포털 ↗",
+    navAdmin: "외부공개 관리 (Admin)",
+    heroPill: "🏢 모아비즈 법인 전용 일본 부동산 포트폴리오 & 융자 시뮬레이션 허브",
+    heroTitle1: "모아비즈 부동산",
+    heroTitle2: "전용 포트폴리오",
+    heroDesc: "모아비즈 4기 법인 결산서 베이스라인, 19년 감가상각 및 차입금 상환력(ICR/DSCR) 통합 착지 분석을 포함한 법인 전용 종합 자산 관리 플랫폼입니다. (후나바시 포함 전수 수록)",
+    listTitle: "모아비즈 법인 분석 검토 물건 목록",
+    listDesc: "각 물건은 모아비즈 법인 편입 분석이 포함된 독립 서브디렉토리로 관리되며, 전용 시뮬레이터와 정밀 실사 보고서가 연결됩니다.",
 
     p1_status: "실사 완료 · 적격",
     p1_spec: "RC조 4층 · 14세대",
@@ -292,10 +382,30 @@ const T = {
     p1_m3_sub: "검사필증·소방 완비",
     p1_b1: "<strong>준공검사필증 확인</strong> — H13確済建築厚木 第00313호(2001.08.29 취득). 일본 금융기관 담보대출 100% 적격.",
     p1_b2: "<strong>실시간 융자 시뮬레이터</strong> — LTV·금리·기간·제비용 변경에 따른 월 현금흐름과 레버리지 판정을 즉시 산출.",
-    p1_b3: "<strong>공실·회전율 정밀 실사</strong> — 실적 회전 공실률 5.32% 반영, 가격 × 모집시기 2차원 DOM 매트릭스 탑재.",
+    p1_b3: "<strong>모아비즈 법인 편입 최우량</strong> — ICR 2.3배, ROI 8.45%, 결산서 세후 CF +67.5만 엔 순증 달성.",
     p1_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
     p1_report: "📑 종합분석 보고서 ↗",
     p1_dl_label: "정밀 PDF 보고서 다운로드:",
+
+    p2_status: "분석 완료 · 조건부 검토",
+    p2_spec: "목조 3층 · 9세대 (신축)",
+    p2_name: "후나바시 미야모토 1초메 (船橋市宮本1丁目)",
+    p2_address: "치바현 후나바시시 미야모토 1초메 29-3 · JR 총부쾌속선 「후나바시」역 도보 8~9분 (도쿄역 25분)",
+    p2_price_label: "판매가격 (세금포함)",
+    p2_price: "1억 850만 엔",
+    p2_m1_label: "만실 표면수익률",
+    p2_m1_sub: "만실 연 738.0만 엔",
+    p2_m2_label: "NOI 수익률 (Cap Rate)",
+    p2_m2_sub: "순영업소득 연 552.0만 엔",
+    p2_m3_label: "손익분기 가동률",
+    p2_m3_sub: "DSCR 1.14 · 허용공실 0.81실",
+    p2_b1: "<strong>트리플 역세권 신축</strong> — JR 총부쾌속선 후나바시역 도보 8~9분, 도쿄역 25분 직통. 케이세이선 2개 역도 도보 8분.",
+    p2_b2: "<strong>열화경감등급 3급 취득</strong> — 목조 법정내용연수(22년) 제약 극복, 25~30년 장기 융자 유치 가능 (30년 시 DSCR 1.30).",
+    p2_b3: "<strong>토지 선행 결제 · 저지대 침수 주의</strong> — 토지 5,780만 엔 선결제 구조 및 에비가와 0.5~3.0m 침수 상정구역 해당.",
+    p2_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
+    p2_report: "📑 종합분석 보고서 ↗",
+    p2_dl_label: "부속 자료:",
+    p2_dl_readme: "물건 요약 (README)",
 
     p3_status: "분석 완료 · 매수 추천",
     p3_spec: "철골조 2층 · 8세대 (2DK) + 주차 5대",
@@ -310,8 +420,8 @@ const T = {
     p3_m3_label: "토지 가치 비중",
     p3_m3_sub: "189.67평 양면 공도 접도",
     p3_b1: "<strong>압도적 토지 담보력 (90.8%)</strong> — 189.67평 대형 토지로 실거래 토지가격(평당 45만 엔) 기준 약 8,535만 엔에 달해 원금 손실 위험 완벽 차단.",
-    p3_b2: "<strong>남북 양면 공도 & 저용적률(60.9%)</strong> — 남 5.6m + 북동 4.8m 공도 접도. 법정 200% 대비 소화율 30% 수준으로 장래 택지 분할 매각 또는 재건축 잠재력 탁월.",
-    p3_b3: "<strong>au지분은행 95% LTV(30년) 적격</strong> — 초기 자본 1,287만 엔 투입으로 CCR 7.66% 및 연 세전 CF +98.7만 엔 흑자 달성, 고정자산세 엄격 안분 감가상각으로 연 +30만 엔 흑자 안착.",
+    p3_b2: "<strong>남북 양면 공도 & 저용적률(60.9%)</strong> — 남 5.6m + 북동 4.8m 공도 접도. 장래 택지 분할 매각 또는 재건축 잠재력 탁월.",
+    p3_b3: "<strong>모아비즈 법인 착지 최우량</strong> — au지분은행 95% LTV(30년) 적격, 세후 CF 2.12배(+91.2만 엔) 폭증 및 ICR 1.2배 달성.",
     p3_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
     p3_report_html: "📑 종합분석 보고서 ↗",
     p3_dl_label: "부속 자료:",
@@ -327,24 +437,26 @@ const T = {
     p4_m1_sub: "만실 연 1,761.3만 엔",
     p4_m2_label: "NOI 수익률 (Cap Rate)",
     p4_m2_sub: "순영업소득 연 1,423.0만 엔",
-    p4_m3_label: "이자보상배율 (ICR)",
-    p4_m3_sub: "1.72배 우량 (금융안전권)",
+    p4_m3_label: "모아비즈 편입 효과",
+    p4_m3_sub: "ICR 1.23배 돌파 · CF 2.07배",
     p4_b1: "<strong>도큐 도요코선 급행 역세권</strong> — 시부야 20분, 신요코하마(신칸센) 2분, 요코하마 6분. 수도권 최고 인기 노선 도보 6분 프리미엄.",
     p4_b2: "<strong>2024년 7월 대규모 개수공사 완료</strong> — 외벽도장·철부도장·옥상방수도장 전면 시공 완료로 인수 후 10년간 대형 Capex 부담 완벽 소멸.",
-    p4_b3: "<strong>주거 만실 + 안테나 + 자판기 3중 수입</strong> — 21세대 전실 100% 만실에 통신사 기지국 안테나와 자판기 부대수입 결합, 연 +315만 엔 흑자 CF 창출.",
+    p4_b3: "<strong>모아비즈 법인 결산서 획기적 개선</strong> — ICR 0.9배→1.23배 돌파, 세전순이익 +418.7만 엔(+112.5%) 폭증, 세후 CF 2.07배 확대.",
     p4_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
     p4_report_html: "📑 종합분석 보고서 ↗",
     p4_dl_label: "부속 자료:",
     p4_dl_readme: "물건 요약 (README)"
   },
   ja: {
-    docTitle: "MyRealBiz | 収益不動産 投資分析ポートフォリオ",
-    heroPill: "🏢 日本の収益不動産 精密デューデリジェンス & 融資シミュレーション・ハブ",
-    heroTitle1: "収益不動産分析",
-    heroTitle2: "ポートフォリオ",
-    heroDesc: "検査済証・建築概要・消防・水質などの公的書類を全数実査し、リアルタイム融資シミュレーターを搭載した物件別の精密投資分析プラットフォームです。",
-    listTitle: "分析検討 物件一覧",
-    listDesc: "各物件は独立したサブディレクトリで管理され、専用シミュレーターと精密調査レポートが紐づけられています。",
+    docTitle: "MyRealBiz [Moabiz] | モアビズ法人専用ポートフォリオ",
+    navPublic: "外部公開ポータル ↗",
+    navAdmin: "外部公開管理 (Admin)",
+    heroPill: "🏢 モアビズ法人専用 日本収益不動産ポートフォリオ & 融資シミュレーション・ハブ",
+    heroTitle1: "モアビズ不動産",
+    heroTitle2: "専用ポートフォリオ",
+    heroDesc: "モアビズ4期決算書ベースライン、19年減価償却および借入金返済力(ICR/DSCR)統合着地シミュレーションを網羅した法人専用総合資産管理プラットフォームです。（船橋含む全件収録）",
+    listTitle: "モアビズ法人 検討物件一覧",
+    listDesc: "各物件はモアビズ法人受入分析を含む独立サブディレクトリで管理され、専用シミュレーターと調査レポートが紐づけられています。",
 
     p1_status: "実査完了 ・ 適格",
     p1_spec: "RC造4階 ・ 14戸",
@@ -358,12 +470,32 @@ const T = {
     p1_m2_sub: "純営業収益 年間780.7万円",
     p1_m3_label: "法的適格性",
     p1_m3_sub: "検査済証・消防 完備",
-    p1_b1: "<strong>検査済証を確認</strong> — H13確済建築厚木 第00313号(2001.08.29取得)。日本の金融機関による担保融資に100%適格。",
+    p1_b1: "<strong>検査済証を確認</strong> — H13確済建築厚木 第00313号。日本の金融機関による担保融資に100%適格。",
     p1_b2: "<strong>リアルタイム融資シミュレーター</strong> — LTV・金利・期間・諸費用の変更に応じた月次CFとレバレッジ判定を即時算出。",
-    p1_b3: "<strong>空室・回転率の精密実査</strong> — 実績回転空室率5.32%を反映し、賃料 × 募集時期の2次元DOMマトリクスを搭載。",
+    p1_b3: "<strong>モアビズ法人受入最優良</strong> — ICR 2.3倍、ROI 8.45%、決算書税引後CF +67.5万円純増達成。",
     p1_cta: "🚀 シミュレーター & ダッシュボードを開く",
     p1_report: "📑 総合分析レポート ↗",
     p1_dl_label: "精密PDFレポートのダウンロード:",
+
+    p2_status: "分析完了 ・ 条件付き検討",
+    p2_spec: "木造3階 ・ 9戸 (新築)",
+    p2_name: "船橋市宮本1丁目 共同住宅",
+    p2_address: "千葉県船橋市宮本1丁目29番3 ・ JR総武快速線「船橋」駅 徒歩8~9分 (東京駅25分)",
+    p2_price_label: "販売価格 (税込)",
+    p2_price: "1億850万円",
+    p2_m1_label: "満室想定 表面利回り",
+    p2_m1_sub: "満室想定 年間738.0万円",
+    p2_m2_label: "NOI利回り (Cap Rate)",
+    p2_m2_sub: "純営業収益 年間552.0万円",
+    p2_m3_label: "損益分岐稼働率",
+    p2_m3_sub: "DSCR 1.14 ・ 許容空室0.81戸",
+    p2_b1: "<strong>トリプル駅近の新築</strong> — JR総武快速線 船橋駅 徒歩8~9分、東京駅まで25分直通。京成線2駅も徒歩8分。",
+    p2_b2: "<strong>劣化軽減等級3級を取得</strong> — 木造の法定耐用年数(22年)の制約を克服し、25~30年の長期融資の誘致が可能。",
+    p2_b3: "<strong>土地先行決済 ・ 低地浸水注意</strong> — 土地5,780万円の先行決済構造、および海老川の0.5~3.0m浸水想定区域に該当。",
+    p2_cta: "🚀 シミュレーター & ダッシュボードを開く",
+    p2_report: "📑 総合分析レポート ↗",
+    p2_dl_label: "付属資料:",
+    p2_dl_readme: "物件サマリー (README)",
 
     p3_status: "分析完了 ・ 買い推奨",
     p3_spec: "鉄骨造2階 ・ 8戸 (2DK) + 駐車場5台",
@@ -377,9 +509,9 @@ const T = {
     p3_m2_sub: "純営業収益 年間522.1万円",
     p3_m3_label: "土地値比率",
     p3_m3_sub: "189.67坪 両面公道接道",
-    p3_b1: "<strong>圧倒的な土地担保力 (90.8%)</strong> — 189.67坪の大型土地で実勢土地価格(坪45万円)約8,535万円に達し元本毀損リスクを徹底遮断。",
-    p3_b2: "<strong>南北両面公道＆低容積率(60.9%)</strong> — 南5.6m+北東4.8m公道接道。法定200%に対し消化率30%水準で将来の分筆分譲や再建築余地が極めて大。",
-    p3_b3: "<strong>auじぶん銀行 95%LTV(30年) 適格</strong> — 初期投下1,287万円でCCR 7.66%・年間税引前CF +98.7万円の黒字達成、固定資産税按分償却による持続的黒字着地。",
+    p3_b1: "<strong>圧倒的な土地担保力 (90.8%)</strong> — 189.67坪の大型土地で実勢土地価格約8,535万円に達し元本毀損リスクを徹底遮断。",
+    p3_b2: "<strong>南北両面公道＆低容積率(60.9%)</strong> — 南5.6m+北東4.8m公道接道。将来の分筆分譲や再建築余地が極めて大。",
+    p3_b3: "<strong>モアビズ法人着地最優良</strong> — auじぶん銀行 95%LTV(30年)適格、税引後CF 2.12倍(+91.2万円)爆増およびICR 1.2倍達成。",
     p3_cta: "🚀 シミュレーター & ダッシュボードを開く",
     p3_report_html: "📑 総合分析レポート ↗",
     p3_dl_label: "付属資料:",
@@ -395,11 +527,11 @@ const T = {
     p4_m1_sub: "満室想定 年間1,761.3万円",
     p4_m2_label: "NOI利回り (Cap Rate)",
     p4_m2_sub: "純営業収益 年間1,423.0万円",
-    p4_m3_label: "利払い余力 (ICR)",
-    p4_m3_sub: "1.72倍 健全水準",
+    p4_m3_label: "モアビズ受入効果",
+    p4_m3_sub: "ICR 1.23倍突破 ・ CF 2.07倍",
     p4_b1: "<strong>東急東横線急行駅 徒歩6分</strong> — 渋谷20分、新横浜2分、横浜6分。首都圏屈指の人気路線・特急停車駅の絶対的立地プレミアム。",
-    p4_b2: "<strong>2024年7月大規模修繕工事完了済</strong> — 外壁塗装・鉄部塗装・屋上防水塗装を実施済、取得後10年間の大型資本的支出(Capex)負担が皆無。",
-    p4_b3: "<strong>住居満室＋アンテナ＋自販機の3重収入</strong> — 21戸全戸満室稼働に加え、携帯電話基地局アンテナと自販機副収入により年間+315万円の確実な黒字CF創出。",
+    p4_b2: "<strong>2024年7月大規模修繕工事完了済</strong> — 外壁塗装・鉄部塗装・屋上防水塗装を実施済、取得後10年間の大型Capex負担が皆無。",
+    p4_b3: "<strong>モアビズ法人決算書を画期的に改善</strong> — ICR 0.9倍→1.23倍突破、税引前純利益 +418.7万円(+112.5%)爆増、税引後CF 2.07倍拡大。",
     p4_cta: "🚀 シミュレーター & ダッシュボードを開く",
     p4_report_html: "📑 総合分析レポート ↗",
     p4_dl_label: "付属資料:",

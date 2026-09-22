@@ -127,9 +127,9 @@
       "ltv_tax": 4.42,
       "roi": 0.0317
     },
-    "corporate_baseline": {
+    "moabiz_current": {
       "name": "モアビズ4期現在",
-      "name_ko": "법인 기준 베이스라인",
+      "name_ko": "모아비즈 4기현재",
       "price": 267538767,
       "loan": 240729467,
       "tax_land": 71857096,
