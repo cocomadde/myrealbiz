@@ -82,5 +82,33 @@
     "report_html": "./matsudo-kawaharazuka/report.html",
     "simulator_html": "./matsudo-kawaharazuka/index.html",
     "folder": "matsudo-kawaharazuka"
+  },
+  {
+    "slug": "clio-kikuna",
+    "name_ko": "크리오 키쿠나 이번관 (Clio Kikuna Nibankan)",
+    "name_ja": "クリオ菊名弐番館",
+    "structure": "RC조 지상 4층",
+    "units": 21,
+    "location": "카나가와현 요코하마시 코호쿠구 키쿠나 4-6-38",
+    "price": 275000000.0,
+    "price_display": "2억 7,500만 엔",
+    "gross_yield_pct": 6.4,
+    "cap_rate_pct": 5.17,
+    "assessed_value_ratio_pct": 34.26,
+    "verdict": "매수 추천",
+    "verdict_badge": "recommend",
+    "corporate_verdict": "적합 (우량 편입 대상 - ICR 1.2배 돌파, 세전이익 2.12배 순증, 세후CF 2.07배 폭증)",
+    "score": 24.8,
+    "max_score": 30,
+    "key_highlights": [
+      "도큐 도요코선(특급·통근특급) & JR 요코하마선 키쿠나역 도보 6분 (시부야 20분·신요코하마 2분)",
+      "2024년 7월 외벽도장·철부도장·옥상방수 대규모 개수공사 완료 (향후 10년 대형 Capex 부담 차단)",
+      "주거 21세대 만실 100% 가동 중 + 옥상 기지국 안테나 + 자판기 3중 안정적 수입 파이프라인"
+    ],
+    "report_ko": "./clio-kikuna/Clio_Kikuna_Investment_Report_KO.md",
+    "report_ja": "./clio-kikuna/Clio_Kikuna_Investment_Report_JA.md",
+    "report_html": "./clio-kikuna/report.html",
+    "simulator_html": "./clio-kikuna/index.html",
+    "folder": "clio-kikuna"
   }
 ]

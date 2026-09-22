@@ -54,14 +54,14 @@
     <div class="mb-8">
       <h2 class="text-xl font-bold text-white flex items-center gap-2">
         <span data-t="listTitle"></span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">3 Active</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">4 Active</span>
       </h2>
       <p class="text-xs text-slate-400 mt-1" data-t="listDesc"></p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <!-- Property Card: Foresta Hills -->
+      <!-- Property Card 1: Foresta Hills -->
       <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
         <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
           <div class="flex items-start justify-between gap-4">
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <!-- Property Card: Funabashi Miyamoto 1-chome -->
+      <!-- Property Card 2: Funabashi Miyamoto 1-chome -->
       <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
         <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
           <div class="flex items-start justify-between gap-4">
@@ -195,7 +195,7 @@
         </div>
       </div>
 
-      <!-- Property Card: Matsudo Kawaharazuka (Exceed Arrow) -->
+      <!-- Property Card 3: Matsudo Kawaharazuka (Exceed Arrow) -->
       <div class="rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl">
         <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
           <div class="flex items-start justify-between gap-4">
@@ -261,14 +261,71 @@
         </div>
       </div>
 
-      <!-- Placeholder -->
-      <div class="rounded-2xl border-2 border-dashed border-slate-800/80 bg-slate-900/20 p-8 flex flex-col items-center justify-center text-center group hover:border-slate-700 transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-500 mb-4 group-hover:text-amber-400 group-hover:border-amber-500/40 transition">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+      <!-- Property Card 4: Clio Kikuna Nibankan -->
+      <div class="rounded-2xl border-2 border-amber-500/40 bg-slate-900/80 hover:border-amber-400 transition-all duration-300 overflow-hidden flex flex-col group shadow-2xl relative">
+        <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-orange-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl shadow">NEW FLAGSHIP</div>
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center flex-wrap gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p4_status"></span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p4_spec"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p4_name"></h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
+                <svg class="w-3.5 h-3.5 mt-0.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span data-t="p4_address"></span>
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-slate-500 block" data-t="p4_price_label"></span>
+              <span class="text-2xl font-extrabold text-amber-400" data-t="p4_price"></span>
+            </div>
+          </div>
         </div>
-        <h3 class="text-lg font-bold text-slate-300 mb-1" data-t="ph_title"></h3>
-        <p class="text-xs text-slate-500 max-w-sm mb-4 leading-relaxed" data-t="ph_desc"></p>
-        <span class="px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-slate-400 border border-slate-700">/property-name/</span>
+
+        <div class="p-6 flex-1 flex flex-col justify-between gap-6">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p4_m1_label"></span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">6.40%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p4_m1_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p4_m2_label"></span>
+              <span class="text-lg font-bold text-sky-400 font-mono">5.17%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p4_m2_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p4_m3_label"></span>
+              <span class="text-lg font-bold text-emerald-300 font-mono">1.23배</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p4_m3_sub"></span>
+            </div>
+          </div>
+
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p4_b1"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p4_b2"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p4_b3"></span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="./clio-kikuna/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+              <span data-t="p4_cta"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./clio-kikuna/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p4_report_html"></a>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span data-t="p4_dl_label"></span>
+            <div class="flex items-center gap-2">
+              <a href="./clio-kikuna/README.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium" data-t="p4_dl_readme"></a>
+              <span class="text-slate-600">|</span>
+              <a href="./clio-kikuna/metrics.json" class="text-indigo-400 hover:text-indigo-300 underline font-medium">metrics.json</a>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -347,8 +404,26 @@ const T = {
     p3_report_html: "📑 종합분석 보고서 ↗",
     p3_dl_label: "부속 자료:",
     p3_dl_readme: "물건 요약 (README)",
-    ph_title: "차기 물건 추가 대기 중",
-    ph_desc: "새로운 매물이 들어오면 물건명 서브디렉토리를 생성하여 독립 보고서와 시뮬레이터를 연속 확장할 수 있습니다."
+
+    p4_status: "분석 완료 · 적극 매수 추천",
+    p4_spec: "RC조 4층 · 21세대 (2024년 7월 대규모수선완료)",
+    p4_name: "크리오 키쿠나 이번관 (Clio Kikuna Nibankan)",
+    p4_address: "카나가와현 요코하마시 코호쿠구 키쿠나 4-6-38 · 도큐 도요코선 「키쿠나」역 도보 6분 (특급정차)",
+    p4_price_label: "판매가격 (세금포함)",
+    p4_price: "2억 7,500만 엔",
+    p4_m1_label: "만실 표면수익률",
+    p4_m1_sub: "만실 연 1,761.3만 엔",
+    p4_m2_label: "NOI 수익률 (Cap Rate)",
+    p4_m2_sub: "순영업소득 연 1,423.0만 엔",
+    p4_m3_label: "법인 편입 효과",
+    p4_m3_sub: "ICR 1.23배 돌파 · CF 2.07배",
+    p4_b1: "<strong>도큐 도요코선 급행 역세권</strong> — 시부야 20분, 신요코하마(신칸센) 2분, 요코하마 6분. 수도권 최고 인기 노선 도보 6분 프리미엄.",
+    p4_b2: "<strong>2024년 7월 대규모 개수공사 완료</strong> — 외벽도장·철부도장·옥상방수도장 전면 시공 완료로 인수 후 10년간 대형 Capex 부담 완벽 소멸.",
+    p4_b3: "<strong>주거 만실 + 안테나 + 자판기 3중 수입</strong> — 21세대 전실 100% 만실에 통신사 기지국 안테나와 자판기 부대수입 결합, 연 +315만 엔 흑자 CF 창출.",
+    p4_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
+    p4_report_html: "📑 종합분석 보고서 ↗",
+    p4_dl_label: "부속 자료:",
+    p4_dl_readme: "물건 요약 (README)"
   },
   ja: {
     docTitle: "MyRealBiz | 収益不動産 投資分析ポートフォリオ",
@@ -417,8 +492,26 @@ const T = {
     p3_report_html: "📑 総合分析レポート ↗",
     p3_dl_label: "付属資料:",
     p3_dl_readme: "物件サマリー (README)",
-    ph_title: "次の物件を追加待機中",
-    ph_desc: "新しい物件が入り次第、物件名のサブディレクトリを作成し、独立したレポートとシミュレーターを継続的に拡張していくことができます。"
+
+    p4_status: "分析完了 ・ 積極買い推奨",
+    p4_spec: "RC造4階 ・ 21戸 (2024年7月大規模修繕完了済)",
+    p4_name: "クリオ菊名弐番館 (横浜市港北区)",
+    p4_address: "神奈川県横浜市港北区菊名4-6-38 · 東急東横線「菊名」駅 徒歩6分 (特急停車)",
+    p4_price_label: "販売価格 (税込)",
+    p4_price: "2億7,500万円",
+    p4_m1_label: "満室想定 表面利回り",
+    p4_m1_sub: "満室想定 年間1,761.3万円",
+    p4_m2_label: "NOI利回り (Cap Rate)",
+    p4_m2_sub: "純営業収益 年間1,423.0万円",
+    p4_m3_label: "法人受入効果",
+    p4_m3_sub: "ICR 1.23倍突破 ・ CF 2.07倍",
+    p4_b1: "<strong>東急東横線急行駅 徒歩6分</strong> — 渋谷20分、新横浜2分、横浜6分。首都圏屈指の人気路線・特急停車駅の絶対的立地プレミアム。",
+    p4_b2: "<strong>2024年7月大規模修繕工事完了済</strong> — 外壁塗装・鉄部塗装・屋上防水塗装を実施済、取得後10年間の大型資本的支出(Capex)負担が皆無。",
+    p4_b3: "<strong>住居満室＋アンテナ＋自販機の3重収入</strong> — 21戸全戸満室稼働に加え、携帯電話基地局アンテナと自販機副収入により年間+315万円の確実な黒字CF創出。",
+    p4_cta: "🚀 シミュレーター & ダッシュボードを開く",
+    p4_report_html: "📑 総合分析レポート ↗",
+    p4_dl_label: "付属資料:",
+    p4_dl_readme: "物件サマリー (README)"
   }
 };
 
