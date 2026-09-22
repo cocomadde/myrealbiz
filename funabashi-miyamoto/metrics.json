@@ -128,6 +128,19 @@
       "dscr": 1.471745125708041,
       "ltv_tax": 2.460568843574808,
       "roi": 0.03597029992989445
+    },
+    "contribution_verdict": {
+      "verdict_ko": "조건부 적합 (순이익·CF 기여 / ROI·세무 조건 충족 필수)",
+      "verdict_ja": "条件付適格（純利益・CF寄与／ROI・税務管理要）",
+      "standalone_status_ko": "조건부 기여",
+      "standalone_status_ja": "条件付寄与",
+      "baseline_status_ko": "기준선 (ICR 0.9배 취약)",
+      "baseline_status_ja": "現況基準（ICR 0.9倍脆弱）",
+      "delta_icr": 0.13,
+      "dscr_healthy": true,
+      "delta_roi_pct": -0.23,
+      "delta_profit": 2326485.0,
+      "delta_cf": 173068.0
     }
   }
 }

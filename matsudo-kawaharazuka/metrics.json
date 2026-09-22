@@ -115,6 +115,19 @@
       "est_tax": 1005723.0,
       "posttax_cf": 1722834.0,
       "debt_years": 25.6
+    },
+    "contribution_verdict": {
+      "verdict_ko": "적합 (우량 편입 대상 - ICR·ROI·CF·담보력 압도적 개선)",
+      "verdict_ja": "適格（優良受入対象・ICR・ROI・CF・担保力大幅改善）",
+      "standalone_status_ko": "우량 기여 (적합)",
+      "standalone_status_ja": "優良寄与（適格）",
+      "baseline_status_ko": "기준선 (ICR 0.9배 취약)",
+      "baseline_status_ja": "現況基準（ICR 0.9倍脆弱）",
+      "delta_icr": 0.3,
+      "dscr_healthy": true,
+      "delta_roi_pct": 0.94,
+      "delta_profit": 300440.0,
+      "delta_cf": 911545.0
     }
   }
 }

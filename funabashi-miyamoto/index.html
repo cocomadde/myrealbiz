@@ -337,7 +337,11 @@
     </section>
 
     <!-- ══════════ DOCUMENT LINKS ══════════ -->
-    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 no-print">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 no-print">
+      <a href="./report.html" class="p-5 rounded-xl bg-gradient-to-br from-sky-50 to-white border-2 border-sky-300 hover:border-sky-500 hover:shadow-md transition flex items-center gap-3">
+        <span class="text-2xl">🌐</span>
+        <div><span class="block text-sm font-bold text-sky-900" data-t="dl_web_report"></span><span class="block text-xs text-slate-500" data-t="dl_web_report_sub"></span></div>
+      </a>
       <a href="./Funabashi_Miyamoto_Investment_Report_KO.md" class="p-5 rounded-xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-md transition flex items-center gap-3">
         <span class="text-2xl">📑</span>
         <div><span class="block text-sm font-bold text-slate-900" data-t="dl_report"></span><span class="block text-xs text-slate-500" data-t="dl_report_sub"></span></div>
@@ -355,7 +359,18 @@
   </main>
 
   <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-8">
-    <div class="max-w-7xl mx-auto px-4">MyRealBiz Portfolio &copy; 2026 · Managed by cocomadde · <span data-t="footer_note"></span></div>
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <div class="flex justify-center space-x-4 text-slate-600">
+        <a href="../" class="hover:text-slate-900 transition">포트폴리오 허브 (Hub)</a>
+        <span>·</span>
+        <a href="./report.html" class="hover:text-slate-900 transition font-semibold text-sky-700">정밀 투자분석 웹 보고서</a>
+        <span>·</span>
+        <a href="./Funabashi_Miyamoto_Investment_Report_KO.md" class="hover:text-slate-900 transition">한국어 MD 보고서</a>
+        <span>·</span>
+        <a href="./metrics.json" class="hover:text-slate-900 transition">수치 지표 (metrics.json)</a>
+      </div>
+      <div>MyRealBiz Portfolio &copy; 2026 · Managed by cocomadde · <span data-t="footer_note"></span></div>
+    </div>
   </footer>
 
 <script>
@@ -461,7 +476,8 @@ const T = {
     final_title: "🏁 최종 판단: 조건부 매수 (Conditional BUY)",
     final_desc: "① 25년 이상·금리 2.3% 이하·LTV 85% 이상 융자 승인 확보, ② 검사필증 및 시공사 부도 방어 특약 100% 반영, ③ 매도자 직판 구조를 활용한 1억 300만 엔 수준 가격 절충(指値) — 이 3대 조건이 모두 충족될 경우에 한하여 매입을 적극 추진할 것을 권고한다.",
 
-    dl_report: "종합 투자분석 보고서", dl_report_sub: "10대 챕터 정밀 실사 (한국어 MD)",
+    dl_web_report: "종합 투자분석 웹 보고서", dl_web_report_sub: "반응형 목차 · 인터랙티브 차트 · 수식 수록",
+    dl_report: "종합 투자분석 보고서 (MD)", dl_report_sub: "10대 챕터 정밀 실사 원본 (한국어)",
     dl_metrics: "정량 지표 원본", dl_metrics_sub: "적산 · CF · DSCR · 법인착지 JSON",
     dl_readme: "물건 요약 카드", dl_readme_sub: "핵심 지표 및 체크리스트 요약",
     footer_note: "개인 투자 검토용 자료 · 임차인 개인정보 마스킹 처리",
@@ -550,7 +566,8 @@ const T = {
     final_title: "🏁 最終判断: 条件付き買付 (Conditional BUY)",
     final_desc: "① 25年以上・金利2.3%以下・LTV85%以上の融資承認の確保、② 検査済証および施工会社の破綻防御特約の100%反映、③ 売主直販構造を活用した1億300万円水準への指値交渉 — この3大条件がすべて満たされる場合に限り、購入を積極的に推進することを推奨する。",
 
-    dl_report: "総合投資分析レポート", dl_report_sub: "10章の精密デューデリ (韓国語MD)",
+    dl_web_report: "総合投資分析ウェブレポート", dl_web_report_sub: "レスポンシブ目次・チャート・数式収録",
+    dl_report: "総合投資分析レポート (MD)", dl_report_sub: "10章の精密デューデリ原本 (韓国語)",
     dl_metrics: "定量指標の原本", dl_metrics_sub: "積算・CF・DSCR・法人着地 JSON",
     dl_readme: "物件サマリーカード", dl_readme_sub: "主要指標とチェックリスト要約",
     footer_note: "個人投資検討用資料 ・ 入居者個人情報はマスキング処理済",

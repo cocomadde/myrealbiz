@@ -13,6 +13,7 @@
     "assessed_value_ratio_pct": 100.0,
     "verdict": "매수 추천",
     "verdict_badge": "recommend",
+    "corporate_verdict": "적합 (우량 편입 대상 - 5대 핵심 지표 전방위 개선)",
     "score": 26,
     "max_score": 30,
     "key_highlights": [
@@ -38,6 +39,7 @@
     "assessed_value_ratio_pct": 68.2,
     "verdict": "조건부 검토",
     "verdict_badge": "review",
+    "corporate_verdict": "조건부 적합 (순이익·CF 기여 / ROI·세무 조건 충족 필수)",
     "score": 21,
     "max_score": 30,
     "key_highlights": [
@@ -63,6 +65,7 @@
     "assessed_value_ratio_pct": 90.8,
     "verdict": "매수 추천",
     "verdict_badge": "recommend",
+    "corporate_verdict": "적합 (우량 편입 대상 - ICR·ROI·CF·담보력 압도적 개선)",
     "score": 24.3,
     "max_score": 30,
     "key_highlights": [
