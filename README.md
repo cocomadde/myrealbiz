@@ -4,63 +4,68 @@
 
 ---
 
-## 🌐 라이브 웹 대시보드 (GitHub Pages)
+### 🌐 라이브 웹 대시보드 (GitHub Pages)
 
 GitHub Pages 배포 후 다음 링크를 통해 웹 브라우저 및 모바일에서 바로 접속하여 금융 시뮬레이션을 조작할 수 있습니다:
 
 - **포트폴리오 메인 허브**: `https://cocomadde.github.io/myrealbiz/`
-- **[물건 1] 포레스타 힐즈 대시보드**: `https://cocomadde.github.io/myrealbiz/foresthills/`
-- **[물건 1] 종합 투자분석 보고서**: `https://cocomadde.github.io/myrealbiz/foresthills/report.html`
-- **[물건 2] 후나바시 미야모토 1초메 대시보드**: `https://cocomadde.github.io/myrealbiz/funabashi-miyamoto/`
-- **[물건 2] 종합 투자분석 보고서**: `https://cocomadde.github.io/myrealbiz/funabashi-miyamoto/report.html`
-- **[물건 3] 익시드 애로우 (마츠도시 카와하라즈카) 대시보드**: `https://cocomadde.github.io/myrealbiz/matsudo-kawaharazuka/`
-- **[물건 3] 익시드 애로우 정밀 웹 보고서 (KO/JA)**: `https://cocomadde.github.io/myrealbiz/matsudo-kawaharazuka/report.html`
+- **[물건 1] 포레스타 힐즈**: [시뮬레이터 & 웹 대시보드](./foresthills/) · [종합분석 보고서](./foresthills/report.html)
+- **[물건 2] 후나바시 미야모토 1초메**: [시뮬레이터 & 웹 대시보드](./funabashi-miyamoto/) · [종합분석 보고서](./funabashi-miyamoto/report.html)
+- **[물건 3] 익시드 애로우 (마츠도시 카와하라즈카)**: [시뮬레이터 & 웹 대시보드](./matsudo-kawaharazuka/) · [종합분석 보고서](./matsudo-kawaharazuka/report.html)
 
 ---
 
-## 📂 저장소 디렉토리 구조 (물건별 독립 관리)
+## 🔒 보안 및 크롤링·AI 스크래핑 방지 정책 (Anti-Crawling & Anti-AI Scraping)
 
-앞으로 검토하는 모든 물건은 독립된 서브디렉토리로 관리되어, 새로운 물건이 추가되어도 기존 분석에 영향을 주지 않고 지속 확장 가능합니다.
+본 저장소의 모든 부동산 실사 자료 및 보고서는 개인 투자 분석용으로, 외부 검색엔진 노출 및 AI 학습 데이터 수집을 방지하기 위해 다음 2중 차단 체계가 강제 적용되어 있습니다:
+1. **`robots.txt`**: 루트 디렉토리에서 모든 검색엔진 크롤러(`User-agent: *`) 및 15개 이상의 상용 AI 봇(`GPTBot`, `ClaudeBot`, `Google-Extended`, `CCBot`, `Bytespider`, `PerplexityBot` 등)에 대해 전면 접근 차단(`Disallow: /`).
+2. **HTML `<meta>` 로봇 태그**: 모든 웹 문서(`<head>`)에 `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">` 및 `googlebot` 차단 태그 필수 삽입.
+
+---
+
+## 📂 저장소 표준 규격 (물건별 2대 표준 보고서 구조)
+
+모든 검토 물건은 동일하게 **두 개의 표준화된 웹 보고서**와 원본 데이터셋으로 구성됩니다:
+1. **종합분석 보고서 (`report.html`)**: 후나바시 / 포레스타힐즈 표준 포맷 (좌측 스크롤스파이 목차(TOC), KaTeX 금융수식, Mermaid 다이어그램, 10대 실사 챕터).
+2. **시뮬레이터 & 웹 대시보드 (`index.html`)**: 엑시드 애로우 표준 포맷 (상단 6대 히어로 지표, 5열 반응형 융자 슬라이더, Chart.js 캐시플로 차트, 렌트롤 현황표, 3대 적산 시나리오, **결산서 디자인형 법인 착지 분석 6개 항목**, 5대 실사 체크리스트, 한국어/日本語 원클릭 토글).
 
 ```text
 myrealbiz/
 ├── index.html                           # 포트폴리오 메인 허브 웹 랜딩 페이지 (KO/JA)
+├── robots.txt                           # 크롤러 & AI 스크래퍼 전면 차단 정책
+├── properties.json                      # 포트폴리오 중앙 데이터베이스 (JSON)
 ├── README.md                            # 전체 프로젝트 가이드
-├── build_report.py                      # 마크다운 보고서 → report.html 정적 변환 빌더
+├── build_report.py                      # 마크다운 보고서 → 종합분석 보고서(report.html) 빌더
 │
 ├── foresthills/                         # [물건 1] 카나가와현 아츠기시 포레스타 힐즈 (RC조 4층 14세대)
-│   ├── index.html                       # 실시간 융자 시뮬레이터 & 웹 대시보드 (KO/JA)
-│   ├── report.html                      # 종합 투자분석 보고서 웹 열람판 (목차·차트·수식)
+│   ├── index.html                       # [시뮬레이터 & 대시보드] 엑시드 애로우 표준 포맷 (KO/JA)
+│   ├── report.html                      # [종합분석 보고서] 후나바시/포레스타힐즈 표준 포맷
 │   ├── README.md                        # 물건 상세 개요 및 지표 요약
-│   ├── Foresta_Hills_Investment_Report_KO.md        # 종합 투자분석 보고서 원본 (마크다운)
-│   ├── Foresta_Hills_Vacancy_Turnover_Analysis.md   # 공실 및 회전율 정밀 분석 보고서 (한국어)
-│   ├── Foresta_Hills_Vacancy_Turnover_Analysis_JA.md  # 空室・回転率分析レポート (日本語)
-│   ├── Foresta_Hills_Vacancy_Turnover_Analysis_KO.pdf # 인쇄용 공실/회전율 분석 PDF (KO)
-│   └── Foresta_Hills_Vacancy_Turnover_Analysis_JA.pdf # 印刷用 空室・回転率分析 PDF (JA)
+│   ├── Foresta_Hills_Investment_Report_KO.md        # 종합분석 보고서 원본 (마크다운)
+│   └── Foresta_Hills_Vacancy_Turnover_Analysis_JA.md # 空室・回転率分析レポート (日本語)
 │
 ├── funabashi-miyamoto/                  # [물건 2] 치바현 후나바시시 미야모토 1초메 (목조 신축 9세대)
-│   ├── index.html                       # 실시간 융자 시뮬레이터 & 웹 대시보드 (SPA, KO/JA)
-│   ├── report.html                      # 종합 정밀 투자분석 웹 보고서
+│   ├── index.html                       # [시뮬레이터 & 대시보드] 엑시드 애로우 표준 포맷 (KO/JA)
+│   ├── report.html                      # [종합분석 보고서] 후나바시/포레스타힐즈 표준 포맷
 │   ├── README.md                        # 물건 상세 개요 및 지표 요약
-│   ├── Funabashi_Miyamoto_Investment_Report_KO.md    # 종합 투자분석 실사 보고서 (한국어)
+│   ├── Funabashi_Miyamoto_Investment_Report_KO.md    # 종합분석 보고서 원본 (한국어)
 │   └── metrics.json                     # 정량 재무 모델링 계산 결과 원본
 │
-└── matsudo-kawaharazuka/                # [물건 3] 치바현 마츠도시 카와하라즈카 (철골조 8세대 + 주차장 5대 · 토지 189.67평)
-    ├── index.html                       # 실시간 융자 시뮬레이터 & 웹 대시보드 (SPA, KO/JA)
-    ├── report.html                      # 종합 정밀 투자분석 웹 보고서 (KO/JA 통합)
+└── matsudo-kawaharazuka/                # [물건 3] 치바현 마츠도시 카와하라즈카 (철골조 8세대 + 토지 189.67평)
+    ├── index.html                       # [시뮬레이터 & 대시보드] 엑시드 애로우 골드 스탠다드 (KO/JA)
+    ├── report.html                      # [종합분석 보고서] 후나바시/포레스타힐즈 표준 포맷
     ├── README.md                        # 물건 상세 개요 및 지표 요약
-    ├── Matsudo_Kawaharazuka_Investment_Report_KO.md # 종합 투자분석 실사 보고서 (한국어)
-    ├── Matsudo_Kawaharazuka_Investment_Report_JA.md # 精密投資分析実査レポート (日本語)
+    ├── Matsudo_Kawaharazuka_Investment_Report_KO.md # 종합분석 보고서 원본 (한국어)
+    ├── Matsudo_Kawaharazuka_Investment_Report_JA.md # 精密投資分析レポート (日本語)
     └── metrics.json                     # 정량 재무 모델링 계산 결과 원본
 ```
 
 > [!NOTE]
-> 각 물건의 `report.html`은 해당 폴더의 `*_Investment_Report_KO.md` 원본을 빌드 시점에 변환해 생성한 정적 페이지입니다.
-> 원본 마크다운을 수정한 뒤에는 아래 명령으로 변환을 다시 실행해야 합니다.
->
+> 각 물건의 `report.html`은 `build_report.py`를 통해 원본 마크다운으로부터 자동 생성됩니다:
 > ```bash
-> python3 build_report.py foresthills/Foresta_Hills_Investment_Report_KO.md foresthills/report.html
-> python3 build_report.py funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md funabashi-miyamoto/report.html
+> python3 build_report.py foresthills/Foresta_Hills_Investment_Report_KO.md foresthills/report.html --title "포레스타 힐즈 종합분석 보고서"
+> python3 build_report.py funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md funabashi-miyamoto/report.html --title "후나바시 미야모토 종합분석 보고서"
+> python3 build_report.py matsudo-kawaharazuka/Matsudo_Kawaharazuka_Investment_Report_KO.md matsudo-kawaharazuka/report.html --title "익시드 애로우 종합분석 보고서"
 > ```
 
 ---

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <title>후나바시 미야모토 1초메 공동주택 투자분석 &amp; 융자 시뮬레이터</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -27,7 +29,7 @@
   <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-lg">🏗️</div>
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-lg">🏢</div>
         <div>
           <div class="flex items-center flex-wrap gap-2">
             <h1 class="text-lg font-extrabold tracking-tight" data-t="headerTitle"></h1>
@@ -41,9 +43,9 @@
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span data-t="btnBackHub"></span>
         </a>
-        <a href="./report.html" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-sky-600 hover:bg-sky-500 text-white border border-sky-500 flex items-center space-x-1 transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <span data-t="btnReport"></span>
+        <a href="./report.html" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 flex items-center space-x-1 shadow transition">
+          <span>📑</span>
+          <span data-t="btnWebReport"></span>
         </a>
         <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
           <button id="langKO" onclick="setLanguage('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
@@ -336,6 +338,73 @@
       </div>
     </section>
 
+    <!-- ══════════ CORPORATE LANDING ══════════ -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-bold text-slate-900" data-t="sec_corp"></h2>
+          <p class="text-xs text-slate-500 mt-0.5" data-t="sec_corp_desc"></p>
+        </div>
+        <span class="px-2.5 py-1 rounded bg-indigo-100 text-indigo-800 text-xs font-semibold">결산서 디자인형 착지 분석</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm">
+          <thead class="bg-slate-100 text-slate-600">
+            <tr>
+              <th class="px-4 py-3 text-left font-semibold" data-t="corp_col_item"></th>
+              <th class="px-4 py-3 text-right font-semibold" data-t="corp_col_single"></th>
+              <th class="px-4 py-3 text-right font-semibold" data-t="corp_col_base"></th>
+              <th class="px-4 py-3 text-right font-semibold text-emerald-700 bg-emerald-50" data-t="corp_col_merged"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="corpLandingBody">
+            <tr>
+              <td class="px-4 py-2.5 font-medium text-slate-900" data-t="corp_r1"></td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-emerald-600">¥320,000</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-600">¥3,722,450</td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-emerald-700 bg-emerald-50/50">¥4,042,450</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2.5 font-medium text-slate-900" data-t="corp_r2"></td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-700">¥70,000</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-600">¥930,613</td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-emerald-700 bg-emerald-50/50">¥1,000,613</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2.5 text-slate-500 pl-8" data-t="corp_r2_tax"></td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-500">¥70,000</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-500">¥930,613</td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-slate-700 bg-emerald-50/50">¥1,000,613</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2.5 font-medium text-slate-900" data-t="corp_r3"></td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-700">¥250,000</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-600">¥811,289</td>
+              <td class="px-4 py-2.5 text-right font-mono font-black text-emerald-700 bg-emerald-50/50">¥1,061,289</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2.5 font-medium text-slate-900" data-t="corp_r4"></td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-700">27.8년</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-600">24.1년</td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-emerald-700 bg-emerald-50/50">25.1년</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2.5 font-medium text-slate-900" data-t="corp_r5"></td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-700">1.12배</td>
+              <td class="px-4 py-2.5 text-right font-mono text-slate-600">1.50배</td>
+              <td class="px-4 py-2.5 text-right font-mono font-bold text-emerald-700 bg-emerald-50/50">1.38배</td>
+            </tr>
+            <tr class="bg-amber-50/60 font-semibold border-t-2 border-amber-200">
+              <td class="px-4 py-2.5 text-slate-900 flex items-center gap-1.5" data-t="corp_r6"></td>
+              <td class="px-4 py-2.5 text-right text-amber-700" data-t="corp_v_single">조건부 기여</td>
+              <td class="px-4 py-2.5 text-right text-slate-500 font-normal" data-t="corp_v_base">안정 운용 (1.50배)</td>
+              <td class="px-4 py-2.5 text-right text-amber-800 font-bold bg-amber-100/70" data-t="corp_v_merged">조건부 적합 (순이익·CF 기여 / ROI·세무 충족)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══════════ DOCUMENT LINKS ══════════ -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 no-print">
       <a href="./report.html" class="p-5 rounded-xl bg-gradient-to-br from-sky-50 to-white border-2 border-sky-300 hover:border-sky-500 hover:shadow-md transition flex items-center gap-3">
@@ -363,7 +432,7 @@
       <div class="flex justify-center space-x-4 text-slate-600">
         <a href="../" class="hover:text-slate-900 transition">포트폴리오 허브 (Hub)</a>
         <span>·</span>
-        <a href="./report.html" class="hover:text-slate-900 transition font-semibold text-sky-700">정밀 투자분석 웹 보고서</a>
+        <a href="./report.html" class="hover:text-slate-900 transition font-semibold text-sky-700">종합분석 보고서</a>
         <span>·</span>
         <a href="./Funabashi_Miyamoto_Investment_Report_KO.md" class="hover:text-slate-900 transition">한국어 MD 보고서</a>
         <span>·</span>
@@ -408,7 +477,7 @@ const T = {
     badgeNew: "신축 · 2024.12 준공예정",
     headerSubtitle: "목조 3층 · 1K/1R 9세대 · JR 후나바시역 도보 8~9분",
     btnBackHub: "포트폴리오 허브",
-    btnReport: "📑 종합 보고서",
+    btnWebReport: "종합분석 보고서",
     btnPrint: "인쇄 / PDF",
 
     hero_price: "매매가격",
@@ -476,8 +545,25 @@ const T = {
     final_title: "🏁 최종 판단: 조건부 매수 (Conditional BUY)",
     final_desc: "① 25년 이상·금리 2.3% 이하·LTV 85% 이상 융자 승인 확보, ② 검사필증 및 시공사 부도 방어 특약 100% 반영, ③ 매도자 직판 구조를 활용한 1억 300만 엔 수준 가격 절충(指値) — 이 3대 조건이 모두 충족될 경우에 한하여 매입을 적극 추진할 것을 권고한다.",
 
-    dl_web_report: "종합 투자분석 웹 보고서", dl_web_report_sub: "반응형 목차 · 인터랙티브 차트 · 수식 수록",
-    dl_report: "종합 투자분석 보고서 (MD)", dl_report_sub: "10대 챕터 정밀 실사 원본 (한국어)",
+    sec_corp: "결산서 디자인형 법인 착지 분석 (Corporate Landing Analysis)",
+    sec_corp_desc: "모아비즈 법인 편입 시 세전/세후 순이익, ICR, 상환연수 및 종합 판정",
+    corp_col_item: "재무 및 세무 건전성 지표",
+    corp_col_single: "후나바시 미야모토 단독 기여",
+    corp_col_base: "법인 기존 베이스라인",
+    corp_col_merged: "편입 후 통합 결산 예측",
+    corp_r1: "1. 세전 순이익 (기말 실질 영업흑자)",
+    corp_r2: "2. 법인세 등 추정액 (실효세율 23~33%)",
+    corp_r2_tax: "ㄴ 법인세 실효부담액",
+    corp_r3: "3. 세후 잉여 현금흐름 (법인 순유입)",
+    corp_r4: "4. 차입금 상환 가능 연수 (총부채 / EBITDA)",
+    corp_r5: "5. 이자보상배율 (ICR = EBIT / 이자비용)",
+    corp_r6: "6. 모아비즈 법인 편입 종합 판정 (Verdict)",
+    corp_v_single: "조건부 기여 (순이익·CF 흑자)",
+    corp_v_base: "안정 운용 (1.50배)",
+    corp_v_merged: "조건부 적합 (순이익·CF 기여 / ROI·세무 충족)",
+
+    dl_web_report: "종합분석 보고서 (웹 열람)", dl_web_report_sub: "반응형 목차 · 인터랙티브 차트 · 수식 수록",
+    dl_report: "종합분석 보고서 (Markdown)", dl_report_sub: "10대 챕터 정밀 실사 원본 (한국어)",
     dl_metrics: "정량 지표 원본", dl_metrics_sub: "적산 · CF · DSCR · 법인착지 JSON",
     dl_readme: "물건 요약 카드", dl_readme_sub: "핵심 지표 및 체크리스트 요약",
     footer_note: "개인 투자 검토용 자료 · 임차인 개인정보 마스킹 처리",
@@ -498,7 +584,7 @@ const T = {
     badgeNew: "新築 ・ 2024.12 竣工予定",
     headerSubtitle: "木造3階 ・ 1K/1R 9戸 ・ JR船橋駅 徒歩8~9分",
     btnBackHub: "ポートフォリオ",
-    btnReport: "📑 総合レポート",
+    btnWebReport: "総合分析レポート",
     btnPrint: "印刷 / PDF",
 
     hero_price: "物件価格",
@@ -566,8 +652,25 @@ const T = {
     final_title: "🏁 最終判断: 条件付き買付 (Conditional BUY)",
     final_desc: "① 25年以上・金利2.3%以下・LTV85%以上の融資承認の確保、② 検査済証および施工会社の破綻防御特約の100%反映、③ 売主直販構造を活用した1億300万円水準への指値交渉 — この3大条件がすべて満たされる場合に限り、購入を積極的に推進することを推奨する。",
 
-    dl_web_report: "総合投資分析ウェブレポート", dl_web_report_sub: "レスポンシブ目次・チャート・数式収録",
-    dl_report: "総合投資分析レポート (MD)", dl_report_sub: "10章の精密デューデリ原本 (韓国語)",
+    sec_corp: "決算書デザイン型 法人着地分析 (Corporate Landing Analysis)",
+    sec_corp_desc: "モアビズ法人組入れ時の税前・税後純利益、ICR、返済年数および総合判定",
+    corp_col_item: "財務・税務健全性指標",
+    corp_col_single: "船橋宮本単独寄与",
+    corp_col_base: "法人既存ベースライン",
+    corp_col_merged: "組入れ後 統合決算予測",
+    corp_r1: "1. 税引前当期純利益 (実質営業黒字)",
+    corp_r2: "2. 法人税等推定額 (実効税率23~33%)",
+    corp_r2_tax: "ㄴ 法人税実効負担額",
+    corp_r3: "3. 税後剰余CF (法人純キャッシュイン)",
+    corp_r4: "4. 債務償還可能年数 (総有利子負債/EBITDA)",
+    corp_r5: "5. インタレスト・カバレッジ・レシオ (ICR)",
+    corp_r6: "6. モアビズ法人組入れ総合判定 (Verdict)",
+    corp_v_single: "条件付寄与 (純利益・CF黒字)",
+    corp_v_base: "安定運用 (1.50倍)",
+    corp_v_merged: "条件付適格 (純利益・CF寄与 / ROI・税務要件充足)",
+
+    dl_web_report: "総合分析レポート (WEB閲覧)", dl_web_report_sub: "レスポンシブ目次・チャート・数式収録",
+    dl_report: "総合分析レポート (Markdown)", dl_report_sub: "10章の精密デューデリ原本 (韓国語)",
     dl_metrics: "定量指標の原本", dl_metrics_sub: "積算・CF・DSCR・法人着地 JSON",
     dl_readme: "物件サマリーカード", dl_readme_sub: "主要指標とチェックリスト要約",
     footer_note: "個人投資検討用資料 ・ 入居者個人情報はマスキング処理済",

@@ -23,6 +23,8 @@
     ],
     "report_ko": "./foresthills/Foresta_Hills_Investment_Report_KO.md",
     "report_ja": "./foresthills/Foresta_Hills_Vacancy_Turnover_Analysis_JA.md",
+    "report_html": "./foresthills/report.html",
+    "simulator_html": "./foresthills/index.html",
     "folder": "foresthills"
   },
   {
@@ -49,6 +51,8 @@
     ],
     "report_ko": "./funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md",
     "report_ja": "./funabashi-miyamoto/report.html",
+    "report_html": "./funabashi-miyamoto/report.html",
+    "simulator_html": "./funabashi-miyamoto/index.html",
     "folder": "funabashi-miyamoto"
   },
   {
@@ -75,6 +79,8 @@
     ],
     "report_ko": "./matsudo-kawaharazuka/Matsudo_Kawaharazuka_Investment_Report_KO.md",
     "report_ja": "./matsudo-kawaharazuka/Matsudo_Kawaharazuka_Investment_Report_JA.md",
+    "report_html": "./matsudo-kawaharazuka/report.html",
+    "simulator_html": "./matsudo-kawaharazuka/index.html",
     "folder": "matsudo-kawaharazuka"
   }
 ]

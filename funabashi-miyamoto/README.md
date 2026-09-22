@@ -1,7 +1,6 @@
 # 🏗️ 후나바시시 미야모토 1초메 공동주택 (船橋市宮本1丁目・共同住宅)
 
-> **[물건 2]** 치바현 후나바시시 미야모토 1초메 · 목조 3층 신축 1동 아파트 (1K·1R 9세대)  
-> 🔗 **바로가기**: [📑 종합 투자분석 웹 보고서](./report.html) · [🧮 융자 시뮬레이터 & 대시보드](./index.html) · [📁 포트폴리오 허브](../index.html)
+> 🔗 **바로가기**: [📊 시뮬레이터 & 웹 대시보드](./index.html) · [📑 종합분석 보고서](./report.html) · [📁 포트폴리오 허브](../index.html)
 
 ---
 
@@ -72,9 +71,9 @@
 
 | 파일 | 설명 |
 | :--- | :--- |
-| [`report.html`](./report.html) | **종합 투자분석 웹 보고서** (반응형 목차·인터랙티브 차트·수식 수록 열람판) |
-| [`index.html`](./index.html) | 실시간 융자 시뮬레이터 & 웹 대시보드 (한국어/日本語) |
-| [`Funabashi_Miyamoto_Investment_Report_KO.md`](./Funabashi_Miyamoto_Investment_Report_KO.md) | 10대 챕터 종합 투자분석 보고서 원본 (한국어 마크다운) |
+| [`report.html`](./report.html) | **종합분석 보고서** (반응형 목차·인터랙티브 차트·수식 수록 열람판) |
+| [`index.html`](./index.html) | **시뮬레이터 & 웹 대시보드** (한국어/日本語 실시간 시뮬레이터) |
+| [`Funabashi_Miyamoto_Investment_Report_KO.md`](./Funabashi_Miyamoto_Investment_Report_KO.md) | 10대 챕터 종합분석 보고서 원본 (한국어 마크다운) |
 | [`metrics.json`](./metrics.json) | 정량 재무 모델링 계산 결과 원본 (적산·CF·DSCR·법인 결산 착지) |
 
 ---

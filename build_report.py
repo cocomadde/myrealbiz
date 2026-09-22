@@ -310,6 +310,8 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <title>{title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -647,7 +649,7 @@ def main():
     parser.add_argument('dest', help='output html file')
     parser.add_argument(
         '--title',
-        default='종합 투자분석 보고서',
+        default='종합분석 보고서',
         help='report title shown in the sticky header and browser tab')
     parser.add_argument(
         '--subtitle',

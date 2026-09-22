@@ -72,8 +72,8 @@
 
 ## 🔗 관련 분석 자료 바로가기
 
-- **[🚀 실시간 인터랙티브 융자 시뮬레이터 대시보드](./index.html)**
-- **[📑 종합 정밀 투자분석 웹 보고서 (KO / JA 통합)](./report.html)**
+- **[📊 시뮬레이터 & 웹 대시보드 (index.html)](./index.html)**
+- **[📑 종합분석 보고서 (report.html)](./report.html)**
 - **[📄 한국어 투자분석 보고서 (Markdown 원본)](./Matsudo_Kawaharazuka_Investment_Report_KO.md)**
 - **[📄 日本語 投資分析レポート (Markdown 原本)](./Matsudo_Kawaharazuka_Investment_Report_JA.md)**
 - **[📊 정량 지표 데이터셋 원본 (JSON)](./metrics.json)**
