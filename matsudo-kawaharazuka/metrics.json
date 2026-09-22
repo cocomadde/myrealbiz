@@ -16,6 +16,17 @@
     "road_access": "南側公道 約5.60m / 北東側公道 約4.76m (南北両面接道)",
     "utilities": "井戸水(飲用水) / 公共下水 / プロパンガス / 駐車場5台"
   },
+  "allocation": {
+    "tax_land_eval": 38124108.0,
+    "tax_bldg_eval": 7032406.0,
+    "tax_total_eval": 45156514.0,
+    "land_ratio_pct": 84.43,
+    "bldg_ratio_pct": 15.57,
+    "land_allocated_price": 79361001.0,
+    "bldg_allocated_price": 14638999.0,
+    "tax_depreciation_years": 5.4,
+    "annual_depreciation": 2710926.0
+  },
   "yields": {
     "monthly_gross_income": 554700.0,
     "monthly_pure_rent": 496000.0,
@@ -30,66 +41,46 @@
     "full_noi_annual": 5220771.0,
     "full_cap_rate_pct": 5.55
   },
-  "valuations_cost_approach": {
-    "고정자산세 평가 기준 (공과증명서 실측)": {
-      "unit_price_sqm": 60804,
-      "land_value": 38124108.0,
-      "building_value": 7032406.0,
-      "total_assessed_value": 45156514.0,
-      "value_to_price_ratio_pct": 48.038844680851064
-    },
-    "상속세 노선가 기준 (7만엔/㎡ + 건물잔존)": {
-      "unit_price_sqm": 70000,
-      "land_value": 43890000.0,
-      "building_value": 7032406.0,
-      "total_assessed_value": 50922406.0,
-      "value_to_price_ratio_pct": 54.17277234042553
-    },
-    "실거래 토지가격 기준 (평당 45만엔 토지 실세가)": {
-      "unit_price_sqm": 136125,
-      "land_value": 85351500.0,
-      "building_value": 7032406.0,
-      "total_assessed_value": 92383906.0,
-      "value_to_price_ratio_pct": 98.28075106382978
-    }
-  },
   "debt_service": {
-    "loan_amount": 75200000.0,
-    "loan_ltv_pct": 80.0,
+    "lender": "auじぶん銀行 (au Jibun Bank)",
+    "loan_amount": 89300000.0,
+    "loan_ltv_pct": 95.0,
     "loan_rate_pct": 2.5,
-    "loan_term_years": 25,
-    "monthly_pmt": 337360.0,
-    "ads_annual": 4048317.0,
-    "first_year_interest": 1854981.0,
-    "first_year_principal": 2193336.0,
-    "full_annual_cf": 1172454.0,
-    "dscr": 1.29,
-    "breakeven_occupancy_pct": 82.39,
-    "allowable_vacant_units": 1.41
+    "loan_term_years": 30,
+    "monthly_pmt": 352843.0,
+    "ads_annual": 4234116.0,
+    "first_year_interest": 2209405.0,
+    "first_year_principal": 2024711.0,
+    "full_annual_cf": 986655.0,
+    "dscr": 1.23,
+    "breakeven_occupancy_pct": 85.18,
+    "allowable_vacant_units": 1.19
   },
   "initial_investment": {
-    "down_payment": 18799999.999999996,
-    "acquisition_costs": 7892000.0,
-    "initial_total_equity": 26691999.999999996,
-    "ccr_pct": 4.39
+    "down_payment": 4700000.000000004,
+    "acquisition_costs": 8174000.0,
+    "initial_total_equity": 12874000.000000004,
+    "ccr_pct": 7.66
   },
   "corporate_landing": {
     "standalone": {
       "price": 94000000.0,
-      "loan": 75200000.0,
+      "loan": 89300000.0,
       "tax_land": 38124108.0,
       "tax_bldg": 7032406.0,
-      "gross_income": 6323580.0,
+      "bldg_allocated_price": 14638999.0,
+      "land_allocated_price": 79361001.0,
+      "depr": 2710926.0,
+      "gross_income": 6656400.0,
       "opex": 1435629.0,
-      "depr": 3760000.0,
-      "ads": 4048317.4083072757,
-      "interest": 1854981.3480634883,
-      "principal": 2193336.0602437877,
-      "pretax_profit": 756954.7303873021,
-      "pretax_cf": 839633.5916927243,
-      "tax": 189238.68259682553,
-      "posttax_cf": 650394.9090958987,
-      "debt_years": 17.4
+      "ads": 4234116.0,
+      "interest": 2209405.0,
+      "principal": 2024711.0,
+      "pretax_profit": 300440.0,
+      "pretax_cf": 986655.0,
+      "tax": 75110.0,
+      "posttax_cf": 911545.0,
+      "debt_years": 30.4
     },
     "moabiz_current": {
       "name": "モアビズ4期現在",
@@ -119,11 +110,11 @@
       "roi": 0.0383
     },
     "merged_landing": {
-      "loan": 315929467.0,
-      "pretax_profit": 4479404.730387302,
-      "est_tax": 1119851.1825968255,
-      "posttax_cf": 1461683.4090958987,
-      "debt_years": 22.1
+      "loan": 330029467.0,
+      "pretax_profit": 4022890.0,
+      "est_tax": 1005723.0,
+      "posttax_cf": 1722834.0,
+      "debt_years": 25.6
     }
   }
 }
