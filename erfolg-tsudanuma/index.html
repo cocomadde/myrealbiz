@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>에어폴크 츠다누마 투자분석 &amp; 융자 시뮬레이터 | MyRealBiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', 'Pretendard', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .metric-card { transition: all .2s ease-in-out; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.1); }
+    input[type=range] { accent-color: #0284c7; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-indigo-600 flex items-center justify-center font-bold text-xl shadow-lg">🏢</div>
+        <div>
+          <div class="flex items-center flex-wrap gap-2">
+            <h1 class="text-lg font-extrabold tracking-tight" data-t="headerTitle"></h1>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" data-t="badgeNew"></span>
+          </div>
+          <p class="text-xs text-slate-400" data-t="headerSubtitle"></p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 no-print">
+        <a href="../" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center space-x-1 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span data-t="btnBackHub"></span>
+        </a>
+        <a href="./report.html" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 flex items-center space-x-1 shadow transition">
+          <span>📑</span>
+          <span data-t="btnWebReport"></span>
+        </a>
+        <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
+          <button id="langKO" onclick="setLanguage('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
+          <button id="langJA" onclick="setLanguage('ja')" class="px-3 py-1 text-xs font-semibold rounded-md transition">日本語</button>
+        </div>
+        <button onclick="window.print()" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center space-x-1.5 transition">
+          <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z"/></svg>
+          <span data-t="btnPrint"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════ MAIN CONTAINER ══════════ -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- ══════════ HERO STATS ══════════ -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-semibold block" data-t="hero_price"></span>
+        <span class="text-2xl font-black text-slate-900 font-mono block mt-1">¥157.9M</span>
+        <span class="text-[11px] text-emerald-600 font-medium block mt-0.5" data-t="hero_price_tag"></span>
+      </div>
+      <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-semibold block" data-t="hero_gross"></span>
+        <span class="text-2xl font-black text-emerald-600 font-mono block mt-1">6.95%</span>
+        <span class="text-[11px] text-slate-500 block mt-0.5" data-t="hero_gross_sub"></span>
+      </div>
+      <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-semibold block" data-t="hero_cap"></span>
+        <span class="text-2xl font-black text-sky-600 font-mono block mt-1">5.52%</span>
+        <span class="text-[11px] text-slate-500 block mt-0.5">NOI ¥8,723,511</span>
+      </div>
+      <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-semibold block" data-t="hero_dscr"></span>
+        <span class="text-2xl font-black text-indigo-600 font-mono block mt-1">1.33x</span>
+        <span class="text-[11px] text-emerald-600 font-medium block mt-0.5">CF +¥2.16M/yr</span>
+      </div>
+      <div class="metric-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 font-semibold block" data-t="hero_be"></span>
+        <span class="text-2xl font-black text-slate-900 font-mono block mt-1">80.3%</span>
+        <span class="text-[11px] text-slate-500 block mt-0.5">허용 2.36실 공실</span>
+      </div>
+      <div class="metric-card bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-4 rounded-xl shadow-md">
+        <span class="text-xs text-emerald-100 font-semibold block" data-t="hero_score"></span>
+        <span class="text-2xl font-black font-mono block mt-1">25.5 / 30</span>
+        <span class="text-[11px] text-emerald-200 font-bold block mt-0.5" data-t="hero_score_sub"></span>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: PROPERTY SPECIFICATIONS ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <span>📋</span>
+          <span data-t="sec_overview"></span>
+        </h2>
+        <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800" data-t="tag_renovated"></span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 text-xs">
+        <div><span class="text-slate-500" data-t="ov_addr_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_addr_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_access_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_access_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_type_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_type_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_built_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_built_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_land_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_land_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_bldg_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_bldg_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_road_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_road_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_zone_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_zone_v"></span></div>
+        <div><span class="text-slate-500" data-t="ov_util_l"></span>: <span class="font-semibold text-slate-800" data-t="ov_util_v"></span></div>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: LIVE LOAN & CF SIMULATOR ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span>🎛️</span>
+            <span data-t="sim_title"></span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5" data-t="sim_desc"></p>
+        </div>
+        <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200" data-t="sim_tag"></span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Controls -->
+        <div class="space-y-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_price"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valPrice">¥157,900,000</span>
+            </div>
+            <input type="range" id="inPrice" min="130000000" max="170000000" step="1000000" value="157900000" class="w-full">
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_ltv"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valLTV">90%</span>
+            </div>
+            <input type="range" id="inLTV" min="50" max="100" step="5" value="90" class="w-full">
+            <div class="text-xs text-slate-500 mt-1" id="loanAmountLabel">차입금: ¥142,110,000</div>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_rate"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valRate">2.3%</span>
+            </div>
+            <input type="range" id="inRate" min="1.0" max="4.5" step="0.1" value="2.3" class="w-full">
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_term"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valTerm">30년</span>
+            </div>
+            <input type="range" id="inTerm" min="10" max="35" step="1" value="30" class="w-full">
+            <div class="text-xs text-slate-400 mt-1" data-t="sim_term_note">au지분은행/지방은행 90% LTV 30년 상정</div>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_occ"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valOcc">100%</span>
+            </div>
+            <input type="range" id="inOcc" min="60" max="100" step="1" value="100" class="w-full">
+            <div class="text-xs text-slate-400 mt-1" id="occUnitsLabel">가동 호수: 12.0실 / 12실</div>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-sm font-semibold text-slate-700" data-t="sim_opex"></label>
+              <span class="text-sm font-black text-sky-600 font-mono" id="valOpex">20.5%</span>
+            </div>
+            <input type="range" id="inOpex" min="15" max="35" step="0.5" value="20.5" class="w-full">
+            <div class="text-xs text-slate-400 mt-1" data-t="sim_opex_note">고도세 68.4만 + 관리4.4% + 보험/수선</div>
+          </div>
+          <button onclick="resetSim()" class="w-full py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-300 transition" data-t="sim_reset"></button>
+        </div>
+
+        <!-- Results -->
+        <div class="lg:col-span-3 space-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] text-slate-500 block font-semibold" data-t="r_gpi"></span>
+              <span class="text-base font-black text-slate-900 font-mono block mt-0.5" id="outGPI">¥10,966,480</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] text-slate-500 block font-semibold" data-t="r_opex"></span>
+              <span class="text-base font-black text-rose-600 font-mono block mt-0.5" id="outOpex">¥2,242,969</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+              <span class="text-[11px] text-emerald-700 block font-semibold" data-t="r_noi"></span>
+              <span class="text-base font-black text-emerald-700 font-mono block mt-0.5" id="outNOI">¥8,723,511</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] text-slate-500 block font-semibold" data-t="r_ads"></span>
+              <span class="text-base font-black text-slate-900 font-mono block mt-0.5" id="outADS">¥6,562,093</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] text-slate-500 block font-semibold" data-t="r_pmt"></span>
+              <span class="text-base font-black text-slate-900 font-mono block mt-0.5" id="outMonthly">¥546,841</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-indigo-50 border border-indigo-200">
+              <span class="text-[11px] text-indigo-700 block font-semibold" data-t="r_cf"></span>
+              <span class="text-base font-black text-indigo-700 font-mono block mt-0.5" id="outCF">+¥2,161,418</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm text-center">
+              <span class="text-[11px] text-slate-500 block" data-t="r_dscr"></span>
+              <span class="text-xl font-black text-emerald-600 font-mono" id="outDSCR">1.33x</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm text-center">
+              <span class="text-[11px] text-slate-500 block" data-t="r_be"></span>
+              <span class="text-xl font-black text-slate-800 font-mono" id="outBE">80.3%</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm text-center">
+              <span class="text-[11px] text-slate-500 block" data-t="r_equity"></span>
+              <span class="text-xl font-black text-slate-800 font-mono" id="outEquity">¥26.8M</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm text-center">
+              <span class="text-[11px] text-slate-500 block" data-t="r_ccr"></span>
+              <span class="text-xl font-black text-emerald-600 font-mono" id="outCCR">8.05%</span>
+            </div>
+          </div>
+
+          <!-- Chart Area -->
+          <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="text-xs font-bold text-slate-700 mb-2">📊 연간 현금흐름 분해 (Annual Income &amp; Cash Flow Decomposition)</h3>
+            <div class="h-56">
+              <canvas id="cfChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: RENT ROLL FORENSICS ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+      <div class="border-b border-slate-100 pb-3 flex justify-between items-center flex-wrap gap-2">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span>📑</span>
+            <span data-t="sec_rr"></span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5" data-t="sec_rr_desc"></p>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 text-slate-700">12세대 전실 1LDK + 가스치장</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-100 text-slate-600 uppercase font-semibold">
+            <tr>
+              <th class="px-3 py-2.5" data-t="rr_unit"></th>
+              <th class="px-3 py-2.5" data-t="rr_type"></th>
+              <th class="px-3 py-2.5 text-right" data-t="rr_area"></th>
+              <th class="px-3 py-2.5 text-right" data-t="rr_rent"></th>
+              <th class="px-3 py-2.5 text-right" data-t="rr_cam"></th>
+              <th class="px-3 py-2.5 text-right" data-t="rr_total"></th>
+              <th class="px-3 py-2.5 text-center" data-t="rr_dom"></th>
+              <th class="px-3 py-2.5" data-t="rr_note"></th>
+            </tr>
+          </thead>
+          <tbody id="rentRollBody" class="divide-y divide-slate-100">
+            <!-- Dynamic rows -->
+          </tbody>
+          <tfoot class="bg-slate-50 font-bold border-t-2 border-slate-200">
+            <tr>
+              <td class="px-3 py-2.5 text-slate-900" colspan="2" data-t="rr_sum"></td>
+              <td class="px-3 py-2.5 text-right font-mono">365.00㎡</td>
+              <td class="px-3 py-2.5 text-right font-mono" colspan="2">-</td>
+              <td class="px-3 py-2.5 text-right font-mono text-emerald-700">¥913,873 / 월</td>
+              <td class="px-3 py-2.5 text-center font-mono">28일</td>
+              <td class="px-3 py-2.5 text-slate-500">연간 ¥10,966,480</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: VALUATIONS ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+      <div class="border-b border-slate-100 pb-3">
+        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <span>🏛️</span>
+          <span data-t="sec_val"></span>
+        </h2>
+        <p class="text-xs text-slate-500 mt-0.5" data-t="sec_val_desc"></p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-800 text-sm" data-t="val_scen1_title"></span>
+            <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-semibold text-[10px]">58.77%</span>
+          </div>
+          <p class="text-slate-500 text-[11px]" data-t="val_scen1_sub"></p>
+          <div class="pt-2 border-t border-slate-200 space-y-1">
+            <div class="flex justify-between"><span>토지 (노선가):</span><span class="font-mono font-semibold">¥43,474,850</span></div>
+            <div class="flex justify-between"><span>건물 (15만/㎡):</span><span class="font-mono font-semibold">¥49,329,750</span></div>
+            <div class="flex justify-between text-slate-900 font-bold pt-1 border-t border-slate-200 text-sm">
+              <span>적산 총액:</span><span class="font-mono text-emerald-700">¥92,804,600</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200 space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-emerald-900 text-sm" data-t="val_scen2_title"></span>
+            <span class="px-2 py-0.5 rounded bg-emerald-200 text-emerald-800 font-semibold text-[10px]">65.02%</span>
+          </div>
+          <p class="text-slate-500 text-[11px]" data-t="val_scen2_sub"></p>
+          <div class="pt-2 border-t border-emerald-100 space-y-1">
+            <div class="flex justify-between"><span>토지 (노선가):</span><span class="font-mono font-semibold">¥43,474,850</span></div>
+            <div class="flex justify-between"><span>건물 (18만/㎡):</span><span class="font-mono font-semibold">¥59,195,700</span></div>
+            <div class="flex justify-between text-emerald-900 font-bold pt-1 border-t border-emerald-200 text-sm">
+              <span>적산 총액:</span><span class="font-mono text-emerald-700">¥102,670,550</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-indigo-50/50 border border-indigo-200 space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-indigo-900 text-sm" data-t="val_scen3_title"></span>
+            <span class="px-2 py-0.5 rounded bg-indigo-200 text-indigo-800 font-semibold text-[10px]">89.65%</span>
+          </div>
+          <p class="text-slate-500 text-[11px]" data-t="val_scen3_sub"></p>
+          <div class="pt-2 border-t border-indigo-100 space-y-1">
+            <div class="flex justify-between"><span>토지 (실세 50만/평):</span><span class="font-mono font-semibold">¥69,215,000</span></div>
+            <div class="flex justify-between"><span>건물 (22만/㎡):</span><span class="font-mono font-semibold">¥72,350,300</span></div>
+            <div class="flex justify-between text-indigo-900 font-bold pt-1 border-t border-indigo-200 text-sm">
+              <span>적산 총액:</span><span class="font-mono text-indigo-700">¥141,565,300</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: CORPORATE LANDING ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+      <div class="border-b border-slate-100 pb-3">
+        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <span>🏢</span>
+          <span data-t="sec_corp"></span>
+        </h2>
+        <p class="text-xs text-slate-500 mt-0.5" data-t="sec_corp_desc"></p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border border-slate-200 rounded-lg overflow-hidden">
+          <thead class="bg-slate-100 text-slate-700 uppercase font-semibold">
+            <tr>
+              <th class="px-3 py-2.5" data-t="corp_col_item"></th>
+              <th class="px-3 py-2.5 text-right text-indigo-700" data-t="corp_col_single"></th>
+              <th class="px-3 py-2.5 text-right text-slate-500" data-t="corp_col_base"></th>
+              <th class="px-3 py-2.5 text-right text-emerald-700" data-t="corp_col_merged"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800" data-t="corp_r1"></td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-indigo-700">+¥902,724</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">¥3,722,450</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-emerald-700">¥4,625,174 (+24.2%)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800" data-t="corp_r2"></td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-indigo-700">+¥2,161,418</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">¥1,741,901</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-emerald-700">¥3,903,319 (+124.1%)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 pl-6 text-slate-500" data-t="corp_r2_tax"></td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">▲¥225,681</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-400">▲¥930,613</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">▲¥1,156,294</td>
+            </tr>
+            <tr class="bg-emerald-50/40">
+              <td class="px-3 py-2.5 font-bold text-emerald-900" data-t="corp_r3"></td>
+              <td class="px-3 py-2.5 text-right font-mono font-black text-indigo-700">+¥1,935,737</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">¥811,289</td>
+              <td class="px-3 py-2.5 text-right font-mono font-black text-emerald-700">¥2,747,025 (3.38배 폭증)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800" data-t="corp_r4"></td>
+              <td class="px-3 py-2.5 text-right font-mono">21.9년</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">24.1년</td>
+              <td class="px-3 py-2.5 text-right font-mono font-semibold text-slate-800">26.2년 (건전 제어)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800" data-t="corp_r5"></td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-indigo-700">1.33배</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">1.50배</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-emerald-700">1.20배 (안정 기준선 준수)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800">7. 이자보상배율 (ICR)</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-indigo-700">2.67배</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">0.90배 (취약)</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-emerald-700">2.03배 (우량선 안착)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2.5 font-semibold text-slate-800">8. 고정자산세 평가 LTV</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-indigo-700">138.4%</td>
+              <td class="px-3 py-2.5 text-right font-mono text-slate-500">261.1%</td>
+              <td class="px-3 py-2.5 text-right font-mono font-bold text-emerald-700">176.9% (-84.2%p 축소)</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="px-3 py-2.5 font-bold text-slate-900" data-t="corp_r6"></td>
+              <td class="px-3 py-2.5 text-right font-bold text-emerald-700" data-t="corp_v_single"></td>
+              <td class="px-3 py-2.5 text-right text-slate-500" data-t="corp_v_base"></td>
+              <td class="px-3 py-2.5 text-right font-bold text-emerald-700" data-t="corp_v_merged"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════════ SECTION: PRE-CLOSING CHECKLIST ══════════ -->
+    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+      <div class="border-b border-slate-100 pb-3">
+        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <span>✅</span>
+          <span data-t="sec_chk"></span>
+        </h2>
+        <p class="text-xs text-slate-500 mt-0.5" data-t="sec_chk_desc"></p>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="font-bold text-slate-900 block" data-t="chk1_t"></span>
+          <p class="text-slate-600 mt-1" data-t="chk1_d"></p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="font-bold text-slate-900 block" data-t="chk2_t"></span>
+          <p class="text-slate-600 mt-1" data-t="chk2_d"></p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="font-bold text-slate-900 block" data-t="chk3_t"></span>
+          <p class="text-slate-600 mt-1" data-t="chk3_d"></p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="font-bold text-slate-900 block" data-t="chk4_t"></span>
+          <p class="text-slate-600 mt-1" data-t="chk4_d"></p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="font-bold text-slate-900 block" data-t="chk5_t"></span>
+          <p class="text-slate-600 mt-1" data-t="chk5_d"></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const T = {
+      ko: {
+        headerTitle: "에어폴크 츠다누마 투자분석 & 융자 시뮬레이터",
+        headerSubtitle: "치바현 후나바시시 타키노이 1-5-1 · 목조 2층 12세대 전실 1LDK · 대지 138.4평 · 2024년 준공 신축급",
+        badgeNew: "분석완료",
+        btnBackHub: "허브로",
+        btnWebReport: "보고서 열람",
+        btnPrint: "인쇄 / PDF",
+        hero_price: "매매가격 (희망가)",
+        hero_price_tag: "138.4평 대형 대지",
+        hero_gross: "만실 상정 표면수익률",
+        hero_gross_sub: "연간 ¥10,966,480",
+        hero_cap: "순영업소득 Cap Rate",
+        hero_dscr: "부채상환배율 (DSCR)",
+        hero_be: "손익분기 가동률",
+        hero_score: "종합 스코어카드",
+        hero_score_sub: "적극 매수 추천 (TOP PICK)",
+        sec_overview: "물건 개요 및 입지 스펙 (Property Specifications)",
+        tag_renovated: "2024년 7월 준공 신축급",
+        ov_addr_l: "소재지", ov_addr_v: "千葉県船橋市田喜野井1丁目5-1",
+        ov_access_l: "교통", ov_access_v: "신경성선(케이세이 마츠도선) 「마에바라」역 도보 13분 / JR 「츠다누마」역 버스 10분",
+        ov_type_l: "구조 / 층수", ov_type_v: "목조 슬레이트 지붕 지상 2층건 (총 12세대 전실 1LDK)",
+        ov_built_l: "준공시기", ov_built_v: "2024년 7월 준공 (신축급 준신축 · 만 2.2년 경과)",
+        ov_land_l: "토지면적", ov_land_v: "457.63㎡ (138.43평) · 공모 대지 (사도 지분 없음)",
+        ov_bldg_l: "건물연면적", ov_bldg_v: "365.00㎡ (110.41평) · 호당 30.4㎡ 1LDK 12세대",
+        ov_road_l: "접도조건", ov_road_v: "북서측 폭원 약 4.3m 공도에 약 17.1m 접도 (건축기준법 42조 1항 공도)",
+        ov_zone_l: "용도지역 / 건폐·용적", ov_zone_v: "제1종 저층주거전용지역 · 건폐율 40% / 용적률 80% (용적 79.8% 최적 소화)",
+        ov_util_l: "주요설비", ov_util_v: "프로판가스 / 공영수도 / 공공하수 / 택배BOX / 방범카메라 / 가스용기치장소",
+        sim_title: "실시간 금융 융자 & 현금흐름 시뮬레이터",
+        sim_desc: "매수가격 네고, LTV, 금리, 기간, 공실률 및 실질 경비율을 실시간으로 조작하여 CF와 안전성을 검증합니다.",
+        sim_tag: "인터랙티브 분석기",
+        sim_price: "매매가격 (엔)",
+        sim_ltv: "융자비율 (LTV)",
+        sim_rate: "차입금리 (%)",
+        sim_term: "차입기간 (년)",
+        sim_term_note: "au지분은행/지방은행 30년 차입 상정 (열화등급3 상당)",
+        sim_occ: "가동률 (%)",
+        sim_opex: "실질 경비율 (%)",
+        sim_opex_note: "고도세 68.4만 + 관리4.4% + 보험/수선충당",
+        sim_reset: "초기값 리셋",
+        r_gpi: "유효 총수입 (EGI)",
+        r_opex: "운영경비 (OPEX)",
+        r_noi: "순영업소득 (NOI)",
+        r_ads: "연간 부채원리금 (ADS)",
+        r_pmt: "월간 원리금상환",
+        r_cf: "세전 현금흐름 (CF)",
+        r_dscr: "부채상환배율 (DSCR)",
+        r_be: "손익분기 가동률",
+        r_equity: "초기 투하자기자본",
+        r_ccr: "자기자본수익률 (CCR)",
+        sec_rr: "렌트롤 정밀 명세 및 입주 현황",
+        sec_rr_desc: "전 12세대 1LDK 및 옥외 가스용기치장소 대조 명세입니다.",
+        rr_unit: "호실", rr_type: "타입", rr_area: "전유면적", rr_rent: "순차임", rr_cam: "공익비", rr_total: "월합계", rr_dom: "추정DOM", rr_note: "특기사항",
+        rr_sum: "합계",
+        sec_val: "적산가격 3대 시나리오 비교 (Valuation & Asset Quality)",
+        sec_val_desc: "국세청 상속세 노선가와 신축 재조달원가, 인근 실거래 토지가를 전수 대조합니다.",
+        val_scen1_title: "1. 금융기관 보수적 기준", val_scen1_sub: "15만/㎡ 단가 + 상속세 노선가",
+        val_scen2_title: "2. 국세청 표준가액 기준", val_scen2_sub: "18만/㎡ 단가 + 상속세 노선가",
+        val_scen3_title: "3. 신축 재조달원가 및 실세지가", val_scen3_sub: "22만/㎡ 단가 + 평당 50만 엔 실세지가",
+        sec_corp: "법인 결산서 디자인형 착지 분석 (Corporate Financial Landing)",
+        sec_corp_desc: "본 물건 매입 시 20년 감가상각 및 100% 이자비용 손금산입을 반영한 통합 착지 시뮬레이션입니다.",
+        corp_col_item: "지표 항목", corp_col_single: "본 물건 단품", corp_col_base: "모아비즈 4기 현재", corp_col_merged: "매입 후 결산서 착지",
+        corp_r1: "1. 장부상 세전 당기순이익", corp_r2: "2. 세전 잔여 현금흐름", corp_r2_tax: "ㄴ 추정 법인세액 (25%)", corp_r3: "3. 세후 잔여 현금흐름", corp_r4: "4. 채무상환년수 (년)", corp_r5: "5. 부채상환비율 (DSCR)", corp_r6: "6. 법인 공헌 종합판정 (ICR·LTV·CF)", corp_v_single: "우량 기여 (적합)", corp_v_base: "ICR 0.9배(취약)", corp_v_merged: "적합 (우량 편입 대상 - ICR 2.0배, CF 3.38배)",
+        sec_chk: "매입 전 선행 확인 5대 항목 (Pre-Closing Checklist)",
+        sec_chk_desc: "계약 및 잔금 실행 전 반드시 현장 및 서류로 종결지어야 할 리스크 항목입니다.",
+        chk1_t: "1. 건축확인완료검사필증(検査済証) 원본 확인",
+        chk1_d: "2024년 7월 준공 건물로서 검사필증 원본 보관 여부를 확인하여 시중은행 30년 대출 적격성 확정.",
+        chk2_t: "2. 잔여 1실(104호) 공실 모집 현황 및 반향 점검",
+        chk2_d: "11실 입주 중 잔여 1실의 현재 책정 차임(약 7.3~7.5만 엔) 및 중개업소 모집 반향 확인.",
+        chk3_t: "3. 프로판가스 및 인터넷 승계 계약 조항 확인",
+        chk3_d: "가스 무상대여 설비 승계 잔여기간, 위약금 조항 및 월 5,940엔 인터넷 통신 계약 승계 확인.",
+        chk4_t: "4. 옥외 가스용기치장소 부대수입(월 5,940엔) 지속성 확인",
+        chk4_d: "부지 내 LP가스 용기 보관소 제공에 따른 월 5,940엔 비과세 수입 계약 주체 및 지속 조건 실사.",
+        chk5_t: "5. 경계비명시 및 현황유자세 매매 대응 현장 실사",
+        chk5_d: "17.1m 접도 공도 경계표 및 인접 주택과의 블록담·펜스 월경 유무 현장 육안 실사 완료."
+      },
+      ja: {
+        headerTitle: "エルフォルク津田沼 投資分析＆融資シミュレーター",
+        headerSubtitle: "千葉県船橋市田喜野井1-5-1 · 木造2階建 12戸 全戸1LDK · 敷地138.4坪 · 2024年7月築",
+        badgeNew: "分析完了",
+        btnBackHub: "ハブへ",
+        btnWebReport: "総合分析レポート",
+        btnPrint: "印刷 / PDF",
+        hero_price: "物件価格 (売出価格)",
+        hero_price_tag: "138.4坪 広大敷地",
+        hero_gross: "満室想定表面利回り",
+        hero_gross_sub: "年間 ¥10,966,480",
+        hero_cap: "純営業収益 Cap Rate",
+        hero_dscr: "返済余裕率 (DSCR)",
+        hero_be: "損益分岐稼働率",
+        hero_score: "総合スコアカード",
+        hero_score_sub: "積極買い推奨 (TOP PICK)",
+        sec_overview: "物件概要および立地スペック (Property Specifications)",
+        tag_renovated: "2024年7月築 新築同様",
+        ov_addr_l: "所在地", ov_addr_v: "千葉県船橋市田喜野井1丁目5-1",
+        ov_access_l: "交通", ov_access_v: "京成松戸線(新京成線)「前原」駅 徒歩13分 / JR「津田沼」駅 バス10分",
+        ov_type_l: "構造 / 階数", ov_type_v: "木造スレート葺 地上2階建 (総戸数 12戸 全戸1LDK)",
+        ov_built_l: "竣工年月", ov_built_v: "2024年7月築 (新築同様 · 築2.2年経過)",
+        ov_land_l: "土地面積", ov_land_v: "457.63㎡ (138.43坪) · 公簿 (私道負担なし・所有権100%)",
+        ov_bldg_l: "建物延床面積", ov_bldg_v: "365.00㎡ (110.41坪) · 各戸30.4㎡ 1LDK 12戸",
+        ov_road_l: "接道条件", ov_road_v: "北西側公道 幅員約4.3m 接面約17.1m (建築基準法42条1項道路)",
+        ov_zone_l: "用途地域 / 建ぺい・容積", ov_zone_v: "第一種低層住居専用地域 · 建ぺい率 40% / 容積率 80% (容積79.8%消化)",
+        ov_util_l: "主要設備", ov_util_v: "プロパンガス / 公営水道 / 公共下水 / 宅配BOX / 防犯カメラ / ガス容器置場",
+        sim_title: "リアルタイム金融融資＆キャッシュフローシミュレーター",
+        sim_desc: "買付価格交渉、LTV、金利、期間、空室率および実質経費率をリアルタイムに操作してCFと安全性を検証します。",
+        sim_tag: "インタラクティブ分析機",
+        sim_price: "物件価格 (円)",
+        sim_ltv: "融資比率 (LTV)",
+        sim_rate: "借入金利 (%)",
+        sim_term: "借入期間 (年)",
+        sim_term_note: "auじぶん銀行/地方銀行 30年借入想定 (劣化等級3相当)",
+        sim_occ: "稼働率 (%)",
+        sim_opex: "実質経費率 (%)",
+        sim_opex_note: "固都税68.4万 + PM 4.4% + 保険・修繕",
+        sim_reset: "初期値にリセット",
+        r_gpi: "有効総収入 (EGI)",
+        r_opex: "運営経費 (OPEX)",
+        r_noi: "純営業収益 (NOI)",
+        r_ads: "年間元利返済額 (ADS)",
+        r_pmt: "月額返済額",
+        r_cf: "税引前キャッシュフロー",
+        r_dscr: "返済余裕率 (DSCR)",
+        r_be: "損益分岐稼働率",
+        r_equity: "投下自己資本当初総額",
+        r_ccr: "自己資本利回り (CCR)",
+        sec_rr: "レントロール精密明細および入居現況",
+        sec_rr_desc: "全12戸1LDKおよび屋外ガス容器置場の対照明細です。",
+        rr_unit: "号室", rr_type: "間取り", rr_area: "専有面積", rr_rent: "純賃料", rr_cam: "共益費", rr_total: "月額計", rr_dom: "想定DOM", rr_note: "特記事項",
+        rr_sum: "合計",
+        sec_val: "積算価格3大シナリオ比較 (Valuation & Asset Quality)",
+        sec_val_desc: "国税庁路線価と新築再調達原価、近隣実勢土地価格を全数対照します。",
+        val_scen1_title: "1. 金融機関保守的基準", val_scen1_sub: "15万円/㎡ 単価 + 相続税路線価",
+        val_scen2_title: "2. 国税庁標準価額基準", val_scen2_sub: "18万円/㎡ 単価 + 相続税路線価",
+        val_scen3_title: "3. 新築再調達原価＋実勢地価", val_scen3_sub: "22万円/㎡ 単価 + 坪50万円 実勢地価",
+        sec_corp: "法人決算書デザイン型着地判定 (Corporate Financial Landing)",
+        sec_corp_desc: "本物件取得時の20年減価償却および支払利息損金算入を反映した統合着地シミュレーションです。",
+        corp_col_item: "指標項目", corp_col_single: "本物件単品", corp_col_base: "現況ベースライン", corp_col_merged: "取得後決算書着地予想",
+        corp_r1: "1. 帳簿上税引前当期純利益", corp_r2: "2. 税引前手残りCF", corp_r2_tax: "ㄴ 推定法人税額 (25%)", corp_r3: "3. 税引後手残りCF", corp_r4: "4. 債務償還年数 (年)", corp_r5: "5. 負債返済割合 (DSCR)", corp_r6: "6. 法人貢献総合判定（ICR・LTV・CF）", corp_v_single: "優良寄与（適格）", corp_v_base: "ICR 0.9倍(脆弱)", corp_v_merged: "適格（優良受入対象・ICR 2.0倍、CF 3.38倍）",
+        sec_chk: "購入前確認必須5大項目 (Pre-Closing Checklist)",
+        sec_chk_desc: "売買契約および決済前に現地および書類にて必ず確認すべきリスク項目です。",
+        chk1_t: "1. 建築確認完了検査済証原本の確認",
+        chk1_d: "2024年7月新築の適法性を確認し、主要金融機関30年長期融資適格性を確定。",
+        chk2_t: "2. 残1戸空室(104号室)の募集状況・反響確認",
+        chk2_d: "11戸稼働中・残1戸の募集賃料(約7.3~7.5万円)および仲介反響の確認。",
+        chk3_t: "3. プロパンガスおよびネット承継契約の確認",
+        chk3_d: "LPガス無償貸与設備の残存期間、違約金条項および月5,940円のネット回線契約の確認。",
+        chk4_t: "4. 屋外ガス容器置場副収入(月5,940円)の継続性確認",
+        chk4_d: "敷地内へのボンベ置場提供に伴う非課税収入の契約主体および永続性の確認。",
+        chk5_t: "5. 境界非明示・現況有姿売買への現地確認",
+        chk5_d: "17.1m接道公道境界標および隣接戸建との越境有無の現地目視確認。"
+      }
+    };
+
+    let currentLang = 'ko';
+    let cfChartInstance = null;
+
+    const rentRollData = [
+      { unit: "101", type: "1LDK", area: 30.41, rent: 73000, cam: 0, total: 73000, dom: 28, note: "입주완료 · 남서향 채광" },
+      { unit: "102", type: "1LDK", area: 30.41, rent: 74000, cam: 0, total: 74000, dom: 25, note: "입주완료 · 독립세면대" },
+      { unit: "103", type: "1LDK", area: 30.41, rent: 74000, cam: 0, total: 74000, dom: 30, note: "입주완료 · 에어컨 완비" },
+      { unit: "104", type: "1LDK", area: 30.41, rent: 73000, cam: 0, total: 73000, dom: 35, note: "현재 모집 중 (유일 공실)" },
+      { unit: "105", type: "1LDK", area: 30.41, rent: 75000, cam: 0, total: 75000, dom: 22, note: "입주완료 · 발코니" },
+      { unit: "106", type: "1LDK", area: 30.41, rent: 75000, cam: 0, total: 75000, dom: 24, note: "입주완료 · 코너 호실" },
+      { unit: "201", type: "1LDK", area: 30.41, rent: 76000, cam: 0, total: 76000, dom: 20, note: "2층 입주완료 · 채광 우수" },
+      { unit: "202", type: "1LDK", area: 30.41, rent: 77000, cam: 0, total: 77000, dom: 18, note: "2층 입주완료" },
+      { unit: "203", type: "1LDK", area: 30.41, rent: 77000, cam: 0, total: 77000, dom: 22, note: "2층 입주완료" },
+      { unit: "204", type: "1LDK", area: 30.41, rent: 78000, cam: 0, total: 78000, dom: 19, note: "2층 입주완료 · 모니터 인터폰" },
+      { unit: "205", type: "1LDK", area: 30.41, rent: 78000, cam: 0, total: 78000, dom: 21, note: "2층 입주완료" },
+      { unit: "206", type: "1LDK", area: 30.41, rent: 79000, cam: 0, total: 79000, dom: 20, note: "2층 코너 호실 입주완료" },
+      { unit: "옥외", type: "가스치장", area: 0, rent: 5940, cam: 0, total: 5940, dom: 0, note: "부지 내 LP가스용기 보관장소 제공" }
+    ];
+
+    function fmtYen(n) {
+      return "¥" + Math.round(n).toLocaleString();
+    }
+
+    function renderRentRoll() {
+      const tbody = document.getElementById("rentRollBody");
+      tbody.innerHTML = "";
+      rentRollData.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition";
+        const unitName = r.unit === '옥외' 
+          ? (currentLang === 'ko' ? '옥외가스치장' : '屋外ガス容器置場') 
+          : r.unit + (currentLang === 'ko' ? '호' : '号');
+        tr.innerHTML = `
+          <td class="px-3 py-2.5 font-bold text-slate-900">${unitName}</td>
+          <td class="px-3 py-2.5 text-slate-600">${r.type}</td>
+          <td class="px-3 py-2.5 text-right font-mono text-slate-600">${r.area > 0 ? r.area.toFixed(2) + '㎡' : '-'}</td>
+          <td class="px-3 py-2.5 text-right font-mono font-medium text-slate-900">${fmtYen(r.rent)}</td>
+          <td class="px-3 py-2.5 text-right font-mono text-slate-500">${fmtYen(r.cam)}</td>
+          <td class="px-3 py-2.5 text-right font-mono font-bold text-slate-900">${fmtYen(r.total)}</td>
+          <td class="px-3 py-2.5 text-center font-mono text-slate-600">${r.dom > 0 ? r.dom + (currentLang === 'ko' ? '일' : '日') : '-'}</td>
+          <td class="px-3 py-2.5 text-xs text-slate-500">${r.note}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function calculateLoanPMT(principal, annualRatePct, years) {
+      if (annualRatePct <= 0) return principal / (years * 12);
+      const r = (annualRatePct / 100) / 12;
+      const n = years * 12;
+      return principal * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    }
+
+    function updateSim() {
+      const price = parseFloat(document.getElementById("inPrice").value);
+      const ltvPct = parseFloat(document.getElementById("inLTV").value);
+      const ratePct = parseFloat(document.getElementById("inRate").value);
+      const termYears = parseInt(document.getElementById("inTerm").value);
+      const occPct = parseFloat(document.getElementById("inOcc").value);
+      const opexPct = parseFloat(document.getElementById("inOpex").value);
+
+      document.getElementById("valPrice").textContent = fmtYen(price);
+      document.getElementById("valLTV").textContent = ltvPct + "%";
+      document.getElementById("valRate").textContent = ratePct.toFixed(1) + "%";
+      document.getElementById("valTerm").textContent = termYears + (currentLang === 'ko' ? '년' : '年');
+      document.getElementById("valOcc").textContent = occPct + "%";
+      document.getElementById("valOpex").textContent = opexPct.toFixed(1) + "%";
+
+      const loanAmt = price * (ltvPct / 100);
+      document.getElementById("loanAmountLabel").textContent = 
+        (currentLang === 'ko' ? '차입금: ' : '借入額: ') + fmtYen(loanAmt);
+
+      const occUnits = (12 * (occPct / 100)).toFixed(1);
+      document.getElementById("occUnitsLabel").textContent = 
+        (currentLang === 'ko' ? `가동 호수: ${occUnits}실 / 12실` : `稼働戸数: ${occUnits}戸 / 12戸`);
+
+      // 100% full gross income = 10,895,200 (rent) + 71,280 (gas) = 10,966,480
+      const baseRent = 10895200;
+      const gasFee = 71280;
+      const gpi = (baseRent * (occPct / 100)) + gasFee;
+      const opex = gpi * (opexPct / 100);
+      const noi = gpi - opex;
+
+      const monthlyPmt = calculateLoanPMT(loanAmt, ratePct, termYears);
+      const ads = monthlyPmt * 12;
+      const cf = noi - ads;
+      const dscr = ads > 0 ? (noi / ads) : 0;
+      const breakevenOcc = ((opex + ads) / (baseRent + gasFee)) * 100;
+
+      // Equity
+      const downPayment = price * (1 - ltvPct / 100);
+      const acqCosts = price * 0.07;
+      const totalEquity = downPayment + acqCosts;
+      const ccr = totalEquity > 0 ? (cf / totalEquity) * 100 : 0;
+
+      document.getElementById("outGPI").textContent = fmtYen(gpi);
+      document.getElementById("outOpex").textContent = fmtYen(opex);
+      document.getElementById("outNOI").textContent = fmtYen(noi);
+      document.getElementById("outADS").textContent = fmtYen(ads);
+      document.getElementById("outMonthly").textContent = fmtYen(monthlyPmt);
+
+      const cfElem = document.getElementById("outCF");
+      cfElem.textContent = (cf >= 0 ? "+" : "") + fmtYen(cf);
+      cfElem.className = "text-base font-black font-mono block mt-0.5 " + 
+        (cf >= 0 ? "text-emerald-700" : "text-rose-600");
+
+      const dscrElem = document.getElementById("outDSCR");
+      dscrElem.textContent = dscr.toFixed(2) + "x";
+      dscrElem.className = "text-xl font-black font-mono " + 
+        (dscr >= 1.2 ? "text-emerald-600" : (dscr >= 1.0 ? "text-amber-500" : "text-rose-600"));
+
+      document.getElementById("outBE").textContent = breakevenOcc.toFixed(1) + "%";
+      document.getElementById("outEquity").textContent = "¥" + (totalEquity / 1000000).toFixed(1) + "M";
+      document.getElementById("outCCR").textContent = ccr.toFixed(2) + "%";
+
+      updateChart(gpi, opex, ads, cf);
+    }
+
+    function updateChart(gpi, opex, ads, cf) {
+      const ctx = document.getElementById("cfChart").getContext("2d");
+      const labels = currentLang === 'ko' 
+        ? ["총유효수입(EGI)", "운영경비(OPEX)", "원리금상환(ADS)", "순현금흐름(CF)"]
+        : ["有効総収入(EGI)", "運営経費(OPEX)", "元利返済額(ADS)", "純キャッシュフロー(CF)"];
+
+      const data = [gpi, opex, ads, Math.max(0, cf)];
+      const colors = ['#0284c7', '#f43f5e', '#64748b', '#10b981'];
+
+      if (cfChartInstance) {
+        cfChartInstance.data.labels = labels;
+        cfChartInstance.data.datasets[0].data = data;
+        cfChartInstance.update();
+      } else {
+        cfChartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: data,
+              backgroundColor: colors,
+              borderRadius: 6,
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => " " + fmtYen(ctx.parsed.y)
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: (v) => "¥" + (v / 1000000).toFixed(1) + "M"
+                }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    function resetSim() {
+      document.getElementById("inPrice").value = 157900000;
+      document.getElementById("inLTV").value = 90;
+      document.getElementById("inRate").value = 2.3;
+      document.getElementById("inTerm").value = 30;
+      document.getElementById("inOcc").value = 100;
+      document.getElementById("inOpex").value = 20.5;
+      updateSim();
+    }
+
+    function applyTranslations() {
+      const dict = T[currentLang];
+      document.querySelectorAll("[data-t]").forEach(el => {
+        const key = el.getAttribute("data-t");
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+      document.documentElement.lang = currentLang;
+
+      const btnKO = document.getElementById("langKO");
+      const btnJA = document.getElementById("langJA");
+      if (currentLang === 'ko') {
+        btnKO.className = "px-3 py-1 text-xs font-semibold rounded-md bg-indigo-600 text-white shadow";
+        btnJA.className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white";
+      } else {
+        btnJA.className = "px-3 py-1 text-xs font-semibold rounded-md bg-indigo-600 text-white shadow";
+        btnKO.className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white";
+      }
+      renderRentRoll();
+      updateSim();
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      applyTranslations();
+    }
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("inPrice").addEventListener("input", updateSim);
+      document.getElementById("inLTV").addEventListener("input", updateSim);
+      document.getElementById("inRate").addEventListener("input", updateSim);
+      document.getElementById("inTerm").addEventListener("input", updateSim);
+      document.getElementById("inOcc").addEventListener("input", updateSim);
+      document.getElementById("inOpex").addEventListener("input", updateSim);
+
+      applyTranslations();
+    });
+  </script>
+</body>
+</html>

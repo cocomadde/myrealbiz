@@ -130,5 +130,38 @@
     "moabiz_folder": "moabiz/clio-kikuna",
     "moabiz_simulator_html": "./moabiz/clio-kikuna/index.html",
     "moabiz_report_html": "./moabiz/clio-kikuna/report.html"
+  },
+  {
+    "slug": "erfolg-tsudanuma",
+    "name_ko": "에어폴크 츠다누마 (Erfolg 津田沼)",
+    "name_ja": "Erfolg 津田沼",
+    "structure": "목조 지상 2층",
+    "units": 12,
+    "location": "치바현 후나바시시 타키노이 1초메 5-1",
+    "price": 157900000.0,
+    "price_display": "1억 5,790만 엔",
+    "gross_yield_pct": 6.95,
+    "cap_rate_pct": 5.52,
+    "assessed_value_ratio_pct": 65.02,
+    "verdict": "매수 추천",
+    "verdict_badge": "recommend",
+    "corporate_verdict": "적합 (우량 편입 대상 - 토지 138.4평, ICR 2.03배 돌파, 세후CF 3.38배 폭증)",
+    "corporate_verdict_public": "적합 (우량 투자 대상 - 토지 138.4평, ICR 2.0배, 1LDK 12세대 압도적 현금흐름)",
+    "score": 25.5,
+    "max_score": 30,
+    "public_enabled": true,
+    "key_highlights": [
+      "토지 면적 138.43평(457.63㎡) · 공도 17.1m 접도 · 실세 토지가격만 매매가의 43.8%(6,921만 엔)",
+      "전실 30.4㎡ 1LDK 12세대 희소 구성으로 장기 거주 락인 및 공실 회전력 극대화",
+      "au지분은행 90% LTV(30년) 적격 · DSCR 1.33배 & 연간 세전CF +216만 엔(CCR 8.05%)"
+    ],
+    "report_ko": "./erfolg-tsudanuma/Erfolg_Tsudanuma_Investment_Report_KO.md",
+    "report_ja": "./erfolg-tsudanuma/Erfolg_Tsudanuma_Investment_Report_JA.md",
+    "report_html": "./erfolg-tsudanuma/report.html",
+    "simulator_html": "./erfolg-tsudanuma/index.html",
+    "folder": "erfolg-tsudanuma",
+    "moabiz_folder": "moabiz/erfolg-tsudanuma",
+    "moabiz_simulator_html": "./moabiz/erfolg-tsudanuma/index.html",
+    "moabiz_report_html": "./moabiz/erfolg-tsudanuma/report.html"
   }
 ]
