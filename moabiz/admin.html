@@ -38,13 +38,18 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
+        <!-- Language Toggle Buttons -->
+        <div class="inline-flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+          <button id="langKO" onclick="setAdminLang('ko')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition">한국어</button>
+          <button id="langJA" onclick="setAdminLang('ja')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition">日本語</button>
+        </div>
         <a href="./index.html" class="text-xs text-amber-300 hover:text-white px-3 py-1.5 rounded-lg border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 transition flex items-center gap-1.5 font-medium">
           <span>🏢</span>
-          <span>모아비즈 포털</span>
+          <span data-t="nav_moabiz">모아비즈 포털</span>
         </a>
         <a href="../index.html" target="_blank" class="text-xs text-sky-300 hover:text-white px-3 py-1.5 rounded-lg border border-sky-500/30 bg-sky-500/10 hover:bg-sky-500/20 transition flex items-center gap-1.5 font-medium">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          <span>외부공개 사이트 ↗</span>
+          <span data-t="nav_public">외부공개 사이트 ↗</span>
         </a>
       </div>
     </div>
@@ -55,11 +60,11 @@
     <!-- Overview Banner -->
     <div class="p-6 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div>
-        <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-semibold mb-2">
+        <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-semibold mb-2" data-t="banner_badge">
           🔒 보안 분리 관리 정책 가동 중
         </div>
-        <h1 class="text-2xl font-bold text-white tracking-tight">부동산 물건별 외부공개(Public) 제어</h1>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+        <h1 class="text-2xl font-bold text-white tracking-tight" data-t="banner_title">부동산 물건별 외부공개(Public) 제어</h1>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl" data-t="banner_desc">
           외부 공개 스위치를 <span class="text-emerald-400 font-semibold">ON</span>으로 설정하면 메인 인트로(<a href="../index.html" class="underline hover:text-sky-400" target="_blank">/myrealbiz/</a>)에 물건이 노출되며, 모아비즈 법인 결산서·베이스라인은 자동 마스킹 처리됩니다.
           <span class="text-purple-400 font-semibold">OFF</span> 설정 시 모아비즈 내부 전용 포털(<a href="./index.html" class="underline hover:text-purple-300">/myrealbiz/moabiz/</a>)에만 보존됩니다.
         </p>
@@ -67,12 +72,12 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-3 shrink-0">
-        <button id="btnReset" onclick="resetToInitial()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">
+        <button id="btnReset" onclick="resetToInitial()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition" data-t="btn_reset">
           초기화
         </button>
         <button id="btnApply" onclick="applyChanges()" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 shadow-lg shadow-emerald-500/20 transition flex items-center gap-2">
           <span>💾</span>
-          <span>설정 적용 및 저장</span>
+          <span data-t="btn_apply">설정 적용 및 저장</span>
         </button>
       </div>
     </div>
@@ -80,24 +85,24 @@
     <!-- Stats Summary Row -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
       <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
-        <span class="text-xs text-slate-400 font-medium block">총 검토 물건 수</span>
+        <span class="text-xs text-slate-400 font-medium block" data-t="stat_total_label">총 검토 물건 수</span>
         <span class="text-2xl font-extrabold text-white font-mono mt-1 block" id="statTotal">0 건</span>
-        <span class="text-[11px] text-slate-500 mt-0.5 block">모아비즈 내부 전수</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block" data-t="stat_total_sub">모아비즈 내부 전수</span>
       </div>
       <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
-        <span class="text-xs text-emerald-400 font-medium block">외부 공개 (Public ON)</span>
+        <span class="text-xs text-emerald-400 font-medium block" data-t="stat_public_label">외부 공개 (Public ON)</span>
         <span class="text-2xl font-extrabold text-emerald-400 font-mono mt-1 block" id="statPublic">0 건</span>
-        <span class="text-[11px] text-slate-500 mt-0.5 block">루트 인트로 노출</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block" data-t="stat_public_sub">루트 인트로 노출</span>
       </div>
       <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
-        <span class="text-xs text-purple-400 font-medium block">내부 전용 (Private OFF)</span>
+        <span class="text-xs text-purple-400 font-medium block" data-t="stat_private_label">내부 전용 (Private OFF)</span>
         <span class="text-2xl font-extrabold text-purple-400 font-mono mt-1 block" id="statPrivate">0 건</span>
-        <span class="text-[11px] text-slate-500 mt-0.5 block">외부 노출 완전 차단</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block" data-t="stat_private_sub">외부 노출 완전 차단</span>
       </div>
       <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800">
-        <span class="text-xs text-amber-400 font-medium block">외부공개 파이프라인 금액</span>
+        <span class="text-xs text-amber-400 font-medium block" data-t="stat_volume_label">외부공개 파이프라인 금액</span>
         <span class="text-2xl font-extrabold text-amber-400 font-mono mt-1 block" id="statVolume">0.0 억 엔</span>
-        <span class="text-[11px] text-slate-500 mt-0.5 block">공개 물건 매매가 합계</span>
+        <span class="text-[11px] text-slate-500 mt-0.5 block" data-t="stat_volume_sub">공개 물건 매매가 합계</span>
       </div>
     </div>
 
@@ -105,10 +110,10 @@
     <div class="bg-slate-900/80 rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
       <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between flex-wrap gap-3 bg-slate-900">
         <div class="flex items-center gap-2">
-          <span class="text-base font-bold text-white">물건별 외부 공개 상태 설정</span>
+          <span class="text-base font-bold text-white" data-t="table_title">물건별 외부 공개 상태 설정</span>
           <span class="text-xs text-slate-400 font-mono" id="tableCountBadge"></span>
         </div>
-        <div class="text-xs text-slate-400">
+        <div class="text-xs text-slate-400" data-t="table_tip">
           * 토글 스위치 조작 후 상단 <span class="text-emerald-400 font-semibold">[설정 적용 및 저장]</span>을 누르면 즉시 동기화됩니다.
         </div>
       </div>
@@ -117,13 +122,13 @@
         <table class="w-full text-left text-xs sm:text-sm">
           <thead class="bg-slate-950/60 text-slate-400 border-b border-slate-800 uppercase text-[11px] tracking-wider">
             <tr>
-              <th class="px-6 py-3.5 font-semibold">외부공개 설정</th>
-              <th class="px-6 py-3.5 font-semibold">물건 정보</th>
-              <th class="px-6 py-3.5 font-semibold">구조 / 규모</th>
-              <th class="px-6 py-3.5 font-semibold text-right">매매가격</th>
-              <th class="px-6 py-3.5 font-semibold text-right">표면 / Cap Rate</th>
-              <th class="px-6 py-3.5 font-semibold text-center">투자 판정</th>
-              <th class="px-6 py-3.5 font-semibold text-right">링크 바로가기</th>
+              <th class="px-6 py-3.5 font-semibold" data-t="th_public">외부공개 설정</th>
+              <th class="px-6 py-3.5 font-semibold" data-t="th_info">물건 정보</th>
+              <th class="px-6 py-3.5 font-semibold" data-t="th_spec">구조 / 규모</th>
+              <th class="px-6 py-3.5 font-semibold text-right" data-t="th_price">매매가격</th>
+              <th class="px-6 py-3.5 font-semibold text-right" data-t="th_yield">표면 / Cap Rate</th>
+              <th class="px-6 py-3.5 font-semibold text-center" data-t="th_verdict">투자 판정</th>
+              <th class="px-6 py-3.5 font-semibold text-right" data-t="th_links">링크 바로가기</th>
             </tr>
           </thead>
           <tbody id="propertiesTableBody" class="divide-y divide-slate-800/80">
@@ -139,25 +144,25 @@
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-sm">✓</div>
           <div>
-            <h3 class="text-base font-bold text-white">외부공개 설정이 브라우저 및 로컬에 적용되었습니다</h3>
-            <p class="text-xs text-slate-400">현재 변경된 설정을 Git 저장소와 원격 포털에 배포하려면 아래 스크립트를 실행하거나 JSON을 내려받으세요.</p>
+            <h3 class="text-base font-bold text-white" data-t="sync_title">외부공개 설정이 브라우저 및 로컬에 적용되었습니다</h3>
+            <p class="text-xs text-slate-400" data-t="sync_desc">현재 변경된 설정을 Git 저장소와 원격 포털에 배포하려면 아래 스크립트를 실행하거나 JSON을 내려받으세요.</p>
           </div>
         </div>
         <div class="flex items-center gap-2">
           <button onclick="downloadUpdatedJson()" class="px-3 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition">
             <span>📥</span>
-            <span>properties.json 다운로드</span>
+            <span data-t="btn_download">properties.json 다운로드</span>
           </button>
           <button onclick="copyCliCommand()" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 flex items-center gap-1.5 transition font-mono">
             <span>📋</span>
-            <span>Git 자동 배포 명령어 복사</span>
+            <span data-t="btn_copy_cmd">Git 자동 배포 명령어 복사</span>
           </button>
         </div>
       </div>
 
       <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 flex items-center justify-between gap-4 overflow-x-auto">
         <code id="cliCommandText">python3 /google/src/cloud/leeseunghee/private_real_estate_agent/configs/users/leeseunghee/_agents/skills/real-estate-github-publisher/scripts/publish_to_github.py --rebuild-index</code>
-        <button onclick="copyCliCommand()" class="text-xs text-emerald-400 hover:text-emerald-300 shrink-0 underline">복사</button>
+        <button onclick="copyCliCommand()" class="text-xs text-emerald-400 hover:text-emerald-300 shrink-0 underline" data-t="btn_copy">복사</button>
       </div>
     </div>
 
@@ -244,6 +249,21 @@
             public_enabled: true,
             verdict: "매수 추천",
             verdict_badge: "recommend"
+          },
+          {
+            slug: "erfolg-tsudanuma",
+            name_ko: "에어폴크 츠다누마 (Erfolg 津田沼)",
+            name_ja: "Erfolg津田沼",
+            structure: "목조 2층",
+            units: 12,
+            location: "치바현 후나바시시 타키노이 1-5-1",
+            price: 157900000.0,
+            price_display: "1억 5,790만 엔",
+            gross_yield_pct: 6.94,
+            cap_rate_pct: 5.53,
+            public_enabled: true,
+            verdict: "매수 추천",
+            verdict_badge: "recommend"
           }
         ];
       }
@@ -264,6 +284,123 @@
       }
 
       initialProperties = JSON.parse(JSON.stringify(properties));
+      
+      const savedLang = localStorage.getItem('myrealbiz_lang') || 'ko';
+      setAdminLang(savedLang);
+    }
+
+    const T_ADMIN = {
+      ko: {
+        docTitle: "MyRealBiz Admin | 외부공개 포트폴리오 관리 콘솔",
+        nav_moabiz: "모아비즈 포털",
+        nav_public: "외부공개 사이트 ↗",
+        banner_badge: "🔒 보안 분리 관리 정책 가동 중",
+        banner_title: "부동산 물건별 외부공개(Public) 제어",
+        banner_desc: '외부 공개 스위치를 <span class="text-emerald-400 font-semibold">ON</span>으로 설정하면 메인 인트로(<a href="../index.html" class="underline hover:text-sky-400" target="_blank">/myrealbiz/</a>)에 물건이 노출되며, 모아비즈 법인 결산서·베이스라인은 자동 마스킹 처리됩니다. <span class="text-purple-400 font-semibold">OFF</span> 설정 시 모아비즈 내부 전용 포털(<a href="./index.html" class="underline hover:text-purple-300">/myrealbiz/moabiz/</a>)에만 보존됩니다.',
+        btn_reset: "초기화",
+        btn_apply: "설정 적용 및 저장",
+        stat_total_label: "총 검토 물건 수",
+        stat_total_sub: "모아비즈 내부 전수",
+        stat_public_label: "외부 공개 (Public ON)",
+        stat_public_sub: "루트 인트로 노출",
+        stat_private_label: "내부 전용 (Private OFF)",
+        stat_private_sub: "외부 노출 완전 차단",
+        stat_volume_label: "외부공개 파이프라인 금액",
+        stat_volume_sub: "공개 물건 매매가 합계",
+        table_title: "물건별 외부 공개 상태 설정",
+        table_tip: '* 토글 스위치 조작 후 상단 <span class="text-emerald-400 font-semibold">[설정 적용 및 저장]</span>을 누르면 즉시 동기화됩니다.',
+        th_public: "외부공개 설정",
+        th_info: "물건 정보",
+        th_spec: "구조 / 규모",
+        th_price: "매매가격",
+        th_yield: "표면 / Cap Rate",
+        th_verdict: "투자 판정",
+        th_links: "링크 바로가기",
+        sync_title: "외부공개 설정이 브라우저 및 로컬에 적용되었습니다",
+        sync_desc: "현재 변경된 설정을 Git 저장소와 원격 포털에 배포하려면 아래 스크립트를 실행하거나 JSON을 내려받으세요.",
+        btn_download: "properties.json 다운로드",
+        btn_copy_cmd: "Git 자동 배포 명령어 복사",
+        btn_copy: "복사",
+        toast_saved: "외부 공개 설정이 성공적으로 저장되었습니다!",
+        toast_reset: "초기 설정으로 복원되었습니다.",
+        toast_downloaded: "properties.json 다운로드가 완료되었습니다.",
+        toast_copied: "CLI 배포 명령어가 클립보드에 복사되었습니다!",
+        tag_on: "외부 공개 ON",
+        tag_off: "내부 전용 OFF",
+        verdict_recommend: "매수 추천",
+        verdict_review: "조건부 검토",
+        link_external: "🌐 외부용 ↗",
+        link_moabiz: "🏢 모아비즈용 ↗",
+        count_unit: " 건",
+        volume_unit: " 억 엔",
+        units_label: "세대"
+      },
+      ja: {
+        docTitle: "MyRealBiz Admin | 外部公開ポートフォリオ管理コンソール",
+        nav_moabiz: "モアビズポータル",
+        nav_public: "外部公開サイト ↗",
+        banner_badge: "🔒 セキュリティ分離管理ポリシー稼働中",
+        banner_title: "物件別 外部公開(Public)制御コンソール",
+        banner_desc: '外部公開スイッチを <span class="text-emerald-400 font-semibold">ON</span> に設定するとメインイントロ(<a href="../index.html" class="underline hover:text-sky-400" target="_blank">/myrealbiz/</a>)に物件が掲載され、モアビズ法人決算書情報は自動的にマスクされます。<span class="text-purple-400 font-semibold">OFF</span> 設定時はモアビズ内部専用ポータル(<a href="./index.html" class="underline hover:text-purple-300">/myrealbiz/moabiz/</a>)にのみ保持されます。',
+        btn_reset: "初期化",
+        btn_apply: "設定を保存・適用",
+        stat_total_label: "総検討物件数",
+        stat_total_sub: "モアビズ内部全数",
+        stat_public_label: "外部公開 (Public ON)",
+        stat_public_sub: "ルートイントロ掲載",
+        stat_private_label: "内部専用 (Private OFF)",
+        stat_private_sub: "外部完全非公開",
+        stat_volume_label: "外部公開パイプライン総額",
+        stat_volume_sub: "公開物件 売買価格合計",
+        table_title: "物件別 外部公開ステータス設定",
+        table_tip: '* スイッチ切替後、上部 <span class="text-emerald-400 font-semibold">[設定を保存・適用]</span> を押すと即時反映されます。',
+        th_public: "公開ステータス",
+        th_info: "物件情報",
+        th_spec: "構造 / 規模",
+        th_price: "販売価格",
+        th_yield: "表面 / Cap Rate",
+        th_verdict: "投資判定",
+        th_links: "リンク",
+        sync_title: "外部公開設定がローカルに適用されました",
+        sync_desc: "変更した設定をGitリポジトリおよび公開ポータルへデプロイするには、以下のコマンドを実行するかJSONをダウンロードしてください。",
+        btn_download: "properties.json ダウンロード",
+        btn_copy_cmd: "Git自動デプロイコマンドをコピー",
+        btn_copy: "コピー",
+        toast_saved: "外部公開設定が正常に保存されました！",
+        toast_reset: "初期設定に復元されました。",
+        toast_downloaded: "properties.json のダウンロードが完了しました。",
+        toast_copied: "CLIデプロイコマンドをクリップボードにコピーしました！",
+        tag_on: "外部公開 ON",
+        tag_off: "内部専用 OFF",
+        verdict_recommend: "買い推奨",
+        verdict_review: "条件付検討",
+        link_external: "🌐 外部用 ↗",
+        link_moabiz: "🏢 モアビズ用 ↗",
+        count_unit: " 件",
+        volume_unit: " 億円",
+        units_label: "戸"
+      }
+    };
+
+    let currentAdminLang = 'ko';
+
+    function setAdminLang(lang) {
+      currentAdminLang = lang;
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.documentElement.lang = lang;
+      const dict = T_ADMIN[lang];
+      document.title = dict.docTitle;
+
+      const on  = 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950 shadow transition';
+      const off = 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition';
+      document.getElementById('langKO').className = lang === 'ko' ? on : off;
+      document.getElementById('langJA').className = lang === 'ja' ? on : off;
+
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const k = el.getAttribute('data-t');
+        if (dict[k] !== undefined) el.innerHTML = dict[k];
+      });
+
       renderTable();
       updateStats();
     }
@@ -271,6 +408,7 @@
     function renderTable() {
       const tbody = document.getElementById('propertiesTableBody');
       tbody.innerHTML = '';
+      const dict = T_ADMIN[currentAdminLang];
 
       properties.forEach((p, idx) => {
         const isPublic = !!p.public_enabled;
@@ -278,12 +416,15 @@
         tr.className = isPublic ? 'hover:bg-slate-800/40 transition' : 'hover:bg-slate-800/40 bg-purple-950/10 transition';
 
         const verdictBadge = p.verdict_badge === 'recommend' 
-          ? '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">매수 추천</span>'
-          : '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">조건부 검토</span>';
+          ? `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">${dict.verdict_recommend}</span>`
+          : `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">${dict.verdict_review}</span>`;
 
         const statusTag = isPublic
-          ? '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 외부 공개 ON</span>'
-          : '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> 내부 전용 OFF</span>';
+          ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> ${dict.tag_on}</span>`
+          : `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> ${dict.tag_off}</span>`;
+
+        const primaryName = currentAdminLang === 'ja' && p.name_ja ? p.name_ja : p.name_ko;
+        const secondaryName = currentAdminLang === 'ja' ? p.name_ko : (p.name_ja || '');
 
         tr.innerHTML = `
           <td class="px-6 py-4 whitespace-nowrap">
@@ -296,13 +437,13 @@
             </div>
           </td>
           <td class="px-6 py-4">
-            <div class="font-bold text-white text-sm">${p.name_ko}</div>
-            <div class="text-xs text-slate-400 mt-0.5">${p.name_ja || ''}</div>
+            <div class="font-bold text-white text-sm">${primaryName}</div>
+            <div class="text-xs text-slate-400 mt-0.5">${secondaryName}</div>
             <div class="text-[11px] text-slate-500 mt-1">📍 ${p.location}</div>
           </td>
           <td class="px-6 py-4 text-xs text-slate-300 whitespace-nowrap">
             <div>${p.structure}</div>
-            <div class="text-slate-400 mt-0.5">${p.units}세대</div>
+            <div class="text-slate-400 mt-0.5">${p.units}${dict.units_label}</div>
           </td>
           <td class="px-6 py-4 text-right whitespace-nowrap font-mono font-bold text-amber-400">
             ${p.price_display}
@@ -317,12 +458,12 @@
           <td class="px-6 py-4 text-right whitespace-nowrap space-y-1">
             <div>
               <a href="../${p.slug}/index.html" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 hover:underline inline-flex items-center gap-1">
-                <span>🌐 외부용 ↗</span>
+                <span>${dict.link_external}</span>
               </a>
             </div>
             <div>
               <a href="./${p.slug}/index.html" class="text-xs text-amber-400 hover:text-amber-300 hover:underline inline-flex items-center gap-1">
-                <span>🏢 모아비즈용 ↗</span>
+                <span>${dict.link_moabiz}</span>
               </a>
             </div>
           </td>
@@ -330,20 +471,22 @@
         tbody.appendChild(tr);
       });
 
-      document.getElementById('tableCountBadge').textContent = `(총 ${properties.length}개 물건)`;
+      document.getElementById('tableCountBadge').textContent = `(총 ${properties.length}개 / 全${properties.length}件)`;
     }
 
     function togglePublic(idx, checked) {
       properties[idx].public_enabled = checked;
+      const dict = T_ADMIN[currentAdminLang];
       const statusTag = checked
-        ? '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 외부 공개 ON</span>'
-        : '<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> 내부 전용 OFF</span>';
+        ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> ${dict.tag_on}</span>`
+        : `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-2 h-2 rounded-full bg-purple-400"></span> ${dict.tag_off}</span>`;
       
       document.getElementById(`statusTag_${idx}`).innerHTML = statusTag;
       updateStats();
     }
 
     function updateStats() {
+      const dict = T_ADMIN[currentAdminLang];
       const total = properties.length;
       const pubCount = properties.filter(p => p.public_enabled).length;
       const privCount = total - pubCount;
@@ -352,10 +495,10 @@
         .filter(p => p.public_enabled)
         .reduce((sum, p) => sum + (p.price || 0), 0);
 
-      document.getElementById('statTotal').textContent = total + ' 건';
-      document.getElementById('statPublic').textContent = pubCount + ' 건';
-      document.getElementById('statPrivate').textContent = privCount + ' 건';
-      document.getElementById('statVolume').textContent = (pubVolume / 100000000).toFixed(1) + ' 억 엔';
+      document.getElementById('statTotal').textContent = total + dict.count_unit;
+      document.getElementById('statPublic').textContent = pubCount + dict.count_unit;
+      document.getElementById('statPrivate').textContent = privCount + dict.count_unit;
+      document.getElementById('statVolume').textContent = (pubVolume / 100000000).toFixed(1) + dict.volume_unit;
     }
 
     function applyChanges() {
@@ -367,7 +510,7 @@
       localStorage.setItem('myrealbiz_admin_public_flags', JSON.stringify(flags));
 
       // 2. Show toast
-      showToast('외부 공개 설정이 성공적으로 저장되었습니다!');
+      showToast(T_ADMIN[currentAdminLang].toast_saved);
 
       // 3. Highlight sync section
       document.getElementById('syncSection').scrollIntoView({ behavior: 'smooth' });
@@ -378,7 +521,7 @@
       properties = JSON.parse(JSON.stringify(initialProperties));
       renderTable();
       updateStats();
-      showToast('초기 설정으로 복원되었습니다.');
+      showToast(T_ADMIN[currentAdminLang].toast_reset);
     }
 
     function downloadUpdatedJson() {
@@ -389,13 +532,13 @@
       document.body.appendChild(dlAnchor);
       dlAnchor.click();
       dlAnchor.remove();
-      showToast('properties.json 다운로드가 완료되었습니다.');
+      showToast(T_ADMIN[currentAdminLang].toast_downloaded);
     }
 
     function copyCliCommand() {
       const cmd = document.getElementById('cliCommandText').innerText;
       navigator.clipboard.writeText(cmd).then(() => {
-        showToast('CLI 배포 명령어가 클립보드에 복사되었습니다!');
+        showToast(T_ADMIN[currentAdminLang].toast_copied);
       });
     }
 

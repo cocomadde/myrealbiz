@@ -285,6 +285,26 @@ def publish_property(
     ext_ja = sanitize_moabiz_privacy(sanitized_pii_ja)
     (ext_dir / f"{slug}_Investment_Report_JA.md").write_text(ext_ja, encoding="utf-8")
 
+    # Build report_ja.html if build_report.py exists
+    if builder.exists():
+      subprocess.run([
+          sys.executable, str(builder),
+          str(moabiz_dir / f"{slug}_Investment_Report_JA.md"),
+          str(moabiz_dir / "report_ja.html"),
+          "--lang", "ja",
+          "--title", f"{name_ja or name_ko} 投資分析レポート (モアビズ)",
+          "--subtitle", f"{location} · {structure} {units}戸"
+      ], check=False)
+
+      subprocess.run([
+          sys.executable, str(builder),
+          str(ext_dir / f"{slug}_Investment_Report_JA.md"),
+          str(ext_dir / "report_ja.html"),
+          "--lang", "ja",
+          "--title", f"{name_ja or name_ko} 投資分析レポート",
+          "--subtitle", f"{location} · {structure} {units}戸"
+      ], check=False)
+
   # 3. Assets copy
   if assets_dir and assets_dir.is_dir():
     for dest_root in [ext_dir, moabiz_dir]:
@@ -324,11 +344,13 @@ def publish_property(
       "report_ko": f"./{slug}/{slug}_Investment_Report_KO.md",
       "report_ja": f"./{slug}/{slug}_Investment_Report_JA.md",
       "report_html": f"./{slug}/report.html",
+      "report_ja_html": f"./{slug}/report_ja.html",
       "simulator_html": f"./{slug}/index.html",
       "folder": slug,
       "moabiz_folder": f"moabiz/{slug}",
       "moabiz_simulator_html": f"./moabiz/{slug}/index.html",
-      "moabiz_report_html": f"./moabiz/{slug}/report.html"
+      "moabiz_report_html": f"./moabiz/{slug}/report.html",
+      "moabiz_report_ja_html": f"./moabiz/{slug}/report_ja.html"
   }
 
   # Update properties.json

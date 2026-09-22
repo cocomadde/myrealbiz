@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>船橋市宮本1丁目 モアビズ投資分析レポート | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">船橋市宮本1丁目 モアビズ投資分析レポート</div>
+        <div class="brand-sub">MyRealBiz 不動産投資分析アーカイブ</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn " href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn active" href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 ポートフォリオ</a>
+      <a class="btn btn-primary" href="./">🧮 融資シミュレーター</a>
+      <button class="btn" onclick="window.print()">🖨️ 印刷 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">目次 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#船橋市宮本1丁目-新築共同住宅-精密投資分析レポート" data-target="船橋市宮本1丁目-新築共同住宅-精密投資分析レポート">🏢 船橋市宮本1丁目 新築共同住宅 精密投資分析レポート</a>
+<a class="toc-h3" href="#1-1-主要投資指標サマリー" data-target="1-1-主要投資指標サマリー">1.1 主要投資指標サマリー</a>
+<a class="toc-h3" href="#1-2-決算書デザイン型判定-output-key-metrics-法人決算書着地判定" data-target="1-2-決算書デザイン型判定-output-key-metrics-法人決算書着地判定">1.2 決算書デザイン型判定 (Output &amp; Key Metrics: 法人決算書着地判定)</a>
+<a class="toc-h3" href="#1-3-本物件の4大構造的リスク分析" data-target="1-3-本物件の4大構造的リスク分析">1.3 本物件の4大構造的リスク分析</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="船橋市宮本1丁目-新築共同住宅-精密投資分析レポート">🏢 船橋市宮本1丁目 新築共同住宅 精密投資分析レポート<a class="anchor" href="#船橋市宮本1丁目-新築共同住宅-精密投資分析レポート" aria-label="link">#</a></h1>
+<div class="alert alert-note"><p><strong>[モアビズ 案件 2 / 内部専用] 千葉県船橋市宮本1丁目29-3 · 木造3階建 新築共同住宅 (1K・1R 9戸 · 土地36.90坪)</strong> <strong>作成基準日: 2026年9月</strong> | <strong>分析機関: MyRealBiz 実査分析チーム</strong> | <strong>機密区分: モアビズ内部専用 (Moabiz Confidential)</strong></p></div>
+<hr>
+<h2 id="1-エグゼクティブサマリー-executive-summary">1. エグゼクティブサマリー (Executive Summary)<a class="anchor" href="#1-エグゼクティブサマリー-executive-summary" aria-label="link">#</a></h2>
+<h3 id="1-1-主要投資指標サマリー">1.1 主要投資指標サマリー<a class="anchor" href="#1-1-主要投資指標サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-right">数値</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件価格 (販売価格)</strong></td><td class="ta-right"><strong>1億850万円</strong> (¥108,500,000)</td><td class="ta-left">税込 (土地 5,780万円 + 建物 5,070万円)</td></tr><tr><td class="ta-left"><strong>現況・満室想定年間総収入</strong></td><td class="ta-right"><strong>738.0万円</strong> (¥7,380,000)</td><td class="ta-left">月額61.5万円 (管理会社大成ハウジー査定満室時)</td></tr><tr><td class="ta-left"><strong>満室想定表面利回り</strong></td><td class="ta-right"><strong>6.80%</strong></td><td class="ta-left">共益費(戸あたり3,000円)含む</td></tr><tr><td class="ta-left"><strong>積算価格 (国税庁路線価・標準建築価額基準)</strong></td><td class="ta-right"><strong>7,401.8万円</strong> (68.2%)</td><td class="ta-left">土地路線価 2,587万円 + 建物 4,815万円</td></tr><tr><td class="ta-left"><strong>積算価格 (金融機関保守基準: 18万円/㎡)</strong></td><td class="ta-right"><strong>6,198.2万円</strong> (57.1%)</td><td class="ta-left">再調達単価引き下げ時 (担保割れリスク有)</td></tr><tr><td class="ta-left"><strong>実質年間運営経費 (Real OPEX)</strong></td><td class="ta-right"><strong>186.0万円</strong> (¥1,860,000)</td><td class="ta-left">実質経費率 <strong>25.21%</strong> (BM・無料ネット・原状回復・修繕積立)</td></tr><tr><td class="ta-left"><strong>純営業収益 (NOI)</strong></td><td class="ta-right"><strong>552.0万円</strong> (¥5,520,000)</td><td class="ta-left"><strong>実質 Cap Rate 5.09%</strong></td></tr><tr><td class="ta-left"><strong>年間元利返済額 (ADS)</strong></td><td class="ta-right"><strong>485.4万円</strong> (¥4,853,748)</td><td class="ta-left">借入 9,222.5万円 (LTV 85%), 金利 2.3%, 25年元利均等</td></tr><tr><td class="ta-left"><strong>税引前キャッシュフロー (満室時)</strong></td><td class="ta-right"><strong>+66.6万円/年</strong> (+¥666,252)</td><td class="ta-left">月額約 +5.5万円の剰余現金額 (極めて薄い安全域)</td></tr><tr><td class="ta-left"><strong>返済余裕率 (DSCR)</strong></td><td class="ta-right"><strong>1.14倍</strong></td><td class="ta-left">⚠️ 安全基準線(1.20倍)を下回る注意領域</td></tr><tr><td class="ta-left"><strong>損益分岐稼働率 (BER)</strong></td><td class="ta-right"><strong>91.0%</strong></td><td class="ta-left">⚠️ <strong>許容空室数: 0.81戸 / 全9戸 (1戸空室で即時赤字転落)</strong></td></tr><tr><td class="ta-left"><strong>初期投下自己資金 (Equity)</strong></td><td class="ta-right"><strong>2,547.1万円</strong></td><td class="ta-left">自己資金頭金(1,627.5万) + 取得諸費用(919.6万、約8.5%)</td></tr><tr><td class="ta-left"><strong>自己資本利回り (CCR)</strong></td><td class="ta-right"><strong>2.61%</strong></td><td class="ta-left">満室時税引前CFベース</td></tr><tr><td class="ta-left"><strong>総合投資判定</strong></td><td class="ta-right"><strong>18.5 / 30点</strong></td><td class="ta-left"><strong>条件付保留 / 慎重検討 (Caution / Conditional Hold)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="1-2-決算書デザイン型判定-output-key-metrics-法人決算書着地判定">1.2 決算書デザイン型判定 (Output &amp; Key Metrics: 法人決算書着地判定)<a class="anchor" href="#1-2-決算書デザイン型判定-output-key-metrics-法人決算書着地判定" aria-label="link">#</a></h3>
+<p>モアビズ保有法人（4期基準）の決算書に本物件を新規取得・算入した際の統合着地シミュレーションです：</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">指標項目 (決算書指標)</th><th class="ta-center">検証対象不動産 単品</th><th class="ta-center">モアビズ現況 (Col G)</th><th class="ta-center">検証対象不動産 算入後決算書着地予想</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>¥2,326,485</strong></td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥6,048,935</strong></td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF</strong></td><td class="ta-center"><strong>¥754,690</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥2,496,591</strong></td></tr><tr><td class="ta-left">・<strong>税引前CF利回り</strong></td><td class="ta-center">0.70%</td><td class="ta-center">0.65%</td><td class="ta-center"><strong>0.66%</strong></td></tr><tr><td class="ta-left">・<strong>推定法人税額 (実効25%)</strong></td><td class="ta-center">¥581,621</td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,512,234</strong></td></tr><tr><td class="ta-left">・<strong>税引後手残りCF</strong></td><td class="ta-center"><strong>¥173,069</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥984,357</strong></td></tr><tr><td class="ta-left">・<strong>税引後CF利回り</strong></td><td class="ta-center">0.16%</td><td class="ta-center">0.30%</td><td class="ta-center"><strong>0.26%</strong></td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (年)</strong></td><td class="ta-center">22.8年</td><td class="ta-center">24.1年</td><td class="ta-center"><strong>23.7年</strong> (0.4年改善)</td></tr><tr><td class="ta-left"><strong>4. 簡易 Cash Flow (=税引後CF)</strong></td><td class="ta-center">¥173,069</td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥984,357</strong></td></tr><tr><td class="ta-left"><strong>5. ICR (インタレスト・カバレッジ・レシオ)</strong></td><td class="ta-center">1.6배</td><td class="ta-center">0.9배</td><td class="ta-center"><strong>1.0배</strong> (改善)</td></tr><tr><td class="ta-left"><strong>6. 負債返済割合 (DSCR / 返済余裕率)</strong></td><td class="ta-center">1.4배</td><td class="ta-center">1.5배</td><td class="ta-center"><strong>1.5배</strong></td></tr><tr><td class="ta-left"><strong>7. LTV (固定資産税評価額に基づく)</strong></td><td class="ta-center">213.93%</td><td class="ta-center">261.08%</td><td class="ta-center"><strong>246.06%</strong> (15.02%p改善)</td></tr><tr><td class="ta-left"><strong>8. 投資額ROI (初期自己資金比 / CCR)</strong></td><td class="ta-center">3.16%</td><td class="ta-center">3.83%</td><td class="ta-center"><strong>3.60%</strong></td></tr><tr><td class="ta-left"><strong>9. 法人貢献総合判定</strong></td><td class="ta-center"><strong>条件付寄与</strong></td><td class="ta-center">基準線 (ICR 0.9배脆弱)</td><td class="ta-center"><strong>条件付適格 (利益・ICR改善 / 安全マージン確保必須)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="1-3-本物件の4大構造的リスク分析">1.3 本物件の4大構造的リスク分析<a class="anchor" href="#1-3-本物件の4大構造的リスク分析" aria-label="link">#</a></h3>
+<div class="alert alert-warning"><div class="alert-head">⚠️ 경고</div><ol>
+<li><strong>土地先行決済リスク</strong>: 土地代金5,780万円を事前決済し、建物を引渡受けるスキームのため、完成検査済証取得および施工会社保全が必要。</li>
+<li><strong>極小のキャッシュフロー安全域</strong>: 満室時でも年間税引前CFは+66.6万円（月約5.5万円）に過ぎず、損益分岐稼働率91.0%のため<strong>「1戸の空室（稼働率88.9%）」で即座に逆ザヤ（持出赤字）</strong>へ転落します。</li>
+<li><strong>低地ハザードリスク</strong>: 海老川下流に近接し標高2.0〜3.6mの低地。洪水時0.5m〜3.0mの浸水想定区域および高潮警戒域に該当。</li>
+<li><strong>担保積算不足</strong>: 金融機関の保守的積算（6,198万円）では売買価格の57.1%に留まり、高LTV融資が否決された場合の自己資金追加負担リスクが高い。</li>
+</ol></div>
+<hr>
+<h2 id="2-物件概要-property-overview">2. 物件概要 (Property Overview)<a class="anchor" href="#2-物件概要-property-overview" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-left">内容</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件名</strong></td><td class="ta-left"><strong>船橋市宮本1丁目 共同住宅 (新築)</strong></td></tr><tr><td class="ta-left"><strong>所在地</strong></td><td class="ta-left">千葉県船橋市宮本1丁目29-3</td></tr><tr><td class="ta-left"><strong>交通</strong></td><td class="ta-left">JR総武線 <strong>「船橋」駅 徒歩8分</strong>、京成本線「京成船橋」駅 徒歩7分</td></tr><tr><td class="ta-left"><strong>土地面積</strong></td><td class="ta-left"><strong>121.99㎡ (36.90坪)</strong></td></tr><tr><td class="ta-left"><strong>権利形態 / 地目</strong></td><td class="ta-left">所有権 / 宅地</td></tr><tr><td class="ta-left"><strong>接道状況</strong></td><td class="ta-left">北側 幅員約4.0m 公道に接道</td></tr><tr><td class="ta-left"><strong>建物構造 / 階数</strong></td><td class="ta-left">木造 地上3階建 (劣化対策等級3級取得予定)</td></tr><tr><td class="ta-left"><strong>延床面積</strong></td><td class="ta-left"><strong>192.68㎡ (58.28坪)</strong></td></tr><tr><td class="ta-left"><strong>総戸数 / 間取り</strong></td><td class="ta-left"><strong>9戸 (1K 8戸 + 1R 1戸、専有約19〜22㎡)</strong></td></tr><tr><td class="ta-left"><strong>都市計画 / 用途地域</strong></td><td class="ta-left">市街化区域 / <strong>第1種住居地域</strong></td></tr><tr><td class="ta-left"><strong>建ぺい率 / 容積率</strong></td><td class="ta-left">法定 60% / 160% (容積率消化率 157.94% フル活用)</td></tr></tbody></table></div>
+<hr>
+<h2 id="3-レントロール査定と収支詳細">3. レントロール査定と収支詳細<a class="anchor" href="#3-レントロール査定と収支詳細" aria-label="link">#</a></h2>
+<p>管理会社（大成ハウジー）査定による想定レントロール明細：</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">号室</th><th class="ta-center">間取り/専有</th><th class="ta-right">想定賃料</th><th class="ta-right">共益費</th><th class="ta-right">月額合計</th><th class="ta-right">想定平米単価</th></tr></thead><tbody><tr><td class="ta-center"><strong>101</strong></td><td class="ta-center">1K (19.87㎡)</td><td class="ta-right">63,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">66,000 円</td><td class="ta-right">3,321 円/㎡</td></tr><tr><td class="ta-center"><strong>102</strong></td><td class="ta-center">1R (19.00㎡)</td><td class="ta-right">61,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">64,000 円</td><td class="ta-right">3,368 円/㎡</td></tr><tr><td class="ta-center"><strong>103</strong></td><td class="ta-center">1K (21.50㎡)</td><td class="ta-right">65,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">68,000 円</td><td class="ta-right">3,162 円/㎡</td></tr><tr><td class="ta-center"><strong>201</strong></td><td class="ta-center">1K (19.87㎡)</td><td class="ta-right">65,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">68,000 円</td><td class="ta-right">3,422 円/㎡</td></tr><tr><td class="ta-center"><strong>202</strong></td><td class="ta-center">1K (19.00㎡)</td><td class="ta-right">64,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">67,000 円</td><td class="ta-right">3,526 円/㎡</td></tr><tr><td class="ta-center"><strong>203</strong></td><td class="ta-center">1K (21.50㎡)</td><td class="ta-right">67,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">70,000 円</td><td class="ta-right">3,255 円/㎡</td></tr><tr><td class="ta-center"><strong>301</strong></td><td class="ta-center">1K (19.87㎡)</td><td class="ta-right">67,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">70,000 円</td><td class="ta-right">3,522 円/㎡</td></tr><tr><td class="ta-center"><strong>302</strong></td><td class="ta-center">1K (19.00㎡)</td><td class="ta-right">66,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">69,000 円</td><td class="ta-right">3,631 円/㎡</td></tr><tr><td class="ta-center"><strong>303</strong></td><td class="ta-center">1K (21.50㎡)</td><td class="ta-right">69,000 円</td><td class="ta-right">3,000 円</td><td class="ta-right">72,000 円</td><td class="ta-right">3,348 円/㎡</td></tr><tr class="total-row"><td class="ta-center"><strong>合計</strong></td><td class="ta-center"><strong>全9戸</strong></td><td class="ta-right"><strong>587,000 円</strong></td><td class="ta-right"><strong>27,000 円</strong></td><td class="ta-right"><strong>615,000 円</strong></td><td class="ta-right"><strong>年額 738.0万円</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="4-総合投資評価と判断">4. 総合投資評価と判断<a class="anchor" href="#4-総合投資評価と判断" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価軸</th><th class="ta-center">配点</th><th class="ta-center">得点</th><th class="ta-left">主な判定理由</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 立地・交通利便</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>4.5</strong></td><td class="ta-left">JR総武快速「船橋」駅徒歩8分の圧倒的駅力。単身需要は極めて強固。</td></tr><tr><td class="ta-left"><strong>2. 価格・積算妥当性</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>2.5</strong></td><td class="ta-left">土地建物合計1億850万円に対し積算価格が6,198万〜7,401万円と大幅に担保割れ。</td></tr><tr><td class="ta-left"><strong>3. キャッシュフロー安全性</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>2.0</strong></td><td class="ta-left">満室時年66.6万円の薄いCF。損益分岐稼働率91%で1戸空室で即赤字。</td></tr><tr><td class="ta-left"><strong>4. 建物仕様・耐震性</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>3.5</strong></td><td class="ta-left">木造新築・劣化等級3級取得・設計住宅性能評価書付で30年融資相談可能。</td></tr><tr><td class="ta-left"><strong>5. 災害ハザード</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>2.5</strong></td><td class="ta-left">標高2〜3mの海老川沿い低地。0.5〜3.0m浸水想定地域。</td></tr><tr><td class="ta-left"><strong>6. 法人決算書貢献度</strong></td><td class="ta-center">5</td><td class="ta-center"><strong>3.5</strong></td><td class="ta-left">帳簿上利益+232万円、ICR 1.0倍到達。ただしROI向上効果は限定的。</td></tr><tr><td class="ta-left"><strong>総合評点</strong></td><td class="ta-center"><strong>30</strong></td><td class="ta-center"><strong>18.5 / 30</strong></td><td class="ta-left"><strong>条件付保留 / 慎重検討 (Caution / Conditional Hold)</strong></td></tr></tbody></table></div>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ja';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

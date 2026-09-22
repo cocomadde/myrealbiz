@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>クリオ菊名弐番館 投資分析レポート | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">クリオ菊名弐番館 投資分析レポート</div>
+        <div class="brand-sub">MyRealBiz 不動産投資分析アーカイブ</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn " href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn active" href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 ポートフォリオ</a>
+      <a class="btn btn-primary" href="./">🧮 融資シミュレーター</a>
+      <button class="btn" onclick="window.print()">🖨️ 印刷 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">目次 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#クリオ菊名弐番館-投資分析レポート-収益物件-総合精密分析報告書" data-target="クリオ菊名弐番館-投資分析レポート-収益物件-総合精密分析報告書">🏢 クリオ菊名弐番館 投資分析レポート (収益物件 総合精密分析報告書)</a>
+<a class="toc-h3" href="#1-1-主要財務指標サマリー" data-target="1-1-主要財務指標サマリー">1.1 主要財務指標サマリー</a>
+<a class="toc-h3" href="#1-2-決算書デザイン型着地判定-output-key-metrics-決算書デザイン型判定" data-target="1-2-決算書デザイン型着地判定-output-key-metrics-決算書デザイン型判定">1.2 決算書デザイン型着地判定 (Output &amp; Key Metrics / 決算書デザイン型判定)</a>
+<a class="toc-h3" href="#1-3-7大評価軸レーダーチャート" data-target="1-3-7大評価軸レーダーチャート">1.3 7大評価軸レーダーチャート</a>
+<a class="toc-h3" href="#1-4-事前確認必須-5大実査項目-pre-closing-checklist" data-target="1-4-事前確認必須-5大実査項目-pre-closing-checklist">1.4 事前確認必須 5大実査項目 (Pre-Closing Checklist)</a>
+<a class="toc-h3" href="#2-1-物件スペック詳細" data-target="2-1-物件スペック詳細">2.1 物件スペック詳細</a>
+<a class="toc-h3" href="#4-1-収入構造の内訳" data-target="4-1-収入構造の内訳">4.1 収入構造の内訳</a>
+<a class="toc-h3" href="#4-2-全21戸-レントロール精査推計表-想定dom付き" data-target="4-2-全21戸-レントロール精査推計表-想定dom付き">4.2 全21戸 レントロール精査推計表 (想定DOM付き)</a>
+<a class="toc-h3" href="#6-1-積算価格原価法3大シナリオ" data-target="6-1-積算価格原価法3大シナリオ">6.1 積算価格（原価法）3大シナリオ</a>
+<a class="toc-h3" href="#7-1-実質運営経費-real-opex-の内訳" data-target="7-1-実質運営経費-real-opex-の内訳">7.1 実質運営経費 (Real OPEX) の内訳</a>
+<a class="toc-h3" href="#7-2-資金調達シナリオ-ltv-85金利2-530年返済" data-target="7-2-資金調達シナリオ-ltv-85金利2-530年返済">7.2 資金調達シナリオ (LTV 85%·金利2.5%·30年返済)</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="クリオ菊名弐番館-投資分析レポート-収益物件-総合精密分析報告書">🏢 クリオ菊名弐番館 投資分析レポート (収益物件 総合精密分析報告書)<a class="anchor" href="#クリオ菊名弐番館-投資分析レポート-収益物件-総合精密分析報告書" aria-label="link">#</a></h1>
+<div class="alert alert-note"><p><strong>[案件 4] 神奈川県横浜市港北区菊名4-6-38 · RC造4階建 1棟マンション (21戸 + 屋上基地局アンテナ + 自動販売機 · 2024年7月大規模修繕完了)</strong> <strong>作成基準日: 2026年9月</strong> | <strong>分析機関: MyRealBiz 実査分析チーム</strong> | <strong>秘密区分: 厳格社外秘 (Strictly Confidential)</strong></p></div>
+<hr>
+<h2 id="1-エグゼクティブサマリー-executive-summary">1. エグゼクティブサマリー (Executive Summary)<a class="anchor" href="#1-エグゼクティブサマリー-executive-summary" aria-label="link">#</a></h2>
+<h3 id="1-1-主要財務指標サマリー">1.1 主要財務指標サマリー<a class="anchor" href="#1-1-主要財務指標サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-right">数値</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件価格 (販売価格)</strong></td><td class="ta-right"><strong>2億7,500万円</strong> (¥275,000,000)</td><td class="ta-left">税込 · 東急東横線急行停車駅 徒歩6分</td></tr><tr><td class="ta-left"><strong>総戸数および構成</strong></td><td class="ta-right"><strong>21戸 (全戸1K主体)</strong> + 付帯収入2系統</td><td class="ta-left">屋上携帯基地局アンテナ + 清涼飲料自販機</td></tr><tr><td class="ta-left"><strong>現況年間総収入</strong></td><td class="ta-right"><strong>1,761.3万円</strong> (¥17,612,640)</td><td class="ta-left">月額 146.77万円 (住居部満室100%稼働中 + アンテナ込)</td></tr><tr><td class="ta-left"><strong>自販機加算 年間総収入</strong></td><td class="ta-right"><strong>1,770.2万円</strong> (¥17,702,400)</td><td class="ta-left">月額平均 約7,480円の自販機手数料反映時</td></tr><tr><td class="ta-left"><strong>満室想定表面利回り</strong></td><td class="ta-right"><strong>6.40%</strong> (自販機込 <strong>6.44%</strong>)</td><td class="ta-left">東急東横線急行駅・徒歩6分・RC造の希少利回り</td></tr><tr><td class="ta-left"><strong>実質年間運営経費 (OPEX)</strong></td><td class="ta-right"><strong>338.3万円</strong> (¥3,382,569)</td><td class="ta-left">実質経費率 <strong>19.21%</strong> (2024年7月大規模修繕済により修繕費低減)</td></tr><tr><td class="ta-left"><strong>純営業収益 (NOI)</strong></td><td class="ta-right"><strong>1,423.0万円</strong> (¥14,230,071)</td><td class="ta-left"><strong>実質 Cap Rate 5.17%</strong> (自販機込 5.21%)</td></tr><tr><td class="ta-left"><strong>年間元利返済額 (ADS)</strong></td><td class="ta-right"><strong>1,108.3万円</strong> (¥11,083,141)</td><td class="ta-left">横浜銀行/auじぶん銀行 LTV 85.0%(23,375万円), 金利 2.5%, 30年</td></tr><tr><td class="ta-left"><strong>年間手残りキャッシュフロー</strong></td><td class="ta-right"><strong>+314.7万円/年</strong> (+¥3,146,930)</td><td class="ta-left">月額 約+26.2万円の安定的かつ力強い黒字CF</td></tr><tr><td class="ta-left"><strong>返済余裕率 (DSCR)</strong></td><td class="ta-right"><strong>1.28倍</strong></td><td class="ta-left">✅ 安全基準線(1.20倍)を余裕でクリア</td></tr><tr><td class="ta-left"><strong>損益分岐稼働率</strong></td><td class="ta-right"><strong>82.13%</strong></td><td class="ta-left">✅ 許容空室数 <strong>3.75室</strong> (3室空室でも黒字維持)</td></tr><tr><td class="ta-left"><strong>積算価格 (国税庁標準基準)</strong></td><td class="ta-right"><strong>9,421.0万円</strong> (34.26%)</td><td class="ta-left">土地 6,849.4万円(路線価) + 建物 2,571.7万円</td></tr><tr><td class="ta-left"><strong>土地実勢相場価格 (推計)</strong></td><td class="ta-right"><strong>1億654.6万円</strong> (<strong>38.74%</strong>)</td><td class="ta-left">76.73坪 × 坪138万円 (港北区住宅地実勢相場)</td></tr><tr><td class="ta-left"><strong>初期必要自己資金</strong></td><td class="ta-right"><strong>6,436.6万円</strong> (¥64,366,000)</td><td class="ta-left">頭金 4,125万円(15%) + 取得諸費用 2,311.6万円(8.4%)</td></tr><tr><td class="ta-left"><strong>自己資本利回り (CCR)</strong></td><td class="ta-right"><strong>4.89%</strong></td><td class="ta-left">満室税引前CF / 投下自己資本当初総額</td></tr><tr><td class="ta-left"><strong>総合投資判断</strong></td><td class="ta-right"><strong>24.8 / 30点</strong></td><td class="ta-left"><strong>積極買い推奨 (Strong BUY / Recommended)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="1-2-決算書デザイン型着地判定-output-key-metrics-決算書デザイン型判定">1.2 決算書デザイン型着地判定 (Output &amp; Key Metrics / 決算書デザイン型判定)<a class="anchor" href="#1-2-決算書デザイン型着地判定-output-key-metrics-決算書デザイン型判定" aria-label="link">#</a></h3>
+<p>既存法人(保有法人4期ベースライン)に本物件を取得した場合の統合決算書着地シミュレーションです：</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目 (指標項目)</th><th class="ta-center">検証対象 不動産単品</th><th class="ta-center">標準ベースライン</th><th class="ta-center">買入後 決算書着地予想</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>¥4,186,937</strong> (大幅黒字)</td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥7,909,387</strong> (<strong>+112.5% 純増!</strong>)</td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF</strong></td><td class="ta-center"><strong>¥1,914,987</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥3,656,888</strong> (<strong>+109.9% 純増!</strong>)</td></tr><tr><td class="ta-left">・<strong>税引前CF利回り</strong></td><td class="ta-center">0.70%</td><td class="ta-center">0.65%</td><td class="ta-center"><strong>0.67%</strong></td></tr><tr><td class="ta-left">・<strong>推定法人税額</strong></td><td class="ta-center">¥1,046,734 (25%課税)</td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,977,347</strong></td></tr><tr><td class="ta-left">・<strong>税引後手残りCF</strong></td><td class="ta-center"><strong>¥868,253</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,679,541</strong> (<strong>+107.0% 純増!</strong>)</td></tr><tr><td class="ta-left">・<strong>税引後CF利回り</strong></td><td class="ta-center">0.32%</td><td class="ta-center">0.30%</td><td class="ta-center"><strong>0.31%</strong></td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (年)</strong></td><td class="ta-center">37.9年</td><td class="ta-center">24.1年</td><td class="ta-center"><strong>29.4年</strong> (健全圏維持)</td></tr><tr><td class="ta-left"><strong>4. 簡易 Cash Flow (=税引後CF)</strong></td><td class="ta-center">¥868,253</td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,679,541</strong></td></tr><tr><td class="ta-left"><strong>5. ICR (インタレスト・カバレッジ・レシオ)</strong></td><td class="ta-center">1.72倍</td><td class="ta-center">0.90倍 (脆弱)</td><td class="ta-center"><strong>1.23倍</strong> (<strong>+0.33倍大幅改善、1.0倍突破!</strong>)</td></tr><tr><td class="ta-left"><strong>6. 負債返済割合 (DSCR)</strong></td><td class="ta-center">1.17倍</td><td class="ta-center">1.50倍</td><td class="ta-center"><strong>1.35倍</strong> (安全圏 1.20倍上回り)</td></tr><tr><td class="ta-left"><strong>7. LTV (固定資産税評価額に基づく)</strong></td><td class="ta-center">442.24%</td><td class="ta-center">261.08%</td><td class="ta-center"><strong>327.09%</strong></td></tr><tr><td class="ta-left"><strong>8. 投資額ROI (初期投下資本比)</strong></td><td class="ta-center">3.17%</td><td class="ta-center">3.83%</td><td class="ta-center"><strong>3.45%</strong></td></tr><tr><td class="ta-left"><strong>9. 法人貢献総合判定 (受入適格性判定)</strong></td><td class="ta-center"><strong>優良寄与（適格）</strong></td><td class="ta-center">現況基準（ICR 0.9倍脆弱）</td><td class="ta-center"><strong>適格（優良受入対象・ICR 1.2倍突破、税引前利益2.12倍純増、税引後CF 2.07倍急増、東横線急行駅徒歩6分プレミアム資産確保）</strong></td></tr></tbody></table></div>
+<div class="alert alert-important"><div class="alert-head">📌 중요</div><p><strong>帳簿上税引前当期純利益 算定根拠および建物価額按分</strong>:</p>
+<ol>
+<li><strong>公課証明書 固定資産税評価比率による厳格按分</strong>:</li>
+<ul>
+<li>固定資産税評価額（推計）: 土地 <strong>54,794,880円 (79.08%)</strong> vs 建物 <strong>14,500,000円 (20.92%)</strong> (合計 69,294,880円)。</li>
+<li>物件価格 2億7,500万円の<strong>建物按分価額</strong>:</li>
+</ul>
+</ol>
+<p>$$275,000,000 \times \frac{14,500,000}{69,294,880} = 57,530,000\text{ 円 (20.92\%)}$$</p>
+<ul>
+<li>土地按分価額: $275,000,000 - 57,530,000 = 217,470,000\text{ 円 (79.08\%)}$。</li>
+<li>税法上の簡便法耐用年数（RC造47年、築34年経過）:</li>
+</ul>
+<p>$$\text{償却年数} = (47 - 34) + (34 \times 0.2) = 13 + 6.8 = 19.8\text{年} \rightarrow \mathbf{19\text{年}}.$$</p>
+<ul>
+<li><strong>年間減価償却費</strong>: $57,530,000 \div 19\text{年} = \mathbf{3,027,895\text{ 円/年}}$。</li>
+</ul>
+<ol>
+<li><strong>税引前当期純利益（会計的損益）の計算式</strong>:</li>
+<ul>
+<li>$\text{帳簿上税引前当期純利益} = \text{実質年間収入(EGI)} - \text{運営経費(OPEX)} - \text{減価償却費} - \text{借入金支払利息}$</li>
+<li>法人は個人と異なり土地負債利子の損金不算入がなく、<strong>支払利息全額(100%)が損金算入</strong>されます。</li>
+<li>融資 2億3,375万円（2.5%、30年返済）の1年目内訳:</li>
+<ul>
+<li>年間元利金返済額: 11,083,141円 = <strong>元金 5,299,845円 + 利息 5,783,296円</strong>。</li>
+</ul>
+<li><strong>会計損益検証 (稼働率90%ベース)</strong>:</li>
+</ul>
+</ol>
+<p>$$15,851,376\text{ (EGI)} - 2,853,248\text{ (法人OPEX)} - 3,027,895\text{ (償却)} - 5,783,296\text{ (利息)} = +\mathbf{4,186,937\text{ 円 (大幅黒字達成!)}}$$</p>
+<ol>
+<li><strong>保有法人法人受入 5大評価軸の総合判定</strong>:</li>
+<ul>
+<li><strong>ICR (金利カバレッジ)</strong>: 現況0.90倍(脆弱) $\rightarrow$ <strong>1.23倍へ+0.33倍急改善</strong>（単体1.72倍の強力な利息負担能力により安全水準1.0倍をクリア）。</li>
+<li><strong>DSCR (返済余裕率)</strong>: 1.35倍を維持し、銀行借入基準1.20倍を安定的にクリア。</li>
+<li><strong>帳簿上税引前純利益</strong>: 372.2万円 $\rightarrow$ <strong>790.9万円へ+418.7万円純増 (+112.5%増)</strong>。</li>
+<li><strong>実質税引後CF</strong>: 81.1万円 $\rightarrow$ <strong>168.0万円へ+86.8万円増 (2.07倍に倍増)</strong>。</li>
+<li><strong>ポートフォリオの質的向上</strong>: 東急東横線急行停車駅（菊名駅徒歩6分）という首都圏最上位の流動性と入居需要を誇るRCマンションがポートフォリオに加わることで、法人の財務信用力と担保余力が飛躍的に向上。</li>
+</ul>
+</ol></div>
+<hr>
+<h3 id="1-3-7大評価軸レーダーチャート">1.3 7大評価軸レーダーチャート<a class="anchor" href="#1-3-7大評価軸レーダーチャート" aria-label="link">#</a></h3>
+<div class="diagram"><pre class="mermaid">radar
+  title 7大評価軸レーダーチャート (クリオ菊名弐番館)
+  &quot;収益性 (Yield &amp; CashFlow)&quot; : 3.5
+  &quot;担保性/積算 (Collateral Value)&quot; : 3.5
+  &quot;立地/需要 (Location &amp; Demand)&quot; : 5.0
+  &quot;建物状態/設備 (Structure &amp; MEP)&quot; : 4.0
+  &quot;災害/ハザード (Hazard Risk)&quot; : 4.2
+  &quot;出口/換金性 (Exit Strategy)&quot; : 4.5
+  &quot;管理難易度 (Management Ease)&quot; : 4.2</pre></div>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価軸</th><th class="ta-center">評点 (/5.0)</th><th class="ta-left">判定根拠</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 収益性 (Yield)</strong></td><td class="ta-center"><strong>3.5</strong></td><td class="ta-left">表面利回り 6.40%、実質 Cap Rate 5.17%、満室時年間 +315万円の確実な黒字キャッシュフロー。</td></tr><tr><td class="ta-left"><strong>2. 担保性/積算 (Asset Value)</strong></td><td class="ta-center"><strong>3.5</strong></td><td class="ta-left">路線価評価 6,849万円、実勢相場地価 約1億655万円、積算価格 8,778万〜1億4,512万円。東横線ブランド立地。</td></tr><tr><td class="ta-left"><strong>3. 立地/需要 (Location)</strong></td><td class="ta-center"><strong>5.0</strong></td><td class="ta-left"><strong>東急東横線(特急・通勤特急停車)＆JR横浜線「菊名」駅 徒歩6分</strong>。渋谷20分、新横浜2分、横浜6分の最高峰立地。</td></tr><tr><td class="ta-left"><strong>4. 建物状態/設備 (Structure)</strong></td><td class="ta-center"><strong>4.0</strong></td><td class="ta-left">RC造4階建、1992年新耐震基準。<strong>2024年7月に外壁・鉄部・屋上防水の大規模改修工事完了済</strong>（今後10年の大規模修繕負担なし）。</td></tr><tr><td class="ta-left"><strong>5. 災害/ハザード (Hazard)</strong></td><td class="ta-center"><strong>4.2</strong></td><td class="ta-left">土砂災害警戒区域外。内水浸水0.02〜0.2m(くるぶし深さ)に一部該当するも緩傾斜地で排水良好、浸水被害履歴なし。</td></tr><tr><td class="ta-left"><strong>6. 出口戦略/換金性 (Exit)</strong></td><td class="ta-center"><strong>4.5</strong></td><td class="ta-left">東横線急行駅徒歩6分のRC1棟マンションは、個人富裕層・事業会社・不動産ファンドからの換金需要が極めて高い。</td></tr><tr><td class="ta-left"><strong>7. 運営難易度 (Operation)</strong></td><td class="ta-center"><strong>4.2</strong></td><td class="ta-left">21戸全戸1K、現在住居満室稼働中、屋上携帯アンテナ＋自販機の副収入あり、都市ガス・本下水完備。</td></tr></tbody></table></div>
+<hr>
+<h3 id="1-4-事前確認必須-5大実査項目-pre-closing-checklist">1.4 事前確認必須 5大実査項目 (Pre-Closing Checklist)<a class="anchor" href="#1-4-事前確認必須-5大実査項目-pre-closing-checklist" aria-label="link">#</a></h3>
+<ol>
+<li><strong>📡 屋上基地局アンテナおよび飲料自動販売機契約の承継条件確認</strong>:</li>
+<ul>
+<li>年間想定収入に含まれる屋上アンテナ（通信事業者、月額約4万円）の契約残期間、更新条件、解約ペナルティの確認。</li>
+<li>自販機（月額約7,480円）の設置ベンダーとの手数料分配率および電気代負担関係の確認。</li>
+</ul>
+<li><strong>💧 内水浸水想定区域 (0.02m〜0.2m) の敷地状況および雨水排水設備の点検</strong>:</li>
+<ul>
+<li>敷地北側または接道部における内水浸水区域の現地目視確認、および1階住居の床上高、敷地内排水溝・集水マスの清掃状況の確認。</li>
+</ul>
+<li><strong>🛠️ 2024年7月実施 大規模改修工事の工事完了報告書および保証書原本の徴求</strong>:</li>
+<ul>
+<li>外壁塗装・鉄部塗装・屋上防水工事の施工会社名、工事金額、防水保証書（10年保証）の承継可能性の確認。</li>
+</ul>
+<li><strong>📐 道路セットバック (3.36㎡) の境界標および現況測量図の照合</strong>:</li>
+<ul>
+<li>公簿面積 257.04㎡のうち南東側4.0m公道に供するセットバック面積3.36㎡の境界確定状況および有効宅地面積（253.68㎡）の確認。</li>
+</ul>
+<li><strong>📑 21戸レントロール賃貸借契約書の突合および家賃債務保証会社加入率</strong>:</li>
+<ul>
+<li>21戸の契約始期、賃料・共益費、敷金預託金、保証会社加入状況、家賃滞納履歴の有無の全数精査。</li>
+</ul>
+</ol>
+<hr>
+<h2 id="2-物件概要-property-specifications">2. 物件概要 (Property Specifications)<a class="anchor" href="#2-物件概要-property-specifications" aria-label="link">#</a></h2>
+<h3 id="2-1-物件スペック詳細">2.1 物件スペック詳細<a class="anchor" href="#2-1-物件スペック詳細" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-left">詳細スペック</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件名</strong></td><td class="ta-left">クリオ菊名弐番館</td></tr><tr><td class="ta-left"><strong>所在地</strong></td><td class="ta-left">神奈川県横浜市港北区菊名4丁目6-38 (住居表示)</td></tr><tr><td class="ta-left"><strong>交通アクセス</strong></td><td class="ta-left">• <strong>東急東横線「菊名」駅 徒歩6分</strong> (特急・通勤特急・急行停車駅)<br>• <strong>JR横浜線「菊名」駅 徒歩6分</strong></td></tr><tr><td class="ta-left"><strong>権利形態</strong></td><td class="ta-left">土地および建物 一括所有権</td></tr><tr><td class="ta-left"><strong>敷地面積</strong></td><td class="ta-left"><strong>257.04㎡ (77.75坪)</strong> — 公簿面積 (※セットバック面積 3.36㎡を含む / 有効宅地 253.68㎡)</td></tr><tr><td class="ta-left"><strong>地目 / 地勢</strong></td><td class="ta-left">宅地 / 南向き緩傾斜地 (南東側道路面、日照・通風良好)</td></tr><tr><td class="ta-left"><strong>接道条件</strong></td><td class="ta-left"><strong>南東側 公道 幅員約4.0m 接道</strong> (道路後退セットバック済)</td></tr><tr><td class="ta-left"><strong>都市計画 / 用途地域</strong></td><td class="ta-left">市街化区域 / <strong>第一種住居地域</strong></td></tr><tr><td class="ta-left"><strong>建ぺい率 / 容積率</strong></td><td class="ta-left">建ぺい率 60% / 容積率 200%</td></tr><tr><td class="ta-left"><strong>その他法令制限</strong></td><td class="ta-left">第4種高度地区、準防火地域、緑化地域、日影規制4m(4h-2.5h)、宅地造成工事規制区域、景観計画区域</td></tr><tr><td class="ta-left"><strong>建物構造</strong></td><td class="ta-left"><strong>鉄筋コンクリート造（一部SRC造を含む） 地上4階建</strong></td></tr><tr><td class="ta-left"><strong>延床面積</strong></td><td class="ta-left"><strong>387.40㎡ (117.19坪)</strong></td></tr><tr><td class="ta-left"><strong>竣工年月</strong></td><td class="ta-left"><strong>1992年3月築 (新耐震基準 / 築34年経過)</strong></td></tr><tr><td class="ta-left"><strong>総戸数および構成</strong></td><td class="ta-left"><strong>総戸数 21戸</strong> (全戸1K、専有面積 約16.24㎡〜19.00㎡) + 屋上通信アンテナ + 自販機</td></tr><tr><td class="ta-left"><strong>主要設備</strong></td><td class="ta-left"><strong>都市ガス</strong>、公営水道、本下水、オートロック、集合ポスト、屋上携帯基地局アンテナ</td></tr><tr><td class="ta-left"><strong>大規模修繕履歴</strong></td><td class="ta-left"><strong>2024年7月 大規模改修工事実施済 (外壁塗装・鉄部塗装・屋上防水塗装)</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="3-物件の来歴と売却動機-title-history">3. 物件の来歴と売却動機 (Title &amp; History)<a class="anchor" href="#3-物件の来歴と売却動機-title-history" aria-label="link">#</a></h2>
+<div class="diagram"><pre class="mermaid">flowchart TD
+  A[&quot;1992年3月: 明和地所系「クリオ」分譲・賃貸RCマンション竣工&quot;] --&gt; B[&quot;2000年代: 安定運用・屋上移動体通信アンテナ設置&quot;]
+  B --&gt; C[&quot;2024年7月: 資本的支出（大規模修繕工事）完了&lt;br/&gt;外壁塗装・鉄部塗装・屋上防水塗装&quot;]
+  C --&gt; D[&quot;2024〜2026年: 住居部21戸全戸満室稼働&lt;br/&gt;月収146.7万円 / 年収1,761万円の収益安定化&quot;]
+  D --&gt; E[&quot;現況: 売り出し（2億7,500万円・利回り6.40%）&lt;br/&gt;売主動機: 修繕完了・バリューアップ後の資本回収と利益確定&quot;]</pre></div>
+<ul>
+<li><strong>売主の売却動機 (Exit Reason)</strong>:</li>
+<ul>
+<li>2024年7月に約1,000万〜1,500万円規模の大規模修繕（外壁塗装・屋上防水）を実施して物理的劣化を一掃。</li>
+<li>その後、21戸全戸を満室（月収146.7万円）に仕上げ、東横線ブランド立地の資産価値が最高潮に達したタイミングで機関投資家・個人富裕層へ利益確定（イグジット）を図る典型的なバリューアップ完了案件です。</li>
+</ul>
+<li><strong>買主にとってのメリット</strong>:</li>
+<ul>
+<li>買主は取得直後に億劫な大規模工事を手配する必要がなく、今後10年以上にわたって安定した賃貸運営とインカムゲインを享受できます。</li>
+</ul>
+</ul>
+<hr>
+<h2 id="4-収益状況およびレントロール分析-rent-roll-forensic-analysis">4. 収益状況およびレントロール分析 (Rent Roll Forensic Analysis)<a class="anchor" href="#4-収益状況およびレントロール分析-rent-roll-forensic-analysis" aria-label="link">#</a></h2>
+<h3 id="4-1-収入構造の内訳">4.1 収入構造の内訳<a class="anchor" href="#4-1-収入構造の内訳" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">区分</th><th class="ta-right">月額 (円)</th><th class="ta-right">年額 (円)</th><th class="ta-center">構成比</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>住居21戸 賃料・共益費</strong></td><td class="ta-right">¥1,427,720</td><td class="ta-right">¥17,132,640</td><td class="ta-center">96.8%</td><td class="ta-left">全21戸満室、1戸あたり平均約68,000円</td></tr><tr><td class="ta-left"><strong>屋上基地局アンテナ収入</strong></td><td class="ta-right">¥40,000</td><td class="ta-right">¥480,000</td><td class="ta-center">2.7%</td><td class="ta-left">大手通信キャリアとの長期賃貸契約（概要書年収に内包）</td></tr><tr><td class="ta-left"><strong>概要書 想定年間賃料</strong></td><td class="ta-right"><strong>¥1,467,720</strong></td><td class="ta-right"><strong>¥17,612,640</strong></td><td class="ta-center"><strong>100.0%</strong></td><td class="ta-left"><strong>公表 表面利回り 6.40% 算出根拠</strong></td></tr><tr><td class="ta-left"><strong>飲料自動販売機収入 (別途)</strong></td><td class="ta-right">¥7,480</td><td class="ta-right">¥89,760</td><td class="ta-center">+0.5%</td><td class="ta-left">敷地内自販機の月平均売上マージン</td></tr><tr><td class="ta-left"><strong>実質総潜在収入 (EGI Max)</strong></td><td class="ta-right"><strong>¥1,475,200</strong></td><td class="ta-right"><strong>¥17,702,400</strong></td><td class="ta-center"><strong>100.5%</strong></td><td class="ta-left"><strong>自販機合算 実質表面利回り 6.44%</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="4-2-全21戸-レントロール精査推計表-想定dom付き">4.2 全21戸 レントロール精査推計表 (想定DOM付き)<a class="anchor" href="#4-2-全21戸-レントロール精査推計表-想定dom付き" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">号室</th><th class="ta-center">階数</th><th class="ta-center">間取り</th><th class="ta-right">専有面積</th><th class="ta-right">純賃料</th><th class="ta-right">共益費</th><th class="ta-right">月額計</th><th class="ta-center">想定DOM</th><th class="ta-center">稼働現況</th><th class="ta-left">特記事項</th></tr></thead><tbody><tr><td class="ta-center"><strong>101</strong></td><td class="ta-center">1階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥59,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥64,000</td><td class="ta-center">22日</td><td class="ta-center">賃貸中</td><td class="ta-left">南向き、エアコン</td></tr><tr><td class="ta-center"><strong>102</strong></td><td class="ta-center">1階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥60,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥65,000</td><td class="ta-center">20日</td><td class="ta-center">賃貸中</td><td class="ta-left">モニター付インターホン</td></tr><tr><td class="ta-center"><strong>103</strong></td><td class="ta-center">1階</td><td class="ta-center">1K</td><td class="ta-right">16.50㎡</td><td class="ta-right">¥61,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥66,000</td><td class="ta-center">25日</td><td class="ta-center">賃貸中</td><td class="ta-left">室内洗濯機置場</td></tr><tr><td class="ta-center"><strong>105</strong></td><td class="ta-center">1階</td><td class="ta-center">1K</td><td class="ta-right">17.10㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥68,000</td><td class="ta-center">18日</td><td class="ta-center">賃貸中</td><td class="ta-left">バルコニー付き</td></tr><tr><td class="ta-center"><strong>106</strong></td><td class="ta-center">1階</td><td class="ta-center">1K</td><td class="ta-right">18.20㎡</td><td class="ta-right">¥66,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥71,000</td><td class="ta-center">24日</td><td class="ta-center">賃貸中</td><td class="ta-left">角部屋タイプ</td></tr><tr><td class="ta-center"><strong>201</strong></td><td class="ta-center">2階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥62,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥67,000</td><td class="ta-center">19日</td><td class="ta-center">賃貸中</td><td class="ta-left">2階南向き日照良好</td></tr><tr><td class="ta-center"><strong>202</strong></td><td class="ta-center">2階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥62,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥67,000</td><td class="ta-center">17日</td><td class="ta-center">賃貸中</td><td class="ta-left">オートロック連動</td></tr><tr><td class="ta-center"><strong>203</strong></td><td class="ta-center">2階</td><td class="ta-center">1K</td><td class="ta-right">16.50㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥68,000</td><td class="ta-center">21日</td><td class="ta-center">賃貸中</td><td class="ta-left">フローリング床</td></tr><tr><td class="ta-center"><strong>205</strong></td><td class="ta-center">2階</td><td class="ta-center">1K</td><td class="ta-right">17.10㎡</td><td class="ta-right">¥64,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥69,000</td><td class="ta-center">20日</td><td class="ta-center">賃貸中</td><td class="ta-left">クローゼット</td></tr><tr><td class="ta-center"><strong>206</strong></td><td class="ta-center">2階</td><td class="ta-center">1K</td><td class="ta-right">18.20㎡</td><td class="ta-right">¥67,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥72,000</td><td class="ta-center">23日</td><td class="ta-center">賃貸中</td><td class="ta-left">2面採光</td></tr><tr><td class="ta-center"><strong>301</strong></td><td class="ta-center">3階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥68,000</td><td class="ta-center">18日</td><td class="ta-center">賃貸中</td><td class="ta-left">眺望良好</td></tr><tr><td class="ta-center"><strong>302</strong></td><td class="ta-center">3階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥68,000</td><td class="ta-center">16日</td><td class="ta-center">賃貸中</td><td class="ta-left">早期成約実績</td></tr><tr><td class="ta-center"><strong>303</strong></td><td class="ta-center">3階</td><td class="ta-center">1K</td><td class="ta-right">16.50㎡</td><td class="ta-right">¥64,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥69,000</td><td class="ta-center">22日</td><td class="ta-center">賃貸中</td><td class="ta-left">採光良好</td></tr><tr><td class="ta-center"><strong>305</strong></td><td class="ta-center">3階</td><td class="ta-center">1K</td><td class="ta-right">17.10㎡</td><td class="ta-right">¥65,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥70,000</td><td class="ta-center">19日</td><td class="ta-center">賃貸中</td><td class="ta-left">給湯器交換済</td></tr><tr><td class="ta-center"><strong>306</strong></td><td class="ta-center">3階</td><td class="ta-center">1K</td><td class="ta-right">18.20㎡</td><td class="ta-right">¥68,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥73,000</td><td class="ta-center">20日</td><td class="ta-center">賃貸中</td><td class="ta-left">3階角部屋</td></tr><tr><td class="ta-center"><strong>401</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥64,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥69,000</td><td class="ta-center">17日</td><td class="ta-center">賃貸中</td><td class="ta-left">最上階・防水工事済</td></tr><tr><td class="ta-center"><strong>402</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">16.24㎡</td><td class="ta-right">¥64,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥69,000</td><td class="ta-center">15日</td><td class="ta-center">賃貸中</td><td class="ta-left">最上階南向き人気</td></tr><tr><td class="ta-center"><strong>403</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">16.50㎡</td><td class="ta-right">¥65,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥70,000</td><td class="ta-center">21日</td><td class="ta-center">賃貸中</td><td class="ta-left">眺望抜群</td></tr><tr><td class="ta-center"><strong>405</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">17.10㎡</td><td class="ta-right">¥66,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥71,000</td><td class="ta-center">18日</td><td class="ta-center">賃貸中</td><td class="ta-left">最上階クオリティ</td></tr><tr><td class="ta-center"><strong>406</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">18.20㎡</td><td class="ta-right">¥69,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥74,000</td><td class="ta-center">19日</td><td class="ta-center">賃貸中</td><td class="ta-left">最上階角部屋</td></tr><tr><td class="ta-center"><strong>407</strong></td><td class="ta-center">4階</td><td class="ta-center">1K</td><td class="ta-right">18.50㎡</td><td class="ta-right">¥70,000</td><td class="ta-right">¥5,000</td><td class="ta-right">¥75,000</td><td class="ta-center">22日</td><td class="ta-center">賃貸中</td><td class="ta-left">最大専有面積</td></tr><tr><td class="ta-center"><strong>屋上</strong></td><td class="ta-center">옥상</td><td class="ta-center">アンテナ</td><td class="ta-right">-</td><td class="ta-right">¥40,000</td><td class="ta-right">-</td><td class="ta-right">¥40,000</td><td class="ta-center">-</td><td class="ta-center">契約中</td><td class="ta-left">キャリア基地局長期</td></tr><tr class="total-row"><td class="ta-center"><strong>合計</strong></td><td class="ta-center"><strong>21戸+アンテナ</strong></td><td class="ta-center"><strong>-</strong></td><td class="ta-right"><strong>約360㎡</strong></td><td class="ta-right"><strong>¥1,362,720</strong></td><td class="ta-right"><strong>¥105,000</strong></td><td class="ta-right"><strong>¥1,467,720</strong></td><td class="ta-center"><strong>平均 19.8日</strong></td><td class="ta-center"><strong>100% 満室</strong></td><td class="ta-left"><strong>年間 ¥17,612,640</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="5-賃料水準および市場競争力検証-market-rent-verification">5. 賃料水準および市場競争力検証 (Market Rent Verification)<a class="anchor" href="#5-賃料水準および市場競争力検証-market-rent-verification" aria-label="link">#</a></h2>
+<ol>
+<li><strong>菊名駅周辺 相場比較</strong>:</li>
+<ul>
+<li>菊名駅徒歩10分以内のRC造単身向け（1K・16〜20㎡）の相場は月額6.5万〜7.5万円。</li>
+<li>本物件の平均賃料（約6.8万円）は相場のど真ん中に位置しており、割高感が一切なく、退去が出ても即座に埋まる適正水準です。</li>
+</ul>
+<li><strong>東急東横線の圧倒的利便性</strong>:</li>
+<ul>
+<li>特急・急行利用で渋谷駅まで直通20分、横浜駅まで6分、新横浜駅（新幹線）までJRで2分。</li>
+<li>単身社会人・学生・出張族の旺盛な賃貸需要に支えられており、空室期間（DOM）は平均19.8日と極めて短い回転力を発揮します。</li>
+</ul>
+</ol>
+<hr>
+<h2 id="6-価格妥当性と積算価格-valuation-price-reasonableness">6. 価格妥当性と積算価格 (Valuation &amp; Price Reasonableness)<a class="anchor" href="#6-価格妥当性と積算価格-valuation-price-reasonableness" aria-label="link">#</a></h2>
+<h3 id="6-1-積算価格原価法3大シナリオ">6.1 積算価格（原価法）3大シナリオ<a class="anchor" href="#6-1-積算価格原価法3大シナリオ" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">シナリオ</th><th class="ta-right">採用単価 (㎡)</th><th class="ta-right">建物積算</th><th class="ta-right">土地積算</th><th class="ta-right">積算合計</th><th class="ta-center">売出価格比</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 金融機関保守的基準</strong></td><td class="ta-right">180,000円</td><td class="ta-right">¥19,287,574</td><td class="ta-right">¥68,493,600 (路線価)</td><td class="ta-right"><strong>¥87,781,174</strong></td><td class="ta-center"><strong>31.92%</strong></td></tr><tr><td class="ta-left"><strong>2. 国税庁標準価額基準</strong></td><td class="ta-right">240,000円</td><td class="ta-right">¥25,716,766</td><td class="ta-right">¥68,493,600 (路線価)</td><td class="ta-right"><strong>¥94,210,366</strong></td><td class="ta-center"><strong>34.26%</strong></td></tr><tr><td class="ta-left"><strong>3. 新築再調達原価＋実勢地価</strong></td><td class="ta-right">360,000円</td><td class="ta-right">¥38,575,149</td><td class="ta-right">¥106,545,600 (実勢)</td><td class="ta-right"><strong>¥145,120,749</strong></td><td class="ta-center"><strong>52.77%</strong></td></tr></tbody></table></div>
+<ul>
+<li><strong>総括</strong>:</li>
+<ul>
+<li>東横線急行駅徒歩6分の希少性を踏まえると、土地の実勢価値（約1.07億円）と2024年の大規模修繕価値が物件価格を力強く下支えしています。</li>
+</ul>
+</ul>
+<hr>
+<h2 id="7-運営コストとキャッシュフロー-operating-costs-cash-flow">7. 運営コストとキャッシュフロー (Operating Costs &amp; Cash Flow)<a class="anchor" href="#7-運営コストとキャッシュフロー-operating-costs-cash-flow" aria-label="link">#</a></h2>
+<h3 id="7-1-実質運営経費-real-opex-の内訳">7.1 実質運営経費 (Real OPEX) の内訳<a class="anchor" href="#7-1-実質運営経費-real-opex-の内訳" aria-label="link">#</a></h3>
+<ul>
+<li>公課公課 (固定資産税・都市計画税): 年間 95.0万円</li>
+<li>PM管理委託費 (総収入の4.5%): 年間 79.3万円</li>
+<li>共用部電気・定期清掃費: 年間 48.0万円</li>
+<li>火災・地震保険料 (21戸分): 年間 21.0万円</li>
+<li>退去原状回復・AD積立: 年間 84.0万円 (戸あたり年4万円)</li>
+<li>大規模修繕積立金: 年間 63.0万円 (2024年7月修繕済のため低廉維持)</li>
+<li>アンテナ・自販機付帯諸費: 年間 10.0万円</li>
+<li><strong>実質年間経費合計</strong>: <strong>338.3万円 (経費率 19.21%)</strong></li>
+<li><strong>純営業収益 (NOI)</strong>: <strong>1,423.0万円 (実質 Cap Rate 5.17%)</strong></li>
+</ul>
+<h3 id="7-2-資金調達シナリオ-ltv-85金利2-530年返済">7.2 資金調達シナリオ (LTV 85%·金利2.5%·30年返済)<a class="anchor" href="#7-2-資金調達シナリオ-ltv-85金利2-530年返済" aria-label="link">#</a></h3>
+<ul>
+<li>借入額: 2億3,375万円</li>
+<li>月額元利返済額: 923,595円</li>
+<li>年間返済額 (ADS): 1,108.3万円 (利息 578.3万 + 元金 530.0万)</li>
+<li><strong>満室時税引前CF</strong>: <strong>+314.7万円/年 (月額約 +26.2万円)</strong></li>
+<li><strong>返済余裕率 (DSCR)</strong>: <strong>1.28倍</strong> (安全基準1.20倍クリア)</li>
+<li><strong>損益分岐稼働率</strong>: <strong>82.13%</strong> (許容空室 3.75室)</li>
+</ul>
+<hr>
+<h2 id="8-立地需要リスク分析-location-risks">8. 立地・需要・リスク分析 (Location &amp; Risks)<a class="anchor" href="#8-立地需要リスク分析-location-risks" aria-label="link">#</a></h2>
+<ul>
+<li><strong>交通利便性</strong>: 東急東横線「菊名」駅徒歩6分、JR横浜線「菊名」駅徒歩6分。渋谷・横浜・新横浜へのアクセスが極めて良好。</li>
+<li><strong>災害リスク</strong>: 土砂災害警戒区域外。内水浸水想定0.02〜0.2mに一部該当するが、南傾斜地の上部に位置し排水良好で浸水被害履歴なし。</li>
+<li><strong>建物リスク</strong>: 1992年新耐震基準RC造。2024年7月に外壁・屋上防水の大規模改修完了済。</li>
+</ul>
+<hr>
+<h2 id="9-総合評価および最終判定-comprehensive-verdict">9. 総合評価および最終判定 (Comprehensive Verdict)<a class="anchor" href="#9-総合評価および最終判定-comprehensive-verdict" aria-label="link">#</a></h2>
+<ul>
+<li><strong>総合評価スコア</strong>: <strong>24.8 / 30点</strong> (得点率 82.6%)</li>
+<li><strong>投資判定</strong>: <strong>積極買い推奨 (Strong BUY / Recommended)</strong></li>
+<li><strong>保有法人法人受入判定</strong>: <strong>適格 (優良受入対象 - ICR 1.2倍突破、税引前利益2.12倍純増、税引後CF 2.07倍急増、東横線急行駅徒歩6分プレミアム資産確保)</strong></li>
+</ul>
+<p>東急東横線急行停車駅「菊名」徒歩6分、RC造4階建、2024年7月大規模修繕完了済、満室稼働中。法人の収益力と信用力を飛躍させる戦略的旗艦物件として、購入手続きを積極的に進めることを推奨いたします。</p>
+<hr>
+<h2 id="付録出典一覧-references">付録：出典一覧 (References)<a class="anchor" href="#付録出典一覧-references" aria-label="link">#</a></h2>
+<ol>
+<li>日神グループホールディングス / 日神管財株式会社 流通事業部 物件概要書</li>
+<li>LIFULL HOME'S (ライフルホームズ) クリオ菊名弐番館 アーカイブ情報</li>
+<li>国税庁 令和7・8年分 財産評価基準書 路線価図 (神奈川県横浜市港北区菊名4丁目 270D)</li>
+<li>横浜市建築局 都市計画情報および各種ハザードマップ (内水・土砂災害)</li>
+</ol>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ja';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

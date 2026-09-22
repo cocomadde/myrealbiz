@@ -649,6 +649,18 @@
     }
 
     function setLanguage(lang) {
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.querySelectorAll('a[href*="report"]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (href) {
+          if (lang === 'ja') {
+            a.setAttribute('href', href.replace('report.html', 'report_ja.html'));
+          } else {
+            a.setAttribute('href', href.replace('report_ja.html', 'report.html'));
+          }
+        }
+      });
+
       currentLang = lang;
       document.documentElement.lang = lang;
       const dict = T[lang];
@@ -825,7 +837,8 @@
 
     // Initialize
     window.addEventListener('DOMContentLoaded', () => {
-      setLanguage('ko');
+      const savedLang = localStorage.getItem('myrealbiz_lang') || 'ko';
+    setLanguage(savedLang);
     });
   </script>
 </body>

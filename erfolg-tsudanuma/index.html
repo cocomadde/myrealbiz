@@ -815,6 +815,18 @@
     }
 
     function setLanguage(lang) {
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.querySelectorAll('a[href*="report"]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (href) {
+          if (lang === 'ja') {
+            a.setAttribute('href', href.replace('report.html', 'report_ja.html'));
+          } else {
+            a.setAttribute('href', href.replace('report_ja.html', 'report.html'));
+          }
+        }
+      });
+
       currentLang = lang;
       applyTranslations();
     }
@@ -828,7 +840,8 @@
       document.getElementById("inOcc").addEventListener("input", updateSim);
       document.getElementById("inOpex").addEventListener("input", updateSim);
 
-      applyTranslations();
+      const savedLang = localStorage.getItem('myrealbiz_lang') || 'ko';
+      setLanguage(savedLang);
     });
   </script>
 </body>

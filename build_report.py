@@ -509,6 +509,20 @@ tbody tr.total-row td {{
 }}
 #toTop.show {{ display: block; }}
 
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {{
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}}
+.lang-btn {{
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}}
+.lang-btn:hover {{ color: #fff; }}
+.lang-btn.active {{
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}}
+
 /* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 1080px) {{
   .shell {{ grid-template-columns: 1fr; gap: 0; }}
@@ -550,9 +564,13 @@ tbody tr.total-row td {{
       </div>
     </div>
     <div class="tools">
-      <a class="btn" href="../">🏠 포트폴리오</a>
-      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
-      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+      <div class="lang-toggle">
+        <a class="lang-btn {ko_active}" href="{ko_href}" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn {ja_active}" href="{ja_href}" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">{portfolio_text}</a>
+      <a class="btn btn-primary" href="./">{simulator_text}</a>
+      <button class="btn" onclick="window.print()">{print_text}</button>
     </div>
   </div>
   <div class="progress" id="progress"></div>
@@ -560,7 +578,7 @@ tbody tr.total-row td {{
 
 <div class="shell">
   <nav class="sidebar">
-    <div class="toc-label">목차 (Contents)</div>
+    <div class="toc-label">{toc_title}</div>
     <div class="sidebar-scroll">
 {toc}
     </div>
@@ -570,7 +588,7 @@ tbody tr.total-row td {{
   </article>
 </div>
 
-<button id="toTop" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" aria-label="맨 위로">↑</button>
+<button id="toTop" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" aria-label="Top">↑</button>
 
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -587,6 +605,19 @@ tbody tr.total-row td {{
   }});
 </script>
 <script>
+// Language preference auto-redirect
+(function() {{
+  const PAGE_LANG = '{html_lang}';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {{
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {{
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }}
+  }}
+}})();
+
 // Math
 document.addEventListener('DOMContentLoaded', function () {{
   if (window.renderMathInElement) {{
@@ -649,12 +680,17 @@ def main():
     parser.add_argument('dest', help='output html file')
     parser.add_argument(
         '--title',
-        default='종합분석 보고서',
+        default=None,
         help='report title shown in the sticky header and browser tab')
     parser.add_argument(
         '--subtitle',
-        default='MyRealBiz 부동산 투자 분석 아카이브',
+        default=None,
         help='one-line property summary shown under the title')
+    parser.add_argument(
+        '--lang',
+        choices=['ko', 'ja'],
+        default='ko',
+        help='page language (ko or ja)')
     args = parser.parse_args()
 
     src = pathlib.Path(args.source)
@@ -663,16 +699,48 @@ def main():
     md = src.read_text(encoding='utf-8')
     body, toc = convert(md)
 
+    if args.lang == 'ja':
+        title = args.title or '精密投資分析レポート'
+        subtitle = args.subtitle or 'MyRealBiz 不動産投資分析アーカイブ'
+        portfolio_text = '🏠 ポートフォリオ'
+        simulator_text = '🧮 融資シミュレーター'
+        print_text = '🖨️ 印刷 / PDF'
+        toc_title = '目次 (Contents)'
+        ko_active = ''
+        ja_active = 'active'
+        ko_href = './report.html'
+        ja_href = './report_ja.html'
+    else:
+        title = args.title or '종합분석 보고서'
+        subtitle = args.subtitle or 'MyRealBiz 부동산 투자 분석 아카이브'
+        portfolio_text = '🏠 포트폴리오'
+        simulator_text = '🧮 융자 시뮬레이터'
+        print_text = '🖨️ 인쇄 / PDF'
+        toc_title = '목차 (Contents)'
+        ko_active = 'active'
+        ja_active = ''
+        ko_href = './report.html'
+        ja_href = './report_ja.html'
+
     dst.write_text(
         TEMPLATE.format(
-            title=f'{args.title} | MyRealBiz',
-            brand_title=args.title,
-            brand_sub=args.subtitle,
+            html_lang=args.lang,
+            title=f'{title} | MyRealBiz',
+            brand_title=title,
+            brand_sub=subtitle,
+            ko_active=ko_active,
+            ja_active=ja_active,
+            ko_href=ko_href,
+            ja_href=ja_href,
+            portfolio_text=portfolio_text,
+            simulator_text=simulator_text,
+            print_text=print_text,
+            toc_title=toc_title,
             toc=build_toc(toc),
             body=body),
         encoding='utf-8')
 
-    print(f'built {dst}')
+    print(f'built [{args.lang}] {dst}')
     print(f'  source : {len(md.splitlines())} md lines')
     print(f'  output : {len(dst.read_text(encoding="utf-8").splitlines())} html lines')
     print(f'  toc    : {len(toc)} entries')
@@ -680,3 +748,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

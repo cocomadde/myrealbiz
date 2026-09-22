@@ -24,13 +24,15 @@
       "실시간 융자 시뮬레이터 및 회전율 실사 완료"
     ],
     "report_ko": "./foresthills/Foresta_Hills_Investment_Report_KO.md",
-    "report_ja": "./foresthills/Foresta_Hills_Vacancy_Turnover_Analysis_JA.md",
+    "report_ja": "./foresthills/Foresta_Hills_Investment_Report_JA.md",
     "report_html": "./foresthills/report.html",
     "simulator_html": "./foresthills/index.html",
     "folder": "foresthills",
     "moabiz_folder": "moabiz/foresthills",
     "moabiz_simulator_html": "./moabiz/foresthills/index.html",
-    "moabiz_report_html": "./moabiz/foresthills/report.html"
+    "moabiz_report_html": "./moabiz/foresthills/report.html",
+    "report_ja_html": "./foresthills/report_ja.html",
+    "moabiz_report_ja_html": "./moabiz/foresthills/report_ja.html"
   },
   {
     "slug": "funabashi-miyamoto",
@@ -57,13 +59,15 @@
       "토지 선행 결제 및 저지대 침수 상정구역 주의"
     ],
     "report_ko": "./funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_KO.md",
-    "report_ja": "./funabashi-miyamoto/report.html",
+    "report_ja": "./funabashi-miyamoto/Funabashi_Miyamoto_Investment_Report_JA.md",
     "report_html": "./funabashi-miyamoto/report.html",
     "simulator_html": "./funabashi-miyamoto/index.html",
     "folder": "funabashi-miyamoto",
     "moabiz_folder": "moabiz/funabashi-miyamoto",
     "moabiz_simulator_html": "./moabiz/funabashi-miyamoto/index.html",
-    "moabiz_report_html": "./moabiz/funabashi-miyamoto/report.html"
+    "moabiz_report_html": "./moabiz/funabashi-miyamoto/report.html",
+    "report_ja_html": "./funabashi-miyamoto/report_ja.html",
+    "moabiz_report_ja_html": "./moabiz/funabashi-miyamoto/report_ja.html"
   },
   {
     "slug": "matsudo-kawaharazuka",
@@ -96,7 +100,9 @@
     "folder": "matsudo-kawaharazuka",
     "moabiz_folder": "moabiz/matsudo-kawaharazuka",
     "moabiz_simulator_html": "./moabiz/matsudo-kawaharazuka/index.html",
-    "moabiz_report_html": "./moabiz/matsudo-kawaharazuka/report.html"
+    "moabiz_report_html": "./moabiz/matsudo-kawaharazuka/report.html",
+    "report_ja_html": "./matsudo-kawaharazuka/report_ja.html",
+    "moabiz_report_ja_html": "./moabiz/matsudo-kawaharazuka/report_ja.html"
   },
   {
     "slug": "clio-kikuna",
@@ -129,7 +135,9 @@
     "folder": "clio-kikuna",
     "moabiz_folder": "moabiz/clio-kikuna",
     "moabiz_simulator_html": "./moabiz/clio-kikuna/index.html",
-    "moabiz_report_html": "./moabiz/clio-kikuna/report.html"
+    "moabiz_report_html": "./moabiz/clio-kikuna/report.html",
+    "report_ja_html": "./clio-kikuna/report_ja.html",
+    "moabiz_report_ja_html": "./moabiz/clio-kikuna/report_ja.html"
   },
   {
     "slug": "erfolg-tsudanuma",
@@ -162,6 +170,8 @@
     "folder": "erfolg-tsudanuma",
     "moabiz_folder": "moabiz/erfolg-tsudanuma",
     "moabiz_simulator_html": "./moabiz/erfolg-tsudanuma/index.html",
-    "moabiz_report_html": "./moabiz/erfolg-tsudanuma/report.html"
+    "moabiz_report_html": "./moabiz/erfolg-tsudanuma/report.html",
+    "report_ja_html": "./erfolg-tsudanuma/report_ja.html",
+    "moabiz_report_ja_html": "./moabiz/erfolg-tsudanuma/report_ja.html"
   }
 ]

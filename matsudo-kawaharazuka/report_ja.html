@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>エクシードアロー 投資分析レポート | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">エクシードアロー 投資分析レポート</div>
+        <div class="brand-sub">MyRealBiz 不動産投資分析アーカイブ</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn " href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn active" href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 ポートフォリオ</a>
+      <a class="btn btn-primary" href="./">🧮 融資シミュレーター</a>
+      <button class="btn" onclick="window.print()">🖨️ 印刷 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">目次 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#エクシードアロー-exceed-arrow-精密投資分析レポート" data-target="エクシードアロー-exceed-arrow-精密投資分析レポート">🏢 エクシードアロー (Exceed Arrow) 精密投資分析レポート</a>
+<a class="toc-h3" href="#1-1-主要投資指標サマリー" data-target="1-1-主要投資指標サマリー">1.1 主要投資指標サマリー</a>
+<a class="toc-h3" href="#1-2-決算書デザイン型判定-output-key-metrics" data-target="1-2-決算書デザイン型判定-output-key-metrics">1.2 決算書デザイン型判定 (Output &amp; Key Metrics)</a>
+<a class="toc-h3" href="#1-3-7大評価軸サマリー" data-target="1-3-7大評価軸サマリー">1.3 7大評価軸サマリー</a>
+<a class="toc-h3" href="#1-4-事前確認必須5大項目-pre-closing-checklist" data-target="1-4-事前確認必須5大項目-pre-closing-checklist">1.4 事前確認必須5大項目 (Pre-Closing Checklist)</a>
+<a class="toc-h3" href="#3-1-8戸全室レントロール一覧" data-target="3-1-8戸全室レントロール一覧">3.1 8戸全室レントロール一覧</a>
+<a class="toc-h3" href="#4-1-令和8年度-固定資産税公課証明書に基づく公的評価額" data-target="4-1-令和8年度-固定資産税公課証明書に基づく公的評価額">4.1 令和8年度 固定資産税公課証明書に基づく公的評価額</a>
+<a class="toc-h3" href="#4-2-積算価格3大シナリオ比較" data-target="4-2-積算価格3大シナリオ比較">4.2 積算価格3大シナリオ比較</a>
+<a class="toc-h3" href="#5-1-実質運営経費-opex-の内訳" data-target="5-1-実質運営経費-opex-の内訳">5.1 実質運営経費 (OPEX) の内訳</a>
+<a class="toc-h3" href="#6-1-30点満点スコアカード" data-target="6-1-30点満点スコアカード">6.1 30点満点スコアカード</a>
+<a class="toc-h3" href="#付録出典実査資料一覧" data-target="付録出典実査資料一覧">付録：出典・実査資料一覧</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="エクシードアロー-exceed-arrow-精密投資分析レポート">🏢 エクシードアロー (Exceed Arrow) 精密投資分析レポート<a class="anchor" href="#エクシードアロー-exceed-arrow-精密投資分析レポート" aria-label="link">#</a></h1>
+<div class="alert alert-note"><p><strong>[案件 3] 千葉県松戸市河原塚29-1 · 鉄骨造2階建 1棟共同住宅 (2DK 8戸 + 敷地内駐車場5台 · 土地189.67坪)</strong> <strong>作成基準日: 2026年9月</strong> | <strong>分析機関: MyRealBiz 実査分析チーム</strong> | <strong>機密区分: 厳格対外秘 (Strictly Confidential)</strong></p></div>
+<hr>
+<h2 id="1-エグゼクティブサマリー-executive-summary">1. エグゼクティブサマリー (Executive Summary)<a class="anchor" href="#1-エグゼクティブサマリー-executive-summary" aria-label="link">#</a></h2>
+<h3 id="1-1-主要投資指標サマリー">1.1 主要投資指標サマリー<a class="anchor" href="#1-1-主要投資指標サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-right">数値</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件価格 (販売価格)</strong></td><td class="ta-right"><strong>9,400万円</strong> (¥94,000,000)</td><td class="ta-left">税込 · 販売価格のうち約90%が土地値</td></tr><tr><td class="ta-left"><strong>総戸数および間取り</strong></td><td class="ta-right"><strong>8戸 (2DK × 8戸)</strong></td><td class="ta-left">専有面積 45.00㎡ ~ 47.88㎡ ファミリー向け</td></tr><tr><td class="ta-left"><strong>現況年間総収入</strong></td><td class="ta-right"><strong>665.6万円</strong> (¥6,656,400)</td><td class="ta-left">月額55.47万円 (純賃料49.6万 + 共益/駐車場/水道5.87万)</td></tr><tr><td class="ta-left"><strong>満室想定表面利回り</strong></td><td class="ta-right"><strong>7.08%</strong></td><td class="ta-left">純賃料ベース表面利回り 6.33%</td></tr><tr><td class="ta-left"><strong>実質年間運営経費 (OPEX)</strong></td><td class="ta-right"><strong>143.6万円</strong> (¥1,435,629)</td><td class="ta-left">実質経費率 <strong>21.57%</strong> (公課・管理・修繕・保険正常化)</td></tr><tr><td class="ta-left"><strong>純営業収益 (NOI)</strong></td><td class="ta-right"><strong>522.1万円</strong> (¥5,220,771)</td><td class="ta-left"><strong>実質 Cap Rate 5.55%</strong></td></tr><tr><td class="ta-left"><strong>年間元利返済額 (ADS)</strong></td><td class="ta-right"><strong>423.4万円</strong> (¥4,234,116)</td><td class="ta-left">auじぶん銀行 LTV 95.0% (8,930万円), 金利 2.5%, 30年元利均等</td></tr><tr><td class="ta-left"><strong>税引前キャッシュフロー (満室時)</strong></td><td class="ta-right"><strong>+98.7万円/年</strong> (+¥986,655)</td><td class="ta-left">月額約 +8.22万円の安定剰余現金</td></tr><tr><td class="ta-left"><strong>返済余裕率 (DSCR)</strong></td><td class="ta-right"><strong>1.23倍</strong></td><td class="ta-left">✅ 安全基準線(1.20倍)を安定的に上回る</td></tr><tr><td class="ta-left"><strong>損益分岐稼働率</strong></td><td class="ta-right"><strong>85.18%</strong></td><td class="ta-left">✅ 許容空室数 <strong>1.19戸</strong> (1戸空室時でも黒字維持)</td></tr><tr><td class="ta-left"><strong>積算価格 (固定資産税評価基準)</strong></td><td class="ta-right"><strong>4,515.7万円</strong> (48.0%)</td><td class="ta-left">土地 3,812.4万円 + 建物 703.2万円 (公課証明書実測)</td></tr><tr><td class="ta-left"><strong>土地実勢取引価格 (推定)</strong></td><td class="ta-right"><strong>8,535.2万円</strong> (<strong>90.8%</strong>)</td><td class="ta-left">189.67坪 × 坪単価45万円 (販売価格の約91%が土地値)</td></tr><tr><td class="ta-left"><strong>初期必要自己資金</strong></td><td class="ta-right"><strong>1,287.4万円</strong> (¥12,874,000)</td><td class="ta-left">自己資金頭金 470万円(5%) + 取得諸費用 817.4万円(8.7%)</td></tr><tr><td class="ta-left"><strong>自己資本利回り (CCR)</strong></td><td class="ta-right"><strong>7.66%</strong></td><td class="ta-left">税引前CF / 初期投下自己資金 (大幅改善)</td></tr><tr><td class="ta-left"><strong>総合投資判定</strong></td><td class="ta-right"><strong>24.3 / 30点</strong></td><td class="ta-left"><strong>積極買い検討 / 買い推奨 (BUY / Recommended)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="1-2-決算書デザイン型判定-output-key-metrics">1.2 決算書デザイン型判定 (Output &amp; Key Metrics)<a class="anchor" href="#1-2-決算書デザイン型判定-output-key-metrics" aria-label="link">#</a></h3>
+<p>法人決算書基準 保有法人4期ベースラインと本物件取得時の統合財務着地シミュレーションです：</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">指標項目</th><th class="ta-center">検証対象不動産 単品</th><th class="ta-center">標準ベースライン</th><th class="ta-center">検証対象不動産 購入後決算書着地予想</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>¥300,440</strong> (黒字)</td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥4,022,890</strong></td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF</strong></td><td class="ta-center"><strong>¥986,655</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥2,728,556</strong></td></tr><tr><td class="ta-left">・<strong>税引前CF利回り</strong></td><td class="ta-center">1.05%</td><td class="ta-center">0.65%</td><td class="ta-center"><strong>0.76%</strong></td></tr><tr><td class="ta-left">・<strong>推定法人税額</strong></td><td class="ta-center">¥75,110 (25%課税)</td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,005,723</strong></td></tr><tr><td class="ta-left">・<strong>税引後手残りCF</strong></td><td class="ta-center"><strong>¥911,545</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,722,834</strong></td></tr><tr><td class="ta-left">・<strong>税引後CF利回り</strong></td><td class="ta-center">0.97%</td><td class="ta-center">0.30%</td><td class="ta-center"><strong>0.48%</strong></td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (年)</strong></td><td class="ta-center">30.4年</td><td class="ta-center">24.1年</td><td class="ta-center"><strong>25.6年</strong> (健全域維持)</td></tr><tr><td class="ta-left"><strong>4. 簡易 Cash Flow (=税引後CF)</strong></td><td class="ta-center">¥911,545</td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,722,834</strong></td></tr><tr><td class="ta-left"><strong>5. ICR (インタレスト・カバレッジ・レシオ)</strong></td><td class="ta-center">2.4倍</td><td class="ta-center">0.9倍</td><td class="ta-center"><strong>1.2倍</strong> (改善)</td></tr><tr><td class="ta-left"><strong>6. 負債返済割合 (DSCR / 返済余裕率)</strong></td><td class="ta-center">1.23倍</td><td class="ta-center">1.5倍</td><td class="ta-center"><strong>1.4倍</strong></td></tr><tr><td class="ta-left"><strong>7. LTV (固定資産税評価額に基づく)</strong></td><td class="ta-center">197.76%</td><td class="ta-center">261.08%</td><td class="ta-center"><strong>207.67%</strong> (健全化)</td></tr><tr><td class="ta-left"><strong>8. 投資額ROI (初期自己資本比 / CCR)</strong></td><td class="ta-center"><strong>7.66%</strong></td><td class="ta-center">3.83%</td><td class="ta-center"><strong>4.77%</strong></td></tr><tr><td class="ta-left"><strong>9. 法人貢献総合判定（保有法人法人受入適格性・総合判定）</strong></td><td class="ta-center"><strong>優良寄与（適格）</strong></td><td class="ta-center">現況基準（ICR 0.9倍脆弱）</td><td class="ta-center"><strong>適格（優良受入対象・ICR・ROI・CF・担保力大幅改善）</strong></td></tr></tbody></table></div>
+<div class="alert alert-important"><div class="alert-head">📌 중요</div><p><strong>帳簿上税引前当期純利益の算定根拠および建物価格按分法</strong>:</p>
+<ol>
+<li><strong>公課証明書の固定資産税評価比率による厳格按分</strong>:</li>
+<ul>
+<li>松戸市公課証明書実測評価額：土地4筆合計 <strong>38,124,108円 (84.43%)</strong> vs 家屋1棟 <strong>7,032,406円 (15.57%)</strong>（合計45,156,514円）。</li>
+<li>物件売買価格9,400万円のうち<strong>建物按分価格</strong>：</li>
+</ul>
+</ol>
+<p>$$94,000,000 \times \frac{7,032,406}{45,156,514} = 14,638,999\text{ 円 (15.57\%)} \quad (\text{土地按分価格: } 79,361,001\text{ 円})$$</p>
+<ul>
+<li>法定耐用年数経過鉄骨造の簡便法減価償却：34年 $\times 0.2 =$ 最低<strong>5.4年</strong>償却。</li>
+<li><strong>年間減価償却費</strong>：$14,638,999 \div 5.4\text{年} = \mathbf{2,710,926\text{ 円/年}}$。</li>
+</ul>
+<ol>
+<li><strong>帳簿上税引前純利益的計算式（法人の全額利息損金算入）</strong>:</li>
+<ul>
+<li>$\text{税引前純利益} = \text{年間総収入} - \text{運営経費(OPEX)} - \text{減価償却費} - \text{借入金支払利息}$</li>
+<li>法人保有のため、個人のような土地借入利息不算入規定はなく、<strong>支払利息の全額(100%)が損金算入</strong>されます。</li>
+<li>auじぶん銀行借入8,930万円（2.5%、30年）の初年度ADS 4,234,116円の内訳：<strong>元金 2,024,711円 + 利息 2,209,405円</strong>。</li>
+<li><strong>利益計算検証</strong>：</li>
+</ul>
+</ol>
+<p>$$6,656,400\text{ (総収入)} - 1,435,629\text{ (実質OPEX)} - 2,710,926\text{ (減価償却)} - 2,209,405\text{ (利息)} = +\mathbf{300,440\text{ 円 (健全黒字)}}$$</p>
+<ol>
+<li><strong>キャッシュフローと決算健全性の両立</strong>:</li>
+<ul>
+<li>手残りCF（税引前CF）は年間 <strong>+986,655円（月額 +8.22万円）</strong>の安定キャッシュイン。</li>
+<li>決算書上も <strong>+300,440円の黒字</strong>を着地させ、金融機関格付けでの赤字警告を回避しながら保有法人法人全体として<strong>税引前純利益 402.3万円、税引後CF 172.3万円</strong>の持続的成長基盤を確立します。</li>
+</ul>
+</ol>
+<ol>
+<li><strong>保有法人法人受入適格性 5大重要検証総合判定（ICR／DSCR／ROI／帳簿純利益／キャッシュフロー）</strong>:</li>
+<ul>
+<li><strong>ICR (インタレスト・カバレッジ・レシオ)</strong>: 現況0.9倍（脆弱） -&gt; <strong>1.2倍へ+0.3倍大幅改善</strong>（単品2.4倍の利息支払能力により銀行融資の1.0倍安全域を突破）。</li>
+<li><strong>DSCR (元利金返済余裕率)</strong>: 現況1.5倍 -&gt; <strong>1.4倍と健全域維持</strong>（推奨基準1.20倍を安定的にクリア）。</li>
+<li><strong>ROI (自己資本投資利回り)</strong>: 現況3.83% -&gt; <strong>4.77%へ+0.94%p向上</strong>（単品CCR 7.66%の高効率資本回収を反映）。</li>
+<li><strong>帳簿上税引前純利益</strong>: 年間372.2万円 -&gt; <strong>402.3万円へ+30.0万円純増</strong>（固定資産税評価厳格按分による271万円の減価償却費損金算入後も<strong>健全黒字</strong>を堅持）。</li>
+<li><strong>実質キャッシュフロー (CF)</strong>: 税引後手残り年間81.1万円 -&gt; <strong>172.3万円へ+91.2万円（2.12倍に爆増！）</strong>（月額+7.6万円の追加手残り純増）。</li>
+<li><strong>追加寄与 (担保力/LTV)</strong>: 固定資産税基準LTVが261.08%から<strong>207.67%へ-53.41%p劇的改善</strong>（土地担保比率90.8%の絶大寄与）。</li>
+<li><strong>総合判定結論</strong>: <strong>適格（優良受入対象）</strong> — ICR 1.2倍突破、ROI 4.77%向上、決算書黒字堅持、税引後CF 2.12倍爆増および担保力大幅改善により、保有法人法人の財務体質強化と次回融資枠拡大を同時に実現する最重要戦略資産と判定される。</li>
+</ul>
+</ol></div>
+<hr>
+<h3 id="1-3-7大評価軸サマリー">1.3 7大評価軸サマリー<a class="anchor" href="#1-3-7大評価軸サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価軸</th><th class="ta-center">評点 (/5.0)</th><th class="ta-left">核心的根拠</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 収益性 (Yield)</strong></td><td class="ta-center"><strong>3.5</strong></td><td class="ta-left">表面利回り7.08%、実質NOI 5.55%、DSCR 1.29で1戸空室でも黒字を維持する堅実な収益構造。</td></tr><tr><td class="ta-left"><strong>2. 担保性・積算 (Asset Value)</strong></td><td class="ta-center"><strong>4.8</strong></td><td class="ta-left"><strong>土地面積189.67坪(627㎡)の大型整形敷地</strong>。実勢土地価格だけで約8,535万円(価格比90.8%)の圧倒的担保力。</td></tr><tr><td class="ta-left"><strong>3. 立地・需要 (Location)</strong></td><td class="ta-center"><strong>4.0</strong></td><td class="ta-left">JR武蔵野線「新八柱」および新京成線「八柱」2駅2路線徒歩10~11分。都心通勤圏および2DKファミリー需要旺盛。</td></tr><tr><td class="ta-left"><strong>4. 建物状態・設備 (Structure)</strong></td><td class="ta-center"><strong>3.0</strong></td><td class="ta-left">1994年築鉄骨造。骨組み良好なるも、<strong>飲用水の自家井戸設備</strong>の点検および外壁・屋根防水履歴の確認が必須。</td></tr><tr><td class="ta-left"><strong>5. 災害・ハザード (Hazard)</strong></td><td class="ta-center"><strong>4.2</strong></td><td class="ta-left">浸水・土砂災害高リスク区域外に位置し平坦地。液状化リスクも極めて低い良好地盤。</td></tr><tr><td class="ta-left"><strong>6. 出口戦略・換金性 (Exit)</strong></td><td class="ta-center"><strong>4.7</strong></td><td class="ta-left"><strong>南北両面公道接道(南5.6m、北東4.8m) + 容積率消化率わずか60.9%(法定200%)</strong>。将来の戸建分筆分譲または新築開発が容易。</td></tr><tr><td class="ta-left"><strong>7. 運営難易度 (Operation)</strong></td><td class="ta-center"><strong>3.8</strong></td><td class="ta-left">8戸全室2DK構成で単身ワンルームに比べ退去頻度が低く、平均入居年数の長い安定した賃貸借ポートフォリオ。</td></tr></tbody></table></div>
+<hr>
+<h3 id="1-4-事前確認必須5大項目-pre-closing-checklist">1.4 事前確認必須5大項目 (Pre-Closing Checklist)<a class="anchor" href="#1-4-事前確認必須5大項目-pre-closing-checklist" aria-label="link">#</a></h3>
+<ol>
+<li><strong>🚨 飲用水（自家井戸水設備）の現状および上水道本管引き込み状況</strong>:</li>
+<ul>
+<li>本物件は飲用水として公共上水道ではなく井戸水ポンプを使用しています。定期水質検査結果表およびポンプ機器の交換履歴を確認する必要があります。また前面道路への市営上水道本管の埋設有無と引き込み工事費用（想定150万~300万円）を水道局に事前確認すべきです。</li>
+</ul>
+<li><strong>📐 境界非明示取引の条件精査および境界標の現況確認</strong>:</li>
+<ul>
+<li>概要書に「境界非明示」と記載があります。189.67坪の大型土地であるため、隣地境界標の有無、越境物の有無、現況測量図の交付可否を契約前に売主と交渉する必要があります。</li>
+</ul>
+<li><strong>💧 建物雨漏り・修繕履歴および屋根・外壁塗装の確認</strong>:</li>
+<ul>
+<li>1994年3月築（築32年）の亜鉛メッキ鋼板葺鉄骨造です。直近10~15年の外壁塗装、コーキング、共用廊下防水の履歴を管理会社に確認し、漏水リスクを検証します。</li>
+</ul>
+<li><strong>🔍 レントロール賃料とエイブル募集図面の整合性突合</strong>:</li>
+<ul>
+<li>募集図面記載の賃料（5.3万~6.0万円）とレントロールの月額（6.1万~7.5万円）の差異は、駐車場代（5,000~7,700円）および定額水道料（2,000~3,000円）の合算契約に起因することを確認します。</li>
+</ul>
+<li><strong>🔥 LPガス供給会社の無償貸与設備契約の確認</strong>:</li>
+<ul>
+<li>プロパンガス供給会社との設備無償貸与（給湯器・エアコン等）契約の有無および解約違約金条項の承継条件を確認します。</li>
+</ul>
+</ol>
+<hr>
+<h2 id="2-物件概要-property-specifications">2. 物件概要 (Property Specifications)<a class="anchor" href="#2-物件概要-property-specifications" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-left">詳細仕様</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件名称</strong></td><td class="ta-left">エクシードアロー (Exceed Arrow)</td></tr><tr><td class="ta-left"><strong>所在地</strong></td><td class="ta-left">千葉県松戸市河原塚29-1, 29-4, 29-7, 29-8</td></tr><tr><td class="ta-left"><strong>交通</strong></td><td class="ta-left">• <strong>JR武蔵野線「新八柱」駅 徒歩10~11分</strong><br>• <strong>新京成電鉄新京成線「八柱」駅 徒歩10~11分</strong><br>• JR武蔵野線「東松戸」駅 徒歩25分</td></tr><tr><td class="ta-left"><strong>権利関係</strong></td><td class="ta-left">土地・建物ともに完全所有権 (所有権)</td></tr><tr><td class="ta-left"><strong>土地面積</strong></td><td class="ta-left"><strong>627.00㎡ (189.67坪)</strong> 公簿面積 (私道負担なし)</td></tr><tr><td class="ta-left"><strong>土地構成</strong></td><td class="ta-left">計4筆 (29-1: 270.00㎡, 29-4: 125.00㎡, 29-7: 224.00㎡, 29-8: 8.00㎡)</td></tr><tr><td class="ta-left"><strong>地目 / 地勢</strong></td><td class="ta-left">宅地 / 平坦</td></tr><tr><td class="ta-left"><strong>接道条件</strong></td><td class="ta-left"><strong>南側公道 幅員約5.60m 接道 + 北東側公道 幅員約4.76m 接道 (南北両面接道)</strong></td></tr><tr><td class="ta-left"><strong>用途地域 / 地区</strong></td><td class="ta-left">第一種住居地域 · 第一種高度地区 · 市街化区域</td></tr><tr><td class="ta-left"><strong>建ぺい率 / 容積率</strong></td><td class="ta-left">法定 60% / 法定 200%</td></tr><tr><td class="ta-left"><strong>建物構造</strong></td><td class="ta-left">鉄骨造亜鉛メッキ鋼板葺 地上2階建 (公課証明書上: 軽量鉄骨造 金属板葺 2階建)</td></tr><tr><td class="ta-left"><strong>建物延床面積</strong></td><td class="ta-left"><strong>381.60㎡ (115.43坪)</strong> (1階 190.80㎡ / 2階 190.80㎡)</td></tr><tr><td class="ta-left"><strong>建築確認・竣工</strong></td><td class="ta-left"><strong>1994年3月4日 (平成6年3月4日竣工)</strong></td></tr><tr><td class="ta-left"><strong>総戸数</strong></td><td class="ta-left">2DK × 8戸 + 敷地内駐車場 5台分完備</td></tr><tr><td class="ta-left"><strong>主要設備</strong></td><td class="ta-left">LPガス、公共下水道、<strong>自家井戸水(飲用)</strong>、専用ゴミ集積場、各戸バルコニー/専用庭</td></tr></tbody></table></div>
+<hr>
+<h2 id="3-レントロール精密分析-rent-roll-forensic-audit">3. レントロール精密分析 (Rent Roll Forensic Audit)<a class="anchor" href="#3-レントロール精密分析-rent-roll-forensic-audit" aria-label="link">#</a></h2>
+<h3 id="3-1-8戸全室レントロール一覧">3.1 8戸全室レントロール一覧<a class="anchor" href="#3-1-8戸全室レントロール一覧" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">号室</th><th class="ta-center">間取</th><th class="ta-center">専有面積</th><th class="ta-right">現況賃料</th><th class="ta-right">共益費(付帯込)</th><th class="ta-right">月額合計</th><th class="ta-right">㎡単価</th><th class="ta-right">敷金預り</th><th class="ta-left">付帯内訳および特記事項</th><th class="ta-center">想定DOM</th></tr></thead><tbody><tr><td class="ta-center"><strong>101</strong></td><td class="ta-center">2DK</td><td class="ta-center">46.21㎡</td><td class="ta-right">¥62,000</td><td class="ta-right">¥5,000</td><td class="ta-right"><strong>¥67,000</strong></td><td class="ta-right">¥1,450</td><td class="ta-right">¥60,000</td><td class="ta-left">共益費に水道料2,000円含む</td><td class="ta-center">25日</td></tr><tr><td class="ta-center"><strong>102</strong></td><td class="ta-center">2DK</td><td class="ta-center">45.00㎡</td><td class="ta-right">¥67,000</td><td class="ta-right">¥6,000</td><td class="ta-right"><strong>¥73,000</strong></td><td class="ta-right">¥1,622</td><td class="ta-right">¥66,000</td><td class="ta-left">水道料2,000円含む、独立洗面台、ペット可</td><td class="ta-center">18日</td></tr><tr><td class="ta-center"><strong>103</strong></td><td class="ta-center">2DK</td><td class="ta-center">46.88㎡</td><td class="ta-right">¥60,000</td><td class="ta-right">¥10,000</td><td class="ta-right"><strong>¥70,000</strong></td><td class="ta-right">¥1,493</td><td class="ta-right">¥120,000</td><td class="ta-left">駐車場7,000円 + 水道料3,000円含む</td><td class="ta-center">35日</td></tr><tr><td class="ta-center"><strong>105</strong></td><td class="ta-center">2DK</td><td class="ta-center">45.21㎡</td><td class="ta-right">¥58,000</td><td class="ta-right">¥3,000</td><td class="ta-right"><strong>¥61,000</strong></td><td class="ta-right">¥1,349</td><td class="ta-right">¥116,000</td><td class="ta-left">水道料3,000円含む、専用庭付き</td><td class="ta-center">28日</td></tr><tr><td class="ta-center"><strong>201</strong></td><td class="ta-center">2DK</td><td class="ta-center">46.21㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥10,000</td><td class="ta-right"><strong>¥73,000</strong></td><td class="ta-right">¥1,580</td><td class="ta-right">¥120,000</td><td class="ta-left">駐車場5,000円 + 水道料3,000円含む</td><td class="ta-center">22日</td></tr><tr><td class="ta-center"><strong>202</strong></td><td class="ta-center">2DK</td><td class="ta-center">45.00㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥3,000</td><td class="ta-right"><strong>¥66,000</strong></td><td class="ta-right">¥1,467</td><td class="ta-right">¥63,000</td><td class="ta-left">最上階、一般賃貸借</td><td class="ta-center">30日</td></tr><tr><td class="ta-center"><strong>203</strong></td><td class="ta-center">2DK</td><td class="ta-center">47.88㎡</td><td class="ta-right">¥60,000</td><td class="ta-right">¥9,700</td><td class="ta-right"><strong>¥69,700</strong></td><td class="ta-right">¥1,456</td><td class="ta-right">¥0</td><td class="ta-left">駐車場7,700円含む</td><td class="ta-center">20日</td></tr><tr><td class="ta-center"><strong>205</strong></td><td class="ta-center">2DK</td><td class="ta-center">47.88㎡</td><td class="ta-right">¥63,000</td><td class="ta-right">¥12,000</td><td class="ta-right"><strong>¥75,000</strong></td><td class="ta-right">¥1,566</td><td class="ta-right">¥0</td><td class="ta-left">駐車場7,000円 + 水道料3,000円含む</td><td class="ta-center">24日</td></tr><tr class="total-row"><td class="ta-center"><strong>合計</strong></td><td class="ta-center"><strong>2DK×8</strong></td><td class="ta-center"><strong>370.27㎡</strong></td><td class="ta-right"><strong>¥496,000</strong></td><td class="ta-right"><strong>¥58,700</strong></td><td class="ta-right"><strong>¥554,700</strong></td><td class="ta-right"><strong>平均 ¥1,498</strong></td><td class="ta-right"><strong>¥545,000</strong></td><td class="ta-left"><strong>満室年間収入: ¥6,656,400</strong></td><td class="ta-center"><strong>平均 25.3日</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="4-価格妥当性および積算価格評価-valuation-cost-approach">4. 価格妥当性および積算価格評価 (Valuation &amp; Cost Approach)<a class="anchor" href="#4-価格妥当性および積算価格評価-valuation-cost-approach" aria-label="link">#</a></h2>
+<h3 id="4-1-令和8年度-固定資産税公課証明書に基づく公的評価額">4.1 令和8年度 固定資産税公課証明書に基づく公的評価額<a class="anchor" href="#4-1-令和8年度-固定資産税公課証明書に基づく公的評価額" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">区分</th><th class="ta-left">所在地番</th><th class="ta-center">地目</th><th class="ta-right">地積(㎡)</th><th class="ta-right">評価額 (円)</th><th class="ta-right">年間固定資産税</th><th class="ta-right">年間都市計画税</th><th class="ta-right">税相当額計 (円)</th></tr></thead><tbody><tr><td class="ta-left"><strong>土地 1</strong></td><td class="ta-left">河原塚 29-1</td><td class="ta-center">宅地</td><td class="ta-right">270.00</td><td class="ta-right">¥16,417,080</td><td class="ta-right">¥38,306</td><td class="ta-right">¥12,586</td><td class="ta-right">¥50,892</td></tr><tr><td class="ta-left"><strong>土地 2</strong></td><td class="ta-left">河原塚 29-4</td><td class="ta-center">宅地</td><td class="ta-right">125.00</td><td class="ta-right">¥7,600,500</td><td class="ta-right">¥17,734</td><td class="ta-right">¥5,827</td><td class="ta-right">¥23,561</td></tr><tr><td class="ta-left"><strong>土地 3</strong></td><td class="ta-left">河原塚 29-7</td><td class="ta-center">宅地</td><td class="ta-right">224.00</td><td class="ta-right">¥13,620,096</td><td class="ta-right">¥31,780</td><td class="ta-right">¥10,442</td><td class="ta-right">¥42,222</td></tr><tr><td class="ta-left"><strong>土地 4</strong></td><td class="ta-left">河原塚 29-8</td><td class="ta-center">宅地</td><td class="ta-right">8.00</td><td class="ta-right">¥486,432</td><td class="ta-right">¥1,135</td><td class="ta-right">¥372</td><td class="ta-right">¥1,507</td></tr><tr><td class="ta-left"><strong>土地小計</strong></td><td class="ta-left"><strong>4筆合計</strong></td><td class="ta-center"><strong>宅地</strong></td><td class="ta-right"><strong>627.00</strong></td><td class="ta-right"><strong>¥38,124,108</strong></td><td class="ta-right"><strong>¥88,955</strong></td><td class="ta-right"><strong>¥29,227</strong></td><td class="ta-right"><strong>¥118,182</strong></td></tr><tr><td class="ta-left"><strong>家屋 1棟</strong></td><td class="ta-left">河原塚 29-1</td><td class="ta-center">共同住宅</td><td class="ta-right">381.60</td><td class="ta-right"><strong>¥7,032,406</strong></td><td class="ta-right">¥98,453</td><td class="ta-right">¥16,174</td><td class="ta-right"><strong>¥114,627</strong></td></tr><tr class="total-row"><td class="ta-left"><strong>総計</strong></td><td class="ta-left"><strong>土地 + 家屋</strong></td><td class="ta-center">-</td><td class="ta-right">-</td><td class="ta-right"><strong>¥45,156,514</strong></td><td class="ta-right"><strong>¥187,408</strong></td><td class="ta-right"><strong>¥45,401</strong></td><td class="ta-right"><strong>¥232,809</strong></td></tr></tbody></table></div>
+<h3 id="4-2-積算価格3大シナリオ比較">4.2 積算価格3大シナリオ比較<a class="anchor" href="#4-2-積算価格3大シナリオ比較" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価シナリオ</th><th class="ta-right">土地評価額</th><th class="ta-right">建物残存評価</th><th class="ta-right">積算総額</th><th class="ta-center">価格比</th><th class="ta-left">評価性格と投資判断の示唆</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 固定資産税評価額基準</strong></td><td class="ta-right">3,812.4万円</td><td class="ta-right">703.2万円</td><td class="ta-right"><strong>4,515.7万円</strong></td><td class="ta-center"><strong>48.0%</strong></td><td class="ta-left">市町村課税標準基準の最保守的評価（担保下限線）</td></tr><tr><td class="ta-left"><strong>2. 相続税路線価基準</strong></td><td class="ta-right">4,389.0万円</td><td class="ta-right">703.2万円</td><td class="ta-right"><strong>5,092.2万円</strong></td><td class="ta-center"><strong>54.2%</strong></td><td class="ta-left">国税庁路線価(約7万円/㎡)基準の担保評価</td></tr><tr><td class="ta-left"><strong>3. 実勢土地価格基準</strong></td><td class="ta-right"><strong>8,535.2万円</strong></td><td class="ta-right">703.2万円</td><td class="ta-right"><strong>9,238.4万円</strong></td><td class="ta-center"><strong>98.3%</strong></td><td class="ta-left"><strong>周辺住宅地実勢相場(坪45万円)に基づく実質資産価値</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="5-運営経費およびキャッシュフローシミュレーション-opex-cf">5. 運営経費およびキャッシュフローシミュレーション (OPEX &amp; CF)<a class="anchor" href="#5-運営経費およびキャッシュフローシミュレーション-opex-cf" aria-label="link">#</a></h2>
+<h3 id="5-1-実質運営経費-opex-の内訳">5.1 実質運営経費 (OPEX) の内訳<a class="anchor" href="#5-1-実質運営経費-opex-の内訳" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">経費項目</th><th class="ta-right">年間金額</th><th class="ta-left">算出根拠および正常化基準</th></tr></thead><tbody><tr><td class="ta-left"><strong>公課公金 (固定資産税・都市計画税)</strong></td><td class="ta-right">¥232,809</td><td class="ta-left">令和8年度公課証明書の実測税額</td></tr><tr><td class="ta-left"><strong>管理委託手数料 (PM Fee)</strong></td><td class="ta-right">¥332,820</td><td class="ta-left">年間総収入の 5.0% (専門管理委託)</td></tr><tr><td class="ta-left"><strong>井戸ポンプ保守点検および共用電気</strong></td><td class="ta-right">¥150,000</td><td class="ta-left">井戸水ポンプ点検、水質検査、共用部電気</td></tr><tr><td class="ta-left"><strong>火災・地震保険料</strong></td><td class="ta-right">¥80,000</td><td class="ta-left">8戸分年間按分額 (5年一括想定)</td></tr><tr><td class="ta-left"><strong>原状回復および募集広告費</strong></td><td class="ta-right">¥320,000</td><td class="ta-left">戸あたり年40,000円引当 (年1~2戸退去想定)</td></tr><tr><td class="ta-left"><strong>大規模修繕積立金</strong></td><td class="ta-right">¥320,000</td><td class="ta-left">戸あたり年40,000円留保 (屋根・外壁修繕用)</td></tr><tr class="total-row"><td class="ta-left"><strong>実質経費合計</strong></td><td class="ta-right"><strong>¥1,435,629</strong></td><td class="ta-left"><strong>実質経費率 21.57% (極めて健全な水準)</strong></td></tr></tbody></table></div>
+<h4 id="5-2-融資シナリオ比較-推奨シナリオa-auじぶん銀行-95-ltv-30年">5.2 融資シナリオ比較 (推奨：シナリオA auじぶん銀行 95% LTV / 30年)<a class="anchor" href="#5-2-融資シナリオ比較-推奨シナリオa-auじぶん銀行-95-ltv-30年" aria-label="link">#</a></h4>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">指標項目</th><th class="ta-center">シナリオA (auじぶん銀行 95% LTV) [採用]</th><th class="ta-center">シナリオB (標準 LTV 80% / 25年)</th><th class="ta-center">シナリオC (保守 LTV 70% / 20年)</th></tr></thead><tbody><tr><td class="ta-left"><strong>借入金融機関</strong></td><td class="ta-center"><strong>auじぶん銀行</strong></td><td class="ta-center">地方銀行 / 信用金庫</td><td class="ta-center">都市銀行一般</td></tr><tr><td class="ta-left"><strong>借入金額</strong></td><td class="ta-center"><strong>¥89,300,000 (95.0%)</strong></td><td class="ta-center">¥75,200,000 (80.0%)</td><td class="ta-center">¥65,800,000 (70.0%)</td></tr><tr><td class="ta-left"><strong>借入金利 / 期間</strong></td><td class="ta-center"><strong>2.5% / 30年</strong></td><td class="ta-center">2.5% / 25年</td><td class="ta-center">2.5% / 20年</td></tr><tr><td class="ta-left"><strong>月額返済額</strong></td><td class="ta-center"><strong>¥352,843</strong></td><td class="ta-center">¥337,422</td><td class="ta-center">¥348,893</td></tr><tr><td class="ta-left"><strong>年間返済額 (ADS)</strong></td><td class="ta-center"><strong>¥4,234,116</strong></td><td class="ta-center">¥4,049,064</td><td class="ta-center">¥4,186,716</td></tr><tr><td class="ta-left"><strong>満室純営業収益 (NOI)</strong></td><td class="ta-center"><strong>¥5,220,771</strong></td><td class="ta-center">¥5,220,771</td><td class="ta-center">¥5,220,771</td></tr><tr><td class="ta-left"><strong>税引前年間CF</strong></td><td class="ta-center"><strong>+¥986,655</strong> (月額 +8.22万円)</td><td class="ta-center"><strong>+¥1,171,707</strong> (月額 +9.76万円)</td><td class="ta-center"><strong>+¥1,034,055</strong> (月額 +8.62万円)</td></tr><tr><td class="ta-left"><strong>返済余裕率 (DSCR)</strong></td><td class="ta-center"><strong>1.23倍</strong> (安全基準クリア)</td><td class="ta-center"><strong>1.29倍</strong></td><td class="ta-center"><strong>1.25倍</strong></td></tr><tr><td class="ta-left"><strong>損益分岐稼働率</strong></td><td class="ta-center"><strong>85.18%</strong></td><td class="ta-center"><strong>82.40%</strong></td><td class="ta-center"><strong>84.46%</strong></td></tr><tr><td class="ta-left"><strong>許容空室戸数</strong></td><td class="ta-center"><strong>1.19戸 (1戸空室でも安全)</strong></td><td class="ta-center"><strong>1.41戸</strong></td><td class="ta-center"><strong>1.24戸</strong></td></tr><tr><td class="ta-left"><strong>自己資金投下総額</strong></td><td class="ta-center"><strong>¥12,874,000</strong> (頭金470万)</td><td class="ta-center">¥26,692,000 (頭金1,880万)</td><td class="ta-center">¥36,092,000 (頭金2,820万)</td></tr><tr><td class="ta-left"><strong>自己資本利回り (CCR)</strong></td><td class="ta-center"><strong>7.66% (レバレッジ最大化)</strong></td><td class="ta-center">4.39%</td><td class="ta-center">2.87%</td></tr></tbody></table></div>
+<hr>
+<h2 id="6-総合評価および投資判断-conclusion-scorecard">6. 総合評価および投資判断 (Conclusion &amp; Scorecard)<a class="anchor" href="#6-総合評価および投資判断-conclusion-scorecard" aria-label="link">#</a></h2>
+<h3 id="6-1-30点満点スコアカード">6.1 30点満点スコアカード<a class="anchor" href="#6-1-30点満点スコアカード" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価部門</th><th class="ta-center">配点</th><th class="ta-center">得点</th><th class="ta-left">評価概要</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 収益性およびCF (Cash Flow)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>3.8</strong></td><td class="ta-left">満室表面7.08%、NOI 5.55%、税引前年CF 98.7万円・CCR 7.66%の優れたレバレッジ収益。</td></tr><tr><td class="ta-left"><strong>2. 資産性・担保力 (Asset)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>5.0</strong></td><td class="ta-left"><strong>土地面積189.67坪、実勢土地価格8,535万円(価格比90.8%)の圧倒的担保力。</strong></td></tr><tr><td class="ta-left"><strong>3. 立地および賃貸需要 (Location)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.0</strong></td><td class="ta-left">JR武蔵野線・新京成線2駅徒歩10分。2DKファミリー需要が安定。</td></tr><tr><td class="ta-left"><strong>4. 建物状態および設備 (Facility)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>3.0</strong></td><td class="ta-left">築32年および井戸水設備への留意を要するも鉄骨骨組みは健全。</td></tr><tr><td class="ta-left"><strong>5. 災害安全性 (Hazard Safety)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.0</strong></td><td class="ta-left">浸水・土砂災害安全区域、良好な平坦地盤。</td></tr><tr><td class="ta-left"><strong>6. 出口戦略・換金性 (Exit)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.5</strong></td><td class="ta-left">南北両面公道接道 + 低容積率(60.9%)で分筆分譲や将来開発が自在。</td></tr><tr><td class="ta-left"><strong>総合得点 (Total Score)</strong></td><td class="ta-center"><strong>30.0</strong></td><td class="ta-center"><strong>24.3</strong></td><td class="ta-left"><strong>投資格付: A (積極買い推奨 / BUY)</strong></td></tr></tbody></table></div>
+<div class="alert alert-note"><p><strong>[最終判定: 積極買い推奨 (BUY)]</strong> 本物件は<strong>「売買価格の90%以上が土地値で裏付けられた究極の安全マージン物件」</strong>です。 建物の経年や井戸水設備という留意点はあるものの、<strong>189.67坪の南北両面公道大型地</strong>の資産価値と、<strong>auじぶん銀行95% LTV(30年)活用による初期投下1,287万円・CCR 7.66%の資金効率</strong>、および<strong>固定資産税按分に基づく年間+30万円の持続的決算黒字</strong>が極めて魅力的なポートフォリオを形成します。</p></div>
+<hr>
+<h3 id="付録出典実査資料一覧">付録：出典・実査資料一覧<a class="anchor" href="#付録出典実査資料一覧" aria-label="link">#</a></h3>
+<ol>
+<li>千葉県松戸市長発行 令和8年度 固定資産(土地・家屋) 公課証明書 (令和8年7月17日交付)</li>
+<li>株式会社リブライフマーケティング 物件概要書およびレントロール (2024年)</li>
+<li>株式会社エイブル 新八柱店 各戸マイソク募集図面全戸分 (101, 102, 103, 105, 201, 202, 203, 205号)</li>
+<li>松戸市WEBハザードマップ (洪水浸水・土砂災害・地震防災)</li>
+<li>国税庁相続税財産評価基準路線価および国土交通省地価公示データ</li>
+</ol>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ja';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>
