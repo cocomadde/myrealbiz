@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>지크레스트 하토가야 Ⅰ 융자 시뮬레이터 | MyRealBiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&display=swap">
+  <style>body { font-family: 'Pretendard', sans-serif; }</style>
+</head>
+<body class="bg-slate-50 text-slate-800 p-4 sm:p-6 min-h-screen">
+  <div class="max-w-5xl mx-auto space-y-6">
+    <header class="bg-slate-900 text-white p-5 rounded-2xl flex justify-between items-center flex-wrap gap-4 shadow-lg">
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl font-black">지크레스트 하토가야 Ⅰ</h1>
+          <span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">탈락 / 매수 금지</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">사이타마현 카와구치시 사쿠라초 · 10세대 1K · 2026년 11월 준공 예정 · 사찰묘지 인접 및 전실공실 주의</p>
+      </div>
+      <div class="flex gap-2">
+        <a href="../" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium border border-slate-700 text-slate-300">← 허브</a>
+        <a href="./report.html" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow">📑 보고서 열람</a>
+      </div>
+    </header>
+
+    <!-- Key Metrics Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 block">매매가격</span>
+        <span class="text-xl font-black font-mono mt-1 block">¥117.2M</span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 block">표면수익률</span>
+        <span class="text-xl font-black font-mono text-emerald-600 mt-1 block">6.60%</span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 block">Cap Rate (NOI)</span>
+        <span class="text-xl font-black font-mono text-sky-600 mt-1 block">5.09%</span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 block">부채상환배율</span>
+        <span class="text-xl font-black font-mono text-indigo-600 mt-1 block">1.22x</span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <span class="text-xs text-slate-500 block">손익분기 가동률</span>
+        <span class="text-xl font-black font-mono text-slate-900 mt-1 block">85.9%</span>
+      </div>
+      <div class="bg-slate-900 text-white p-4 rounded-xl shadow-md">
+        <span class="text-xs text-slate-400 block">종합 스코어</span>
+        <span class="text-xl font-black font-mono text-amber-400 mt-1 block">14.5 / 30</span>
+      </div>
+    </div>
+
+    <!-- Simulator Body -->
+    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <h2 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">🎛️ 현금흐름 및 대출 조건 시뮬레이션</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-slate-50 rounded-xl space-y-2">
+          <div class="flex justify-between"><span>판매가격:</span><span class="font-mono font-bold">¥117,200,000</span></div>
+          <div class="flex justify-between"><span>차입금 (LTV 90%):</span><span class="font-mono font-bold text-sky-700">¥105,480,000</span></div>
+          <div class="flex justify-between"><span>대출금리 / 기간:</span><span class="font-mono font-bold">2.3% / 30년</span></div>
+          <div class="flex justify-between"><span>실질 경비율:</span><span class="font-mono font-bold">23.0%</span></div>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl space-y-2">
+          <div class="flex justify-between"><span>연간 순영업소득 (NOI):</span><span class="font-mono font-bold text-emerald-700">¥5,963,440</span></div>
+          <div class="flex justify-between"><span>연간 원리금상환 (ADS):</span><span class="font-mono font-bold text-rose-600">¥4,870,661</span></div>
+          <div class="flex justify-between text-sm font-black border-t border-slate-200 pt-1">
+            <span>세전 현금흐름 (Pretax CF):</span>
+            <span class="font-mono text-indigo-700">¥1,092,779 / 년</span>
+          </div>
+          <div class="flex justify-between text-slate-500 pt-1">
+            <span>월 환산 손익:</span><span class="font-mono font-bold">¥91,064 / 월</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>비노시티 키타카시와 투자분석 보고서 | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">비노시티 키타카시와 투자분석 보고서</div>
+        <div class="brand-sub">치바현 아비코시 네도 · 8세대 1DK · 2025년 준공 신축급 · 얕은 안전마진 주의</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn active" href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn " href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 포트폴리오</a>
+      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
+      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">목차 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#수익형-부동산-투자분석-보고서-投資分析レポート" data-target="수익형-부동산-투자분석-보고서-投資分析レポート">수익형 부동산 투자분석 보고서 (投資分析レポート)</a>
+<a class="toc-h1" href="#1-에그제큐티브-서머리-executive-summary" data-target="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)</a>
+<a class="toc-h3" href="#주요-지표-요약-key-metrics-reality-check" data-target="주요-지표-요약-key-metrics-reality-check">주요 지표 요약 (Key Metrics &amp; Reality Check)</a>
+<a class="toc-h1" href="#2-집중-하이라이트-핵심-5대-리스크-및-주의점" data-target="2-집중-하이라이트-핵심-5대-리스크-및-주의점">2. 🚨 집중 하이라이트: 핵심 5대 리스크 및 주의점</a>
+<a class="toc-h3" href="#리스크-1-1실-공실에도-즉각-적자-반전되는-살얼음판-현금흐름" data-target="리스크-1-1실-공실에도-즉각-적자-반전되는-살얼음판-현금흐름">리스크 1: 1실 공실에도 즉각 적자 반전되는 '살얼음판 현금흐름'</a>
+<a class="toc-h3" href="#리스크-2-토지-가치-13-5에-불과-20년-뒤-70-자본-증발" data-target="리스크-2-토지-가치-13-5에-불과-20년-뒤-70-자본-증발">리스크 2: 토지 가치 13.5%에 불과 — 20년 뒤 70% 자본 증발</a>
+<a class="toc-h3" href="#리스크-3-jcom-및-방범카메라-매월-10670엔-고정-지출-종속" data-target="리스크-3-jcom-및-방범카메라-매월-10670엔-고정-지출-종속">리스크 3: J:COM 및 방범카메라 매월 10,670엔 고정 지출 종속</a>
+<a class="toc-h3" href="#리스크-4-1dk2225-평형의-애매한-포지셔닝" data-target="리스크-4-1dk2225-평형의-애매한-포지셔닝">리스크 4: 1DK(22~25㎡) 평형의 애매한 포지셔닝</a>
+<a class="toc-h3" href="#리스크-5-키타카시와역-지선-특성-및-카시와역-의존성" data-target="리스크-5-키타카시와역-지선-특성-및-카시와역-의존성">리스크 5: 키타카시와역 지선 특성 및 카시와역 의존성</a>
+<a class="toc-h1" href="#3-종합-평가-및-최종-판정" data-target="3-종합-평가-및-최종-판정">3. 종합 평가 및 최종 판정</a>
+<a class="toc-h3" href="#30점-만점-스코어카드-18-3점-30점-보류-권고-caution" data-target="30점-만점-스코어카드-18-3점-30점-보류-권고-caution">30점 만점 스코어카드: 18.3점 / 30점 (보류 권고 / Caution)</a>
+    </div>
+  </nav>
+  <article class="article">
+<p>&lt;!-- CONFIDENTIAL &amp; PROPRIETARY INVESTMENT MEMORANDUM ANTI-SCRAPING / NOAI NOTICE: This document contains proprietary investment analysis, financial projections, and underwriting models. Unauthorized crawling, automated scraping, reproduction, redistribution, or training of AI models without explicit permission is strictly prohibited. --&gt;</p>
+<h1 id="수익형-부동산-투자분석-보고서-投資分析レポート">수익형 부동산 투자분석 보고서 (投資分析レポート)<a class="anchor" href="#수익형-부동산-투자분석-보고서-投資分析レポート" aria-label="link">#</a></h1>
+<h2 id="비노시티-키타카시와-vinocity-北柏-vinocity-kitakashiwa">비노시티 키타카시와 (Vinocity 北柏 / Vinocity Kitakashiwa)<a class="anchor" href="#비노시티-키타카시와-vinocity-北柏-vinocity-kitakashiwa" aria-label="link">#</a></h2>
+<div class="alert alert-note"><p><strong>대외비 (Confidential) · 보수적 심사 보고서</strong> | 본 보고서는 투자자 보호를 최우선으로 하여, 브로커 마이소쿠(물건개요서)의 장점 나열을 배제하고 잠재된 악재·함정·공실 민감도를 엄격하게 파헤친 네거티브 듀데일리전스 심사서입니다.</p></div>
+<hr>
+<h1 id="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)<a class="anchor" href="#1-에그제큐티브-서머리-executive-summary" aria-label="link">#</a></h1>
+<p>본 건 <strong>'비노시티 키타카시와(Vinocity 北柏)'</strong>는 치바현 아비코시 네도(千葉県我孫子市根戸 341-1)에 위치한 <strong>2025년 3월 준공(준공 1.5년 차, 신축급) 지상 2층 목조 수익형 아파트(총 8세대, 전실 1DK)</strong>이다. JR 상반선(常磐線) 「키타카시와(北柏)」역 도보 7분 거리에 입지하며, <strong>대지면적 181.83㎡(55.00평)</strong>, 연면적 192.12㎡(58.12평), 북동측 5.0m 공도에 약 11.4m 접도하고 있다.</p>
+<p>매매가격은 <strong>9,980만 엔(소비세 포함)</strong>으로 1억 엔 미만의 소액 티켓 사이즈를 형성하고 있으며, 만실 표면수익률은 <strong>6.42%(연간 640.7만 엔)</strong>이다. 준공검사필증을 득하였고 주택성능평가상 '열화대책등급 3급'을 취득하여 30년 장기 저리 융자 적격성을 갖추고 있다.</p>
+<p>그러나 <strong>철저히 보수적인 관점에서 심사한 결과, 본 물건은 치명적인 현금흐름 안전마진 결손과 자산 보전력 취약성을 내포</strong>하고 있다. 실질 운영경비를 정상화한 <strong>순영업소득(NOI)은 493.6만 엔, 실질 Cap Rate는 4.95%로 추락</strong>하며, 90% LTV(30년, 2.3%) 차입 시 <strong>연간 세전 현금흐름은 만실이어도 고작 +78.9만 엔(월 6.5만 엔)</strong>에 불과하다.</p>
+<p>호당 평균 월세가 약 66,741엔이므로, <strong>총 8실 중 단 1실만 연중 공실이 발생해도 세전 현금흐름이 즉각 마이너스(적자)로 반전</strong>되는 극단적 공실 취약성을 드러낸다. 또한 토지 노선가 평가액(1,346만 엔)이 매매가의 13.5%에 불과하여, 20년 후 건물 감가상각 종료 시 막대한 원본 가치 훼손이 불가피하다.</p>
+<hr>
+<h3 id="주요-지표-요약-key-metrics-reality-check">주요 지표 요약 (Key Metrics &amp; Reality Check)<a class="anchor" href="#주요-지표-요약-key-metrics-reality-check" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목 (Metric)</th><th class="ta-right">개시 수치</th><th class="ta-right">보수적 실사 수치</th><th class="ta-left">평가 및 리스크 경고</th></tr></thead><tbody><tr><td class="ta-left"><strong>매매가격 (物件価格)</strong></td><td class="ta-right">9,980만 엔</td><td class="ta-right"><strong>9,980만 엔</strong></td><td class="ta-left">1억 엔 언더의 소액 티켓</td></tr><tr><td class="ta-left"><strong>만실 표면수익률</strong></td><td class="ta-right">6.42%</td><td class="ta-right"><strong>6.42%</strong></td><td class="ta-left">연간 총수입 640.7만 엔</td></tr><tr><td class="ta-left"><strong>실질 연간경비 (OPEX)</strong></td><td class="ta-right">개시 미표기</td><td class="ta-right"><strong>147.1만 엔 (22.96%)</strong></td><td class="ta-left">固都税 추정치 + J:COM/방범카메라 월 10,670엔 고정 지출 + 관리 4.4% + 보험/수선충당</td></tr><tr><td class="ta-left"><strong>순영업소득 (NOI)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>493.6만 엔</strong></td><td class="ta-left"><strong>실질 Cap Rate 4.95% (5% 붕괴)</strong></td></tr><tr><td class="ta-left"><strong>연간 부채원리금 (ADS)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>414.8만 엔</strong></td><td class="ta-left">90% LTV(8,982만 엔), 금리 2.3%, 30년 원리금균등</td></tr><tr><td class="ta-left"><strong>세전 현금흐름 (Pre-tax CF)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>+78.9만 엔/년 (월 6.5만 엔)</strong></td><td class="ta-left"><strong>⚠️ 극도로 얕은 잉여현금. 여유자금 축적 불가능</strong></td></tr><tr><td class="ta-left"><strong>부채상환배율 (DSCR)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>1.19배</strong></td><td class="ta-left"><strong>⚠️ 금융기관 안전 가이드라인(1.20배) 미달</strong></td></tr><tr><td class="ta-left"><strong>손익분기 가동률 (Breakeven)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>87.69%</strong></td><td class="ta-left"><strong>⚠️ 허용 공실 수: 0.98실 (1실 공실 시 즉시 적자)</strong></td></tr><tr><td class="ta-left"><strong>국세청 기준 적산가격</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>4,568만 엔 (45.77%)</strong></td><td class="ta-left">토지 노선가 1,346만(13.5%) + 건물 3,222만 엔</td></tr><tr><td class="ta-left"><strong>실세 토지가격 추정치</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>약 3,025만 엔 (30.3%)</strong></td><td class="ta-left">55.0평 × 평당 55만 엔 (장기 감가상각 후 잔존가치 빈약)</td></tr><tr><td class="ta-left"><strong>초기 투하자기자본</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>1,697만 엔</strong></td><td class="ta-left">자기자금 10%(998만) + 취득제비용 7%(698.6만)</td></tr><tr><td class="ta-left"><strong>자기자본수익률 (CCR)</strong></td><td class="ta-right">-</td><td class="ta-right"><strong>4.65%</strong></td><td class="ta-left">위험 대비 레버리지 성과 미미</td></tr></tbody></table></div>
+<hr>
+<h1 id="2-집중-하이라이트-핵심-5대-리스크-및-주의점">2. 🚨 집중 하이라이트: 핵심 5대 리스크 및 주의점<a class="anchor" href="#2-집중-하이라이트-핵심-5대-리스크-및-주의점" aria-label="link">#</a></h1>
+<h3 id="리스크-1-1실-공실에도-즉각-적자-반전되는-살얼음판-현금흐름">리스크 1: 1실 공실에도 즉각 적자 반전되는 '살얼음판 현금흐름'<a class="anchor" href="#리스크-1-1실-공실에도-즉각-적자-반전되는-살얼음판-현금흐름" aria-label="link">#</a></h3>
+<ul>
+<li>본 건의 연간 세전 현금흐름은 <strong>연 +78.9만 엔(월 65,725엔)</strong>입니다.</li>
+<li>본 물건의 호당 평균 월세는 약 66,741엔(연간 약 80만 엔)입니다.</li>
+<li>만약 8세대 중 단 <strong>1개 호실이 퇴거 후 다음 세입자를 구하지 못해 1년 동안 공실로 유지되면, 현금흐름은 즉시 연간 ▲1.1만 엔의 적자</strong>로 전환됩니다.</li>
+<li>공실 2세대가 발생할 경우 연간 ▲81만 엔의 순손실이 발생하여 소유자가 매월 약 7만 엔의 개인 자금을 은행 상환용으로 메워 넣어야 합니다.</li>
+</ul>
+<h3 id="리스크-2-토지-가치-13-5에-불과-20년-뒤-70-자본-증발">리스크 2: 토지 가치 13.5%에 불과 — 20년 뒤 70% 자본 증발<a class="anchor" href="#리스크-2-토지-가치-13-5에-불과-20년-뒤-70-자본-증발" aria-label="link">#</a></h3>
+<ul>
+<li>총 매매가격 9,980만 엔 중 국세청 노선가 기준 토지 평가는 <strong>1,346만 엔(13.5%)</strong>에 불과합니다.</li>
+<li>나머지 86.5%는 목조 건물 가격입니다. 목조 건물은 세법상 22년이면 잔존가치가 0이 됩니다.</li>
+<li>20~25년 후 건물 수명이 다했을 때 회수 가능한 토지 가치는 실세가로도 3,000만 엔 안팎입니다. 즉, 보유 기간 동안 매년 감가상각으로 원금이 증발하는 전형적인 '고감가상각 소모형 자산'입니다.</li>
+</ul>
+<h3 id="리스크-3-jcom-및-방범카메라-매월-10670엔-고정-지출-종속">리스크 3: J:COM 및 방범카메라 매월 10,670엔 고정 지출 종속<a class="anchor" href="#리스크-3-jcom-및-방범카메라-매월-10670엔-고정-지출-종속" aria-label="link">#</a></h3>
+<ul>
+<li>마이소쿠 비고란에 기재된 <strong>J:COM 사용료 7,920엔/월 및 방범카메라 2,750엔/월(합계 10,670엔/월 = 연간 128,040엔)</strong>은 소유자가 매월 고정으로 부담해야 하는 강제 계약입니다.</li>
+<li>여기에 프로판가스 공급업체 계약이 승계 조건으로 묶여 있어, 입주자들의 가스비 불만이나 무상대여 설비 중도해지 위약금 리스크가 상존합니다.</li>
+</ul>
+<h3 id="리스크-4-1dk2225-평형의-애매한-포지셔닝">리스크 4: 1DK(22~25㎡) 평형의 애매한 포지셔닝<a class="anchor" href="#리스크-4-1dk2225-평형의-애매한-포지셔닝" aria-label="link">#</a></h3>
+<ul>
+<li>1DK는 원룸(1K)보다는 넓지만 커플이나 신혼부부가 거주하기에는 협소(25㎡ 미만)하여, 주 수요층은 여전히 <strong>단신 직장인</strong>에 머뭅니다.</li>
+<li>1LDK(30㎡ 이상) 대비 거주 안정성이 떨어져 1.5~2년 주기로 잦은 퇴거가 발생하며, 퇴거 시마다 도배비, 청소비, 중개수수료(AD 1개월 = 약 7만 엔) 지출로 인해 실질 현금흐름이 더욱 깎여 나갑니다.</li>
+</ul>
+<h3 id="리스크-5-키타카시와역-지선-특성-및-카시와역-의존성">리스크 5: 키타카시와역 지선 특성 및 카시와역 의존성<a class="anchor" href="#리스크-5-키타카시와역-지선-특성-및-카시와역-의존성" aria-label="link">#</a></h3>
+<ul>
+<li>키타카시와역은 조반선 완행(치요다선 직통)만 정차하며, 쾌속 열차는 무정차 통과합니다.</li>
+<li>대형 상업 인프라는 1정거장 거리인 카시와(柏)역에 편중되어 있어, 단독 역세권으로서의 집객력은 제한적입니다.</li>
+</ul>
+<hr>
+<h1 id="3-종합-평가-및-최종-판정">3. 종합 평가 및 최종 판정<a class="anchor" href="#3-종합-평가-및-최종-판정" aria-label="link">#</a></h1>
+<h3 id="30점-만점-스코어카드-18-3점-30점-보류-권고-caution">30점 만점 스코어카드: 18.3점 / 30점 (보류 권고 / Caution)<a class="anchor" href="#30점-만점-스코어카드-18-3점-30점-보류-권고-caution" aria-label="link">#</a></h3>
+<div class="alert alert-note"><h3 id="최종-판정-보-류-권-고-hold-caution">⚠️ 최종 판정: 【 보 류 권 고 (Hold / Caution) 】<a class="anchor" href="#최종-판정-보-류-권-고-hold-caution" aria-label="link">#</a></h3>
+<p>1억 엔 언더의 티켓 사이즈와 역 도보 7분 신축이라는 외형적 매력은 있으나, <strong>현금흐름 안전마진이 사실상 제로에 가까워 8실 중 단 1실만 공실이 나도 보유자가 돈을 메워 넣어야 하는 리스크 물건</strong>입니다. 가격을 8,800만 엔 이하로 대폭 네고하지 않는 한 매수를 권장하지 않습니다.</p></div>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ko';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>
