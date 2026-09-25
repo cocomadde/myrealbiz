@@ -257,5 +257,40 @@
     "moabiz_report_ja_html": "./moabiz/g-crest-hatogaya/report_ja.html",
     "moabiz_suitability_html": "./moabiz/g-crest-hatogaya/suitability.html",
     "moabiz_suitability_report_html": "./moabiz/g-crest-hatogaya/suitability_report.html"
+  },
+  {
+    "slug": "green-heights-kobakura",
+    "name_ko": "그린하이츠 코바쿠라 (Green Heights Kobakura)",
+    "name_ja": "グリーンハイツコバクラ",
+    "structure": "목조 지상 2층",
+    "units": 18,
+    "location": "도쿄도 하치오지시 미도리초 (東京都八王子市緑町)",
+    "price": 97500000.0,
+    "price_display": "9,750만 엔",
+    "gross_yield_pct": 7.99,
+    "cap_rate_pct": 5.68,
+    "assessed_value_ratio_pct": 78.87,
+    "verdict": "조건부 검토",
+    "verdict_badge": "conditional",
+    "corporate_verdict": "조건부 적합 (가격 네고 8,000만 엔대 진입 및 토지 담보 융자 조건부)",
+    "corporate_verdict_public": "조건부 검토 (토지 담보력 78.9% 우수하나 축 41년 목조 및 검사필증 미취득 리스크 주의)",
+    "score": 18,
+    "max_score": 30,
+    "public_enabled": true,
+    "key_highlights": [
+      "토지 172.3평(569.6㎡)·노선가 7,690만 엔(매매가의 78.9%) 압도적 토지 담보력",
+      "경왕선 '케이오카타쿠라'역 도보 6분 역세권 및 만실 표면수익률 7.99%",
+      "준공검사필증 미취득 및 축 41년 목조 설비 노후화에 따른 가격 네고(8,500만 엔대) 필수"
+    ],
+    "report_ko": "./green-heights-kobakura/green-heights-kobakura_Investment_Report_KO.md",
+    "report_ja": "./green-heights-kobakura/green-heights-kobakura_Investment_Report_JA.md",
+    "report_html": "./green-heights-kobakura/report.html",
+    "report_ja_html": "./green-heights-kobakura/report_ja.html",
+    "simulator_html": "./green-heights-kobakura/index.html",
+    "folder": "green-heights-kobakura",
+    "moabiz_folder": "moabiz/green-heights-kobakura",
+    "moabiz_simulator_html": "./moabiz/green-heights-kobakura/index.html",
+    "moabiz_report_html": "./moabiz/green-heights-kobakura/report.html",
+    "moabiz_report_ja_html": "./moabiz/green-heights-kobakura/report_ja.html"
   }
 ]

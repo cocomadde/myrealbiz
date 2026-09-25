@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>グリーンハイツコバクラ 投資分析レポート (モアビズ) | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">グリーンハイツコバクラ 投資分析レポート (モアビズ)</div>
+        <div class="brand-sub">도쿄도 하치오지시 미도리초 (東京都八王子市緑町) · 목조 지상 2층 18戸</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn " href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn active" href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 ポートフォリオ</a>
+      <a class="btn btn-primary" href="./">🧮 融資シミュレーター</a>
+      <button class="btn" onclick="window.print()">🖨️ 印刷 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">目次 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#収益物件-投資分析レポート-収益不動産-精密実査報告書" data-target="収益物件-投資分析レポート-収益不動産-精密実査報告書">収益物件 投資分析レポート (収益不動産 精密実査報告書)</a>
+<a class="toc-h1" href="#1-エグゼクティブサマリー-executive-summary" data-target="1-エグゼクティブサマリー-executive-summary">1. エグゼクティブサマリー (Executive Summary)</a>
+<a class="toc-h3" href="#主要指標サマリー-key-financial-metrics" data-target="主要指標サマリー-key-financial-metrics">主要指標サマリー (Key Financial Metrics)</a>
+<a class="toc-h3" href="#1-2-決算書デザイン型判定-output-key-metrics" data-target="1-2-決算書デザイン型判定-output-key-metrics">1.2 決算書デザイン型判定 (Output &amp; Key Metrics)</a>
+<a class="toc-h3" href="#評価サマリー-evaluation-summary" data-target="評価サマリー-evaluation-summary">評価サマリー (Evaluation Summary)</a>
+<a class="toc-h3" href="#先行確認必須5大項目-top-5-due-diligence-action-items" data-target="先行確認必須5大項目-top-5-due-diligence-action-items">先行確認必須5大項目 (Top 5 Due Diligence Action Items)</a>
+<a class="toc-h1" href="#2-物件概要-property-overview" data-target="2-物件概要-property-overview">2. 物件概要 (Property Overview)</a>
+<a class="toc-h3" href="#基本スペック一覧表" data-target="基本スペック一覧表">基本スペック一覧表</a>
+<a class="toc-h3" href="#google-maps-実測歩行距離検証及び1分乖離分析表" data-target="google-maps-実測歩行距離検証及び1分乖離分析表">Google Maps 実測歩行距離検証及び1分乖離分析表</a>
+<a class="toc-h1" href="#3-物件の来歴と権利分析-title-history-due-diligence" data-target="3-物件の来歴と権利分析-title-history-due-diligence">3. 物件の来歴と権利分析 (Title History &amp; Due Diligence)</a>
+<a class="toc-h3" href="#権利変動フロー図" data-target="権利変動フロー図">権利変動フロー図</a>
+<a class="toc-h3" href="#登記記録の経時的詳細" data-target="登記記録の経時的詳細">登記記録の経時的詳細</a>
+<a class="toc-h1" href="#4-収益状況レントロール分析-rent-roll-forensic-audit" data-target="4-収益状況レントロール分析-rent-roll-forensic-audit">4. 収益状況（レントロール分析） (Rent Roll Forensic Audit)</a>
+<a class="toc-h3" href="#収益構造一覧" data-target="収益構造一覧">収益構造一覧</a>
+<a class="toc-h3" href="#全18戸-レントロール精査一覧表" data-target="全18戸-レントロール精査一覧表">全18戸 レントロール精査一覧表</a>
+<a class="toc-h1" href="#5-賃料水準の検証-market-comparables-lifull-homes-audit" data-target="5-賃料水準の検証-market-comparables-lifull-homes-audit">5. 賃料水準の検証 (Market Comparables &amp; LIFULL HOME'S Audit)</a>
+<a class="toc-h3" href="#周辺相場との乖離検証" data-target="周辺相場との乖離検証">周辺相場との乖離検証</a>
+<a class="toc-h1" href="#6-価格妥当性積算価格と収益価格-valuation-price-fairness" data-target="6-価格妥当性積算価格と収益価格-valuation-price-fairness">6. 価格妥当性（積算価格と収益価格） (Valuation &amp; Price Fairness)</a>
+<a class="toc-h3" href="#再調達原価法積算価格シナリオ比較" data-target="再調達原価法積算価格シナリオ比較">再調達原価法（積算価格）シナリオ比較</a>
+<a class="toc-h1" href="#7-運営コストとキャッシュフロー-opex-cash-flow-modeling" data-target="7-運営コストとキャッシュフロー-opex-cash-flow-modeling">7. 運営コストとキャッシュフロー (OPEX &amp; Cash Flow Modeling)</a>
+<a class="toc-h3" href="#運営経費の正常化比較表" data-target="運営経費の正常化比較表">運営経費の正常化比較表</a>
+<a class="toc-h3" href="#融資条件返済シミュレーション" data-target="融資条件返済シミュレーション">融資条件・返済シミュレーション</a>
+<a class="toc-h1" href="#8-賃上げシナリオとバリューアップ-upside-potential" data-target="8-賃上げシナリオとバリューアップ-upside-potential">8. 賃上げシナリオとバリューアップ (Upside Potential)</a>
+<a class="toc-h3" href="#賃料増額ポテンシャル総括" data-target="賃料増額ポテンシャル総括">賃料増額ポテンシャル総括</a>
+<a class="toc-h1" href="#9-立地需要リスク-location-transit-hazards" data-target="9-立地需要リスク-location-transit-hazards">9. 立地・需要・リスク (Location, Transit &amp; Hazards)</a>
+<a class="toc-h3" href="#平日朝ラッシュ時-07000900出発-東京4大拠点駅-door-to-door-通勤動線" data-target="平日朝ラッシュ時-07000900出発-東京4大拠点駅-door-to-door-通勤動線">平日朝ラッシュ時 (07:00〜09:00出発) 東京4大拠点駅 Door-to-Door 通勤動線</a>
+<a class="toc-h3" href="#ハザードマップ及び災害リスク検証" data-target="ハザードマップ及び災害リスク検証">ハザードマップ及び災害リスク検証</a>
+<a class="toc-h1" href="#10-総合評価および投資判断-final-recommendation" data-target="10-総合評価および投資判断-final-recommendation">10. 総合評価および投資判断 (Final Recommendation)</a>
+<a class="toc-h3" href="#30点満点-スコアカード" data-target="30点満点-スコアカード">30点満点 スコアカード</a>
+<a class="toc-h3" href="#最終投資判断及びアクションプラン" data-target="最終投資判断及びアクションプラン">最終投資判断及びアクションプラン</a>
+<a class="toc-h1" href="#付録出典及びデューデリジェンス根拠一覧-appendix" data-target="付録出典及びデューデリジェンス根拠一覧-appendix">付録：出典及びデューデリジェンス根拠一覧 (Appendix)</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="収益物件-投資分析レポート-収益不動産-精密実査報告書">収益物件 投資分析レポート (収益不動産 精密実査報告書)<a class="anchor" href="#収益物件-投資分析レポート-収益不動産-精密実査報告書" aria-label="link">#</a></h1>
+<h2 id="グリーンハイツコバクラ-green-heights-kobakura">グリーンハイツコバクラ (Green Heights Kobakura)<a class="anchor" href="#グリーンハイツコバクラ-green-heights-kobakura" aria-label="link">#</a></h2>
+<hr>
+<h1 id="1-エグゼクティブサマリー-executive-summary">1. エグゼクティブサマリー (Executive Summary)<a class="anchor" href="#1-エグゼクティブサマリー-executive-summary" aria-label="link">#</a></h1>
+<p>本報告書は、東京都八王子市緑町に所在する1棟収益用木造共同住宅<strong>「グリーンハイツコバクラ」</strong>（地上2階建、総戸数18戸および敷地内平置き駐車場3区画）の取得妥当性を検証するために作成された、機関投資家およびアセットマネジメント基準の精密デューデリジェンス報告書です。</p>
+<p>本物件は1985年4月築（築41.4年）の木造アパートでありながら、<strong>公簿敷地面積 569.63㎡（172.31坪）</strong>という広大な敷地を誇ります。2026年路線価（135,000円/㎡）に基づく土地公的積算価格は<strong>7,690.0万円</strong>に達し、売買価格（9,750.0万円）の実に<strong>78.87%が純粋な土地公的価値で裏付けられている</strong>点が最大の強みです。京王高尾線「京王片倉」駅徒歩6分、JR中央線・横浜線の広域拠点ターミナル「八王子」駅徒歩17分に位置し、現在18戸中17戸が入居中（稼働率94.44%）で、現況年収入740.5万円（現況利回り7.60%）、満室想定年収入778.9万円（満室表面利回り7.99%）を維持しています。</p>
+<p>しかしながら、物件の構造的本質を精査した結果、<strong>① 建築確認台帳上の検査済証番号が空欄（検査済証未取得）</strong>であることによるメガバンク・主要地銀プロパー融資の制限、<strong>② 築41.4年木造（法定耐用年数22年大幅超過）</strong>に伴う屋根・外壁・給排水管等の経年劣化および大規模修繕リスク、<strong>③ 実質運営経費（OPEX）正常化（経費率28.85%）後の実質Cap Rateが5.68%に低下</strong>し、20年返済短縮時にはDSCRが1.09倍まで圧迫されるキャッシュフロー脆弱性、<strong>④ 1985年分筆（972-56）後の現況敷地に対する建ぺい率（指定40%）消化率（40.17%）の法的適合性確認の必要性</strong>、<strong>⑤ プロパンガス無償貸与設備の承継義務（中途解約違約金リスク）</strong>等、看過できない重大なリスクが多数判明しました。</p>
+<p>総括として、本物件は売主提示価格（9,750万円）のままでのエントリーは安全マージンが不足しており、前所有者の他界（2025年4月）に伴い2026年3月に相続登記された<strong>相続資産整理売却</strong>であることを踏まえ、<strong>8,500万〜8,800万円（約1,000万〜1,250万円の指値減額）への価格交渉成立および土地担保力連動の長期（25年）融資確保を絶対条件とした【条件付き検討（買入慎重 / 8,000万円台への指値必須）】</strong>と最終判定します。</p>
+<hr>
+<h3 id="主要指標サマリー-key-financial-metrics">主要指標サマリー (Key Financial Metrics)<a class="anchor" href="#主要指標サマリー-key-financial-metrics" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-right">数値</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件価格 (売買希望価格)</strong></td><td class="ta-right"><strong>9,750.0 万円</strong></td><td class="ta-left">税込・現況有姿・契約不適合責任免責</td></tr><tr><td class="ta-left"><strong>現況年収入 (17戸入居)</strong></td><td class="ta-right"><strong>740.5 万円</strong></td><td class="ta-left">月額 617,100円（賃料55.7万＋共益費3.7万＋駐車場23,100円）</td></tr><tr><td class="ta-left"><strong>現況表面利回り</strong></td><td class="ta-right"><strong>7.60%</strong></td><td class="ta-left">空室1戸（107号室）除く</td></tr><tr><td class="ta-left"><strong>満室想定年収入 (18戸)</strong></td><td class="ta-right"><strong>778.9 万円</strong></td><td class="ta-left">107号室（月額32,000円）成約想定（自販機収入年3.1万円別途）</td></tr><tr><td class="ta-left"><strong>満室想定表面利回り</strong></td><td class="ta-right"><strong>7.99%</strong></td><td class="ta-left">レントロール記載満室想定と100%合致</td></tr><tr><td class="ta-left"><strong>土地路線価積算価格</strong></td><td class="ta-right"><strong>7,690.0 万円</strong></td><td class="ta-left">569.63㎡ × 13.5万円/㎡（<strong>売買価格比 78.87%</strong>）</td></tr><tr><td class="ta-left"><strong>実質年間経費 (OPEX)</strong></td><td class="ta-right"><strong>224.7 万円</strong></td><td class="ta-left">開示実績＋火災保険・退去原復AD・修繕積立を正常化（<strong>経費率 28.85%</strong>）</td></tr><tr><td class="ta-left"><strong>純営業収益 (満室時 NOI)</strong></td><td class="ta-right"><strong>554.2 万円</strong></td><td class="ta-left">実質OPEX控除後</td></tr><tr><td class="ta-left"><strong>実質 Cap Rate (NOI利回り)</strong></td><td class="ta-right"><strong>5.68%</strong></td><td class="ta-left">価格9,750万円ベース（現況NOIベース: 5.29%）</td></tr><tr><td class="ta-left"><strong>想定借入額 (LTV 80.0%)</strong></td><td class="ta-right"><strong>7,800.0 万円</strong></td><td class="ta-left">土地路線価額（7,690万円）見合いの信金/地銀融資想定</td></tr><tr><td class="ta-left"><strong>年間元利返済額 (ADS, 25年/2.8%)</strong></td><td class="ta-right"><strong>434.2 万円</strong></td><td class="ta-left">月額 361,863円（※20年返済時は年 509.4万円）</td></tr><tr><td class="ta-left"><strong>年間キャッシュフロー (満室時税引前CF)</strong></td><td class="ta-right"><strong>120.0 万円</strong></td><td class="ta-left">現況稼働時: 81.6万円（※20年返済時は 44.8万円に激減）</td></tr><tr><td class="ta-left"><strong>返済余裕率 (DSCR)</strong></td><td class="ta-right"><strong>1.28 倍</strong></td><td class="ta-left">25年返済基準（※20年返済時は 1.09倍で危険水準）</td></tr><tr><td class="ta-left"><strong>損益分岐稼働率</strong></td><td class="ta-right"><strong>84.59%</strong></td><td class="ta-left">許容空室数: <strong>2.77 戸</strong> / 全18戸（3戸空室で赤字転落）</td></tr><tr><td class="ta-left"><strong>初期必要自己資金</strong></td><td class="ta-right"><strong>2,816.9 万円</strong></td><td class="ta-left">頭金（1,950.0万円）＋ 取得諸費用概算（866.9万円）</td></tr><tr><td class="ta-left"><strong>自己資本利回り (CCR)</strong></td><td class="ta-right"><strong>4.26%</strong></td><td class="ta-left">満室想定税引前CFベース（現況CFベース: 2.90%）</td></tr><tr><td class="ta-left"><strong>潜在賃料増額余地</strong></td><td class="ta-right"><strong>年 70.0万〜112.8万円</strong></td><td class="ta-left">3.2万円以下の割安11戸を3.8万〜4.0万円へ正常化時</td></tr></tbody></table></div>
+<hr>
+<h3 id="1-2-決算書デザイン型判定-output-key-metrics">1.2 決算書デザイン型判定 (Output &amp; Key Metrics)<a class="anchor" href="#1-2-決算書デザイン型判定-output-key-metrics" aria-label="link">#</a></h3>
+<h4 id="a-外部公開用標準様式-external-dossier">【A. 外部公開用標準様式 (External Dossier)】<a class="anchor" href="#a-外部公開用標準様式-external-dossier" aria-label="link">#</a></h4>
+<div class="alert alert-note"><p>※ 本分析は、法人の財務健全性および金融機関からの追加与信限度額の極大化を企図し、本不動産単体を組み入れた際に法人決算書（損益計算書・貸借対照表）へ与える主要財務指標を精密検証した結果です。</p></div>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目 (Key Metrics)</th><th class="ta-center">検証対象 不動産単品</th><th class="ta-left">指標の定義及び決算書デザイン上の意義 (Description &amp; Significance)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>約 169.4 万円</strong></td><td class="ta-left">純営業収益(NOI 554.2万)から支払利息(215.4万)および木造4年加速減価償却費(208.9万)を控除した会計上の利益。黒字決算維持により銀行スコアリングを防衛。</td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF (Pre-tax CF)</strong></td><td class="ta-center"><strong>120.0 万円 (1.23%)</strong></td><td class="ta-left">純営業収益から年間元利返済額(ADS 434.2万)を控除した実質現金の純流入額。18戸分散により年120万円の流動性を創出。</td></tr><tr><td class="ta-left"><strong>3. 推定法人税額 (実効税率25%仮定)</strong></td><td class="ta-center"><strong>約 42.4 万円</strong></td><td class="ta-left">帳簿上利益に対する概算税額。耐用年数切れ木造の法定償却期間（22年×20%=4.4年→4年）による多額の減価償却費計上で課税所得を圧縮。</td></tr><tr><td class="ta-left"><strong>4. 税引後手残りCF (Post-tax CF)</strong></td><td class="ta-center"><strong>約 77.6 万円 (0.80%)</strong></td><td class="ta-left">税引前CFから推定法人税を控除した最終純剰余金。手許資金として留保され、修繕原資および再投資資金となる。</td></tr><tr><td class="ta-left"><strong>5. 債務償還年数 (Debt Coverage)</strong></td><td class="ta-center"><strong>27.2 年</strong></td><td class="ta-left">純有利子負債(7,800万) ÷ (税引後利益127万 + 減価償却費208.9万)。銀行の返済能力審査基準（通常30年以内が適格ライン）。</td></tr><tr><td class="ta-left"><strong>6. 利息補償倍率 (ICR)</strong></td><td class="ta-center"><strong>2.57 倍</strong></td><td class="ta-left">純営業収益(554.2万) ÷ 支払利息(215.4万)。金融費用耐力を示し、1.5倍以上の安全基準を大幅にクリア。</td></tr><tr><td class="ta-left"><strong>7. 負債返済割合 (DSCR)</strong></td><td class="ta-center"><strong>1.28 倍</strong></td><td class="ta-left">純営業収益(554.2万) ÷ 元利返済額(434.2万)。25年返済時に1.20倍以上の銀行審査目線を達成（※20年時は1.09倍に悪化）。</td></tr><tr><td class="ta-left"><strong>8. 固定資産税評価ベース LTV</strong></td><td class="ta-center"><strong>210.01%</strong></td><td class="ta-left">借入額(7,800万) ÷ 自治体固定資産評価額(土地×0.7 + 建物 = 3,714万)。路線価ベースのLTVは101.4%と極めて良好。</td></tr><tr><td class="ta-left"><strong>9. 自己資本投資利回り (CCR)</strong></td><td class="ta-center"><strong>4.26%</strong></td><td class="ta-left">税引前CF(120.0万) ÷ 初期投下自己資金(2,816.9万)。8,000万円台への指値成立により6.5%前後へ改善可能。</td></tr></tbody></table></div>
+<hr>
+<h4 id="b-モアビズ内部専用-比較着地様式-moabiz-internal">【B. モアビズ内部専用 比較着地様式 (Moabiz Internal)】<a class="anchor" href="#b-モアビズ内部専用-比較着地様式-moabiz-internal" aria-label="link">#</a></h4>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目 (指標項目)</th><th class="ta-center">検証対象 不動産単品</th><th class="ta-center">モアビズ4期現在 (Col G)</th><th class="ta-center">買入後 決算書着地予想</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>¥1,694,098</strong></td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥5,416,548</strong> (+45.5%)</td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF</strong></td><td class="ta-center"><strong>¥1,199,900</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥2,941,801</strong> (+68.9%)</td></tr><tr><td class="ta-left">・<strong>税引前CF利回り</strong></td><td class="ta-center"><strong>1.23%</strong></td><td class="ta-center">0.65%</td><td class="ta-center"><strong>0.81%</strong> (+16bp)</td></tr><tr><td class="ta-left">・<strong>推定法人税額</strong></td><td class="ta-center"><strong>¥423,525</strong></td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,354,138</strong></td></tr><tr><td class="ta-left">・<strong>税引後手残りCF</strong></td><td class="ta-center"><strong>¥776,375</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,587,664</strong> (+95.7%)</td></tr><tr><td class="ta-left">・<strong>税引後CF利回り</strong></td><td class="ta-center"><strong>0.80%</strong></td><td class="ta-center">0.30%</td><td class="ta-center"><strong>0.43%</strong> (+13bp)</td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (年)</strong></td><td class="ta-center"><strong>27.2 年</strong></td><td class="ta-center">24.1 年</td><td class="ta-center"><strong>24.9 年</strong> (健全性維持)</td></tr><tr><td class="ta-left"><strong>4. 簡易 Cash Flow (=税引後CF)</strong></td><td class="ta-center"><strong>¥776,375</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,587,664</strong> (約1.96倍へ倍増)</td></tr><tr><td class="ta-left"><strong>5. ICR (インタレスト・カバレッジ・レシオ)</strong></td><td class="ta-center"><strong>2.57 倍</strong></td><td class="ta-center">0.90 倍</td><td class="ta-center"><strong>1.25 倍</strong> (法人財務体質大幅改善)</td></tr><tr><td class="ta-left"><strong>6. 負債返済割合 (DSCR)</strong></td><td class="ta-center"><strong>1.28 倍</strong></td><td class="ta-center">1.50 倍</td><td class="ta-center"><strong>1.42 倍</strong> (適格水準維持)</td></tr><tr><td class="ta-left"><strong>7. LTV (固定資産税評価基準)</strong></td><td class="ta-center"><strong>210.01%</strong></td><td class="ta-center">261.08%</td><td class="ta-center"><strong>248.62%</strong> (負債比率希釈改善)</td></tr><tr><td class="ta-left"><strong>8. 投資額ROI (投下自己資本比 / CCR)</strong></td><td class="ta-center"><strong>4.26%</strong></td><td class="ta-center">3.83%</td><td class="ta-center"><strong>4.08%</strong></td></tr><tr><td class="ta-left"><strong>9. 法人貢献総合判定 (受入適格性)</strong></td><td class="ta-center"><strong>条件付寄与</strong></td><td class="ta-center">基準線 (ICR 0.9倍脆弱)</td><td class="ta-center"><strong>条件付適格 (指値前提)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="評価サマリー-evaluation-summary">評価サマリー (Evaluation Summary)<a class="anchor" href="#評価サマリー-evaluation-summary" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価軸</th><th class="ta-center">判定</th><th class="ta-left">根拠</th></tr></thead><tbody><tr><td class="ta-left"><strong>価格妥当性</strong></td><td class="ta-center"><strong>やや割高 (指値必須)</strong></td><td class="ta-left">9,750万円の提示価格は築41年木造および検査済証未取得のリスクプレミアムを織り込んでいない。土地路線価（7,690万円）見合いの8,500万〜8,800万円が妥当線。</td></tr><tr><td class="ta-left"><strong>賃料水準</strong></td><td class="ta-center"><strong>適正以下 (増額余地豊富)</strong></td><td class="ta-left">全戸同一20.28㎡でありながら最安2.7万円から最高4.0万円まで大きな乖離。3.2万円以下の11戸について退去時リフォームによる賃上げポテンシャルが大。</td></tr><tr><td class="ta-left"><strong>収益の質</strong></td><td class="ta-center"><strong>普通 (戸数分散効果)</strong></td><td class="ta-left">単身用1K×18戸の多戸数構成により空室リスクが高度に分散。17戸稼働で安定しているが、高齢者や長期滞納リスクの入居者属性実査が必要。</td></tr><tr><td class="ta-left"><strong>建物状態</strong></td><td class="ta-center"><strong>注意必要 (構造的瑕疵)</strong></td><td class="ta-left">1985年4月築（築41.4年）、亜鉛メッキ鋼板屋根、外壁クラック、給排水管老朽化。検査済証未取得のため将来の再建築や増改築に制限。</td></tr><tr><td class="ta-left"><strong>収益構造</strong></td><td class="ta-center"><strong>注意必要 (経費率28.8%)</strong></td><td class="ta-left">エレベーター無しで共用設備は軽微だが、木造維持保全費、空室募集AD、プロパンガス設備制約を織り込むと実質経費率は28.85%に達する。</td></tr><tr><td class="ta-left"><strong>将来性・土地</strong></td><td class="ta-center"><strong>良好 (土地172坪の担保力)</strong></td><td class="ta-left">八王子市緑町で公簿172坪の整形地。将来の解体更地化による戸建分譲用地（3〜4区画）転用または新築アパート再開発用地としての出口価値が高い。</td></tr><tr><td class="ta-left"><strong>金融・融資</strong></td><td class="ta-center"><strong>最大不確実性 (取扱行限定)</strong></td><td class="ta-left">法定耐用年数切れ木造かつ検査済証無いため都市銀行・第一地銀は融資不可。土地担保力評価型の信金（城南・西武・三協）やきらぼし、オリックス等の事前承諾が必須。</td></tr></tbody></table></div>
+<hr>
+<h3 id="先行確認必須5大項目-top-5-due-diligence-action-items">先行確認必須5大項目 (Top 5 Due Diligence Action Items)<a class="anchor" href="#先行確認必須5大項目-top-5-due-diligence-action-items" aria-label="link">#</a></h3>
+<ul>
+<li>[ ] <strong>1. 土地分筆（972-56）後の現況建ぺい率（指定40%）法的適合性の確認</strong>: 昭和60年建築確認時の敷地（574.29㎡）から平成23年分筆（57.00㎡）後の残余敷地（569.63㎡）に対し、現況建築面積（228.81㎡）の建ぺい率（40.17%）が適法か建築士による確認。</li>
+<li>[ ] <strong>2. 検査済証未取得を許容する融資機関の内諾確保</strong>: 土地路線価額（7,690万円）を評価し、耐用年数超え木造に対して融資期間25年・金利2.8%前後を提示可能な金融機関（きらぼし銀行、西武信金、オリックス銀行、SBJ銀行等）の事前確定。</li>
+<li>[ ] <strong>3. プロパンガス無償貸与設備（配管・給湯器）承継契約書の精査</strong>: 売主がガス会社と締結している無償貸与設備の残債承継義務および中途解約違約金（通常1戸あたり数万円〜十数万円）の有無と金額の確認。</li>
+<li>[ ] <strong>4. 築41年木造の屋根・外壁・給排水管インスペクション実施</strong>: 雨漏り履歴の有無、亜鉛メッキ鋼板屋根の腐食度、外壁塗装のチョーキング、床下蟻害（シロアリ）の専門家診断。</li>
+<li>[ ] <strong>5. 相続人売主の売却期限および指値（8,500万円前後）の受託可能性打診</strong>: 相続登記完了（2026年3月）後の早期現金化ニーズを捉え、1,000万円前後の指値買付証明書の提出戦略の構築。</li>
+</ul>
+<hr>
+<h1 id="2-物件概要-property-overview">2. 物件概要 (Property Overview)<a class="anchor" href="#2-物件概要-property-overview" aria-label="link">#</a></h1>
+<h3 id="基本スペック一覧表">基本スペック一覧表<a class="anchor" href="#基本スペック一覧表" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-left">内容</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件名称</strong></td><td class="ta-left">グリーンハイツコバクラ</td><td class="ta-left">英表記: Green Heights Kobakura</td></tr><tr><td class="ta-left"><strong>所在地 (地番)</strong></td><td class="ta-left">東京都八王子市緑町972番地5</td><td class="ta-left">土地1筆（分筆後）</td></tr><tr><td class="ta-left"><strong>住居表示</strong></td><td class="ta-left">東京都八王子市緑町973-4</td><td class="ta-left">現地表記・郵便等</td></tr><tr><td class="ta-left"><strong>交通アクセス</strong></td><td class="ta-left">京王電鉄高尾線 <strong>「京王片倉」駅 徒歩6分</strong>（約480m）<br>JR横浜線 <strong>「片倉」駅 徒歩17分</strong>（約1.3km）<br>JR中央線・横浜線 <strong>「八王子」駅 徒歩17分</strong>（約1.4km）</td><td class="ta-left">八王子駅まで自転車6分圏内の軽快アクセス</td></tr><tr><td class="ta-left"><strong>権利形態</strong></td><td class="ta-left">所有権（敷地・建物とも）</td><td class="ta-left">私道負担なし</td></tr><tr><td class="ta-left"><strong>地目 / 現況</strong></td><td class="ta-left">宅地 / 共同住宅敷地</td><td class="ta-left">地勢: 平坦</td></tr><tr><td class="ta-left"><strong>敷地面積 (公簿)</strong></td><td class="ta-left"><strong>569.63 ㎡ (172.31 坪)</strong></td><td class="ta-left">実測図・地積測量図あり</td></tr><tr><td class="ta-left"><strong>延床面積</strong></td><td class="ta-left"><strong>364.36 ㎡ (110.22 坪)</strong>（公課証明書・登記簿）<br>※ 建築確認台帳記載延べ面積: <strong>427.31 ㎡</strong></td><td class="ta-left">差分 62.95㎡（外廊下・外階段等の不参入）</td></tr><tr><td class="ta-left"><strong>構造 / 階数</strong></td><td class="ta-left">木造 亜鉛メッキ鋼板葺 地上2階建</td><td class="ta-left">共同住宅</td></tr><tr><td class="ta-left"><strong>間取り / 総戸数</strong></td><td class="ta-left"><strong>1K × 18戸</strong> ＋ 平置き駐車場 3台（P1, P2, P3）</td><td class="ta-left">各住戸専有面積 20.28 ㎡</td></tr><tr><td class="ta-left"><strong>建築確認年月日 / 番号</strong></td><td class="ta-left">昭和60年 (1985年) 2月7日 / 第一般申請 第2243号</td><td class="ta-left"><strong>新耐震基準適合</strong></td></tr><tr><td class="ta-left"><strong>竣工年月 / 築年数</strong></td><td class="ta-left">昭和60年 (1985年) 4月竣工 / <strong>築41.4年</strong></td><td class="ta-left">木造法定耐用年数（22年）大幅経過</td></tr><tr><td class="ta-left"><strong>検査済証</strong></td><td class="ta-left"><strong>無（未取得 / 台帳記載事項証明書上 空欄）</strong></td><td class="ta-left">完了検査未受検</td></tr><tr><td class="ta-left"><strong>都市計画 / 用途地域</strong></td><td class="ta-left">市街化区域 / <strong>第一種低層住居専用地域</strong></td><td class="ta-left">良好な低層住宅環境（絶対高さ10m）</td></tr><tr><td class="ta-left"><strong>建ぺい率 / 容積率</strong></td><td class="ta-left"><strong>指定 40% / 指定 80%</strong></td><td class="ta-left">低密度指定エリア</td></tr><tr><td class="ta-left"><strong>現況消化率</strong></td><td class="ta-left">建ぺい率: <strong>40.17%</strong>（建築面積228.81㎡ ÷ 569.63㎡）<br>容積率: <strong>63.96%</strong>（延床面積364.36㎡ ÷ 569.63㎡）</td><td class="ta-left"><strong>建ぺい率微小オーバーの可能性要確認</strong></td></tr><tr><td class="ta-left"><strong>接道状況</strong></td><td class="ta-left"><strong>北西側 幅員約4.0mの公道に 約14.27m 接道</strong></td><td class="ta-left">建築基準法上の接道義務（2m）充当</td></tr><tr><td class="ta-left"><strong>設備インフラ</strong></td><td class="ta-left">電気: 東京電力 / ガス: <strong>プロパンガス</strong> / 水道: 公営水道 / 排水: 公共下水 / CATV: J:COM</td><td class="ta-left">バス・トイレ別、サブリースなし</td></tr><tr><td class="ta-left"><strong>路線価 (2026年)</strong></td><td class="ta-left"><strong>135,000 円 / ㎡</strong></td><td class="ta-left">土地路線価額: <strong>76,900,050 円</strong>（物件価格比 78.87%）</td></tr><tr><td class="ta-left"><strong>固定資産税評価額</strong></td><td class="ta-left">土地: 46,796,243 円 / 家屋: 4,384,343 円（合計: 51,180,586 円）</td><td class="ta-left">土地割合 91.43%、家屋割合 8.57%</td></tr><tr class="total-row"><td class="ta-left"><strong>年間公課税額合計</strong></td><td class="ta-left">土地: 151,307 円 / 家屋: 73,217 円（<strong>合計: 224,524 円</strong>）</td><td class="ta-left">固定資産税 170,571円＋都市計画税 53,953円</td></tr></tbody></table></div>
+<hr>
+<h3 id="google-maps-実測歩行距離検証及び1分乖離分析表">Google Maps 実測歩行距離検証及び1分乖離分析表<a class="anchor" href="#google-maps-実測歩行距離検証及び1分乖離分析表" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">駅名・路線</th><th class="ta-center">公示徒歩分数</th><th class="ta-center">Google Maps 実測距離</th><th class="ta-center">Google Maps 実測所要時間</th><th class="ta-left">体感乖離の原因究明及び分析</th><th class="ta-center">ルート確認リンク</th></tr></thead><tbody><tr><td class="ta-left"><strong>京王高尾線「京王片倉」駅</strong></td><td class="ta-center"><strong>徒歩6分</strong></td><td class="ta-center"><strong>480 m</strong></td><td class="ta-center"><strong>約7分</strong> (平坦)</td><td class="ta-left">公正取引規約基準（480m÷80=6.0分）に対し、住宅街路地の歩行動線および駅舎改札口までのアプローチで約1分の差。坂道はなく体感ストレス極小。</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=京王片倉駅&amp;travelmode=walking" target="_blank" rel="noopener">Google Maps徒歩ルート</a></td></tr><tr><td class="ta-left"><strong>JR横浜線「片倉」駅</strong></td><td class="ta-center"><strong>徒歩17分</strong></td><td class="ta-center"><strong>1,300 m</strong></td><td class="ta-center"><strong>約18〜19分</strong></td><td class="ta-left">信号待ち2箇所および湯殿川横断あり。自転車利用時は約5分。</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=片倉駅&amp;travelmode=walking" target="_blank" rel="noopener">Google Maps徒歩ルート</a></td></tr><tr><td class="ta-left"><strong>JR中央線・横浜線「八王子」駅</strong></td><td class="ta-center"><strong>徒歩17分</strong></td><td class="ta-center"><strong>1,400 m</strong></td><td class="ta-center"><strong>約19〜20分</strong></td><td class="ta-left">八王子市街地中心部への平坦直線ルート。生活圏として十分徒歩・自転車通勤圏内。</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=八王子駅&amp;travelmode=walking" target="_blank" rel="noopener">Google Maps徒歩ルート</a></td></tr></tbody></table></div>
+<hr>
+<h1 id="3-物件の来歴と権利分析-title-history-due-diligence">3. 物件の来歴と権利分析 (Title History &amp; Due Diligence)<a class="anchor" href="#3-物件の来歴と権利分析-title-history-due-diligence" aria-label="link">#</a></h1>
+<h3 id="権利変動フロー図">権利変動フロー図<a class="anchor" href="#権利変動フロー図" aria-label="link">#</a></h3>
+<div class="diagram"><pre class="mermaid">flowchart TD
+    A[&quot;1985年2月〜4月: 新築竣工&lt;br/&gt;所有者: 株式会社コバクラ / 株式会社小林蔵商店&quot;] --&gt; B[&quot;1986年9月 &amp; 1988年12月: 根抵当権設定&lt;br/&gt;埼玉銀行 / あさひ銀ファクター等 極度額計 2億1,700万円&quot;]
+    B --&gt; C[&quot;2011年9月: 土地一部を分筆&lt;br/&gt;972番5から972番56（57.00㎡）を分筆&quot;]
+    C --&gt; D[&quot;2011年10月31日: 所有権移転及び根抵当権全額抹消&lt;br/&gt;ラズライト・インベストメント㈱経由で個人投資家（森﨑武利氏）へ売買移転&lt;br/&gt;同日、バブル期の巨額根抵当権は全額放棄により抹消&quot;]
+    D --&gt; E[&quot;2025年4月27日: 前所有者逝去&lt;br/&gt;相続発生&quot;]
+    E --&gt; F[&quot;2026年3月16日: 相続登記完了&lt;br/&gt;相続人（森﨑マサ子氏）が単独所有権取得&quot;]
+    F --&gt; G[&quot;2026年9月: 収益物件市場へ売却売出&lt;br/&gt;売出価格: 9,750万円（相続資産整理・現金化目的）&quot;]</pre></div>
+<h3 id="登記記録の経時的詳細">登記記録の経時的詳細<a class="anchor" href="#登記記録の経時的詳細" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">登記年月日 / 番号</th><th class="ta-center">区分</th><th class="ta-left">登記の目的</th><th class="ta-left">権利者 / 内容</th><th class="ta-left">投資判断上のインプリケーション</th></tr></thead><tbody><tr><td class="ta-left"><strong>1985年4月</strong></td><td class="ta-center">甲区</td><td class="ta-left">所有権保存</td><td class="ta-left">㈱コバクラ / ㈱小林蔵商店</td><td class="ta-left">創業家による法人名義での新築竣工</td></tr><tr><td class="ta-left"><strong>1986.09.17 (第56117号)</strong></td><td class="ta-center">乙区</td><td class="ta-left">根抵当権設定</td><td class="ta-left">極度額 <strong>1億6,700万円</strong>（埼玉銀行）</td><td class="ta-left">バブル経済期の大口融資担保枠</td></tr><tr><td class="ta-left"><strong>1988.12.23 (第53973号)</strong></td><td class="ta-center">乙区</td><td class="ta-left">根抵当権設定</td><td class="ta-left">極度額 <strong>5,000万円</strong>（埼玉銀行）</td><td class="ta-left">担保枠追加（極度額合計2億1,700万円）</td></tr><tr><td class="ta-left"><strong>2011.09.29</strong></td><td class="ta-center">表題</td><td class="ta-left">土地分筆</td><td class="ta-left">972番5から <strong>972番56 (57.00㎡)</strong> 分筆</td><td class="ta-left">道路拡幅または境界整理に伴う分筆</td></tr><tr><td class="ta-left"><strong>2011.10.31 (第36461号)</strong></td><td class="ta-center">乙区</td><td class="ta-left"><strong>根抵当権抹消</strong></td><td class="ta-left">1番、2番根抵当権を「放棄」により全額抹消</td><td class="ta-left">バブル債権の清算完了、抵当権完全消滅</td></tr><tr><td class="ta-left"><strong>2011.10.31 (第36467号)</strong></td><td class="ta-center">甲区</td><td class="ta-left"><strong>所有権移転 (売買)</strong></td><td class="ta-left">所有者: <strong>森﨑武利</strong></td><td class="ta-left">個人投資家へ売却され、約15年間安定保有</td></tr><tr><td class="ta-left"><strong>2025.04.27</strong></td><td class="ta-center">甲区</td><td class="ta-left">相続原因発生</td><td class="ta-left">所有者 森﨑武利氏 逝去</td><td class="ta-left">相続開始</td></tr><tr><td class="ta-left"><strong>2026.03.16 (第7293号)</strong></td><td class="ta-center">甲区</td><td class="ta-left"><strong>所有権移転 (相続)</strong></td><td class="ta-left">所有者: <strong>森﨑マサ子</strong></td><td class="ta-left">配偶者への単独相続登記が完了</td></tr><tr><td class="ta-left"><strong>2026.09.16</strong></td><td class="ta-center">-</td><td class="ta-left">レントロール開示</td><td class="ta-left">売却媒介開始（価格 9,750万円）</td><td class="ta-left">相続税納付および管理負担解消に伴う売却</td></tr></tbody></table></div>
+<hr>
+<h1 id="4-収益状況レントロール分析-rent-roll-forensic-audit">4. 収益状況（レントロール分析） (Rent Roll Forensic Audit)<a class="anchor" href="#4-収益状況レントロール分析-rent-roll-forensic-audit" aria-label="link">#</a></h1>
+<h3 id="収益構造一覧">収益構造一覧<a class="anchor" href="#収益構造一覧" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">区分</th><th class="ta-right">月額収入 (円)</th><th class="ta-right">年額収入 (円)</th><th class="ta-center">表面利回り</th><th class="ta-center">構成比</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>現況稼働収入 (17戸)</strong></td><td class="ta-right"><strong>617,100 円</strong></td><td class="ta-right"><strong>7,405,200 円</strong></td><td class="ta-center"><strong>7.60%</strong></td><td class="ta-center">95.0%</td><td class="ta-left">107号室（空室）を除く実額</td></tr><tr><td class="ta-left"><strong>満室想定収入 (18戸)</strong></td><td class="ta-right"><strong>649,100 円</strong></td><td class="ta-right"><strong>7,789,200 円</strong></td><td class="ta-center"><strong>7.99%</strong></td><td class="ta-center">100.0%</td><td class="ta-left">107号室（32,000円）想定組入後</td></tr><tr><td class="ta-left">・純賃料収入 (満室)</td><td class="ta-right">586,000 円</td><td class="ta-right">7,032,000 円</td><td class="ta-center">7.21%</td><td class="ta-center">90.3%</td><td class="ta-left">18戸分の住戸賃料</td></tr><tr><td class="ta-left">・共益費収入 (満室)</td><td class="ta-right">40,000 円</td><td class="ta-right">480,000 円</td><td class="ta-center">0.49%</td><td class="ta-center">6.2%</td><td class="ta-left">各住戸2,000〜3,000円</td></tr><tr><td class="ta-left">・駐車場収入 (3台満車)</td><td class="ta-right">23,100 円</td><td class="ta-right">277,200 円</td><td class="ta-center">0.28%</td><td class="ta-center">3.5%</td><td class="ta-left">P1, P2, P3 各7,700円</td></tr><tr><td class="ta-left"><strong>自動販売機収入 (年額)</strong></td><td class="ta-right">約 2,641 円</td><td class="ta-right"><strong>31,689 円</strong></td><td class="ta-center">+0.03%p</td><td class="ta-center">-</td><td class="ta-left">敷地内設置自販機の過去1年売上実績</td></tr></tbody></table></div>
+<hr>
+<h3 id="全18戸-レントロール精査一覧表">全18戸 レントロール精査一覧表<a class="anchor" href="#全18戸-レントロール精査一覧表" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">階</th><th class="ta-center">号室</th><th class="ta-center">間取</th><th class="ta-center">専有面積</th><th class="ta-center">入居状況</th><th class="ta-right">賃料 (円)</th><th class="ta-right">共益費</th><th class="ta-center">駐車場</th><th class="ta-right">月額合計</th><th class="ta-center">推定DOM</th><th class="ta-right">坪単価</th><th class="ta-left">状態および賃上げ余地分析</th></tr></thead><tbody><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>101</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">32,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>35,000 円</strong></td><td class="ta-center">約45日</td><td class="ta-right">5,705 円</td><td class="ta-left">標準的成約賃料</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>102</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">30,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>33,000 円</strong></td><td class="ta-center">約35日</td><td class="ta-right">5,379 円</td><td class="ta-left">長期入居者（退去時賃上げ余地大）</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>103</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">38,000</td><td class="ta-right">2,000</td><td class="ta-center">P2 (7,700)</td><td class="ta-right"><strong>47,700 円</strong></td><td class="ta-center">約50日</td><td class="ta-right">6,520 円</td><td class="ta-left">内装リフォーム済・駐車場契約戸</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>105</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">29,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>32,000 円</strong></td><td class="ta-center">約30日</td><td class="ta-right">5,216 円</td><td class="ta-left">割安据置戸（退去時賃上げ余地大）</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>106</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">36,000</td><td class="ta-right">0</td><td class="ta-center">-</td><td class="ta-right"><strong>36,000 円</strong></td><td class="ta-center">約40日</td><td class="ta-right">5,868 円</td><td class="ta-left">共益費込契約戸</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>107</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>空室</strong></td><td class="ta-right"><strong>29,000</strong></td><td class="ta-right"><strong>3,000</strong></td><td class="ta-center">-</td><td class="ta-right"><strong>32,000 円</strong></td><td class="ta-center"><strong>45〜60日</strong></td><td class="ta-right">5,216 円</td><td class="ta-left"><strong>現在ポータル募集中（2.9万円/3千円）</strong></td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>108</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">38,000</td><td class="ta-right">0</td><td class="ta-center">-</td><td class="ta-right"><strong>38,000 円</strong></td><td class="ta-center">約45日</td><td class="ta-right">6,194 円</td><td class="ta-left">リフォーム済戸</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>110</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">30,000</td><td class="ta-right">3,000</td><td class="ta-center">P1 (7,700)</td><td class="ta-right"><strong>40,700 円</strong></td><td class="ta-center">約35日</td><td class="ta-right">5,379 円</td><td class="ta-left">駐車場利用戸</td></tr><tr><td class="ta-center"><strong>1F</strong></td><td class="ta-center"><strong>111</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">29,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>32,000 円</strong></td><td class="ta-center">約30日</td><td class="ta-right">5,216 円</td><td class="ta-left">割安据置戸</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>201</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">30,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>33,000 円</strong></td><td class="ta-center">約35日</td><td class="ta-right">5,379 円</td><td class="ta-left">長期入居</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>202</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">31,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>34,000 円</strong></td><td class="ta-center">約40日</td><td class="ta-right">5,542 円</td><td class="ta-left">中間賃料</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>203</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right"><strong>27,000</strong></td><td class="ta-right"><strong>3,000</strong></td><td class="ta-center">-</td><td class="ta-right"><strong>30,000 円</strong></td><td class="ta-center">約25日</td><td class="ta-right"><strong>4,890 円</strong></td><td class="ta-left"><strong>全戸中最安値（超長期入居者）</strong></td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>205</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">30,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>33,000 円</strong></td><td class="ta-center">約35日</td><td class="ta-right">5,379 円</td><td class="ta-left">長期入居</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>206</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right"><strong>40,000</strong></td><td class="ta-right"><strong>0</strong></td><td class="ta-center">-</td><td class="ta-right"><strong>40,000 円</strong></td><td class="ta-center">約55日</td><td class="ta-right"><strong>6,520 円</strong></td><td class="ta-left"><strong>全戸中最高値（フルリノベ戸）</strong></td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>207</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">35,000</td><td class="ta-right">0</td><td class="ta-center">-</td><td class="ta-right"><strong>35,000 円</strong></td><td class="ta-center">約40日</td><td class="ta-right">5,705 円</td><td class="ta-left">リフォーム戸</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>208</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">33,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>36,000 円</strong></td><td class="ta-center">約45日</td><td class="ta-right">5,868 円</td><td class="ta-left">部分改修戸</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>210</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">30,000</td><td class="ta-right">3,000</td><td class="ta-center">-</td><td class="ta-right"><strong>33,000 円</strong></td><td class="ta-center">約35日</td><td class="ta-right">5,379 円</td><td class="ta-left">長期入居</td></tr><tr><td class="ta-center"><strong>2F</strong></td><td class="ta-center"><strong>211</strong></td><td class="ta-center">1K</td><td class="ta-center">20.28㎡</td><td class="ta-center"><strong>入居中</strong></td><td class="ta-right">39,000</td><td class="ta-right">2,000</td><td class="ta-center">P3 (7,700)</td><td class="ta-right"><strong>48,700 円</strong></td><td class="ta-center">約50日</td><td class="ta-right">6,683 円</td><td class="ta-left">2階角部屋リフォーム戸</td></tr><tr class="total-row"><td class="ta-center"><strong>合計</strong></td><td class="ta-center"><strong>18戸</strong></td><td class="ta-center">-</td><td class="ta-center"><strong>365.04㎡</strong></td><td class="ta-center"><strong>17戸稼働</strong></td><td class="ta-right"><strong>586,000</strong></td><td class="ta-right"><strong>40,000</strong></td><td class="ta-center"><strong>23,100</strong></td><td class="ta-right"><strong>649,100 円</strong></td><td class="ta-center"><strong>平均40日</strong></td><td class="ta-right"><strong>5,695 円</strong></td><td class="ta-left"><strong>満室想定年収: 7,789,200 円</strong></td></tr></tbody></table></div>
+<hr>
+<h1 id="5-賃料水準の検証-market-comparables-lifull-homes-audit">5. 賃料水準の検証 (Market Comparables &amp; LIFULL HOME'S Audit)<a class="anchor" href="#5-賃料水準の検証-market-comparables-lifull-homes-audit" aria-label="link">#</a></h1>
+<h3 id="周辺相場との乖離検証">周辺相場との乖離検証<a class="anchor" href="#周辺相場との乖離検証" aria-label="link">#</a></h3>
+<p>八王子市緑町および京王片倉駅徒歩10分圏における築30年超木造アパート（専有面積20㎡前後）の市場募集相場は、<strong>3.8万〜4.5万円（共益費込）</strong>です。 本物件の平均賃料（3.48万円）は市場相場下限を下回っており、特に2.7万〜3.2万円の11戸については、退去時の内装リフレッシュによって<strong>月額6,000〜8,000円/戸の賃上げが可能</strong>であると結論付けられます。</p>
+<hr>
+<h1 id="6-価格妥当性積算価格と収益価格-valuation-price-fairness">6. 価格妥当性（積算価格と収益価格） (Valuation &amp; Price Fairness)<a class="anchor" href="#6-価格妥当性積算価格と収益価格-valuation-price-fairness" aria-label="link">#</a></h1>
+<h3 id="再調達原価法積算価格シナリオ比較">再調達原価法（積算価格）シナリオ比較<a class="anchor" href="#再調達原価法積算価格シナリオ比較" aria-label="link">#</a></h3>
+<pre class="codeblock"><code>[土地路線価積算額: 569.63㎡ × 135,000円/㎡ = 76,900,050 円 (固定)]</code></pre>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">シナリオ</th><th class="ta-center">採用再調達単価</th><th class="ta-center">建物減価償却残価率</th><th class="ta-right">建物積算額</th><th class="ta-right">土地積算額</th><th class="ta-right">積算合計額</th><th class="ta-center">物件価格比 (掛目)</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 金融機関保守的基準</strong></td><td class="ta-center">140,000 円/㎡</td><td class="ta-center"><strong>0.0%</strong>（耐用年数超過）</td><td class="ta-right"><strong>0 万円</strong></td><td class="ta-right"><strong>7,690.0 万円</strong></td><td class="ta-right"><strong>7,690.0 万円</strong></td><td class="ta-center"><strong>78.87%</strong></td></tr><tr><td class="ta-left"><strong>② 国税庁標準基準</strong></td><td class="ta-center">170,000 円/㎡</td><td class="ta-center"><strong>10.0%</strong>（最終残価率）</td><td class="ta-right"><strong>619.4 万円</strong></td><td class="ta-right"><strong>7,690.0 万円</strong></td><td class="ta-right"><strong>8,309.4 万円</strong></td><td class="ta-center"><strong>85.22%</strong></td></tr><tr><td class="ta-left"><strong>③ 実勢・売主原価基準</strong></td><td class="ta-center">200,000 円/㎡</td><td class="ta-center"><strong>15.0%</strong>（リフォーム加味）</td><td class="ta-right"><strong>1,093.1 万円</strong></td><td class="ta-right"><strong>7,690.0 万円</strong></td><td class="ta-right"><strong>8,783.1 万円</strong></td><td class="ta-center"><strong>90.08%</strong></td></tr></tbody></table></div>
+<div class="alert alert-note"><p><strong>[積算評価の核心]</strong>: 売買希望価格 9,750万円に対し、土地路線価評価額（7,690万円）だけで<strong>78.9%の資産価値が担保</strong>されています。建物価格として実質的に支払うプレミアムは約2,060万円（1戸あたり約114万円）に過ぎず、仮に将来建物を解体した場合でも土地代としての出口が確保されています。</p></div>
+<hr>
+<h1 id="7-運営コストとキャッシュフロー-opex-cash-flow-modeling">7. 運営コストとキャッシュフロー (OPEX &amp; Cash Flow Modeling)<a class="anchor" href="#7-運営コストとキャッシュフロー-opex-cash-flow-modeling" aria-label="link">#</a></h1>
+<h3 id="運営経費の正常化比較表">運営経費の正常化比較表<a class="anchor" href="#運営経費の正常化比較表" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">経費項目</th><th class="ta-right">開示数値 (年額)</th><th class="ta-right">実質正常化OPEX (年額)</th><th class="ta-left">正常化の算出根拠</th></tr></thead><tbody><tr><td class="ta-left">J:COM (インターネット/CATV)</td><td class="ta-right">36,960 円</td><td class="ta-right">36,960 円</td><td class="ta-left">月額 3,080円実額</td></tr><tr><td class="ta-left">共用部電気代 (東京電力)</td><td class="ta-right">36,000 円</td><td class="ta-right">36,000 円</td><td class="ta-left">月額 約3,000円実額</td></tr><tr><td class="ta-left">公課公租 (固定資産税・都市計画税)</td><td class="ta-right">確認中</td><td class="ta-right"><strong>224,524 円</strong></td><td class="ta-left"><strong>公課証明書実額（土地15.1万＋家屋7.3万）</strong></td></tr><tr><td class="ta-left">PM管理委託手数料 (5.0%)</td><td class="ta-right">0 円（自主管理）</td><td class="ta-right"><strong>389,460 円</strong></td><td class="ta-left">管理会社委託料（満室想定収入の5%）</td></tr><tr><td class="ta-left">定期清掃・共用部維持費</td><td class="ta-right">0 円</td><td class="ta-right"><strong>120,000 円</strong></td><td class="ta-left">月額 10,000円（巡回清掃・除草費用）</td></tr><tr><td class="ta-left">火災・地震保険料</td><td class="ta-right">未計上</td><td class="ta-right"><strong>180,000 円</strong></td><td class="ta-left">木造18戸団体一括保険（戸あたり1万円/年）</td></tr><tr><td class="ta-left">退去原状回復・広告料(AD)</td><td class="ta-right">未計上</td><td class="ta-right"><strong>630,000 円</strong></td><td class="ta-left">年間3〜4戸の退去想定（戸あたり3.5万円/年）</td></tr><tr><td class="ta-left">大規模修繕積立金</td><td class="ta-right">未計上</td><td class="ta-right"><strong>630,000 円</strong></td><td class="ta-left">築41年木造の保全積立（戸あたり3.5万円/年）</td></tr><tr><td class="ta-left"><strong>合計 (年間経費)</strong></td><td class="ta-right"><strong>297,484 円</strong></td><td class="ta-right"><strong>2,246,944 円</strong></td><td class="ta-left"><strong>+1,949,460 円の正常化加算</strong></td></tr><tr><td class="ta-left"><strong>実質経費率 (OPEX Ratio)</strong></td><td class="ta-right"><strong>3.82%（過小）</strong></td><td class="ta-right"><strong>28.85%（適正）</strong></td><td class="ta-left"><strong>実戦的保守経費率の採用</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="融資条件返済シミュレーション">融資条件・返済シミュレーション<a class="anchor" href="#融資条件返済シミュレーション" aria-label="link">#</a></h3>
+<pre class="codeblock"><code>[融資想定条件: 借入額 7,800万円 (LTV 80.0%, 土地路線価額見合い), 金利 2.8%]</code></pre>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">返済期間シナリオ</th><th class="ta-right">月額元利返済額</th><th class="ta-right">年間ADS</th><th class="ta-right">純営業収益 (NOI)</th><th class="ta-right">税引前CF</th><th class="ta-center">DSCR (返済余裕率)</th><th class="ta-center">損益分岐稼働率</th></tr></thead><tbody><tr><td class="ta-left"><strong>25年返済 (標準想定)</strong></td><td class="ta-right"><strong>361,863 円</strong></td><td class="ta-right"><strong>4,342,356 円</strong></td><td class="ta-right">5,542,256 円</td><td class="ta-right"><strong>+1,199,900 円</strong></td><td class="ta-center"><strong>1.28 倍</strong></td><td class="ta-center"><strong>84.59%</strong> (空室2.7戸許容)</td></tr><tr><td class="ta-left"><strong>20年返済 (期間短縮時)</strong></td><td class="ta-right"><strong>424,472 円</strong></td><td class="ta-right"><strong>5,093,664 円</strong></td><td class="ta-right">5,542,256 円</td><td class="ta-right"><strong>+448,592 円</strong></td><td class="ta-center"><strong>1.09 倍</strong></td><td class="ta-center"><strong>94.24%</strong> (空室1.0戸で限界)</td></tr><tr><td class="ta-left"><strong>25年 / 金利3.3% (金利上昇時)</strong></td><td class="ta-right">382,215 円</td><td class="ta-right">4,586,580 円</td><td class="ta-right">5,542,256 円</td><td class="ta-right"><strong>+955,676 円</strong></td><td class="ta-center"><strong>1.21 倍</strong></td><td class="ta-center"><strong>87.73%</strong> (空室2.2戸許容)</td></tr></tbody></table></div>
+<hr>
+<h1 id="8-賃上げシナリオとバリューアップ-upside-potential">8. 賃上げシナリオとバリューアップ (Upside Potential)<a class="anchor" href="#8-賃上げシナリオとバリューアップ-upside-potential" aria-label="link">#</a></h1>
+<h3 id="賃料増額ポテンシャル総括">賃料増額ポテンシャル総括<a class="anchor" href="#賃料増額ポテンシャル総括" aria-label="link">#</a></h3>
+<ul>
+<li><strong>割安放置戸数</strong>: 全18戸中 <strong>11戸</strong>（月額3.4万円以下）</li>
+<li><strong>リフォーム投資額</strong>: 1戸あたり約45万円（クロス貼替、フロアタイル、水栓・設備リフレッシュ）</li>
+<li><strong>想定増額幅</strong>: 1戸あたり平均 <strong>+6,000円/月</strong></li>
+<li><strong>年間増収効果</strong>: 11戸 × 6,000円 × 12ヶ月 ＝ <strong>年額 792,000 円</strong></li>
+<li><strong>投資回収期間</strong>: 約 6.2 年</li>
+<li><strong>バリューアップ後 満室年収</strong>: <strong>約 858万円（表面利回り 8.80%へ向上）</strong></li>
+</ul>
+<hr>
+<h1 id="9-立地需要リスク-location-transit-hazards">9. 立地・需要・リスク (Location, Transit &amp; Hazards)<a class="anchor" href="#9-立地需要リスク-location-transit-hazards" aria-label="link">#</a></h1>
+<h3 id="平日朝ラッシュ時-07000900出発-東京4大拠点駅-door-to-door-通勤動線">平日朝ラッシュ時 (07:00〜09:00出発) 東京4大拠点駅 Door-to-Door 通勤動線<a class="anchor" href="#平日朝ラッシュ時-07000900出発-東京4大拠点駅-door-to-door-通勤動線" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">到着拠点駅</th><th class="ta-center">純乗車・乗換時間</th><th class="ta-center">Door-to-Door 所要時間</th><th class="ta-left">最適通勤ルートと特徴</th><th class="ta-center">Google Maps 乗換案内リンク</th></tr></thead><tbody><tr><td class="ta-left"><strong>新宿駅</strong></td><td class="ta-center">42分 / 乗換1回</td><td class="ta-center"><strong>約 55 分</strong></td><td class="ta-left">徒歩(6分) → 京王片倉駅（高尾線） → 北野駅乗換 → 京王線特急直通 新宿駅着</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=新宿駅&amp;travelmode=transit" target="_blank" rel="noopener">新宿駅ルート</a></td></tr><tr><td class="ta-left"><strong>渋谷駅</strong></td><td class="ta-center">48分 / 乗換2回</td><td class="ta-center"><strong>約 62 分</strong></td><td class="ta-left">京王片倉駅 → 北野駅（特急） → 明大前駅乗換（井の頭線急行） → 渋谷駅着</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=渋谷駅&amp;travelmode=transit" target="_blank" rel="noopener">渋谷駅ルート</a></td></tr><tr><td class="ta-left"><strong>東京駅</strong></td><td class="ta-center">58分 / 乗換1回</td><td class="ta-center"><strong>約 72 分</strong></td><td class="ta-left">徒歩(17分) → JR八王子駅 → 中央線中央特快利用 → 東京駅直通</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=東京駅&amp;travelmode=transit" target="_blank" rel="noopener">東京駅ルート</a></td></tr><tr><td class="ta-left"><strong>大手町駅</strong></td><td class="ta-center">56分 / 乗換2回</td><td class="ta-center"><strong>約 74 分</strong></td><td class="ta-left">京王片倉駅 → 新宿駅 → 東京メトロ丸ノ内線または東西線乗換 → 大手町駅着</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=大手町駅&amp;travelmode=transit" target="_blank" rel="noopener">大手町駅ルート</a></td></tr></tbody></table></div>
+<hr>
+<h3 id="ハザードマップ及び災害リスク検証">ハザードマップ及び災害リスク検証<a class="anchor" href="#ハザードマップ及び災害リスク検証" aria-label="link">#</a></h3>
+<ul>
+<li><strong>浸水リスク</strong>: 八王子市洪水ハザードマップ上、南側を流れる湯殿川（約350m離隔）の想定最大規模降雨時においても、本敷地（緑町972-5）は<strong>浸水想定区域（0.5m以上）の境界外</strong>に位置しており、水害脆弱性は極めて低いと評価されます。</li>
+<li><strong>土砂災害リスク</strong>: 敷地北西側公道に面した平坦部であり、土砂災害警戒区域（レッド・イエローゾーン）には該当しません。</li>
+</ul>
+<hr>
+<h1 id="10-総合評価および投資判断-final-recommendation">10. 総合評価および投資判断 (Final Recommendation)<a class="anchor" href="#10-総合評価および投資判断-final-recommendation" aria-label="link">#</a></h1>
+<h3 id="30点満点-スコアカード">30点満点 スコアカード<a class="anchor" href="#30点満点-スコアカード" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">評価領域</th><th class="ta-center">配点</th><th class="ta-center">獲得点</th><th class="ta-left">詳細評価根拠</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 立地及び交通利便性</strong></td><td class="ta-center">7点</td><td class="ta-center"><strong>6点</strong></td><td class="ta-left">京王片倉駅徒歩6分、八王子駅徒歩17分。新宿55分通勤圏。生活利便施設充実。</td></tr><tr><td class="ta-left"><strong>2. 収益性及びCF安定性</strong></td><td class="ta-center">7点</td><td class="ta-center"><strong>6点</strong></td><td class="ta-left">満室表面7.99%、実質Cap Rate 5.68%、税引前CF 120万円確保。増額ポテンシャル大。</td></tr><tr><td class="ta-left"><strong>3. 建物状態及び修繕耐力</strong></td><td class="ta-center">6点</td><td class="ta-center"><strong>1点</strong></td><td class="ta-left"><strong>築41.4年木造、検査済証未取得(-3点)、屋根・外壁・配管劣化懸念で最低点。</strong></td></tr><tr><td class="ta-left"><strong>4. 土地資産価値及び担保力</strong></td><td class="ta-center">5点</td><td class="ta-center"><strong>5点</strong></td><td class="ta-left"><strong>公簿172.3坪、路線価7,690万円（物件価格比78.87%）という圧倒的担保力を満点評価。</strong></td></tr><tr><td class="ta-left"><strong>5. 換金性及び出口戦略</strong></td><td class="ta-center">5点</td><td class="ta-center"><strong>0点</strong></td><td class="ta-left">築古木造のため売却時の買主融資が限定。戸建分譲更地売却または新築建替出口に限定。</td></tr><tr><td class="ta-left"><strong>総合得点</strong></td><td class="ta-center"><strong>30点</strong></td><td class="ta-center"><strong>18点</strong></td><td class="ta-left"><strong>【条件付き検討（買入慎重 / 8,000万円台への指値必須）】</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="最終投資判断及びアクションプラン">最終投資判断及びアクションプラン<a class="anchor" href="#最終投資判断及びアクションプラン" aria-label="link">#</a></h3>
+<pre class="codeblock"><code>========================================================================================
+最終判定: 【条件付き検討（買入慎重 / 8,500万〜8,800万円への価格交渉前提）】
+========================================================================================</code></pre>
+<ol>
+<li><strong>売出価格（9,750万円）での購入見送りおよび指値買付の徹底</strong>:</li>
+<ul>
+<li>検査済証未取得および木造築41年の瑕疵を勘案し、<strong>8,500万〜8,800万円（約1,000万〜1,250万円引）での指値買付証明書を提示</strong>すること。</li>
+</ul>
+<li><strong>融資期間25年の事前確約</strong>:</li>
+<ul>
+<li>土地路線価評価（7,690万円）をベースに、借入期間25年（金利2.8%以内）を提示できる金融機関（きらぼし銀行、西武信用金庫、城南信用金庫、オリックス銀行等）の内諾を前提とすること。20年返済となった場合はCF不足のため見送ること。</li>
+</ul>
+</ol>
+<hr>
+<h1 id="付録出典及びデューデリジェンス根拠一覧-appendix">付録：出典及びデューデリジェンス根拠一覧 (Appendix)<a class="anchor" href="#付録出典及びデューデリジェンス根拠一覧-appendix" aria-label="link">#</a></h1>
+<ol>
+<li><strong>一次開示資料</strong>:</li>
+<ul>
+<li>物件概要書（令和8年9月12日作成）</li>
+<li>レントロール（令和8年9月16日作成）</li>
+<li>固定資産（土地・家屋）公課証明書（八財証固公第6521号、令和8年9月18日交付）</li>
+<li>固定資産（土地・家屋）評価証明書（八財証固評第9708号、令和8年9月18日交付）</li>
+<li>建築台帳記載事項証明書（8八整建証第2174号、令和8年9月18日交付）</li>
+<li>登記事項証明書（土地 八王子市緑町972番56、2026年9月11日情報）</li>
+<li>地積測量図（平成23年9月29日登記）および 地番図（2026年9月7日表示）</li>
+</ul>
+<li><strong>ポータル掲載実績</strong>:</li>
+<ul>
+<li><a href="https://www.homes.co.jp/archive/b-1188370000216/" target="_blank" rel="noopener">LIFULL HOME'S グリーンハイツコバクラ 建物情報アーカイブ</a></li>
+</ul>
+<li><strong>Google Maps 実測ルート</strong>:</li>
+<ul>
+<li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=京王片倉駅&amp;travelmode=walking" target="_blank" rel="noopener">京王片倉駅 徒歩ルート (徒歩6分)</a></li>
+<li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=新宿駅&amp;travelmode=transit" target="_blank" rel="noopener">新宿駅 乗換案内ルート (約55分)</a></li>
+<li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=渋谷駅&amp;travelmode=transit" target="_blank" rel="noopener">渋谷駅 乗換案内ルート (約62分)</a></li>
+<li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=東京駅&amp;travelmode=transit" target="_blank" rel="noopener">東京駅 乗換案内ルート (約72分)</a></li>
+<li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=東京都八王子市緑町973-4&amp;destination=大手町駅&amp;travelmode=transit" target="_blank" rel="noopener">大手町駅 乗換案内ルート (約74分)</a></li>
+</ul>
+</ol>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ja';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>
