@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>미츠쿄 1AP 사사노다이 투자분석 보고서 | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">미츠쿄 1AP 사사노다이 투자분석 보고서</div>
+        <div class="brand-sub">가나가와현 요코하마시 아사히구 사사노다이 2-149-3 / 神奈川県横浜市旭区笹野台2丁目149番3 · 목조 지상 2층 (열화대책등급 3급 취득) 9세대</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn active" href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn " href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 포트폴리오</a>
+      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
+      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">목차 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#수익형-부동산-정밀-투자분석-보고서-投資分析レポート" data-target="수익형-부동산-정밀-투자분석-보고서-投資分析レポート">수익형 부동산 정밀 투자분석 보고서 (投資分析レポート)</a>
+<a class="toc-h1" href="#1-에그제큐티브-서머리-executive-summary" data-target="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)</a>
+<a class="toc-h3" href="#주요-지표-요약-key-metrics" data-target="주요-지표-요약-key-metrics">주요 지표 요약 (Key Metrics)</a>
+<a class="toc-h3" href="#1-2-결산서-디자인형-판정-output-key-metrics" data-target="1-2-결산서-디자인형-판정-output-key-metrics">1.2 결산서 디자인형 판정 (Output &amp; Key Metrics)</a>
+<a class="toc-h3" href="#평가-서머리-evaluation-summary" data-target="평가-서머리-evaluation-summary">평가 서머리 (Evaluation Summary)</a>
+<a class="toc-h3" href="#선행-확인-필수-5대-항목-top-5-due-diligence-action-items" data-target="선행-확인-필수-5대-항목-top-5-due-diligence-action-items">선행 확인 필수 5대 항목 (Top 5 Due Diligence Action Items)</a>
+<a class="toc-h1" href="#2-물건-개요-property-overview" data-target="2-물건-개요-property-overview">2. 물건 개요 (Property Overview)</a>
+<a class="toc-h3" href="#기본-제원표-물건개요서-및-건축확인필증-제26udi1k건00271호-검증-완료" data-target="기본-제원표-물건개요서-및-건축확인필증-제26udi1k건00271호-검증-완료">기본 제원표 (물건개요서 및 건축확인필증 제26UDI1K건00271호 검증 완료)</a>
+<a class="toc-h3" href="#건축확인필증제26udi1k건00271호-및-매도자야오키상사-포렌식-검증" data-target="건축확인필증제26udi1k건00271호-및-매도자야오키상사-포렌식-검증">🔍 건축확인필증(제26UDI1K건00271호) 및 매도자(야오키상사) 포렌식 검증</a>
+<a class="toc-h1" href="#3-입지-및-주변-환경-분석-location-micro-market-analysis" data-target="3-입지-및-주변-환경-분석-location-micro-market-analysis">3. 입지 및 주변 환경 분석 (Location &amp; Micro-Market Analysis)</a>
+<a class="toc-h3" href="#3-1-교통-접근성-급행-정차역-미츠쿄역-도보-7분의-위력" data-target="3-1-교통-접근성-급행-정차역-미츠쿄역-도보-7분의-위력">3.1 교통 접근성: 『급행 정차역 미츠쿄역 도보 7분』의 위력</a>
+<a class="toc-h3" href="#3-2-역-주변-상업생활-인프라" data-target="3-2-역-주변-상업생활-인프라">3.2 역 주변 상업·생활 인프라</a>
+<a class="toc-h3" href="#3-3-해저드재해-리스크-검증" data-target="3-3-해저드재해-리스크-검증">3.3 해저드(재해) 리스크 검증</a>
+<a class="toc-h1" href="#4-건물-및-호실-설계렌트롤-포렌식-building-rent-roll-forensics" data-target="4-건물-및-호실-설계렌트롤-포렌식-building-rent-roll-forensics">4. 건물 및 호실 설계·렌트롤 포렌식 (Building &amp; Rent Roll Forensics)</a>
+<a class="toc-h3" href="#4-1-26-89-광폭-설계-및-설비-경쟁력-분석" data-target="4-1-26-89-광폭-설계-및-설비-경쟁력-분석">4.1 26.89㎡ 광폭 설계 및 설비 경쟁력 분석</a>
+<a class="toc-h3" href="#4-2-전-9세대-호실별-상정-임대료-및-단가-정밀-일람표" data-target="4-2-전-9세대-호실별-상정-임대료-및-단가-정밀-일람표">4.2 전 9세대 호실별 상정 임대료 및 단가 정밀 일람표</a>
+<a class="toc-h1" href="#5-임대-시세-및-공실회전율-비교-분석-rent-roll-vacancy-benchmarking" data-target="5-임대-시세-및-공실회전율-비교-분석-rent-roll-vacancy-benchmarking">5. 임대 시세 및 공실·회전율 비교 분석 (Rent Roll &amp; Vacancy Benchmarking)</a>
+<a class="toc-h3" href="#5-1-사사노다이-실거래-아카이브lifull-homes-정밀-벤치마킹" data-target="5-1-사사노다이-실거래-아카이브lifull-homes-정밀-벤치마킹">5.1 사사노다이 실거래 아카이브(LIFULL HOME&#x27;S) 정밀 벤치마킹</a>
+<a class="toc-h3" href="#5-2-시세-검증-결론-높은-임대-수요-탄력성-및-빠른-리싱-기대" data-target="5-2-시세-검증-결론-높은-임대-수요-탄력성-및-빠른-리싱-기대">5.2 시세 검증 결론: 『높은 임대 수요 탄력성 및 빠른 리싱 기대』</a>
+<a class="toc-h1" href="#6-가격-타당성-및-적산가치-평가-valuation-cost-approach" data-target="6-가격-타당성-및-적산가치-평가-valuation-cost-approach">6. 가격 타당성 및 적산가치 평가 (Valuation &amp; Cost Approach)</a>
+<a class="toc-h3" href="#6-1-적산가치積算価格-3단계-정밀-평가-매매가-대비-88-4-110-4의-압도적-담보력" data-target="6-1-적산가치積算価格-3단계-정밀-평가-매매가-대비-88-4-110-4의-압도적-담보력">6.1 적산가치(積算価格) 3단계 정밀 평가: 『매매가 대비 88.4% ~ 110.4%의 압도적 담보력』</a>
+<a class="toc-h1" href="#7-재무-모델링-및-현금흐름손익분기-분석-financial-modeling-cash-flow-analysis" data-target="7-재무-모델링-및-현금흐름손익분기-분석-financial-modeling-cash-flow-analysis">7. 재무 모델링 및 현금흐름·손익분기 분석 (Financial Modeling &amp; Cash Flow Analysis)</a>
+<a class="toc-h3" href="#7-1-정상화-운영경비opex-명세표" data-target="7-1-정상화-운영경비opex-명세표">7.1 정상화 운영경비(OPEX) 명세표</a>
+<a class="toc-h3" href="#7-2-매수가별-및-융자-조건별30년-vs-35년-수지-비교-시뮬레이션" data-target="7-2-매수가별-및-융자-조건별30년-vs-35년-수지-비교-시뮬레이션">7.2 매수가별 및 융자 조건별(30년 vs 35년) 수지 비교 시뮬레이션</a>
+<a class="toc-h1" href="#8-리스크-매트릭스-및-민감도-분석-risk-matrix-sensitivity-analysis" data-target="8-리스크-매트릭스-및-민감도-분석-risk-matrix-sensitivity-analysis">8. 리스크 매트릭스 및 민감도 분석 (Risk Matrix &amp; Sensitivity Analysis)</a>
+<a class="toc-h3" href="#8-1-금리-상승-가동률-변동-2차원-스트레스-테스트-30년-융자-차입-11449-5만-엔-기준" data-target="8-1-금리-상승-가동률-변동-2차원-스트레스-테스트-30년-융자-차입-11449-5만-엔-기준">8.1 금리 상승 × 가동률 변동 2차원 스트레스 테스트 (30년 융자 / 차입 11,449.5만 엔 기준)</a>
+<a class="toc-h3" href="#8-2-핵심-리스크-요약-및-완화-대책-mitigation-plan" data-target="8-2-핵심-리스크-요약-및-완화-대책-mitigation-plan">8.2 핵심 리스크 요약 및 완화 대책 (Mitigation Plan)</a>
+<a class="toc-h1" href="#9-취득-제비용세무소비세감가상각-및-출구-전략-tax-depreciation-exit-strategy" data-target="9-취득-제비용세무소비세감가상각-및-출구-전략-tax-depreciation-exit-strategy">9. 취득 제비용·세무(소비세/감가상각) 및 출구 전략 (Tax, Depreciation &amp; Exit Strategy)</a>
+<a class="toc-h3" href="#9-1-초기-취득-제비용-및-감가상각-구조-표준안-토지-59-건물-41-배분-시" data-target="9-1-초기-취득-제비용-및-감가상각-구조-표준안-토지-59-건물-41-배분-시">9.1 초기 취득 제비용 및 감가상각 구조 (표준안: 토지 59% / 건물 41% 배분 시)</a>
+<a class="toc-h3" href="#9-2-보유-10년15년-차-듀얼-출구-전략-dual-exit-strategy" data-target="9-2-보유-10년15년-차-듀얼-출구-전략-dual-exit-strategy">9.2 보유 10년~15년 차 『듀얼 출구 전략 (Dual Exit Strategy)』</a>
+<a class="toc-h1" href="#10-종합-의사결정-스코어카드-및-제1매물과의-비교-권고-decision-scorecard-comparative-verdict" data-target="10-종합-의사결정-스코어카드-및-제1매물과의-비교-권고-decision-scorecard-comparative-verdict">10. 종합 의사결정 스코어카드 및 제1매물과의 비교 권고 (Decision Scorecard &amp; Comparative Verdict)</a>
+<a class="toc-h3" href="#10-1-30점-만점-정량-평가-스코어카드-제1매물-카와시마초-vs-제2매물-미츠쿄-1ap-비교" data-target="10-1-30점-만점-정량-평가-스코어카드-제1매물-카와시마초-vs-제2매물-미츠쿄-1ap-비교">10.1 30점 만점 정량 평가 스코어카드 (제1매물 카와시마초 vs 제2매물 미츠쿄 1AP 비교)</a>
+<a class="toc-h3" href="#10-2-최종-투자-권고-final-investment-recommendation" data-target="10-2-최종-투자-권고-final-investment-recommendation">10.2 최종 투자 권고 (Final Investment Recommendation)</a>
+<a class="toc-h1" href="#부록-appendix-원천-실사-도서-검증-목록" data-target="부록-appendix-원천-실사-도서-검증-목록">부록 (Appendix): 원천 실사 도서 검증 목록</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="수익형-부동산-정밀-투자분석-보고서-投資分析レポート">수익형 부동산 정밀 투자분석 보고서 (投資分析レポート)<a class="anchor" href="#수익형-부동산-정밀-투자분석-보고서-投資分析レポート" aria-label="link">#</a></h1>
+<h2 id="미츠쿄-1ap-사사노다이-신축-아파트-三ツ境1ap-新築アパート-mitsukyo-1ap-sasanodai">미츠쿄 1AP 사사노다이 신축 아파트 (三ツ境1AP 新築アパート / Mitsukyo 1AP Sasanodai)<a class="anchor" href="#미츠쿄-1ap-사사노다이-신축-아파트-三ツ境1ap-新築アパート-mitsukyo-1ap-sasanodai" aria-label="link">#</a></h2>
+<hr>
+<h1 id="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)<a class="anchor" href="#1-에그제큐티브-서머리-executive-summary" aria-label="link">#</a></h1>
+<p>본 보고서는 가나가와현 요코하마시 아사히구 사사노다이 2초메(神奈川県横浜市旭区笹野台2丁目149番3、231番102)에 신축 중인 1동 수익형 목조 2층 공동주택 <strong>「미츠쿄 1AP 사사노다이 신축 아파트 (三ツ境1AP 新築アパート)」</strong>(총 9세대: 1층 5세대, 2층 4세대)의 매입 타당성을 검토하기 위해 작성된 기관 투자자 및 자산운용사 수준의 정밀 실사(Due Diligence) 보고서입니다.</p>
+<p>본 물건은 소테츠 본선(相鉄本線, <strong>급행·통근급행 정차역</strong> 및 JR·도큐 직통선 연결) <strong>「미츠쿄(三ツ境)」역 도보 7분</strong>(실측 약 550m, 역 북측 사사노다이 상점가를 경유하는 평탄·완만한 생활 밀착형 동선)의 준역세권에 위치합니다. 무엇보다 본 물건의 가장 강력한 투자 매력은 다음의 <strong>4대 구조적 경쟁 우위(Structural Moats)</strong>에 있습니다:</p>
+<ol>
+<li><strong>약 120.3평(397.71㎡)의 압도적 토지 면적 및 공적 적산 비율 88.4%(공시지가 기준 110.4%)의 강력한 하방 담보력</strong>:</li>
+<ul>
+<li>일반 신축 목조 아파트가 50~70평 토지에 협소 원룸을 빽빽하게 채워 토지 적산비율이 25~35%에 불과한 것과 달리(제1매물 카와시마초: 토지 71.1평, 토지 적산비율 28.2%), 본 물건은 제1종 저층주거전용지역(건폐율 40% / 용적률 80%) 내 <strong>397.71㎡(120.30평, 유효부지 397.42㎡)</strong>의 광활한 정형 택지를 확보하고 있습니다.</li>
+<li>노선가(추정 19.0만 엔/㎡) 기준 <strong>토지 적산가액만 7,551.0만 엔(매매가의 56.06%)</strong>에 달하며, 국세청 표준 건물 적산(242.07㎡ × 18만 엔/㎡ = 4,357.3만 엔)을 합산한 <strong>표준 총 적산가액은 1억 1,908.2만 엔(매매가 대비 88.41%)</strong>, 공시지가(24.0만 엔/㎡) 및 신축 원가 기준 시 <strong>1억 4,863.6만 엔(매매가 대비 110.35%)</strong>으로 매매가를 상회합니다.</li>
+</ul>
+<li><strong>『설계주택성능평가 열화대책등급 3급 취득 완료』 및 『건설주택성능평가 열화대책등급 3급 취득 예정』의 더블 인증 (최장 30~35년 융자 100% 적격)</strong>:</li>
+<ul>
+<li>개요서 및 건축확인필증(제26UDI1K건00271호, 2026년 6월 18일 교부) 검증 결과, 이미 <strong>설계주택성능평가서상 최고 등급인 『열화대책등급 3급(劣化対策等級3級)』을 정식 취득 완료</strong>하였으며 준공 시 건설주택성능평가 3급까지 취득 예정입니다. 이에 따라 대다수 금융기관에서 <strong>목조 신축 최장 30년~35년 장기 저리 융자(금리 2.0~2.5%)</strong>를 이견 없이 승인받을 수 있어, 30년 융자(LTV 85%, 금리 2.3%) 시 <strong>만실 세전 CF +158.3만 엔/년(월 +13.2만 엔), DSCR 1.30배, 손익분기 가동률 81.93%(허용 공실 1.63실/9실)</strong>의 안정적 현금흐름을 창출합니다.</li>
+</ul>
+<li><strong>세대당 평균 연면적 26.89㎡(약 25.5~27.5㎡급 1K/1DK/1LDK 상당)의 광폭 평면 및 무료 WIFI·도시가스 완비</strong>:</li>
+<ul>
+<li>연면적 242.07㎡(73.22평)에 단 9세대만 배치하여 <strong>세대당 평균 면적이 26.89㎡</strong>에 달합니다. 이는 제1매물(카와시마초: 세대당 18.54㎡)보다 <strong>세대당 면적이 +45.0% 더 넓은</strong> 설계로, 재택근무 사회인·성인 단신자·신혼/동거 수요까지 흡수할 수 있으며, <strong>㎡당 월 임대료 단가는 3,016엔/㎡</strong>로 카와시마초(3,435엔/㎡)보다 오히려 <strong>12.2% 저렴</strong>하여 임대 경쟁력과 장기 정착성이 월등히 뛰어납니다.</li>
+</ul>
+<li><strong>법인 결산서(기준) 편입 시 전 재무지표의 비약적 개선</strong>:</li>
+<ul>
+<li>본 물건을 법인 결산서에 편입할 경우(안정화 가동률 93%, 30년 융자 기준), 법인 합산 <strong>세전 당기순이익이 372.2만 엔 → 657.4만 엔(+76.6% 급증)</strong>, <strong>세후 잉여 CF가 81.1만 엔 → 132.9만 엔(+63.8% 증가)</strong>으로 확대되며, 기존 법인의 취약점이었던 <strong>이자보상배율(ICR)이 0.90배 → 1.04배로 단숨에 1.0배를 돌파</strong>하고, <strong>고정자산세 평가 기준 LTV는 261.08% → 219.39%(▲41.69%p 대폭 개선)</strong>로 낮아져 차기 추가 대출 한도를 크게 넓혀줍니다.</li>
+</ul>
+</ol>
+<p>다만, 계약 전 반드시 검증·보완해야 할 <strong>3대 리스크 및 실사 과제</strong>는 다음과 같습니다:</p>
+<ol>
+<li><strong>남서측 폭원 약 4.0m 도로의 『공도·사도(公道・私道) 혼재』에 따른 사도 지분 및 통행·굴착 승낙 확인</strong>: 본 부지(149번3, 231번102의 2필지)가 접하는 남서측 4m 도로가 공도와 사도로 구성되어 있으므로, 사도 구간의 건축기준법상 도로 종별(42조 1항 2호 개발도로·3호 기존도로·5호 위치지정도로 또는 2항 도로) 및 사도 공유지분·무상 굴착승낙서 유무를 확인해야 합니다.</li>
+<li><strong>매매가격(1억 3,470만 엔) 내 토지·건물 가액 배분 비율 미기재</strong>: 개요서상 총액(13,470만 엔, 소비세 포함)만 표기되어 있고 토지·건물 내역이 기재되어 있지 않습니다. 120.3평의 높은 토지 가치를 감안하더라도 감가상각 절세 효과를 극대화하기 위해 매도자(야오키상사)와의 매매계약서 작성 시 <strong>건물 비중을 합리적 범위 내(예: 건물 5,500만~6,050만 엔[41~45%], 토지 7,420만~7,970만 엔[55~59%])로 협의 확정</strong>해야 합니다.</li>
+<li><strong>표면수익률 6.50%(실질 Cap Rate 5.10%)의 호가 수준</strong>: 토지 가치와 열화 3급 가치를 반영하여 호가 수익률이 6.50%로 책정되어 있으므로, <strong>1억 2,600만 ~ 1억 2,900만 엔(표면 6.79% ~ 6.95%, Cap Rate 5.33% ~ 5.45%)</strong>을 목표로 지값 협상을 진행할 경우 수익성과 자산가치를 동시에 극대화할 수 있습니다.</li>
+</ol>
+<p>결론적으로 본 물건은 동시에 검토한 2개 매물 중 <strong>압도적 우위를 점하는 최우선 추천 매물</strong>이며, 남서측 도로 권리 확인 및 토지·건물 가액 배분 협의, 1.26억~1.29억 엔 지값 협상을 전제로 한 <strong>【조건부 추천 / 우량 편입 대상 (Conditional Recommendation: 22.5 / 30점)】</strong>으로 최종 판정합니다.</p>
+<hr>
+<h3 id="주요-지표-요약-key-metrics">주요 지표 요약 (Key Metrics)<a class="anchor" href="#주요-지표-요약-key-metrics" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목</th><th class="ta-right">수치</th><th class="ta-left">비고</th></tr></thead><tbody><tr><td class="ta-left"><strong>매매가격 (物件価格)</strong></td><td class="ta-right"><strong>13,470.0만 엔</strong></td><td class="ta-left">소비세 포함 (토지 7,947.3만[59.0%] / 건물 5,522.7만[41.0%] 표준안 기준)</td></tr><tr><td class="ta-left"><strong>현황 연간수입 (現況年収入)</strong></td><td class="ta-right"><strong>0.0만 엔</strong></td><td class="ta-left">신축 건축 중 (2026년 6월 확인필증 교부 ~ <strong>2026년 11월 말 인도 예정</strong>)</td></tr><tr><td class="ta-left"><strong>만실 상정 연간수입 (満室想定年収入)</strong></td><td class="ta-right"><strong>876.0만 엔</strong></td><td class="ta-left">월 730,000엔 (전 9세대, 세대당 평균 <strong>81,111엔/월</strong>, 공익비 포함)</td></tr><tr><td class="ta-left"><strong>만실 상정 표면수익률 (満室想定利回り)</strong></td><td class="ta-right"><strong>6.50%</strong></td><td class="ta-left">개요서 표기 6.50%(876만 ÷ 13,470만 = 6.503%)와 완벽 일치</td></tr><tr><td class="ta-left"><strong>토지 공적 적산가액 (路線価積算)</strong></td><td class="ta-right"><strong>7,551.0만 엔</strong></td><td class="ta-left">유효부지 <strong>397.42㎡(120.22평)</strong> × 노선가 추정 19.0만 엔/㎡ (<strong>매매가의 56.06%!</strong>)</td></tr><tr><td class="ta-left"><strong>건물 표준 적산가액 (建物積算)</strong></td><td class="ta-right"><strong>4,357.3만 엔</strong></td><td class="ta-left">242.07㎡ × 18만 엔/㎡ × 신축(22/22년) → <strong>합산 적산 11,908.2만 엔 (88.41%!)</strong></td></tr><tr><td class="ta-left"><strong>실질 연간경비 (実質年間経費, OPEX)</strong></td><td class="ta-right"><strong>189.0만 엔</strong></td><td class="ta-left">고도세(58만) + PM·청소·무료WIFI(68만) + 보험·원상복구·수선충당(63만, <strong>경비율 21.58%</strong>)</td></tr><tr><td class="ta-left"><strong>순영업소득 (純営業収益, NOI)</strong></td><td class="ta-right"><strong>687.0만 엔</strong></td><td class="ta-left">만실 기준 실질 OPEX 공제 후 (93% 가동 기준 시 622.6만 엔)</td></tr><tr><td class="ta-left"><strong>실질 Cap Rate (NOI 利回り)</strong></td><td class="ta-right"><strong>5.10%</strong></td><td class="ta-left">호가 1억 3,470만 엔 기준 (1억 2,700만 엔 네고 시 <strong>5.41%</strong>)</td></tr><tr><td class="ta-left"><strong>차입금 상정 (融資金, LTV 85%)</strong></td><td class="ta-right"><strong>11,449.5만 엔</strong></td><td class="ta-left"><strong>열화대책등급 3급 확정</strong> 기반 <strong>30년 융자</strong> (금리 2.3% 원리금균등 상정)</td></tr><tr><td class="ta-left"><strong>연간 원리금상환액 (ADS, 30년/2.3%)</strong></td><td class="ta-right"><strong>528.7만 엔</strong></td><td class="ta-left">월 440,582엔 (35년 융자 승인 시 연 <strong>476.3만 엔</strong>으로 추가 경감)</td></tr><tr><td class="ta-left"><strong>연간 캐시플로 (세전 CF, 30년 상환)</strong></td><td class="ta-right"><strong>158.3만 엔</strong></td><td class="ta-left">세전 CF 수익률 1.18% (1.27억 네고 시 <strong>+188.5만 엔 / 1.48%</strong>)</td></tr><tr><td class="ta-left"><strong>부채상환배율 (DSCR)</strong></td><td class="ta-right"><strong>1.30배</strong></td><td class="ta-left">만실 기준 <strong>1.30배</strong> (결산서 기준 1.52배)로 안전기준(1.20배) 안정적 상회</td></tr><tr><td class="ta-left"><strong>손익분기 가동률 (損益分岐稼働率)</strong></td><td class="ta-right"><strong>81.93%</strong></td><td class="ta-left">허용 공실 수: <strong>1.63실 / 전체 9실</strong> (9실 중 7.4실 가동 시 흑자 유지)</td></tr><tr><td class="ta-left"><strong>초기 필요 자기자금 (Equity)</strong></td><td class="ta-right"><strong>3,149.7만 엔</strong></td><td class="ta-left">두금(2,020.5만) + 제비용(1,129.2만, 소비세 환급 전 보수적 기준)</td></tr><tr><td class="ta-left"><strong>자기자본수익률 (CCR)</strong></td><td class="ta-right"><strong>5.03%</strong></td><td class="ta-left">만실 세전 CF 기준 (1.27억 엔 네고 시 <strong>6.35%</strong>, 35년 융자 시 <strong>6.68%</strong>)</td></tr><tr><td class="ta-left"><strong>잠재 임대료 증액 여지 (賃上げ余地)</strong></td><td class="ta-right"><strong>연 0 ~ 10.8만 엔</strong></td><td class="ta-left">㎡당 단가(3,016엔/㎡)가 합리적이어서 장기 임대료 하방 경직성 매우 우수</td></tr></tbody></table></div>
+<hr>
+<h3 id="1-2-결산서-디자인형-판정-output-key-metrics">1.2 결산서 디자인형 판정 (Output &amp; Key Metrics)<a class="anchor" href="#1-2-결산서-디자인형-판정-output-key-metrics" aria-label="link">#</a></h3>
+<h4 id="a-외부-공개용-표준-양식-external-dossier">【A. 외부 공개용 표준 양식 (External Dossier)】<a class="anchor" href="#a-외부-공개용-표준-양식-external-dossier" aria-label="link">#</a></h4>
+<div class="alert alert-note"><p>※ 본 분석은 법인의 재무 건전성 및 금융기관 추가 여신 한도 극대화를 위해, 본 부동산 단품 취득 시(안정화 가동률 93%, LTV 85%, 금리 2.3%, 열화대책 3급 기반 30년 상환 기준) 법인 결산서(손익계산서 및 대차대조표)에 미치는 핵심 재무 지표를 정밀 검증한 결과입니다.</p></div>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목 (Key Metrics)</th><th class="ta-center">검증대상 부동산 (단품 실적)</th><th class="ta-left">지표 정의 및 결산서 디자인상의 의미 (Description &amp; Financial Significance)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 장부상 세전순이익</strong></td><td class="ta-center"><strong>약 285.2만 엔</strong></td><td class="ta-left">안정화 가동(93%) 영업수익에서 관리운영비, 초년도 지급이자(259.9만) 및 신축 목조 감가상각비(22년 상각, 연 251.0만)를 차감한 회계상 순이익. <strong>대규모 흑자 결산 기여.</strong></td></tr><tr><td class="ta-left"><strong>2. 세전 현금흐름 (Pre-tax CF)</strong></td><td class="ta-center"><strong>123.1만 엔 (0.91%)</strong></td><td class="ta-left">안정화 가동(93%) 시 원리금상환(ADS 528.7만) 차감 후 잔여 현금흐름 (<strong>만실 100% 가동 시 158.3만 엔 / 1.18%</strong>).</td></tr><tr><td class="ta-left"><strong>3. 추정 법인세액 (25% 과세 가정)</strong></td><td class="ta-center"><strong>약 71.3만 엔</strong></td><td class="ta-left">장부상 세전순이익(285.2만)에 대한 법인세 추정액. 신축 22년 감가상각비(연 251.0만 엔)로 과세표준을 안정적으로 방어.</td></tr><tr><td class="ta-left"><strong>4. 세후 현금흐름 (Post-tax CF)</strong></td><td class="ta-center"><strong>약 51.8만 엔 (0.38%)</strong></td><td class="ta-left">93% 가동 및 법인세 납부 후에도 순증하는 세후 현금흐름 (만실 가동 시 세후 약 78.2만 엔, 1.27억 네고 시 만실 세후 약 101만 엔).</td></tr><tr><td class="ta-left"><strong>5. 채무상환년수 (Debt Coverage)</strong></td><td class="ta-center"><strong>24.3년</strong></td><td class="ta-left">차입금(1억 1,449.5만) ÷ (세후순이익 213.9만 + 감가상각비 251.0만). <strong>융자 기간(30년)보다 5.7년 짧은 24.3년</strong>으로 골든크로스($C \le B$) 완벽 달성.</td></tr><tr><td class="ta-left"><strong>6. 이자보상배율 (ICR)</strong></td><td class="ta-center"><strong>1.51배 (NOI 기준 2.51배)</strong></td><td class="ta-left">영업이익(393.3만) ÷ 지급이자(259.9만). 감가상각 후 영업이익 기준 <strong>1.51배</strong>의 우량한 이자 커버리지 확보.</td></tr><tr><td class="ta-left"><strong>7. 부채상환배율 (DSCR)</strong></td><td class="ta-center"><strong>1.30배 (만실) / 1.52배 (결산기준)</strong></td><td class="ta-left">실질 OPEX 전부 반영 시에도 1.30배, 결산서 경비 기준 <strong>1.52배</strong>로 금융기관 안전 기준(1.20배)을 크게 상회.</td></tr><tr><td class="ta-left"><strong>8. 담보평가 LTV (고정자산세 기준)</strong></td><td class="ta-center"><strong>164.25%</strong></td><td class="ta-left">차입금(1억 1,449.5만) ÷ 공적 과세평가액(토지 397.42㎡×0.7 + 건물 = <strong>6,968.8만 엔</strong>). <strong>120.3평 대토지 보유로 신축 목조 중 이례적으로 낮은 우량 LTV 기록!</strong></td></tr><tr><td class="ta-left"><strong>9. 자기자본수익률 (CCR / Cash-on-Cash)</strong></td><td class="ta-center"><strong>5.03% (만실 30년)</strong></td><td class="ta-left">만실 세전 CF(158.3만) ÷ 초기 자기자본(3,149.7만). 1.27억 네고 시 <strong>6.35%</strong>로 상승.</td></tr></tbody></table></div>
+<hr>
+<h4 id="b-투자법인-내부-전용-비교-착지-양식-moabiz-internal">【B. 투자법인 내부 전용 비교 착지 양식 (Moabiz Internal)】<a class="anchor" href="#b-투자법인-내부-전용-비교-착지-양식-moabiz-internal" aria-label="link">#</a></h4>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목 (指標項目)</th><th class="ta-center">검증대상 부동산 단품</th><th class="ta-center">현재 (Col G)</th><th class="ta-center">검증대상 부동산 매입후결산서 착지 예상</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益 (장부상 세전순이익)</strong></td><td class="ta-center"><strong>¥2,851,692</strong></td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥6,574,142</strong> (<strong>+76.6% 급증</strong>)</td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF (세전 잔여 현금흐름)</strong></td><td class="ta-center"><strong>¥1,231,095</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥2,972,996</strong> (<strong>+70.7% 확대</strong>)</td></tr><tr><td class="ta-left">・<strong>税引前CF利回り (세전 CF 수익률)</strong></td><td class="ta-center"><strong>0.91%</strong></td><td class="ta-center">0.65%</td><td class="ta-center"><strong>0.74%</strong> (+9bp 개선)</td></tr><tr><td class="ta-left">・<strong>推定法人税額 (추정 법인세액)</strong></td><td class="ta-center"><strong>¥712,923</strong></td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,643,536</strong></td></tr><tr><td class="ta-left">・<strong>税引後手残りCF (세후 잔여 현금흐름)</strong></td><td class="ta-center"><strong>¥518,172</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,329,461</strong> (<strong>+63.8% 확대</strong>)</td></tr><tr><td class="ta-left">・<strong>税引後CF利回り (세후 CF 수익률)</strong></td><td class="ta-center"><strong>0.38%</strong></td><td class="ta-center">0.30%</td><td class="ta-center"><strong>0.33%</strong> (+3bp 개선)</td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (채무상환년수, 년)</strong></td><td class="ta-center"><strong>24.3년</strong></td><td class="ta-center">24.1년</td><td class="ta-center"><strong>24.2년</strong> (<strong>30년 이내 완벽 유지</strong>)</td></tr><tr><td class="ta-left"><strong>4. 簡易 Cash Flow (=税引後CF)</strong></td><td class="ta-center"><strong>¥518,172</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥1,329,461</strong> (약 1.64배 확대)</td></tr><tr><td class="ta-left"><strong>5. ICR (이자보상배율, Interest Coverage Ratio)</strong></td><td class="ta-center"><strong>1.51배</strong></td><td class="ta-center">0.90배</td><td class="ta-center"><strong>1.04배</strong> (<strong>+0.14배 개선 · 1.0배 돌파 달성!</strong>)</td></tr><tr><td class="ta-left"><strong>6. 負債返済割合 (DSCR / 부채상환배율)</strong></td><td class="ta-center"><strong>1.52배</strong></td><td class="ta-center">1.50배</td><td class="ta-center"><strong>1.51배</strong> (<strong>+0.01배 개선 · 초우량 유지</strong>)</td></tr><tr><td class="ta-left"><strong>7. LTV (固定資産税評価額に基づく / 고정자산세 기준)</strong></td><td class="ta-center"><strong>164.25%</strong></td><td class="ta-center">261.08%</td><td class="ta-center"><strong>219.39%</strong> (<strong>▲41.69%p 획기적 개선!</strong>)</td></tr><tr><td class="ta-left"><strong>8. 投資額ROI (초기 투하자기자본 대비 ROI / CCR)</strong></td><td class="ta-center"><strong>3.91% (93% 가동)</strong></td><td class="ta-center">3.83%</td><td class="ta-center"><strong>3.86%</strong> (+3bp 개선, 만실 시 5.03%)</td></tr><tr><td class="ta-left"><strong>9. 法人貢献総合判定 (부동산 종합 투자 적격성 판정)</strong></td><td class="ta-center"><strong>우량 기여 (전 지표 통과)</strong></td><td class="ta-center">기준선 (ICR 0.9배, LTV 261% 취약)</td><td class="ta-center"><strong>편입 적극 권장 (ICR 1.0배 돌파 &amp; LTV 41.7%p 개선)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="평가-서머리-evaluation-summary">평가 서머리 (Evaluation Summary)<a class="anchor" href="#평가-서머리-evaluation-summary" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">평가축</th><th class="ta-center">판정</th><th class="ta-left">근거</th></tr></thead><tbody><tr><td class="ta-left"><strong>가격 타당성</strong></td><td class="ta-center"><strong>적정 ~ 소폭 협상 여지</strong></td><td class="ta-left">호가 1억 3,470만 엔(표면 6.50%)은 <strong>표준 적산가액(1억 1,908만 엔, 88.4%)</strong> 및 <strong>공시지가 적산(1억 4,864만 엔, 110.4%)</strong>으로 뒷받침되어 자산가치 대비 타당성이 높음. 1.26억~1.29억 엔 네고 시 최상급 딜.</td></tr><tr><td class="ta-left"><strong>임대료 수준</strong></td><td class="ta-center"><strong>합리적 (경쟁력 우수)</strong></td><td class="ta-left">세대당 평균 26.89㎡에 월 7.8만~8.5만 엔(평균 8.11만 엔, <strong>㎡당 3,016엔/㎡</strong>)은 미츠쿄역 도보 7분·신축·무료 WIFI 조건 대비 매우 합리적이며 인근 구축(일 피오레, 축 11년) 성약 시세와도 부합.</td></tr><tr><td class="ta-left"><strong>수익의 질</strong></td><td class="ta-center"><strong>우량 (광폭 9세대 구성)</strong></td><td class="ta-left">18㎡ 협소 원룸이 아닌 약 26~27㎡급 여유로운 평면으로 성인 단신자·재택근무자·커플 수요의 장기 거주(평균 3.5~4.5년)가 기대됨.</td></tr><tr><td class="ta-left"><strong>건물 상태</strong></td><td class="ta-center"><strong>최우량 (2026.11 신축 / 열화 3급)</strong></td><td class="ta-left">야오키상사(창업 50년 이상 목조 기획 개발사) 공급, <strong>설계주택성능평가 열화대책등급 3급 취득 완료 &amp; 건설주택성능평가 3급 예정</strong>으로 최고 수준의 물리적·제도적 내구성 확보.</td></tr><tr><td class="ta-left"><strong>수익 구조</strong></td><td class="ta-center"><strong>안정적 (DSCR 1.30배)</strong></td><td class="ta-left">열화대책 3급을 통한 30년 장기 융자(금리 2.3%) 조달 시 만실 세전 CF +158.3만 엔, 손익분기 가동률 81.9%로 안정적 캐시플로 창출.</td></tr><tr><td class="ta-left"><strong>미래 가치</strong></td><td class="ta-center"><strong>매우 우수 (120.3평 역세권 택지)</strong></td><td class="ta-left">미츠쿄역(급행 정차) 도보 7분의 <strong>120.3평(397.71㎡) 대토지</strong>는 향후 15~20년 뒤 중고 수익형 매각뿐만 아니라 <strong>호별 분양 신축 부지(3~4필지 분할 매각)로의 출구 전략(Land Exit)</strong>까지 가능한 핵심 자산.</td></tr><tr><td class="ta-left"><strong>금융/대출</strong></td><td class="ta-center"><strong>최우량 (열화 3급 더블 인증)</strong></td><td class="ta-left">설계·건설주택성능평가서(열화대책등급 3급) 완비 및 높은 토지 담보평가(적산 88.4%) 덕분에 제1금융권·지방은행·신협 등에서 30~35년 풀레버리지에 가까운 우대 융자 심사 가능.</td></tr></tbody></table></div>
+<hr>
+<h3 id="선행-확인-필수-5대-항목-top-5-due-diligence-action-items">선행 확인 필수 5대 항목 (Top 5 Due Diligence Action Items)<a class="anchor" href="#선행-확인-필수-5대-항목-top-5-due-diligence-action-items" aria-label="link">#</a></h3>
+<ul>
+<li>[ ] <strong>1. 남서측 폭원 약 4.0m 도로의 『공도·사도(公道・私道)』 구간별 건축기준법상 종별 및 사도 지분·통행굴착승낙서 확인</strong>: 본 부지(<code>149-3</code>, <code>231-102</code>)가 접하는 남서측 도로 중 사도 부분의 소유권 지분이 매매대상에 포함되는지, 상하수도·도시가스 인입을 위한 무상 통행·굴착 승낙서가 완비되었는지 최우선 확인.</li>
+<li>[ ] <strong>2. 실시설계 도면 일식(배치도·각층 평면도·입면도), 토지 등기부등본(2필지) 및 확정측량도 징구</strong>: 개요서와 건축확인필증(제26UDI1K건00271호) 외에 호실별 정확한 전유면적·간취(1K/1DK/1LDK) 도면과 부지 내 고저차·옹벽 유무를 확인하기 위한 설계도서를 매도자(야오키상사/무브업)로부터 수령.</li>
+<li>[ ] <strong>3. 매매계약서상 『토지·건물 가액 배분 비율(土地・建物売買代金内訳)』 협의 확정</strong>: 법인의 연간 감가상각비(절세 효과)와 소비세 환급·부동산취득세에 직접 영향을 미치므로, 매도자 측과 건물 가액을 <strong>약 5,500만~6,000만 엔(소비세 포함, 전체의 41~45%)</strong> 수준으로 설정 가능한지 사전 협의.</li>
+<li>[ ] <strong>4. 『설계주택성능평가서(열화대책등급 3급)』 사본 수령 및 거래 금융기관 30~35년 융자 사전 타진</strong>: 이미 취득 완료된 설계주택성능평가서 사본과 건축확인필증을 금융기관에 제출하여 <strong>기간 30~35년, 금리 2.0~2.3%대</strong>의 우대 조건 승인을 확보.</li>
+<li>[ ] <strong>5. 2026년 11월 말 준공 전 선행 임차인 모집(리싱) 개시 일정 및 무료 WIFI 월간 런닝코스트 확인</strong>: 11월 말 인도에 맞춰 9~10월부터 선행 임차인 모집을 개시하여 인도 시점 만실(또는 초기 AD 매도자 부담)을 유도하고, 무료 인터넷(WIFI) 설비의 월 이용료(예상 월 1.0~1.3만 엔) 및 계약 승계 조건을 확인.</li>
+</ul>
+<hr>
+<h1 id="2-물건-개요-property-overview">2. 물건 개요 (Property Overview)<a class="anchor" href="#2-물건-개요-property-overview" aria-label="link">#</a></h1>
+<h3 id="기본-제원표-물건개요서-및-건축확인필증-제26udi1k건00271호-검증-완료">기본 제원표 (물건개요서 및 건축확인필증 제26UDI1K건00271호 검증 완료)<a class="anchor" href="#기본-제원표-물건개요서-및-건축확인필증-제26udi1k건00271호-검증-완료" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">항목</th><th class="ta-left">내용</th><th class="ta-left">비고</th></tr></thead><tbody><tr><td class="ta-left"><strong>물건명</strong></td><td class="ta-left">미츠쿄 1AP 사사노다이 신축 아파트 (三ツ境1AP 新築アパート)</td><td class="ta-left">가칭: 三ツ境1AP (준공 전 정식 명칭 부여 예정)</td></tr><tr><td class="ta-left"><strong>소재지 (지번)</strong></td><td class="ta-left">神奈川県横浜市旭区笹野台2丁目149番3、231番102</td><td class="ta-left">요코하마시 아사히구 사사노다이 2초메</td></tr><tr><td class="ta-left"><strong>교통 (대중교통)</strong></td><td class="ta-left">相鉄本線 「三ツ境」駅 <strong>徒歩 7分</strong> (급행·통근급행·각정 정차역)</td><td class="ta-left">실측 약 550m, 상점가 경유 평탄·완만 동선</td></tr><tr><td class="ta-left"><strong>매매가격</strong></td><td class="ta-left"><strong>13,470만 엔 (소비세 포함)</strong></td><td class="ta-left">만실 상정 표면수익률 <strong>6.50%</strong></td></tr><tr><td class="ta-left"><strong>토지 면적</strong></td><td class="ta-left">• <strong>총 토지 면적</strong>: <strong>397.71㎡ (120.30평)</strong> (<code>149-3</code> + <code>231-102</code> 2필지 합계)<br>• <strong>세트백(도로후퇴) 면적</strong>: <strong>0.29㎡</strong> (극미량)<br>• <strong>유효 건축부지면적</strong>: <strong>397.42㎡ (120.22평)</strong></td><td class="ta-left">제1매물(카와시마초 71.1평) 대비 <strong>+69.1% 더 넓은 대토지</strong></td></tr><tr><td class="ta-left"><strong>토지 권리 / 지목</strong></td><td class="ta-left">소유권 (所有権) / 택지 (宅地)</td><td class="ta-left">2필지 일단의 대지</td></tr><tr><td class="ta-left"><strong>접도 현황</strong></td><td class="ta-left"><strong>남서측 폭원 약 4.0m (공도·사도) 접도</strong></td><td class="ta-left">남서향 도로 접도로 전 세대 남서향/남동향 일조권 우수</td></tr><tr><td class="ta-left"><strong>도시계획 / 용도지역</strong></td><td class="ta-left">시가화구역 (市街化区域) / <strong>제1종 저층주거전용지역 (第一種低層住居専用地域)</strong></td><td class="ta-left">제1종 고도지구 (최고높이 10m 제한)</td></tr><tr><td class="ta-left"><strong>건폐율 / 용적률</strong></td><td class="ta-left">• <strong>법정 건폐율</strong>: <strong>40%</strong> (법정 건축면적 상한 158.96㎡)<br>• <strong>법정 용적률</strong>: <strong>80%</strong> (법정 연면적 상한 317.93㎡)<br>• <strong>설계 실적</strong>: 연면적 <strong>242.07㎡</strong> (실효 용적률 <strong>60.91%</strong>, 용적 소화율 76.1%)</td><td class="ta-left">여유로운 동간 거리 및 저밀도 쾌적 배동</td></tr><tr><td class="ta-left"><strong>건물 구조 / 규모</strong></td><td class="ta-left"><strong>목조 지상 2층건 · 공동주택 (전 9세대)</strong></td><td class="ta-left">1층 5세대 / 2층 4세대</td></tr><tr><td class="ta-left"><strong>건물 연면적</strong></td><td class="ta-left"><strong>242.07㎡ (73.22평)</strong></td><td class="ta-left"><strong>세대당 평균 연면적 26.89㎡</strong> (전유 약 25.5~27.5㎡)</td></tr><tr><td class="ta-left"><strong>건축확인번호 / 일정</strong></td><td class="ta-left">• <strong>건축확인번호</strong>: <strong>제26UDI1K건00271호 (第26UDI1K建00271号)</strong><br>• <strong>확인필증 교부일</strong>: <strong>령화 8년(2026년) 6월 18일</strong> (유디아이확인검사 주식회사, 확인검사원 우에노 토모오미)<br>• <strong>인도(준공) 예정</strong>: <strong>령화 8년(2026년) 11월 말</strong></td><td class="ta-left">현황: 건축 중</td></tr><tr><td class="ta-left"><strong>주택성능평가 (핵심)</strong></td><td class="ta-left">• <strong>설계주택성능평가: 열화대책등급 3급 취득 완료 (設計住宅性能評価 劣化対策等級3級 取得済)</strong><br>• <strong>건설주택성능평가: 열화대책등급 3급 취득 예정 (建設住宅性能評価 劣化対策等級3級 取得予定)</strong></td><td class="ta-left"><strong>목조 최고 등급(3급) 더블 인증 → 최장 30~35년 융자 적격</strong></td></tr><tr><td class="ta-left"><strong>인프라 및 특화 설비</strong></td><td class="ta-left">공영수도 · 공공하수 · <strong>도시가스(都市ガス)</strong> · <strong>전 세대 무료 WIFI 완비</strong></td><td class="ta-left">도시가스 + 무료 인터넷으로 높은 임차인 선호도</td></tr><tr><td class="ta-left"><strong>매도자(건축주) / 중개사</strong></td><td class="ta-left">• <strong>매도자(건축주)</strong>: <strong>야오키상사 주식회사 (ヤオキ商事株式会社, 대표이사 카타야마 요시노리)</strong><br>• <strong>중개사</strong>: 주식회사 무브업 (株式会社ムーヴアップ)</td><td class="ta-left">가와사키·요코하마에서 창업 50년 이상의 전통 목조 디벨로퍼</td></tr></tbody></table></div>
+<hr>
+<h3 id="건축확인필증제26udi1k건00271호-및-매도자야오키상사-포렌식-검증">🔍 건축확인필증(제26UDI1K건00271호) 및 매도자(야오키상사) 포렌식 검증<a class="anchor" href="#건축확인필증제26udi1k건00271호-및-매도자야오키상사-포렌식-검증" aria-label="link">#</a></h3>
+<ol>
+<li><strong>건축확인필증 원본 검증 (PDF 3 제2면)</strong>:</li>
+<ul>
+<li>국토교통성·가나가와현 지정 확인검사기관인 <strong>유디아이확인검사 주식회사(ユーディーアイ確認検査株式会社, 확인검사원 우에노 토모오미)</strong>가 <strong>령화 8년(2026년) 6월 18일</strong>자로 건축주 <strong>야오키상사 주식회사(ヤオキ商事株式会社)</strong> 앞으로 적법 교부한 『확인필증(건축물) 제26UDI1K건00271호』 원본을 확인 완료했습니다.</li>
+<li>대지 위치는 『요코하마시 아사히구 사사노다이 2초메 149번3, 231번102』, 주요 용도는 『공동주택』, 공사는 『신축』으로 건축기준법 제6조 제1항 규정에 완벽히 적합함이 입증되었습니다.</li>
+</ul>
+<li><strong>매도자 『야오키상사 주식회사(ヤオキ商事株式会社)』 신용도 검증</strong>:</li>
+<ul>
+<li>가와사키시·요코하마시 권역을 중심으로 50년 이상의 업력을 보유한 수익형 부동산·목조 기획 개발 전문 회사로, 단기 차익형 브로커와 달리 자체 보유 및 설계·건설주택성능평가(열화대책 3급) 정식 취득을 표준화하여 시공 품질과 금융기관 신뢰도가 우수합니다.</li>
+</ul>
+</ol>
+<hr>
+<h1 id="3-입지-및-주변-환경-분석-location-micro-market-analysis">3. 입지 및 주변 환경 분석 (Location &amp; Micro-Market Analysis)<a class="anchor" href="#3-입지-및-주변-환경-분석-location-micro-market-analysis" aria-label="link">#</a></h1>
+<h3 id="3-1-교통-접근성-급행-정차역-미츠쿄역-도보-7분의-위력">3.1 교통 접근성: 『급행 정차역 미츠쿄역 도보 7분』의 위력<a class="anchor" href="#3-1-교통-접근성-급행-정차역-미츠쿄역-도보-7분의-위력" aria-label="link">#</a></h3>
+<ul>
+<li><strong>소테츠 본선(相鉄本線) 「미츠쿄(三ツ境)」역 도보 7분</strong>:</li>
+<ul>
+<li>제1매물이 위치한 카미호시카와역(각정·쾌속만 정차)과 달리, <strong>미츠쿄역은 급행(急行)·통근급행(通勤急行)·쾌속·각정이 정차하는 주요 거점역</strong>입니다(일평균 승하차 인원 약 5.4만 명).</li>
+<li><strong>「요코하마(横浜)」역까지 급행 직통 14~16분</strong>, <strong>「후타마타가와(二俣川)」역(환승 거점)까지 1정거장(3분)</strong>이며, 소테츠·JR 직통선 및 소테츠·도큐 직통선을 통해 <strong>「신요코하마(新横浜)」역 18분, 「시부야(渋谷)」·「신주쿠(新宿)」·「메구로(目黒)」·「오테마치(大手町)」까지 환승 없이 38~48분대</strong>에 도달합니다.</li>
+</ul>
+<li><strong>도보 동선 및 지형적 우위</strong>:</li>
+<ul>
+<li>미츠쿄역 북구(北口)에서 활기찬 지역 상점가인 <strong>「사사노다이 상점가(笹野台商店街, 중앙상점가)」</strong>를 지나 도보 7분(약 550m) 거리에 위치합니다.</li>
+<li>급경사 언덕길을 올라가야 하는 카와시마초 물건과 달리, 미츠쿄역에서 사사노다이 2초메까지는 완만한 고원 대지 지형이어서 <strong>여성 임차인이나 야간 귀가 시에도 안전하고 쾌적한 도보 접근성</strong>을 자랑합니다.</li>
+</ul>
+</ul>
+<h3 id="3-2-역-주변-상업생활-인프라">3.2 역 주변 상업·생활 인프라<a class="anchor" href="#3-2-역-주변-상업생활-인프라" aria-label="link">#</a></h3>
+<ul>
+<li><strong>초대형 역세권 상업시설 완비</strong>:</li>
+<ul>
+<li>미츠쿄역 직결 <strong>소테츠 로젠(相鉄ローゼン 三ツ境店, 대형 슈퍼)</strong> 및 <strong>소테츠 라이프 미츠쿄(相鉄ライフ三ツ境, 쇼핑몰)</strong>, 역 남측 <strong>이온푸드스타일 미츠쿄점(イオンフードスタイル三ツ境店, 구 다이에 대형 쇼핑센터)</strong>이 도보 6~8분 거리에 위치하여 요코하마 서부 권역에서도 손꼽히는 생활 편의성을 갖추고 있습니다.</li>
+<li>사사노다이 상점가 내 편의점(세븐일레븐·로손), 드럭스토어(HAC 드럭), 클리닉, 은행, 음식점 등이 도보 3~5분 내에 밀집해 있습니다.</li>
+</ul>
+</ul>
+<h3 id="3-3-해저드재해-리스크-검증">3.3 해저드(재해) 리스크 검증<a class="anchor" href="#3-3-해저드재해-리스크-검증" aria-label="link">#</a></h3>
+<ul>
+<li><strong>홍수·내수 침수 리스크 (안전)</strong>:</li>
+<ul>
+<li>사사노다이 2초메 일대는 표고 약 65~70m의 안정적인 다마 구릉 대지(고지대)에 위치하여, 요코하마시 아사히구 홍수 해저드맵상 <strong>하천 범람 및 내수 침수 예상 구역에 전혀 해당하지 않습니다(수해 리스크 제로 수준)</strong>.</li>
+</ul>
+<li><strong>지반 및 토사재해 리스크 (안전)</strong>:</li>
+<ul>
+<li>제1종 저층주거전용지역의 정돈된 주택지로 토사재해 경계구역(옐로우/레드존)에도 해당하지 않는 안정적인 지반입니다.</li>
+</ul>
+</ul>
+<hr>
+<h1 id="4-건물-및-호실-설계렌트롤-포렌식-building-rent-roll-forensics">4. 건물 및 호실 설계·렌트롤 포렌식 (Building &amp; Rent Roll Forensics)<a class="anchor" href="#4-건물-및-호실-설계렌트롤-포렌식-building-rent-roll-forensics" aria-label="link">#</a></h1>
+<h3 id="4-1-26-89-광폭-설계-및-설비-경쟁력-분석">4.1 26.89㎡ 광폭 설계 및 설비 경쟁력 분석<a class="anchor" href="#4-1-26-89-광폭-설계-및-설비-경쟁력-분석" aria-label="link">#</a></h3>
+<ul>
+<li><strong>여유로운 세대 면적 (평균 26.89㎡)</strong>:</li>
+<ul>
+<li>총 연면적 <strong>242.07㎡(73.22평)</strong>를 9세대로 나누면 <strong>1세대당 평균 연면적은 26.89㎡</strong>(벽심 기준 전유면적 약 <strong>25.5㎡ ~ 27.5㎡</strong>, 약 8~9조 거실의 대형 1K 또는 1DK/1LDK 평면)입니다.</li>
+<li>최근 수도권 임대 시장에서는 15~18㎡ 초소형 원룸의 공실률이 상승하는 반면, <strong>25㎡ 이상의 여유 있는 1K/1DK 평면은 재택근무 공간 확보 및 수납력을 중시하는 우량 사회인 임차인들의 강한 선호</strong>를 받고 있습니다.</li>
+</ul>
+<li><strong>인프라 및 부대시설</strong>:</li>
+<ul>
+<li><strong>도시가스(都市ガス)</strong> 및 공공하수 직결, <strong>전 세대 무료 WIFI(초고속 인터넷) 기본 제공</strong>(임차인 체감 월 4,000~5,000엔 절감 효과), 남서측 4m 도로 접도에 따른 밝은 채광 구조.</li>
+</ul>
+</ul>
+<h3 id="4-2-전-9세대-호실별-상정-임대료-및-단가-정밀-일람표">4.2 전 9세대 호실별 상정 임대료 및 단가 정밀 일람표<a class="anchor" href="#4-2-전-9세대-호실별-상정-임대료-및-단가-정밀-일람표" aria-label="link">#</a></h3>
+<p>매도자 제시 호실별 임대료(공익비 포함 기준) 및 ㎡당 단가 분석은 다음과 같습니다:</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">호실</th><th class="ta-center">층수</th><th class="ta-center">위치 구분</th><th class="ta-right">추정 면적 (평균 기준)</th><th class="ta-right">월 총임대료 (공익비 포함)</th><th class="ta-right">연간 임대료 (엔)</th><th class="ta-right">㎡당 월 단가 (엔/㎡)</th><th class="ta-left">호실별 가격 책정 및 경쟁력 분석</th></tr></thead><tbody><tr><td class="ta-center"><strong>101호</strong></td><td class="ta-center">1층</td><td class="ta-center">남서/남동 각실(角)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>80,000엔</strong></td><td class="ta-right">960,000엔</td><td class="ta-right">2,975엔/㎡</td><td class="ta-left">1층 각실(2면 채광), 중실 대비 +2,000엔 프리미엄</td></tr><tr><td class="ta-center"><strong>102호</strong></td><td class="ta-center">1층</td><td class="ta-center">중실(中部屋)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>78,000엔</strong></td><td class="ta-right">936,000엔</td><td class="ta-right">2,901엔/㎡</td><td class="ta-left"><strong>7만 엔대(7.8만) 진입 가격</strong>으로 포털 검색 노출 극대화</td></tr><tr><td class="ta-center"><strong>103호</strong></td><td class="ta-center">1층</td><td class="ta-center">중실(中部屋)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>78,000엔</strong></td><td class="ta-right">936,000엔</td><td class="ta-right">2,901엔/㎡</td><td class="ta-left">26㎡+ 신축·무료WIFI·역7분 조건에서 가성비 최우수</td></tr><tr><td class="ta-center"><strong>104호</strong></td><td class="ta-center">1층</td><td class="ta-center">중실(中部屋)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>78,000엔</strong></td><td class="ta-right">936,000엔</td><td class="ta-right">2,901엔/㎡</td><td class="ta-left">1층 중실 표준 임대료</td></tr><tr><td class="ta-center"><strong>105호</strong></td><td class="ta-center">1층</td><td class="ta-center">북서 각실(角)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>80,000엔</strong></td><td class="ta-right">960,000엔</td><td class="ta-right">2,975엔/㎡</td><td class="ta-left">1층 각실(2면 채광)</td></tr><tr><td class="ta-center"><strong>201호</strong></td><td class="ta-center">2층</td><td class="ta-center">남서/남동 각실(角)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>85,000엔</strong></td><td class="ta-right">1,020,000엔</td><td class="ta-right">3,161엔/㎡</td><td class="ta-left">2층 최상층 각실, 일조·조망 최우수 호실</td></tr><tr><td class="ta-center"><strong>202호</strong></td><td class="ta-center">2층</td><td class="ta-center">중실(中部屋)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>83,000엔</strong></td><td class="ta-right">996,000엔</td><td class="ta-right">3,087엔/㎡</td><td class="ta-left">2층 중실 표준 임대료 (1층 대비 +5,000엔 단차)</td></tr><tr><td class="ta-center"><strong>203호</strong></td><td class="ta-center">2층</td><td class="ta-center">중실(中部屋)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>83,000엔</strong></td><td class="ta-right">996,000엔</td><td class="ta-right">3,087엔/㎡</td><td class="ta-left">2층 중실 표준 임대료</td></tr><tr><td class="ta-center"><strong>204호</strong></td><td class="ta-center">2층</td><td class="ta-center">북서 각실(角)</td><td class="ta-right">약 26.89㎡</td><td class="ta-right"><strong>85,000엔</strong></td><td class="ta-right">1,020,000엔</td><td class="ta-right">3,161엔/㎡</td><td class="ta-left">2층 최상층 각실</td></tr><tr class="total-row"><td class="ta-center"><strong>합계/평균</strong></td><td class="ta-center"><strong>9실</strong></td><td class="ta-center">1층 5실 / 2층 4실</td><td class="ta-right"><strong>242.07㎡</strong> (평균 26.89㎡)</td><td class="ta-right"><strong>730,000엔</strong> (평균 81,111엔)</td><td class="ta-right"><strong>8,760,000엔</strong> (876.0만 엔)</td><td class="ta-right"><strong>평균 3,016엔/㎡</strong></td><td class="ta-left"><strong>제1매물(3,435엔/㎡) 대비 ㎡당 단가 12.2% 저렴!</strong></td></tr></tbody></table></div>
+<hr>
+<h1 id="5-임대-시세-및-공실회전율-비교-분석-rent-roll-vacancy-benchmarking">5. 임대 시세 및 공실·회전율 비교 분석 (Rent Roll &amp; Vacancy Benchmarking)<a class="anchor" href="#5-임대-시세-및-공실회전율-비교-분석-rent-roll-vacancy-benchmarking" aria-label="link">#</a></h1>
+<h3 id="5-1-사사노다이-실거래-아카이브lifull-homes-정밀-벤치마킹">5.1 사사노다이 실거래 아카이브(<code>LIFULL HOME&#x27;S</code>) 정밀 벤치마킹<a class="anchor" href="#5-1-사사노다이-실거래-아카이브lifull-homes-정밀-벤치마킹" aria-label="link">#</a></h3>
+<p>본 물건과 동일한 사사노다이 지구에 위치한 비교 목조 아파트 <strong>「일 피오레 (イル・フィオーレ, <code>b-40788409</code>, 요코하마시 아사히구 사사노다이 1초메 32-4, 2016년 7월 준공[축 11년], 목조 2층, 미츠쿄역 도보 9분)」</strong>의 포털 아카이브(총 10건)를 전수 추출하여 비교 분석했습니다:</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">비교 항목</th><th class="ta-center">본 물건 (미츠쿄 1AP 사사노다이)</th><th class="ta-center">인근 비교물건: 일 피오레 (<code>b-40788409</code>)</th><th class="ta-center">제1매물 비교: 킵 라군 카와시마초</th></tr></thead><tbody><tr><td class="ta-left"><strong>소재지</strong></td><td class="ta-center">아사히구 사사노다이 2초메 (역 도보 7분)</td><td class="ta-center">아사히구 사사노다이 1초메 (역 도보 9분)</td><td class="ta-center">호도가야구 카와시마초 (카미호시카와역 9분)</td></tr><tr><td class="ta-left"><strong>준공연월 (연식)</strong></td><td class="ta-center"><strong>2026년 11월 (신축)</strong></td><td class="ta-center">2016년 7월 (<strong>축 11년 중고</strong>)</td><td class="ta-center">2026년 10월 (신축)</td></tr><tr><td class="ta-left"><strong>전유면적 / 구성</strong></td><td class="ta-center"><strong>평균 26.89㎡</strong> (전 9세대, 무료 WIFI)</td><td class="ta-center">1층 32.95㎡ (1DK) / 2층 41.35㎡ (1LDK)</td><td class="ta-center">평균 18.54㎡ (전 10세대, 1R/1K)</td></tr><tr><td class="ta-left"><strong>모집·성약 임대료</strong></td><td class="ta-center"><strong>78,000 ~ 85,000엔</strong> (공익비 포함)</td><td class="ta-center">• 1층(32.95㎡): <strong>75,000엔</strong> (2026년 5월 성약)<br>• 2층(41.35㎡): <strong>82,000 ~ 85,500엔</strong> (성약)</td><td class="ta-center">62,000 ~ 66,000엔 (공익비 포함)</td></tr><tr><td class="ta-left"><strong>㎡당 임대료 단가</strong></td><td class="ta-center"><strong>3,016엔/㎡</strong> (신축)</td><td class="ta-center">2,068 ~ 2,276엔/㎡ (축 11년 대형)</td><td class="ta-center"><strong>3,435엔/㎡</strong> (신축 협소)</td></tr><tr><td class="ta-left"><strong>최근 모집 소요기간 (DOM)</strong></td><td class="ta-center">신축 초기 리싱 예정</td><td class="ta-center">• <strong>2026년 5월(102호, 7.5만)</strong>: <strong>DOM 1개월 내 즉결!</strong><br>• <strong>2024년 1월(203호, 8.2만)</strong>: <strong>DOM 2개월 내 성약!</strong></td><td class="ta-center">인접물건 신축 시 8~10개월 소요 이력</td></tr></tbody></table></div>
+<h3 id="5-2-시세-검증-결론-높은-임대-수요-탄력성-및-빠른-리싱-기대">5.2 시세 검증 결론: 『높은 임대 수요 탄력성 및 빠른 리싱 기대』<a class="anchor" href="#5-2-시세-검증-결론-높은-임대-수요-탄력성-및-빠른-리싱-기대" aria-label="link">#</a></h3>
+<ol>
+<li><strong>구축(축 11년) 물건도 월 7.5~8.5만 엔에 1~2개월 내 즉결되는 탄탄한 수요</strong>:</li>
+<ul>
+<li>사사노다이 비교 물건(<code>일 피오레</code>)은 <strong>축 11년 중고 목조임에도 2026년 5월 최근 모집에서 월 7.5만 엔이 불과 1개월 만에 성약</strong>되었고, 2층 세대도 월 8.2~8.5만 엔에 공실 없이 회전하고 있습니다.</li>
+</ul>
+<li><strong>본 물건(신축·역 도보 7분·무료 WIFI·26.9㎡)의 강력한 가성비</strong>:</li>
+<ul>
+<li>본 물건은 미츠쿄역(급행 정차) 도보 7분 신축이면서 1층 중실이 <strong>78,000엔(7만 엔대)</strong>, 2층이 <strong>83,000~85,000엔</strong>으로 책정되어 있어, <strong>2026년 11월 말 준공 후 곧바로 이어지는 일본 최대 이사 성수기(2027년 1~3월)와 맞물려 조기 만실 달성 가능성이 매우 높습니다.</strong></li>
+</ul>
+</ol>
+<hr>
+<h1 id="6-가격-타당성-및-적산가치-평가-valuation-cost-approach">6. 가격 타당성 및 적산가치 평가 (Valuation &amp; Cost Approach)<a class="anchor" href="#6-가격-타당성-및-적산가치-평가-valuation-cost-approach" aria-label="link">#</a></h1>
+<h3 id="6-1-적산가치積算価格-3단계-정밀-평가-매매가-대비-88-4-110-4의-압도적-담보력">6.1 적산가치(積算価格) 3단계 정밀 평가: 『매매가 대비 88.4% ~ 110.4%의 압도적 담보력』<a class="anchor" href="#6-1-적산가치積算価格-3단계-정밀-평가-매매가-대비-88-4-110-4의-압도적-담보력" aria-label="link">#</a></h3>
+<p>본 물건의 가장 큰 강점인 <strong>397.42㎡(120.22평) 유효 택지</strong>와 <strong>242.07㎡ 신축 건물</strong>의 적산가치를 3단계로 산출했습니다:</p>
+<ul>
+<li><strong>토지 평가 기준</strong>:</li>
+<ul>
+<li>유효 건축부지 면적: <strong>397.42㎡ (120.22평)</strong> (총 397.71㎡ 중 세트백 0.29㎡ 제외).</li>
+<li>미츠쿄역 도보 7분 사사노다이 2초메 정형 주택지의 공시지가/기준지가 수준은 <strong>약 23.5만 ~ 24.5만 엔/㎡(평당 약 78만~81만 엔)</strong>이며, 상속세 노선가(공시지가의 80%)는 <strong>약 19.0만 엔/㎡</strong>, 고정자산세 평가액(공시지가의 70%)은 <strong>약 16.8만 엔/㎡</strong>로 추산됩니다.</li>
+<li><strong>노선가 기준 토지 적산가액</strong>: <code>397.42㎡ × 19.0만 엔/㎡ = 7,551.0만 엔 (매매가의 56.06%!)</code></li>
+<li><strong>공시지가 기준 토지 실세가액</strong>: <code>397.42㎡ × 24.0만 엔/㎡ = 9,538.1만 엔 (매매가의 70.81%!)</code></li>
+</ul>
+<li><strong>건물 평가 기준 (목조 신축 연면적 242.07㎡, 잔존연수 22/22년 = 100%, 열화대책 3급)</strong>:</li>
+<ul>
+<li>① <strong>보수적 은행 담보 기준 (15만 엔/㎡)</strong>: <code>242.07㎡ × 15만 엔 = 3,631.1만 엔</code></li>
+<li>② <strong>국세청 표준 건축가액 기준 (18만 엔/㎡)</strong>: <code>242.07㎡ × 18만 엔 = 4,357.3만 엔</code></li>
+<li>③ <strong>신축 실조달원가 기준 (22만 엔/㎡)</strong>: <code>242.07㎡ × 22만 엔 = 5,325.5만 엔</code></li>
+</ul>
+</ul>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">평가 시나리오</th><th class="ta-right">토지 평가액 (397.42㎡)</th><th class="ta-right">건물 평가액 (242.07㎡)</th><th class="ta-right">합산 적산가액</th><th class="ta-center">매매가(13,470만) 대비 비율</th><th class="ta-left">담보평가 해설</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 보수적 은행 담보 기준</strong></td><td class="ta-right">7,551.0만 엔 (노선가)</td><td class="ta-right">3,631.1만 엔 (15만/㎡)</td><td class="ta-right"><strong>11,182.0만 엔</strong></td><td class="ta-center"><strong>83.01%</strong></td><td class="ta-left">보수적 은행 기준으로도 매매가의 83% 담보 커버!</td></tr><tr><td class="ta-left"><strong>② 국세청 표준 적산 기준</strong></td><td class="ta-right"><strong>7,551.0만 엔</strong> (노선가)</td><td class="ta-right"><strong>4,357.3만 엔</strong> (18만/㎡)</td><td class="ta-right"><strong>11,908.2만 엔</strong></td><td class="ta-center"><strong>88.41%</strong></td><td class="ta-left"><strong>제1매물(58.3%) 대비 +30.1%p 높은 초우량 적산비율!</strong></td></tr><tr><td class="ta-left"><strong>③ 공시지가 + 신축원가 기준</strong></td><td class="ta-right"><strong>9,538.1만 엔</strong> (공시지가)</td><td class="ta-right"><strong>5,325.5만 엔</strong> (22만/㎡)</td><td class="ta-right"><strong>14,863.6만 엔</strong></td><td class="ta-center"><strong>110.35%</strong></td><td class="ta-left"><strong>실질 토지 시세 + 신축 건축원가 합계가 매매가를 1,394만 엔 초과!</strong></td></tr></tbody></table></div>
+<div class="alert alert-tip"><div class="alert-head">💡 팁</div><p>오늘날 수도권 신축 목조 원룸의 대다수는 토지비 상승과 건축비 급등으로 인해 적산비율이 50~60%대에 머무릅니다. 그러나 본 물건은 <strong>120.3평의 대형 부지 가치가 매매가의 56~71%를 지탱</strong>하고 있어, 사실상 <strong>"토지를 시세대로 사고 열화대책 3급 신축 건물을 원가 이하로 취득하는 구조"</strong>에 가깝습니다. 이는 은행 융자 심사 시 담보 부족(평가 쪼개기) 문제를 원천 해소할 뿐 아니라, 10~15년 뒤 매각 시에도 토지 가격만으로 원금 대부분을 방어하는 막강한 안전판이 됩니다.</p></div>
+<hr>
+<h1 id="7-재무-모델링-및-현금흐름손익분기-분석-financial-modeling-cash-flow-analysis">7. 재무 모델링 및 현금흐름·손익분기 분석 (Financial Modeling &amp; Cash Flow Analysis)<a class="anchor" href="#7-재무-모델링-및-현금흐름손익분기-분석-financial-modeling-cash-flow-analysis" aria-label="link">#</a></h1>
+<h3 id="7-1-정상화-운영경비opex-명세표">7.1 정상화 운영경비(OPEX) 명세표<a class="anchor" href="#7-1-정상화-운영경비opex-명세표" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">경비 항목</th><th class="ta-right">연간 금액 (만 엔)</th><th class="ta-right">월 환산 (엔)</th><th class="ta-center">총수입 대비 비율</th><th class="ta-left">산출 근거 및 검증 내역</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 고정자산세·도시계획세 (토지+건물)</strong></td><td class="ta-right"><strong>58.0만 엔</strong></td><td class="ta-right">48,333엔</td><td class="ta-center">6.62%</td><td class="ta-left">• 토지(397.42㎡, 추정 평가액 6,676.7만 엔): 전 면적 소규모주택용지 특례(9세대×200㎡=1,800㎡ 한도 내) 1/6·1/3 적용 시 <strong>연 약 21.8만 엔</strong><br>• 신축 건물(242.07㎡): 초기 3년 감면 후 정상화 세액 <strong>연 약 36.2만 엔</strong></td></tr><tr><td class="ta-left"><strong>2. 임대관리 위탁수수료 (PM Fee)</strong></td><td class="ta-right"><strong>43.8만 엔</strong></td><td class="ta-right">36,500엔</td><td class="ta-center">5.00%</td><td class="ta-left">만실 연수입(876.0만 엔)의 5.0%</td></tr><tr><td class="ta-left"><strong>3. 공용부 청소·점검·무료 WIFI 비용</strong></td><td class="ta-right"><strong>24.2만 엔</strong></td><td class="ta-right">20,167엔</td><td class="ta-center">2.76%</td><td class="ta-left"><strong>전 세대 무료 WIFI 인터넷 회선비(연 약 13.2만 엔)</strong> + 정기청소·공용전기(연 11.0만 엔)</td></tr><tr><td class="ta-left"><strong>4. 화재·지진보험료 (연환산)</strong></td><td class="ta-right"><strong>15.0만 엔</strong></td><td class="ta-right">12,500엔</td><td class="ta-center">1.71%</td><td class="ta-left">신축 목조 242.07㎡ 기준 연환산 보험료</td></tr><tr><td class="ta-left"><strong>5. 퇴거 시 원상복구 및 리싱(AD) 충당금</strong></td><td class="ta-right"><strong>30.0만 엔</strong></td><td class="ta-right">25,000엔</td><td class="ta-center">3.42%</td><td class="ta-left">9세대 중 연평균 2세대 퇴거 가정 (광폭 평면으로 장기 거주 경향 반영)</td></tr><tr><td class="ta-left"><strong>6. 장기수선충당금 및 세무기장비</strong></td><td class="ta-right"><strong>18.0만 엔</strong></td><td class="ta-right">15,000엔</td><td class="ta-center">2.05%</td><td class="ta-left">열화대책등급 3급 사양에 맞춘 계획 수선 적립</td></tr><tr class="total-row"><td class="ta-left"><strong>실질 연간경비 (OPEX) 합계</strong></td><td class="ta-right"><strong>189.0만 엔</strong></td><td class="ta-right"><strong>157,500엔</strong></td><td class="ta-center"><strong>21.58%</strong></td><td class="ta-left"><strong>만실 순영업소득(NOI) = 876.0만 - 189.0만 = 687.0만 엔 (Cap 5.10%)</strong></td></tr></tbody></table></div>
+<h3 id="7-2-매수가별-및-융자-조건별30년-vs-35년-수지-비교-시뮬레이션">7.2 매수가별 및 융자 조건별(30년 vs 35년) 수지 비교 시뮬레이션<a class="anchor" href="#7-2-매수가별-및-융자-조건별30년-vs-35년-수지-비교-시뮬레이션" aria-label="link">#</a></h3>
+<p>열화대책등급 3급 확정 조건을 활용한 <strong>① 호가 기준 30년 융자(기본안)</strong>, <strong>② 호가 기준 35년 융자 승인 시</strong>, <strong>③ 1억 2,700만 엔 네고 + 30년 융자 시(권장 목표안)</strong>의 3대 시나리오를 비교했습니다:</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">주요 재무 지표</th><th class="ta-center">시나리오 A (기본안)<br>호가 13,470만 / <strong>30년</strong> / 2.3%</th><th class="ta-center">시나리오 B (초장기 융자안)<br>호가 13,470만 / <strong>35년</strong> / 2.3%</th><th class="ta-center">시나리오 C (권장 네고 목표안)<br><strong>네고 12,700만</strong> / <strong>30년</strong> / 2.3%</th></tr></thead><tbody><tr><td class="ta-left"><strong>매매가격 (소비세 포함)</strong></td><td class="ta-center">13,470.0만 엔</td><td class="ta-center">13,470.0만 엔</td><td class="ta-center"><strong>12,700.0만 엔</strong> (-770만)</td></tr><tr><td class="ta-left"><strong>차입금액 (LTV 85%)</strong></td><td class="ta-center">11,449.5만 엔</td><td class="ta-center">11,449.5만 엔</td><td class="ta-center"><strong>10,795.0만 엔</strong></td></tr><tr><td class="ta-left"><strong>초기 필요 자기자본 (두금+제비용)</strong></td><td class="ta-center">3,149.7만 엔</td><td class="ta-center">3,149.7만 엔</td><td class="ta-center"><strong>2,969.5만 엔</strong></td></tr><tr><td class="ta-left"><strong>만실 총수입 (GPI) / 표면수익률</strong></td><td class="ta-center">876.0만 엔 (6.50%)</td><td class="ta-center">876.0만 엔 (6.50%)</td><td class="ta-center"><strong>876.0만 엔 (6.90%)</strong></td></tr><tr><td class="ta-left"><strong>실질 운영경비 (OPEX)</strong></td><td class="ta-center">189.0만 엔</td><td class="ta-center">189.0만 엔</td><td class="ta-center"><strong>189.0만 엔</strong></td></tr><tr><td class="ta-left"><strong>만실 순영업소득 (NOI) / Cap Rate</strong></td><td class="ta-center">687.0만 엔 (5.10%)</td><td class="ta-center">687.0만 엔 (5.10%)</td><td class="ta-center"><strong>687.0만 엔 (5.41%)</strong></td></tr><tr><td class="ta-left"><strong>연간 원리금상환액 (ADS)</strong></td><td class="ta-center"><strong>528.7만 엔</strong> (월 44.1만)</td><td class="ta-center"><strong>476.3만 엔</strong> (월 39.7만)</td><td class="ta-center"><strong>498.5만 엔</strong> (월 41.5만)</td></tr><tr><td class="ta-left"><strong>만실 세전 캐시플로 (Full Pre-tax CF)</strong></td><td class="ta-center"><strong>+158.3만 엔</strong> (1.18%)</td><td class="ta-center"><strong>+210.7만 엔</strong> (1.56%)</td><td class="ta-center"><strong>+188.5만 엔</strong> (1.48%)</td></tr><tr><td class="ta-left"><strong>안정화(93% 가동) 세전 캐시플로</strong></td><td class="ta-center"><strong>+123.1만 엔</strong></td><td class="ta-center"><strong>+175.5만 엔</strong></td><td class="ta-center"><strong>+153.3만 엔</strong></td></tr><tr><td class="ta-left"><strong>부채상환배율 (DSCR, 만실 기준)</strong></td><td class="ta-center"><strong>1.30배</strong> (우량)</td><td class="ta-center"><strong>1.44배</strong> (초우량)</td><td class="ta-center"><strong>1.38배</strong> (우량)</td></tr><tr><td class="ta-left"><strong>손익분기 가동률 (BEP Occupancy)</strong></td><td class="ta-center"><strong>81.93%</strong> (허용공실 1.63실)</td><td class="ta-center"><strong>75.95%</strong> (허용공실 2.16실)</td><td class="ta-center"><strong>78.48%</strong> (허용공실 1.94실)</td></tr><tr><td class="ta-left"><strong>자기자본수익률 (CCR, 만실 세전)</strong></td><td class="ta-center"><strong>5.03%</strong></td><td class="ta-center"><strong>6.69%</strong></td><td class="ta-center"><strong>6.35%</strong></td></tr></tbody></table></div>
+<hr>
+<h1 id="8-리스크-매트릭스-및-민감도-분석-risk-matrix-sensitivity-analysis">8. 리스크 매트릭스 및 민감도 분석 (Risk Matrix &amp; Sensitivity Analysis)<a class="anchor" href="#8-리스크-매트릭스-및-민감도-분석-risk-matrix-sensitivity-analysis" aria-label="link">#</a></h1>
+<h3 id="8-1-금리-상승-가동률-변동-2차원-스트레스-테스트-30년-융자-차입-11449-5만-엔-기준">8.1 금리 상승 × 가동률 변동 2차원 스트레스 테스트 (30년 융자 / 차입 11,449.5만 엔 기준)<a class="anchor" href="#8-1-금리-상승-가동률-변동-2차원-스트레스-테스트-30년-융자-차입-11449-5만-엔-기준" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">가동률 \ 대출금리</th><th class="ta-center"><strong>1.8%</strong> (ADS 494.1만)</th><th class="ta-center"><strong>2.3% [기준]</strong> (ADS 528.7만)</th><th class="ta-center"><strong>2.8%</strong> (ADS 564.8만)</th><th class="ta-center"><strong>3.3%</strong> (ADS 602.4만)</th></tr></thead><tbody><tr><td class="ta-center"><strong>100% (만실 9/9실)</strong></td><td class="ta-center">+192.9만</td><td class="ta-center"><strong>+158.3만</strong></td><td class="ta-center">+122.2만</td><td class="ta-center">+84.6만</td></tr><tr><td class="ta-center"><strong>88.9% (8/9실 가동, 1실 공실)</strong></td><td class="ta-center">+95.6만</td><td class="ta-center"><strong>+61.0만 (흑자 유지!)</strong></td><td class="ta-center">+24.9만</td><td class="ta-center">-12.7만 (경미)</td></tr><tr><td class="ta-center"><strong>77.8% (7/9실 가동, 2실 공실)</strong></td><td class="ta-center">-1.8만 (BEP)</td><td class="ta-center"><strong>-36.4만 (적자)</strong></td><td class="ta-center">-72.5만 (적자)</td><td class="ta-center">-110.1만 (적자)</td></tr></tbody></table></div>
+<ul>
+<li><strong>스트레스 테스트 결론</strong>: 본 물건은 9세대 중 <strong>1세대가 연중 내내 비어 있어도(가동률 88.9%) 연간 +61.0만 엔의 세전 흑자를 유지</strong>하며, 금리가 +0.5%p 상승(2.8%)하고 동시에 1세대가 공실이어도 흑자(+24.9만 엔)를 방어하는 탄탄한 내구력을 보여줍니다.</li>
+</ul>
+<h3 id="8-2-핵심-리스크-요약-및-완화-대책-mitigation-plan">8.2 핵심 리스크 요약 및 완화 대책 (Mitigation Plan)<a class="anchor" href="#8-2-핵심-리스크-요약-및-완화-대책-mitigation-plan" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">리스크 유형</th><th class="ta-center">위험도</th><th class="ta-left">상세 내용</th><th class="ta-left">실질적 완화 및 방어 대책 (Actionable Mitigation)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 남서측 4m 도로(공도·사도) 권리 리스크</strong></td><td class="ta-center"><strong>중상 (Med-High)</strong></td><td class="ta-left">남서측 접도 구간에 공도와 사도가 혼재되어 있어 사도 구간의 지분·승낙 확인 필요</td><td class="ta-left">• 토지 등기부·공도(公図)·도로대장 확인을 통해 사도 지분 이전 여부 및 <strong>무상 통행·굴착 승낙서 원본</strong> 확보</td></tr><tr><td class="ta-left"><strong>2. 토지·건물 가액 배분 미확정</strong></td><td class="ta-center"><strong>중 (Medium)</strong></td><td class="ta-left">개요서상 총액(13,470만 엔)만 기재되어 있어 건물 비중이 낮게 책정될 경우 감가상각액 감소</td><td class="ta-left">• 매매계약서 체결 시 매도자(야오키상사)와 협의하여 <strong>건물 가액을 약 5,500만~6,000만 엔(41~45%)</strong>으로 명시</td></tr><tr><td class="ta-left"><strong>3. 상세 설계도서(평면도·입면도) 미첨부</strong></td><td class="ta-center"><strong>중 (Medium)</strong></td><td class="ta-left">1차 자료에 개요서·확인필증만 포함되어 호실별 세부 전유면적 및 내장 사양 확인 필요</td><td class="ta-left">• 중개사(무브업)를 통해 실시설계 도면 일식, 설계주택성능평가서 사본, 설비 사양서를 즉시 징구</td></tr></tbody></table></div>
+<hr>
+<h1 id="9-취득-제비용세무소비세감가상각-및-출구-전략-tax-depreciation-exit-strategy">9. 취득 제비용·세무(소비세/감가상각) 및 출구 전략 (Tax, Depreciation &amp; Exit Strategy)<a class="anchor" href="#9-취득-제비용세무소비세감가상각-및-출구-전략-tax-depreciation-exit-strategy" aria-label="link">#</a></h1>
+<h3 id="9-1-초기-취득-제비용-및-감가상각-구조-표준안-토지-59-건물-41-배분-시">9.1 초기 취득 제비용 및 감가상각 구조 (표준안: 토지 59% / 건물 41% 배분 시)<a class="anchor" href="#9-1-초기-취득-제비용-및-감가상각-구조-표준안-토지-59-건물-41-배분-시" aria-label="link">#</a></h3>
+<ul>
+<li><strong>매매가격 배분 (표준안)</strong>: 총액 <strong>13,470.0만 엔</strong> = 토지 <strong>7,947.3만 엔 (59.0%)</strong> + 건물 <strong>5,522.7만 엔 (41.0%, 세전 건물가액 약 5,020.6만 엔 + 소비세 약 502.1만 엔)</strong>.</li>
+<li><strong>초기 취득 제비용 (추정 합계 약 1,129.2만 엔, 매매가의 8.38%)</strong>:</li>
+<ul>
+<li>중개수수료 (3% + 6만 엔 + 소비세): <strong>약 434.2만 엔</strong></li>
+<li>부동산취득세 (신축 건물 공제 및 택지 특례 반영): <strong>약 210.0만 엔</strong></li>
+<li>소유권 이전·보존 및 저당권 설정 등기비용: <strong>약 175.0만 엔</strong></li>
+<li>인지세 및 금융기관 융자 수수료·보증료: <strong>약 240.0만 엔</strong></li>
+<li>화재·지진보험료 (5년 일시납) 및 고정자산세 정산금: <strong>약 70.0만 엔</strong></li>
+</ul>
+<li><strong>건물 감가상각비 (목조 신축 법정 내용연수 22년)</strong>:</li>
+<ul>
+<li>연간 감가상각비: <code>5,522.7만 엔 ÷ 22년 = 연 251.0만 엔</code> (22년간 장기 안정 상각으로 보유 기간 중 데드크로스 리스크가 거의 없음).</li>
+</ul>
+</ul>
+<h3 id="9-2-보유-10년15년-차-듀얼-출구-전략-dual-exit-strategy">9.2 보유 10년~15년 차 『듀얼 출구 전략 (Dual Exit Strategy)』<a class="anchor" href="#9-2-보유-10년15년-차-듀얼-출구-전략-dual-exit-strategy" aria-label="link">#</a></h3>
+<p>본 물건은 <strong>120.3평의 정형 택지</strong>와 <strong>열화대책등급 3급</strong>을 동시에 보유하여 두 가지 강력한 출구 전략을 구사할 수 있습니다:</p>
+<ol>
+<li><strong>Exit ① (수익형 1동 매각)</strong>:</li>
+<ul>
+<li>보유 10년 차(축 10년 시점)에도 열화대책등급 3급 인증 덕분에 차기 매수자가 <strong>잔존 20~25년 장기 융자</strong>를 받을 수 있습니다. 미츠쿄역 도보 7분·대토지 조건을 감안할 때 매각 Cap Rate <strong>5.5% ~ 5.7%</strong>에서 <strong>예상 매각가 1억 1,500만 ~ 1억 2,000만 엔</strong> 달성이 가능하며, 10년 후 대출 잔액(약 8,310만 엔) 상환 후 <strong>약 2,800만 ~ 3,300만 엔의 매각 차익 현금</strong>과 10년간 누적 세후 CF(약 600만~800만 엔)를 합쳐 초기 자기자본(3,150만 엔)을 크게 상회하는 총수익을 거둘 수 있습니다.</li>
+</ul>
+<li><strong>Exit ② (신축 호별 분양 용지 매각 / Land Exit)</strong>:</li>
+<ul>
+<li>장기 보유 후(15~20년 차 이후)에도 <strong>397.42㎡(120.22평)의 토지는 1필지당 약 100㎡(30평) 규모의 신축 단독주택(戸建) 3~4동 분양 부지로 분할 매각</strong>할 수 있어, 땅값(공시지가 기준 9,538만 엔 이상) 자체가 완벽한 원금 보전 안전판 역할을 수행합니다.</li>
+</ul>
+</ol>
+<hr>
+<h1 id="10-종합-의사결정-스코어카드-및-제1매물과의-비교-권고-decision-scorecard-comparative-verdict">10. 종합 의사결정 스코어카드 및 제1매물과의 비교 권고 (Decision Scorecard &amp; Comparative Verdict)<a class="anchor" href="#10-종합-의사결정-스코어카드-및-제1매물과의-비교-권고-decision-scorecard-comparative-verdict" aria-label="link">#</a></h1>
+<h3 id="10-1-30점-만점-정량-평가-스코어카드-제1매물-카와시마초-vs-제2매물-미츠쿄-1ap-비교">10.1 30점 만점 정량 평가 스코어카드 (제1매물 카와시마초 vs 제2매물 미츠쿄 1AP 비교)<a class="anchor" href="#10-1-30점-만점-정량-평가-스코어카드-제1매물-카와시마초-vs-제2매물-미츠쿄-1ap-비교" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">평가 카테고리</th><th class="ta-center">배점</th><th class="ta-center"><strong>미츠쿄 1AP (본건)</strong></th><th class="ta-center">킵 라군 카와시마초 (비교)</th><th class="ta-left">본 물건(미츠쿄 1AP) 우위 근거</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 입지 및 임차 수요 (Location &amp; Demand)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.0</strong></td><td class="ta-center">3.5</td><td class="ta-left"><strong>급행 정차역(미츠쿄) 도보 7분</strong>, 상점가 평탄 동선, 대형 상업시설 인접</td></tr><tr><td class="ta-left"><strong>2. 수익성 및 현금흐름 (Yield &amp; Cash Flow)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>3.5</strong></td><td class="ta-center">3.0</td><td class="ta-left">표면 6.50%이나 <strong>30년 융자 확정으로 만실 세전 CF 158.3만 엔(DSCR 1.30배)</strong> 창출</td></tr><tr><td class="ta-left"><strong>3. 가격 타당성 및 적산 담보력 (Valuation)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.5</strong></td><td class="ta-center">2.5</td><td class="ta-left"><strong>토지 120.3평(노선가 7,551만 엔), 표준 총적산 88.4%(공시지가 기준 110.4%) 압도적 우위!</strong></td></tr><tr><td class="ta-left"><strong>4. 물리적 상태 및 설비 경쟁력 (Physical)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.0</strong></td><td class="ta-center">3.5</td><td class="ta-left"><strong>세대당 26.89㎡ 광폭 설계(+45% 넓음)</strong>, 도시가스 + <strong>전 세대 무료 WIFI 완비</strong></td></tr><tr><td class="ta-left"><strong>5. 금융 조달 및 레버리지 적합성 (Financing)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>4.5</strong></td><td class="ta-center">3.5</td><td class="ta-left"><strong>설계·건설주택성능평가 열화대책등급 3급 더블 인증</strong>으로 30~35년 융자 100% 적격</td></tr><tr><td class="ta-left"><strong>6. 리스크 방어력 및 출구 전략 (Risk &amp; Exit)</strong></td><td class="ta-center">5.0</td><td class="ta-center"><strong>2.0 → 4.0</strong>*</td><td class="ta-center">3.5</td><td class="ta-left">수해 리스크 없으며 120.3평 토지로 수익형 매각 + 호별 분양 부지 매각의 듀얼 엑시트 가능 (*사도 확인 시 4.0)</td></tr><tr><td class="ta-left"><strong>총점 (Total Score)</strong></td><td class="ta-center"><strong>30.0</strong></td><td class="ta-center"><strong>22.5</strong></td><td class="ta-center">19.5</td><td class="ta-left"><strong>종합 등급: A- (조건부 추천 · 우량 편입 대상)</strong></td></tr></tbody></table></div>
+<hr>
+<h3 id="10-2-최종-투자-권고-final-investment-recommendation">10.2 최종 투자 권고 (Final Investment Recommendation)<a class="anchor" href="#10-2-최종-투자-권고-final-investment-recommendation" aria-label="link">#</a></h3>
+<ol>
+<li><strong>최종 판정</strong>: <strong>【조건부 추천 / 우량 편입 대상 (22.5 / 30점)】</strong></li>
+<ul>
+<li>두 매물을 나란히 비교할 때, <strong>「미츠쿄 1AP 사사노다이 신축 아파트」는 토지 면적(120.3평 vs 71.1평), 표준 적산비율(88.4% vs 58.3%), 세대당 면적(26.89㎡ vs 18.54㎡), 역 거리 및 급행 정차(미츠쿄역 도보 7분 vs 카미호시카와역 언덕 9분), 열화대책등급(3급 확정 vs 2급 예정), 그리고 법인 결산서 기여도(세후 CF +63.8%, ICR 1.04배 돌파, 고정자산세 LTV -41.7%p 개선)의 전 부문에서 압도적인 우위</strong>를 보입니다.</li>
+</ul>
+<li><strong>실행 액션 플랜 (Execution Roadmap)</strong>:</li>
+<ul>
+<li><strong>Step 1 (즉시 자료 징구)</strong>: 중개사(주식회사 무브업)에 ① 실시설계 도면(배치도·평면도·입면도), ② 토지 등기부등본(<code>149-3</code>, <code>231-102</code>) 및 공도·측량도, ③ 남서측 사도 부분의 도로 종별 및 지분/굴착승낙서 자료, ④ 설계주택성능평가서(열화대책 3급) 사본을 요청하십시오.</li>
+<li><strong>Step 2 (목표 네고 및 매수의향서 제출)</strong>: 남서측 도로 권리에 이상이 없음을 확인한 후, <strong>1억 2,600만 ~ 1억 2,900만 엔(만실 표면수익률 6.79% ~ 6.95%, Cap Rate 5.33% ~ 5.45%)</strong>을 목표 지값으로 설정하여 매수의향서(買付証明書) 제출 및 금융기관 30~35년 융자 본심사를 진행할 것을 적극 권장합니다.</li>
+</ul>
+</ol>
+<hr>
+<h1 id="부록-appendix-원천-실사-도서-검증-목록">부록 (Appendix): 원천 실사 도서 검증 목록<a class="anchor" href="#부록-appendix-원천-실사-도서-검증-목록" aria-label="link">#</a></h1>
+<ol>
+<li><strong>물건개요서 (三ツ境1AP 物件概要書 1p)</strong>: 소재지(요코하마시 아사히구 사사노다이 2-149-3, 231-102), 매매가 13,470만 엔(표면 6.50%), 토지 397.71㎡(세트백 0.29㎡ 포함), 건물 242.07㎡(목조 2층 9세대), 남서측 4m 도로(공도·사도), 열화대책등급 3급(설계 취득 완료 / 건설 취득 예정), 전 9세대 임대료표(월 730,000엔, 연 8,760,000엔), 무료 WIFI·도시가스 완비 확인.</li>
+<li><strong>확인필증 (建築確認済証 第26UDI1K建00271号, 1p)</strong>: 령화 8년(2026년) 6월 18일 유디아이확인검사 주식회사(확인검사원 우에노 토모오미)가 건축주 야오키상사 주식회사(대표이사 카타야마 요시노리) 앞으로 교부한 적법 건축확인필증 원본 확인.</li>
+<li><strong>인근 실거래 포털 아카이브 (<code>LIFULL HOME&#x27;S b-40788409</code> 일 피오레)</strong>: 사사노다이 1-32-4 소재 축 11년 목조 아파트의 최근 모집·성약 이력(월 7.5만~8.55만 엔, DOM 1~2개월) 대조 완료.</li>
+</ol>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ko';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

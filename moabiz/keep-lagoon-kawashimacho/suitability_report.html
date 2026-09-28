@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>[모아비즈 전용] 킵 라군 카와시마초 수익 및 결산서 적합성 보고서 | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">[모아비즈 전용] 킵 라군 카와시마초 수익 및 결산서 적합성 보고서</div>
+        <div class="brand-sub">요코하마시 호도가야구 카와시마초 597 · 목조 2층 10세대 · 2026년 10월 신축</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn active" href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn " href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 포트폴리오</a>
+      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
+      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">목차 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#모아비즈-전용-킵-라군-카와시마초-keep-lagoon-川島町-수익-및-결산서-적합성-분석-보고서" data-target="모아비즈-전용-킵-라군-카와시마초-keep-lagoon-川島町-수익-및-결산서-적합성-분석-보고서">[모아비즈 전용] 킵 라군 카와시마초 (Keep Lagoon 川島町) 수익 및 결산서 적합성 분석 보고서</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="모아비즈-전용-킵-라군-카와시마초-keep-lagoon-川島町-수익-및-결산서-적합성-분석-보고서">[모아비즈 전용] 킵 라군 카와시마초 (Keep Lagoon 川島町) 수익 및 결산서 적합성 분석 보고서<a class="anchor" href="#모아비즈-전용-킵-라군-카와시마초-keep-lagoon-川島町-수익-및-결산서-적합성-분석-보고서" aria-label="link">#</a></h1>
+<h2 id="financial-statement-compatibility-long-term-cash-flow-due-diligence-report">(Financial Statement Compatibility &amp; Long-term Cash Flow Due Diligence Report)<a class="anchor" href="#financial-statement-compatibility-long-term-cash-flow-due-diligence-report" aria-label="link">#</a></h2>
+<div class="alert alert-important"><div class="alert-head">📌 중요</div><p>본 보고서는 모아비즈(Moabiz) 법인의 내부 결산서 디자인 및 중장기 대출 경쟁력 강화를 위한 전용 실사 보고서입니다. 외부 공개용 포털에는 일체 노출되지 않으며, 모아비즈 4기 결산서 베이스라인 및 차기 법인세·현금흐름 착지 지표를 100% 보존합니다.</p></div>
+<hr>
+<h2 id="executive-summary-핵심-의사결정-요약">Executive Summary (핵심 의사결정 요약)<a class="anchor" href="#executive-summary-핵심-의사결정-요약" aria-label="link">#</a></h2>
+<ul>
+<li><strong>물건명</strong>: 킵 라군 카와시마초 (Keep Lagoon 川島町 新築アパート / Keep Lagoon Kawashimacho)</li>
+<li><strong>매매가격</strong>: ¥112,400,000 (융자금 ¥95,540,000, LTV 85.0%, 금리 2.5%, 보수기준 25년 [열화대책등급 2급 예정] / 30년 융자 시 대폭 개선)</li>
+<li><strong>종합 판정</strong>: <strong>조건부 검토 (30년 장기 융자 확보 및 1.03억~1.05억 엔 가격 네고 필수)</strong> — 신축 목조(법정 내용연수 22년, 건물 비중 49.91%)로서 연간 255만 엔의 감가상각비를 22년간 안정적으로 확보하여 단품 채무상환연수(24.0년)는 우수하나, ① <strong>열화대책등급 2급 예정에 따라 융자 기간이 25년으로 제한될 경우 안정화(92%) 세후 잉여 CF가 +0.8만 엔(만실 시 +39.8만 엔)으로 박리 구조</strong>가 되며, ② <strong>유효부지 노선가 적산비율(28.2%) 및 18㎡ 소형 평면(201호 로프트 부재)</strong>의 약점이 존재하므로 <strong>반드시 30년 융자 사전 승인 및 1억 300만~1억 500만 엔으로의 매수가 인하</strong>를 전제로 접근해야 합니다.</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">구분</th><th class="ta-center">모아비즈 4기 기존 (Col G)</th><th class="ta-center">매입 후 착지 예상 (25년 융자)</th><th class="ta-center">매입 후 착지 예상 (30년 융자)</th><th class="ta-center">건전성 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>법인 자산 총액 (매매가 합산)</strong></td><td class="ta-center">¥267,538,767</td><td class="ta-center"><strong>¥379,938,767</strong></td><td class="ta-center"><strong>¥379,938,767</strong></td><td class="ta-center">자산 볼륨 확대 (+42.0%)</td></tr><tr><td class="ta-left"><strong>법인 총 차입금 (대출잔액)</strong></td><td class="ta-center">¥240,729,467</td><td class="ta-center"><strong>¥336,269,467</strong></td><td class="ta-center"><strong>¥336,269,467</strong></td><td class="ta-center">LTV 85% 레버리지</td></tr><tr><td class="ta-left"><strong>장부상 세전 당기순이익</strong></td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥5,622,598</strong></td><td class="ta-center"><strong>¥5,626,800</strong></td><td class="ta-center"><strong>흑자 순증 (+51.0%)</strong></td></tr><tr><td class="ta-left"><strong>세전 잉여 Cash Flow</strong></td><td class="ta-center">¥1,741,901</td><td class="ta-center"><strong>¥2,225,256</strong></td><td class="ta-center"><strong>¥2,840,256</strong></td><td class="ta-center"><strong>30년 융자 시 +63.1% 확대</strong></td></tr><tr><td class="ta-left"><strong>세후 잉여 Cash Flow</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥819,607</strong></td><td class="ta-center"><strong>¥1,433,557</strong></td><td class="ta-center"><strong>30년 융자 시 +76.7% 확대</strong></td></tr><tr><td class="ta-left"><strong>채무상환연수 (年)</strong></td><td class="ta-center">24.1년</td><td class="ta-center"><strong>24.1년</strong></td><td class="ta-center"><strong>24.1년</strong></td><td class="ta-center"><strong>30년 이내 우수 유지 (단품 24.0년)</strong></td></tr><tr><td class="ta-left"><strong>이자보상배율 (ICR)</strong></td><td class="ta-center">0.90배</td><td class="ta-center"><strong>0.98배</strong></td><td class="ta-center"><strong>0.98배</strong></td><td class="ta-center"><strong>+0.08배 개선 (1.04억 네고 시 1.0배 돌파)</strong></td></tr><tr><td class="ta-left"><strong>부채상환여유율 (DSCR)</strong></td><td class="ta-center">1.50배</td><td class="ta-center"><strong>1.45배</strong></td><td class="ta-center"><strong>1.50배</strong></td><td class="ta-center"><strong>우량 기준(1.20배+) 유지</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="3대-가중-연수-체계-검증-가중-감가상각연수-vs-융자연수-vs-상환연수">⚖️ 3대 가중 연수 체계 검증 (가중 감가상각연수 vs 융자연수 vs 상환연수)<a class="anchor" href="#3대-가중-연수-체계-검증-가중-감가상각연수-vs-융자연수-vs-상환연수" aria-label="link">#</a></h2>
+<p>모아비즈 법인의 지속 가능한 대출 레벨업을 위한 핵심 부등호 조건: $$\text{가중 감가상각연수}(A) \ge \text{가중 융자연수}(B) \ge \text{가중 상환연수}(C)$$</p>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">지표</th><th class="ta-center">기호</th><th class="ta-center">단품 자체 (1.124억/25년)</th><th class="ta-center">모아비즈 4기</th><th class="ta-center">매입 후 착지</th><th class="ta-center">1.04억 네고 + 30년 시 단품</th><th class="ta-left">개선 여부 및 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>법정/세법 감가상각연수</strong></td><td class="ta-center"><strong>A</strong></td><td class="ta-center"><strong>22.0년</strong> (신축 목조)</td><td class="ta-center">18.8년</td><td class="ta-center"><strong>19.8년 (+1.0년)</strong></td><td class="ta-center"><strong>22.0년</strong></td><td class="ta-left"><strong>신축 22년 상각으로 법인 평균 상각연수 연장!</strong></td></tr><tr><td class="ta-left"><strong>가중 융자연수</strong></td><td class="ta-center"><strong>B</strong></td><td class="ta-center"><strong>25.0년</strong> (열화2급 보수)</td><td class="ta-center">32.6년</td><td class="ta-center"><strong>30.4년</strong></td><td class="ta-center"><strong>30.0년</strong></td><td class="ta-left">30년 융자 승인 시 착지 31.9년 유지</td></tr><tr><td class="ta-left"><strong>채무상환연수</strong></td><td class="ta-center"><strong>C</strong></td><td class="ta-center"><strong>24.0년</strong></td><td class="ta-center">24.1년</td><td class="ta-center"><strong>24.1년</strong></td><td class="ta-center"><strong>19.8년</strong></td><td class="ta-left"><strong>1.04억 네고 시 단품 상환연수 19.8년 초우량화</strong></td></tr></tbody></table></div>
+<div class="alert alert-note"><div class="alert-head">ℹ️ 참고</div><p><strong>단품 채무상환연수 24.0년 $\le$ 단품 융자연수 25.0년 (30년 융자 시 24.0년 $\ll$ 30.0년)</strong> ✅ 신축 목조의 높은 건물 비중(49.91%, 연 255만 엔 감가상각) 덕분에 회계상 채무상환연수는 24.0년으로 우수하나, 실제 세후 현금흐름을 두텁게 확보하기 위해서는 <strong>30년 융자 승인 + 1.04억 엔 수준 매수가 네고</strong>가 필수적입니다.</p></div>
+<hr>
+<h2 id="결산서-디자인형-9대-핵심-지표-정밀-대조표">🏛️ 결산서 디자인형 9대 핵심 지표 정밀 대조표<a class="anchor" href="#결산서-디자인형-9대-핵심-지표-정밀-대조표" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">핵심 지표</th><th class="ta-center">킵 라군 카와시마초 단독 (25년)</th><th class="ta-center">모아비즈 4기 기준</th><th class="ta-center">편입 후 통합 착지 (25년)</th><th class="ta-center">1.04억 엔 + 30년 융자 시 단독</th><th class="ta-left">기여도 및 최종 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 장부상 세전 당기순이익</strong></td><td class="ta-center"><strong>¥1,900,148</strong></td><td class="ta-center">¥3,722,450</td><td class="ta-center"><strong>¥5,622,598</strong></td><td class="ta-center"><strong>¥2,276,400</strong></td><td class="ta-left">흑자 결산 대폭 강화 (+51%)</td></tr><tr><td class="ta-left"><strong>2. 세전 잔여 CF (수익률)</strong></td><td class="ta-center"><strong>¥483,355 (0.43%)</strong></td><td class="ta-center">¥1,741,901 (0.65%)</td><td class="ta-center"><strong>¥2,225,256 (0.59%)</strong></td><td class="ta-center"><strong>¥1,436,000 (1.38%)</strong></td><td class="ta-left">30년+네고 시 현금흐름 3배 증가</td></tr><tr><td class="ta-left"><strong>3. 추정 법인세액 (25%)</strong></td><td class="ta-center"><strong>¥475,037</strong></td><td class="ta-center">¥930,613</td><td class="ta-center"><strong>¥1,405,650</strong></td><td class="ta-center"><strong>¥569,100</strong></td><td class="ta-left">22년 감가상각(연 255만) 방어</td></tr><tr><td class="ta-left"><strong>4. 세후 잔여 CF (수익률)</strong></td><td class="ta-center"><strong>¥8,318 (0.01%)</strong></td><td class="ta-center">¥811,289 (0.30%)</td><td class="ta-center"><strong>¥819,607 (0.22%)</strong></td><td class="ta-center"><strong>¥866,900 (0.83%)</strong></td><td class="ta-left">25년 융자 시 세후 CF 박리 주의</td></tr><tr><td class="ta-left"><strong>5. 채무상환연수 (年)</strong></td><td class="ta-center"><strong>24.0년</strong></td><td class="ta-center">24.1년</td><td class="ta-center"><strong>24.1년</strong></td><td class="ta-center"><strong>19.8년</strong></td><td class="ta-left">30년 한도 대비 여유 확보</td></tr><tr><td class="ta-left"><strong>6. 간이 Cash Flow (=세후CF)</strong></td><td class="ta-center"><strong>¥8,318</strong></td><td class="ta-center">¥811,289</td><td class="ta-center"><strong>¥819,607</strong></td><td class="ta-center"><strong>¥866,900</strong></td><td class="ta-left">30년 융자 시 현금 축적 가속</td></tr><tr><td class="ta-left"><strong>7. ICR (이자보상배율)</strong></td><td class="ta-center"><strong>1.31배</strong></td><td class="ta-center">0.90배</td><td class="ta-center"><strong>0.98배</strong></td><td class="ta-center"><strong>1.54배</strong></td><td class="ta-left">네고 시 법인 합산 ICR 1.0배 돌파</td></tr><tr><td class="ta-left"><strong>8. 부채상환여유율 (DSCR)</strong></td><td class="ta-center"><strong>1.32배 (만실 1.15배)</strong></td><td class="ta-center">1.50배</td><td class="ta-center"><strong>1.45배</strong></td><td class="ta-center"><strong>1.69배 (만실 1.42배)</strong></td><td class="ta-left">30년 융자 시 안전권 완벽 진입</td></tr><tr><td class="ta-left"><strong>9. LTV (고정자산세 평가 기반)</strong></td><td class="ta-center"><strong>192.62%</strong></td><td class="ta-center">261.08%</td><td class="ta-center"><strong>240.32%</strong></td><td class="ta-center"><strong>178.23%</strong></td><td class="ta-left">법인 LTV -20.8%p 완화</td></tr></tbody></table></div>
+<hr>
+<h2 id="최종-의사결정-전략-및-권고사항">🎯 최종 의사결정 전략 및 권고사항<a class="anchor" href="#최종-의사결정-전략-및-권고사항" aria-label="link">#</a></h2>
+<ol>
+<li><strong>제2매물(미츠쿄 1AP)과의 우선순위 비교</strong>: 모아비즈 법인의 결산서 개선 효과 및 토지 담보력 측면에서는 제2매물인 <strong>「미츠쿄 1AP 사사노다이」(토지 120.3평, 열화 3급 확정, 고정자산세 LTV 164.3%, 세후 CF +51.8만 엔)</strong>가 훨씬 우월합니다.</li>
+<li><strong>본 물건 진입 시 필수 조건</strong>: 본 물건을 매입하고자 할 경우에는 반드시 ① <strong>30년 융자 사전 승인</strong>, ② <strong>상동 전 토지 선행 결제 배제(2026년 10월 준공 후 완성 인도 결제)</strong>, ③ <strong>1억 300만 ~ 1억 500만 엔으로의 매수가 인하</strong>를 관철하십시오.</li>
+<li><strong>실시간 조건 변경 시뮬레이터</strong>: <a href="./suitability.html" target="_blank" rel="noopener">📊 킵 라군 카와시마초 결산서 적합성 시뮬레이터 바로가기</a></li>
+<li><strong>종합 투자분석 보고서</strong>: <a href="./report.html" target="_blank" rel="noopener">📑 킵 라군 카와시마초 웹 리포트 (KO)</a> | <a href="./report_ja.html" target="_blank" rel="noopener">📑 日本語レポート (JA)</a></li>
+</ol>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ko';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

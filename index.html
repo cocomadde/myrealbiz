@@ -27,6 +27,10 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
+        <a href="./datasheet.html" class="text-xs text-sky-300 hover:text-white px-2.5 py-1.5 rounded-lg border border-sky-500/30 bg-sky-500/10 hover:bg-sky-500/20 transition flex items-center gap-1.5 font-semibold">
+          <span>🗂️</span>
+          <span>스프레드쉬트 저장소 & 수집현황</span>
+        </a>
         <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-1">
           <button id="langKO" onclick="setLang('ko')" class="px-3 py-1 text-xs font-semibold rounded-md transition">한국어</button>
           <button id="langJA" onclick="setLang('ja')" class="px-3 py-1 text-xs font-semibold rounded-md transition">日本語</button>
@@ -54,7 +58,7 @@
     <div class="mb-8">
       <h2 class="text-xl font-bold text-white flex items-center gap-2">
         <span data-t="listTitle"></span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">8 Active</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">10 Active</span>
       </h2>
       <p class="text-xs text-slate-400 mt-1" data-t="listDesc"></p>
     </div>
@@ -594,6 +598,140 @@
         </div>
       </div>
 
+      <!-- Property Card 10: 킵 라군 카와시마초 (Keep Lagoon Kawashimacho) -->
+      <div class="rounded-2xl border-2 border-amber-500/40 bg-slate-900/80 hover:border-amber-400 transition-all duration-300 overflow-hidden flex flex-col group shadow-xl relative">
+        <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-600 to-yellow-600 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl shadow">CONDITIONAL / 1.04億 NEGOTIATION</div>
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center flex-wrap gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/40" data-t="p10_status"></span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p10_spec"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition" data-t="p10_name"></h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
+                <svg class="w-3.5 h-3.5 mt-0.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span data-t="p10_address"></span>
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-slate-500 block" data-t="p10_price_label"></span>
+              <span class="text-2xl font-extrabold text-amber-400" data-t="p10_price"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between gap-6">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p10_m1_label"></span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">6.80%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p10_m1_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p10_m2_label"></span>
+              <span class="text-lg font-bold text-sky-400 font-mono">5.28%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p10_m2_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p10_m3_label"></span>
+              <span class="text-lg font-bold text-amber-300 font-mono">58.3%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p10_m3_sub"></span>
+            </div>
+          </div>
+
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span data-t="p10_b1"></span></li>
+            <li class="flex gap-2"><span class="text-amber-400 shrink-0">✓</span><span data-t="p10_b2"></span></li>
+            <li class="flex gap-2"><span class="text-rose-400 shrink-0">⚠️</span><span data-t="p10_b3"></span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="./keep-lagoon-kawashimacho/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2">
+              <span data-t="p10_cta"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./keep-lagoon-kawashimacho/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p10_report_html"></a>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span data-t="p10_dl_label"></span>
+            <div class="flex items-center gap-2">
+              <a href="./keep-lagoon-kawashimacho/README.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium" data-t="p10_dl_readme"></a>
+              <span class="text-slate-600">|</span>
+              <a href="./keep-lagoon-kawashimacho/metrics.json" class="text-indigo-400 hover:text-indigo-300 underline font-medium">metrics.json</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Card 11: 미츠쿄 1AP 사사노다이 (Mitsukyo 1AP Sasanodai) -->
+      <div class="rounded-2xl border-2 border-emerald-500/40 bg-slate-900/80 hover:border-emerald-400 transition-all duration-300 overflow-hidden flex flex-col group shadow-2xl relative">
+        <div class="absolute top-0 right-0 bg-gradient-to-l from-emerald-500 to-teal-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl shadow">NEW RECOMMENDED / 88.4% VALUATION</div>
+        <div class="p-6 border-b border-slate-800/80 bg-gradient-to-r from-slate-900 to-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="flex items-center flex-wrap gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" data-t="p11_status"></span>
+                <span class="px-2.5 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700" data-t="p11_spec"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition" data-t="p11_name"></h3>
+              <p class="text-xs text-slate-400 mt-1 flex items-start gap-1">
+                <svg class="w-3.5 h-3.5 mt-0.5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span data-t="p11_address"></span>
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-slate-500 block" data-t="p11_price_label"></span>
+              <span class="text-2xl font-extrabold text-emerald-400" data-t="p11_price"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between gap-6">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p11_m1_label"></span>
+              <span class="text-lg font-bold text-emerald-400 font-mono">6.50%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p11_m1_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p11_m2_label"></span>
+              <span class="text-lg font-bold text-sky-400 font-mono">5.10%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p11_m2_sub"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+              <span class="text-xs text-slate-400 block mb-1" data-t="p11_m3_label"></span>
+              <span class="text-lg font-bold text-emerald-300 font-mono">88.4%</span>
+              <span class="text-[10px] text-slate-500 block" data-t="p11_m3_sub"></span>
+            </div>
+          </div>
+
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800 pt-4">
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p11_b1"></span></li>
+            <li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span data-t="p11_b2"></span></li>
+            <li class="flex gap-2"><span class="text-amber-400 shrink-0">!</span><span data-t="p11_b3"></span></li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="./mitsukyo-1ap/" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-sm text-center shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2">
+              <span data-t="p11_cta"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="./mitsukyo-1ap/report.html" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm text-center border border-slate-700 transition" data-t="p11_report_html"></a>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+            <span data-t="p11_dl_label"></span>
+            <div class="flex items-center gap-2">
+              <a href="./mitsukyo-1ap/README.md" class="text-indigo-400 hover:text-indigo-300 underline font-medium" data-t="p11_dl_readme"></a>
+              <span class="text-slate-600">|</span>
+              <a href="./mitsukyo-1ap/metrics.json" class="text-indigo-400 hover:text-indigo-300 underline font-medium">metrics.json</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </main>
@@ -770,7 +908,47 @@ const T = {
     p9_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
     p9_report_html: "📑 종합분석 보고서 ↗",
     p9_dl_label: "부속 자료:",
-    p9_dl_readme: "물건 요약 (README)"
+    p9_dl_readme: "물건 요약 (README)",
+
+    p10_status: "분석 완료 · 조건부 검토 (1.04억 네고)",
+    p10_spec: "목조 2층 · 10세대 (1R+Loft) · 2026.10 신축",
+    p10_name: "킵 라군 카와시마초 (Keep Lagoon 川島町)",
+    p10_address: "카나가와현 요코하마시 호도가야구 카와시마초 597 · 소테츠 본선 「카미호시카와」역 도보 9분",
+    p10_price_label: "판매가격 (세금포함)",
+    p10_price: "1억 1,240만 엔",
+    p10_m1_label: "만실 표면수익률",
+    p10_m1_sub: "만실 상정 연 764.4만 엔",
+    p10_m2_label: "NOI 수익률 (Cap Rate)",
+    p10_m2_sub: "순영업소득 연 593.4만 엔",
+    p10_m3_label: "적산 평가비율 (표준)",
+    p10_m3_sub: "6,550만 엔 (토지 28.2%)",
+    p10_b1: "<strong>소테츠 본선 카미호시카와역 도보 9분 & 요코하마역 11분</strong> — 삼방각지 대지(유효 71.08평), 요코하마 국립대 통학권 및 요코하마·도쿄 직통 단신 수요.",
+    p10_b2: "<strong>45분 준내화구조 & 열화대책 2급 (25~30년 융자)</strong> — 2층 전실 로프트(9.6~9.7㎡) 기본 탑재, 30년 융자 승인 시 만실 세전 CF +140.6만 엔(DSCR 1.31배) 개선.",
+    p10_b3: "<strong>상동 전 토지선행결제 & 기존 옹벽·18㎡ 소형 단가 주의</strong> — 토지선행결제 배제(준공 후 완성 인도 결제 전환) 및 ㎡당 3,435엔 강세 임대료 반영 1.04억 엔 네고 필수.",
+    p10_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
+    p10_report_html: "📑 종합분석 보고서 ↗",
+    p10_dl_label: "부속 자료:",
+    p10_dl_readme: "물건 요약 (README)",
+
+    p11_status: "분석 완료 · 조건부 추천 (최우선 검토)",
+    p11_spec: "목조 2층 · 9세대 (평균 26.89㎡ 광폭) + 대지 120.2평",
+    p11_name: "미츠쿄 1AP 사사노다이 (三ツ境1AP 新築)",
+    p11_address: "카나가와현 요코하마시 아사히구 사사노다이 2-149-3 · 소테츠 본선 「미츠쿄」역 도보 7분 (급행정차)",
+    p11_price_label: "판매가격 (세금포함)",
+    p11_price: "1억 3,470만 엔",
+    p11_m1_label: "만실 표면수익률",
+    p11_m1_sub: "만실 상정 연 876.0만 엔",
+    p11_m2_label: "NOI 수익률 (Cap Rate)",
+    p11_m2_sub: "순영업소득 연 687.0만 엔",
+    p11_m3_label: "적산 평가비율 (표준)",
+    p11_m3_sub: "1억 1,908만 엔 (실세 110.4%)",
+    p11_b1: "<strong>대지 120.22평(397.4㎡) & 적산 88.4%(실세 110.4%) 압도적 담보력</strong> — 노선가 토지가치만 7,551만 엔(매매가의 56.1%), 공시지가 기준 9,538만 엔(70.8%)으로 하방 원금 완벽 방어.",
+    p11_b2: "<strong>급행정차 미츠쿄역 평탄 도보 7분 & 열화대책등급 3급(30년 융자)</strong> — 세대당 평균 26.89㎡ 광폭 설계 + 무료 WIFI 완비(3,016엔/㎡ 경쟁력), 30년 융자 시 만실 세전CF +158.3만 엔(DSCR 1.30배).",
+    p11_b3: "<strong>남서측 4m 도로(공·사도) 권리 확인 & 1.28억 네고</strong> — 도로 소유/굴착승낙 확인 및 계약서 토지·건물 가액 배분 최적화(1억 2,600만~1억 2,900만 엔 목표 네고).",
+    p11_cta: "🚀 시뮬레이터 & 웹 대시보드 열기",
+    p11_report_html: "📑 종합분석 보고서 ↗",
+    p11_dl_label: "부속 자료:",
+    p11_dl_readme: "물건 요약 (README)"
   },
   ja: {
     docTitle: "MyRealBiz | 収益不動産 投資分析ポートフォリオ",
@@ -938,7 +1116,47 @@ const T = {
     p9_cta: "🚀 シミュレーター & ダッシュボードを開く",
     p9_report_html: "📑 総合分析レポート ↗",
     p9_dl_label: "付属資料:",
-    p9_dl_readme: "物件サマリー (README)"
+    p9_dl_readme: "物件サマリー (README)",
+
+    p10_status: "分析完了 ・ 条件付き検討 (1.04億円指値)",
+    p10_spec: "木造2階 ・ 10戸 (1R+ロフト) ・ 2026年10月新築",
+    p10_name: "キープラグーン川島町 (横浜市保土ヶ谷区)",
+    p10_address: "神奈川県横浜市保土ヶ谷区川島町597 ・ 相鉄本線「上星川」駅 徒歩9分",
+    p10_price_label: "販売価格 (税込)",
+    p10_price: "1億1,240万円",
+    p10_m1_label: "満室想定 表面利回り",
+    p10_m1_sub: "満室想定 年間764.4万円",
+    p10_m2_label: "NOI利回り (Cap Rate)",
+    p10_m2_sub: "純営業収益 年間593.4万円",
+    p10_m3_label: "積算評価比率 (標準)",
+    p10_m3_sub: "6,550万円 (土地28.2%)",
+    p10_b1: "<strong>相鉄本線 上星川駅 徒歩9分＆横浜駅11分</strong> — 三方角地(有効71.08坪)、横浜国立大学通学圏および横浜・都心直通の単身賃貸需要。",
+    p10_b2: "<strong>45分準耐火構造＆劣化対策2級 (25〜30年融資)</strong> — 2階全室ロフト(9.6〜9.7㎡)付、30年融資承認時は満室税引前CF +140.6万円(DSCR 1.31倍)へ改善。",
+    p10_b3: "<strong>上棟前土地先行決済＆既存擁壁・18㎡賃料単価注意</strong> — 土地先行決済の排除(完成引渡一括決済)および㎡単価3,435円の強気設定を織り込み1.04億円指値必須。",
+    p10_cta: "🚀 シミュレーター & ダッシュボードを開く",
+    p10_report_html: "📑 総合分析レポート ↗",
+    p10_dl_label: "付属資料:",
+    p10_dl_readme: "物件サマリー (README)",
+
+    p11_status: "分析完了 ・ 条件付き推奨 (最優先検討)",
+    p11_spec: "木造2階 ・ 9戸 (平均26.89㎡広幅) + 敷地120.2坪",
+    p11_name: "三ツ境1AP 新築アパート (横浜市旭区笹野台)",
+    p11_address: "神奈川県横浜市旭区笹野台2丁目149-3 ・ 相鉄本線「三ツ境」駅 徒歩7分 (急行停車)",
+    p11_price_label: "販売価格 (税込)",
+    p11_price: "1億3,470万円",
+    p11_m1_label: "満室想定 表面利回り",
+    p11_m1_sub: "満室想定 年間876.0万円",
+    p11_m2_label: "NOI利回り (Cap Rate)",
+    p11_m2_sub: "純営業収益 年間687.0万円",
+    p11_m3_label: "積算評価比率 (標準)",
+    p11_m3_sub: "1億1,908万円 (実勢110.4%)",
+    p11_b1: "<strong>敷地120.22坪(397.4㎡)＆積算88.4%(実勢110.4%)の圧倒的担保力</strong> — 路線価土地評価だけで7,551万円(売価の56.1%)、公示地価基準9,538万円(70.8%)で元本下値を強力防御。",
+    p11_b2: "<strong>急行停車 三ツ境駅 平坦徒歩7分＆劣化対策等級3級(30年融資)</strong> — 戸当り平均26.89㎡ゆとり設計＋無料WIFI完備(3,016円/㎡の価格競争力)、30年融資時 満室税引前CF +158.3万円(DSCR 1.30倍)。",
+    p11_b3: "<strong>南西側4m道路(公・私道)権利確認＆1.28億円指値</strong> — 道路所有/掘削承諾の確認および売買契約書の土地・建物価格按分最適化(1億2,600万〜1億2,900万円目標指値)。",
+    p11_cta: "🚀 シミュレーター & ダッシュボードを開く",
+    p11_report_html: "📑 総合分析レポート ↗",
+    p11_dl_label: "付属資料:",
+    p11_dl_readme: "物件サマリー (README)"
   }
 };
 
