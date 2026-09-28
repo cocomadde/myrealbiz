@@ -1,0 +1,111 @@
+{
+  "price": 140000000.0,
+  "total_units": 11,
+  "specs": {
+    "property_name_ja": "リーブルファイン三郷中央",
+    "property_name_ko": "리브르 파인 미사토추오 (Livre Fine Misato-Chuo)",
+    "address": "埼玉県三郷市谷口386-5",
+    "Station": "つくばエクスプレス「三郷中央」駅 徒歩14分 (実測約15〜16分 / 1,150m)",
+    "land_area_sqm": 382.33,
+    "land_area_tsubo": 115.65,
+    "building_area_sqm": 353.55,
+    "building_area_tsubo": 106.94,
+    "structure": "木造亜鉛メッキ鋼板ぶき 地上3階建（劣化対策等級3級）",
+    "built_date": "2021年2月 (令和3年2月 / 築5.6年)",
+    "builder": "一建設株式会社（飯田グループHD）",
+    "inspection_cert": "有（2021年2月新築・劣化対策等級3級取得）",
+    "zoning": "第一種住居地域 (建蔽率60% / 容積率200%・法22条区域)",
+    "road_access": "南側 私道幅員約4.0mに約4.0m接道（旗竿地・私道持分/掘削承諾要確認）",
+    "utilities": "公営水道・浄化槽（令和8年度本下水敷設予定・買主負担）・プロパンガス(LPG)"
+  },
+  "yields": {
+    "current_annual_income": 9876000.0,
+    "current_gross_yield_pct": 7.05,
+    "full_annual_income": 9876000.0,
+    "full_gross_yield_pct": 7.05,
+    "real_opex_annual": 2530000.0,
+    "real_opex_ratio_pct": 25.62,
+    "full_noi_annual": 7346000.0,
+    "full_cap_rate_pct": 5.25
+  },
+  "valuations_cost_approach": {
+    "bank_conservative": {
+      "unit_price_sqm": 150000,
+      "building_value": 40979659.09,
+      "land_value": 47791250.0,
+      "total_assessed_value": 88770909.09,
+      "value_to_price_ratio_pct": 63.41
+    },
+    "nta_standard": {
+      "unit_price_sqm": 180000,
+      "building_value": 49175590.91,
+      "land_value": 47791250.0,
+      "total_assessed_value": 96966840.91,
+      "value_to_price_ratio_pct": 69.26
+    },
+    "seller_market": {
+      "unit_price_sqm": 230000,
+      "building_value": 62835477.27,
+      "land_value": 47791250.0,
+      "total_assessed_value": 110626727.27,
+      "value_to_price_ratio_pct": 79.02
+    }
+  },
+  "debt_service": {
+    "loan_amount": 119000000.0,
+    "loan_ltv_pct": 85.0,
+    "loan_rate_pct": 2.5,
+    "loan_term_years": 30,
+    "monthly_pmt": 470194.0,
+    "ads_annual": 5642326.0,
+    "full_annual_cf": 1703674.0,
+    "current_annual_cf": 1703674.0,
+    "dcr": 1.3,
+    "breakeven_occupancy_pct": 82.75,
+    "allowable_vacant_units": 1.9
+  },
+  "initial_investment": {
+    "down_payment": 21000000.0,
+    "acquisition_costs": 11816000.0,
+    "initial_total_equity": 32816000.0,
+    "ccr_pct": 5.19
+  },
+  "allocation": {
+    "fixed_asset_tax_land": 42018000,
+    "fixed_asset_tax_building": 28500000,
+    "fixed_asset_tax_total": 70518000,
+    "land_ratio_pct": 59.58,
+    "building_ratio_pct": 40.42,
+    "allocated_land_price": 83412000,
+    "allocated_building_price": 56588000,
+    "depreciation_years": 18,
+    "annual_depreciation": 3143778
+  },
+  "corporate_landing": {
+    "standalone": {
+      "price": 140000000.0,
+      "loan": 119000000.0,
+      "tax_land": 42018000.0,
+      "tax_bldg": 28500000.0,
+      "gross_income": 9876000.0,
+      "opex": 2530000.0,
+      "depr": 3143777.78,
+      "ads": 5642326.44,
+      "interest": 2944223.64,
+      "principal": 2698102.79,
+      "pretax_profit": 1257998.58,
+      "pretax_cf": 1703673.56,
+      "pretax_cf_yield": 0.0122,
+      "tax": 314499.64,
+      "posttax_cf": 1389173.92,
+      "posttax_cf_yield": 0.0099,
+      "debt_years": 29.1,
+      "easy_cf": 1389173.92,
+      "icr": 1.43,
+      "dscr": 1.3,
+      "ltv_tax": 2.0548,
+      "roi": 0.0519
+    }
+  },
+  "score": "19.5 / 30 (조건부 검토: 하수도 인입비·사도 굴착·수해 반영 1.25억 엔 이하 네고 필수)"
+}

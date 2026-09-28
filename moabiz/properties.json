@@ -292,5 +292,42 @@
     "moabiz_simulator_html": "./moabiz/green-heights-kobakura/index.html",
     "moabiz_report_html": "./moabiz/green-heights-kobakura/report.html",
     "moabiz_report_ja_html": "./moabiz/green-heights-kobakura/report_ja.html"
+  },
+  {
+    "slug": "livre-fine-misato-chuo",
+    "name_ko": "리브르 파인 미사토추오 (Livre Fine Misato-Chuo)",
+    "name_ja": "リーブルファイン三郷中央",
+    "structure": "목조 지상 3층 (열화대책등급 3급)",
+    "units": 11,
+    "location": "사이타마현 미사토시 야구치 386-5 (埼玉県三郷市谷口386-5)",
+    "price": 140000000.0,
+    "price_display": "1억 4,000만 엔",
+    "gross_yield_pct": 7.05,
+    "cap_rate_pct": 5.25,
+    "assessed_value_ratio_pct": 69.26,
+    "verdict": "조건부 검토",
+    "verdict_badge": "review",
+    "corporate_verdict": "조건부 적합 (세후CF +171% 폭증·ICR 1.03배 돌파 / 하수도 인입비·사도 굴착·수해 반영 1.25억 엔 네고 시 상환연수 24.0년 단축)",
+    "corporate_verdict_public": "조건부 검토 (열화대책등급 3급 30년 융자 적격 / 본하수도 인입비·사도 굴착·수해 반영 1.25억 엔 이하 네고 필수)",
+    "score": 19.5,
+    "max_score": 30,
+    "public_enabled": true,
+    "key_highlights": [
+      "2021년 2월 준공(축 5.6년) · 일건설 시공 · 열화대책등급 3급 취득(최장 30년 장기 융자 적격)",
+      "전실 28.4㎡~43.3㎡ 광폭 설계(1LDK×3 + 1K×8) 및 평면 주차 4대 100% 만실 가동 중",
+      "2026년도 본하수도 인입 공사비 매수인 부담 특약·남측 사도 굴착 승낙서·수해 해저드 반영 네고(1.25억 엔대) 필수"
+    ],
+    "report_ko": "./livre-fine-misato-chuo/livre-fine-misato-chuo_Investment_Report_KO.md",
+    "report_ja": "./livre-fine-misato-chuo/livre-fine-misato-chuo_Investment_Report_JA.md",
+    "report_html": "./livre-fine-misato-chuo/report.html",
+    "report_ja_html": "./livre-fine-misato-chuo/report_ja.html",
+    "simulator_html": "./livre-fine-misato-chuo/index.html",
+    "folder": "livre-fine-misato-chuo",
+    "moabiz_folder": "moabiz/livre-fine-misato-chuo",
+    "moabiz_simulator_html": "./moabiz/livre-fine-misato-chuo/index.html",
+    "moabiz_report_html": "./moabiz/livre-fine-misato-chuo/report.html",
+    "moabiz_report_ja_html": "./moabiz/livre-fine-misato-chuo/report_ja.html",
+    "moabiz_suitability_html": "./moabiz/livre-fine-misato-chuo/suitability.html",
+    "moabiz_suitability_report_html": "./moabiz/livre-fine-misato-chuo/suitability_report.html"
   }
 ]
