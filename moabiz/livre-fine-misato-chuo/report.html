@@ -1,611 +1,285 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-<title>리브르 파인 미사토추오 (Livre Fine Misato-Chuo) 종합분석 보고서 (모아비즈) | MyRealBiz</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<style>
-:root {
-  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
-  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
-  --accent: #b45309; --ok: #047857; --bad: #be123c;
-  --sidebar: 300px;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body {
-  margin: 0; background: var(--bg); color: var(--ink);
-  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
-  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
-}
-
-/* ── Top bar ───────────────────────────────────────────── */
-.topbar {
-  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
-  border-bottom: 1px solid #1e293b;
-}
-.topbar-inner {
-  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-}
-.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.brand-badge {
-  width: 34px; height: 34px; border-radius: 9px; flex: none;
-  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
-  display: grid; place-items: center; font-size: 17px;
-}
-.brand-text { min-width: 0; }
-.brand-title {
-  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.brand-sub { font-size: 11px; color: #94a3b8; }
-.tools { display: flex; align-items: center; gap: 8px; flex: none; }
-.btn {
-  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
-  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
-  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
-  text-decoration: none; transition: .15s; white-space: nowrap;
-}
-.btn:hover { background: #334155; color: #fff; }
-.btn-primary {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #1c1917; border-color: transparent;
-}
-.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
-.progress {
-  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
-  background: linear-gradient(90deg, #38bdf8, #f59e0b);
-}
-
-/* ── Layout ────────────────────────────────────────────── */
-.shell {
-  max-width: 1500px; margin: 0 auto; padding: 0 20px;
-  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
-  align-items: start;
-}
-.sidebar {
-  position: sticky; top: 60px; max-height: calc(100vh - 60px);
-  overflow-y: auto; padding: 24px 8px 40px 0;
-}
-.toc-label {
-  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
-  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
-}
-.sidebar a {
-  display: block; text-decoration: none; color: var(--muted);
-  border-left: 2px solid transparent; transition: .12s;
-}
-.toc-h1 {
-  font-size: 13px; font-weight: 700; color: #334155;
-  padding: 7px 10px; margin-top: 4px;
-}
-.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
-.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
-.sidebar a.active {
-  color: var(--brand); border-left-color: var(--brand);
-  background: var(--brand-soft); font-weight: 700;
-}
-
-/* ── Article ───────────────────────────────────────────── */
-.article {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
-  box-shadow: 0 1px 3px rgba(15,23,42,.05);
-}
-.article > h1:first-of-type { margin-top: 0; }
-h1, h2, h3, h4, h5 {
-  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
-  position: relative;
-}
-h1 {
-  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
-  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
-}
-h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
-h3 {
-  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
-  padding-left: 13px; border-left: 4px solid var(--brand);
-}
-h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
-h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
-.anchor {
-  position: absolute; left: -22px; color: var(--line); text-decoration: none;
-  opacity: 0; transition: .12s; font-weight: 400;
-}
-h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
-.anchor:hover { color: var(--brand); }
-
-p { margin: 12px 0; }
-strong { font-weight: 700; color: #0f172a; }
-a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
-ul, ol { margin: 12px 0; padding-left: 24px; }
-li { margin: 6px 0; }
-li > ul, li > ol { margin: 6px 0; }
-code {
-  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
-  padding: 1.5px 5px; font-size: .87em;
-  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
-}
-.codeblock {
-  background: #0f172a; color: #e2e8f0; border-radius: 12px;
-  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
-}
-.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
-
-/* ── Tables ────────────────────────────────────────────── */
-.table-wrap {
-  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
-  border-radius: 12px; background: #fff;
-}
-table { border-collapse: collapse; width: 100%; font-size: 13px; }
-th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th {
-  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
-  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
-}
-tbody tr:last-child td { border-bottom: 0; }
-tbody tr:hover { background: #f8fafc; }
-tbody tr.total-row { background: #fffbeb; }
-tbody tr.total-row td {
-  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
-}
-.ta-left { text-align: left; }
-.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
-.ta-center { text-align: center; }
-
-/* ── Alerts ────────────────────────────────────────────── */
-.alert {
-  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
-  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
-}
-.alert p:first-child { margin-top: 0; }
-.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
-.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
-.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
-.alert-caution .alert-head { color: var(--bad); }
-.alert-warning { border-left-color: #d97706; background: #fffbeb; }
-.alert-warning .alert-head { color: #b45309; }
-.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
-.alert-important .alert-head { color: #6d28d9; }
-.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
-.alert-tip .alert-head { color: var(--ok); }
-.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
-.alert-note .alert-head { color: var(--brand); }
-
-/* ── Diagram ───────────────────────────────────────────── */
-.diagram {
-  margin: 24px 0; padding: 24px; background: #f8fafc;
-  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
-}
-.diagram pre { margin: 0; text-align: center; }
-
-/* ── Math ──────────────────────────────────────────────── */
-.katex-display {
-  margin: 18px 0; padding: 16px; background: #f8fafc;
-  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
-}
-
-/* ── Floating back-to-top ──────────────────────────────── */
-#toTop {
-  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
-  border-radius: 50%; border: 1px solid var(--line); background: #fff;
-  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
-  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
-}
-#toTop.show { display: block; }
-
-/* ── Language Toggle ────────────────────────────────────── */
-.lang-toggle {
-  display: inline-flex; align-items: center; background: #0b1329;
-  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
-}
-.lang-btn {
-  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
-  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
-}
-.lang-btn:hover { color: #fff; }
-.lang-btn.active {
-  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
-}
-
-/* ── Responsive ────────────────────────────────────────── */
-@media (max-width: 1080px) {
-  .shell { grid-template-columns: 1fr; gap: 0; }
-  .sidebar {
-    position: static; max-height: none; padding: 18px 0 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
-  .toc-h3 { display: none; }
-  .article { padding: 28px 20px 48px; border-radius: 14px; }
-  h1 { font-size: 22px; }
-  .brand-sub { display: none; }
-}
-
-/* ── Print ─────────────────────────────────────────────── */
-@media print {
-  .topbar, .sidebar, #toTop { display: none !important; }
-  body { background: #fff; font-size: 10.5pt; }
-  .shell { display: block; padding: 0; max-width: none; }
-  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
-  h1 { page-break-before: always; font-size: 17pt; }
-  .article > h1:first-of-type { page-break-before: avoid; }
-  h2, h3, h4 { page-break-after: avoid; }
-  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
-  th { position: static; }
-  a { color: inherit; text-decoration: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>수익형 부동산 10대 챕터 정밀 투자분석 보고서 (Data-Driven Report Template)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./data_loader.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', 'Pretendard', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .prose-report h1 { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
+    .prose-report h2 { font-size: 1.2rem; font-weight: 700; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose-report h3 { font-size: 1.05rem; font-weight: 700; color: #334155; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose-report p { font-size: 0.925rem; line-height: 1.75; color: #334155; margin-bottom: 0.85rem; }
+    .prose-report ul, .prose-report ol { padding-left: 1.4rem; margin-bottom: 1rem; font-size: 0.925rem; color: #334155; }
+    .prose-report ul { list-style-type: disc; }
+    .prose-report ol { list-style-type: decimal; }
+    .prose-report li { margin-bottom: 0.35rem; line-height: 1.65; }
+    .prose-report table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.825rem; }
+    .prose-report th { background: #f1f5f9; color: #1e293b; font-weight: 700; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e1; text-align: left; }
+    .prose-report td { padding: 0.55rem 0.75rem; border: 1px solid #e2e8f0; color: #334155; }
+    .prose-report tr:nth-child(even) td { background: #f8fafc; }
+    .prose-report blockquote { border-left: 4px solid #0284c7; background: #f0f9ff; padding: 0.85rem 1rem; border-radius: 0.5rem; margin: 1rem 0; font-size: 0.875rem; }
+    @media print { .no-print { display: none !important; } }
+  </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <div class="brand-badge">📑</div>
-      <div class="brand-text">
-        <div class="brand-title">리브르 파인 미사토추오 (Livre Fine Misato-Chuo) 종합분석 보고서 (모아비즈)</div>
-        <div class="brand-sub">사이타마현 미사토시 야구치 386-5 · 목조 지상 3층 (열화대책등급 3급·2×4공법) 11세대</div>
+  <!-- Top Navigation -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow border-b border-slate-800 no-print">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-amber-300 border border-slate-700 transition">
+          ← 시뮬레이터 & 수집현황 대시보드
+        </a>
+        <a href="../datasheet.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-sky-300 border border-slate-700 transition">
+          📊 스프레드쉬트 저장소
+        </a>
+        <span id="hdrReportTitle" class="text-sm font-bold text-white truncate max-w-md"></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-0.5">
+          <button id="btnKO" onclick="setReportLang('ko')" class="px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950">한국어 (KO)</button>
+          <button id="btnJA" onclick="setReportLang('ja')" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white">日本語 (JA)</button>
+        </div>
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700">
+          🖨️ 인쇄 / PDF
+        </button>
       </div>
     </div>
-    <div class="tools">
-      <div class="lang-toggle">
-        <a class="lang-btn active" href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
-        <a class="lang-btn " href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Left Sidebar TOC & Collection Audit Mini Card -->
+    <aside class="lg:col-span-3 space-y-4 no-print">
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm sticky top-20 space-y-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Data Completeness</span>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-xs font-semibold text-slate-700">데이터 수집 완료율</span>
+            <span id="sideCollectionRate" class="text-base font-black font-mono text-emerald-600">-</span>
+          </div>
+          <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden flex mt-1.5">
+            <div id="sideBarCollected" class="bg-emerald-500 h-full" style="width:0%"></div>
+            <div id="sideBarEstimated" class="bg-amber-400 h-full" style="width:0%"></div>
+            <div id="sideBarMissing" class="bg-rose-500 h-full" style="width:0%"></div>
+          </div>
+          <p id="sideAuditCounts" class="text-[11px] text-slate-500 mt-1.5"></p>
+        </div>
+
+        <div class="border-t border-slate-100 pt-3">
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">📑 10대 챕터 목차</h3>
+          <nav id="tocList" class="space-y-1 text-xs"></nav>
+        </div>
       </div>
-      <a class="btn" href="../">🏠 포트폴리오</a>
-      <a class="btn btn-primary" href="./">🧮 융자 시뮬레이터</a>
-      <button class="btn" onclick="window.print()">🖨️ 인쇄 / PDF</button>
-    </div>
-  </div>
-  <div class="progress" id="progress"></div>
-</header>
+    </aside>
 
-<div class="shell">
-  <nav class="sidebar">
-    <div class="toc-label">목차 (Contents)</div>
-    <div class="sidebar-scroll">
-<a class="toc-h1" href="#수익형-부동산-정밀-투자분석-보고서-投資分析レポート" data-target="수익형-부동산-정밀-투자분석-보고서-投資分析レポート">수익형 부동산 정밀 투자분석 보고서 (投資分析レポート)</a>
-<a class="toc-h1" href="#1-에그제큐티브-서머리-executive-summary" data-target="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)</a>
-<a class="toc-h3" href="#주요-지표-요약-key-metrics-1차-원장-검증-확정치" data-target="주요-지표-요약-key-metrics-1차-원장-검증-확정치">주요 지표 요약 (Key Metrics — 1차 원장 검증 확정치)</a>
-<a class="toc-h3" href="#1-2-결산서-디자인형-판정-output-key-metrics" data-target="1-2-결산서-디자인형-판정-output-key-metrics">1.2 결산서 디자인형 판정 (Output &amp; Key Metrics)</a>
-<a class="toc-h3" href="#평가-서머리-evaluation-summary" data-target="평가-서머리-evaluation-summary">평가 서머리 (Evaluation Summary)</a>
-<a class="toc-h3" href="#선행-확인-필수-5대-항목-top-5-due-diligence-action-items-원장-검증-후-잔여-과제" data-target="선행-확인-필수-5대-항목-top-5-due-diligence-action-items-원장-검증-후-잔여-과제">선행 확인 필수 5대 항목 (Top 5 Due Diligence Action Items — 원장 검증 후 잔여 과제)</a>
-<a class="toc-h1" href="#2-물건-개요-property-overview" data-target="2-물건-개요-property-overview">2. 물건 개요 (Property Overview)</a>
-<a class="toc-h3" href="#기본-제원표-등기부건축도면과세명세-원장-대조-확정" data-target="기본-제원표-등기부건축도면과세명세-원장-대조-확정">기본 제원표 (등기부・건축도면・과세명세 원장 대조 확정)</a>
-<a class="toc-h3" href="#2-1-구글맵-실측-보행거리-검증-및-1분-괴리율-분석" data-target="2-1-구글맵-실측-보행거리-검증-및-1분-괴리율-분석">2.1 구글맵 실측 보행거리 검증 및 1분 괴리율 분석</a>
-<a class="toc-h3" href="#건폐율용적률의-소화-상황-건축도면-資料１-기준-확정" data-target="건폐율용적률의-소화-상황-건축도면-資料１-기준-확정">건폐율・용적률의 소화 상황 (건축도면 資料１ 기준 확정)</a>
-<a class="toc-h1" href="#3-물건의-내력-및-권리분석-property-history-title-chain-등기부-및-협정서-포렌식" data-target="3-물건의-내력-및-권리분석-property-history-title-chain-등기부-및-협정서-포렌식">3. 물건의 내력 및 권리분석 (Property History &amp; Title Chain — 등기부 및 협정서 포렌식)</a>
-<a class="toc-h3" href="#3-1-등기부-갑구소유권-및-을구담보권-시계열-변천사" data-target="3-1-등기부-갑구소유권-및-을구담보권-시계열-변천사">3-1. 등기부 갑구(소유권) 및 을구(담보권) 시계열 변천사</a>
-<a class="toc-h3" href="#3-2-토지공동사용협정서資料２-및-사도386番3-권리-포렌식-결론" data-target="3-2-토지공동사용협정서資料２-및-사도386番3-권리-포렌식-결론">3-2. 『토지공동사용협정서(資料２)』 및 사도(386番3) 권리 포렌식 결론</a>
-<a class="toc-h1" href="#4-수익-상황렌트롤-포렌식-분석-rent-roll-forensics-2026년-8월-공식-렌트롤-대조" data-target="4-수익-상황렌트롤-포렌식-분석-rent-roll-forensics-2026년-8월-공식-렌트롤-대조">4. 수익 상황（렌트롤 포렌식 분석） (Rent Roll Forensics — 2026년 8월 공식 렌트롤 대조)</a>
-<a class="toc-h3" href="#4-1-수익률의-구분-확정치" data-target="4-1-수익률의-구분-확정치">4-1. 수익률의 구분 (확정치)</a>
-<a class="toc-h3" href="#4-2-호실별-공식-렌트롤-정밀-분석표-資料１-2026년-8월-기준-원장-100-반영" data-target="4-2-호실별-공식-렌트롤-정밀-분석표-資料１-2026년-8월-기준-원장-100-반영">4-2. 호실별 공식 렌트롤 정밀 분석표 (資料１: 2026년 8월 기준 원장 100% 반영)</a>
-<a class="toc-h3" href="#4-3-공식-렌트롤-포렌식-3대-핵심-발견-사항" data-target="4-3-공식-렌트롤-포렌식-3대-핵심-발견-사항">4-3. 공식 렌트롤 포렌식 3대 핵심 발견 사항</a>
-<a class="toc-h1" href="#5-임대료-수준의-검증-및-공실회전율-정밀-분석-market-rent-benchmarking-vacancy-analysis" data-target="5-임대료-수준의-검증-및-공실회전율-정밀-분석-market-rent-benchmarking-vacancy-analysis">5. 임대료 수준의 검증 및 공실·회전율 정밀 분석 (Market Rent Benchmarking &amp; Vacancy Analysis)</a>
-<a class="toc-h3" href="#5-1-미사토추오역-권역-시장-시세와-본-물건-코호트별-비교" data-target="5-1-미사토추오역-권역-시장-시세와-본-물건-코호트별-비교">5-1. 미사토추오역 권역 시장 시세와 본 물건 코호트별 비교</a>
-<a class="toc-h3" href="#5-2-계약-개시일-분포-및-실적-회전-공실률-분석" data-target="5-2-계약-개시일-분포-및-실적-회전-공실률-분석">5-2. 계약 개시일 분포 및 실적 회전 공실률 분석</a>
-<a class="toc-h1" href="#6-가격-타당성-price-valuation-rigor-레이와-8년도-과세명세-확정-반영" data-target="6-가격-타당성-price-valuation-rigor-레이와-8년도-과세명세-확정-반영">6. 가격 타당성 (Price &amp; Valuation Rigor — 레이와 8년도 과세명세 확정 반영)</a>
-<a class="toc-h3" href="#6-1-적산가격재조달원가법-및-금융기관-35년-평가-대조" data-target="6-1-적산가격재조달원가법-및-금융기관-35년-평가-대조">6-1. 적산가격(재조달원가법) 및 금융기관 35년 평가 대조</a>
-<a class="toc-h3" href="#6-2-레이와-8년도2026년도-고정자산세-평가액-확정치-및-감가상각비-안분-資料１-반영" data-target="6-2-레이와-8년도2026년도-고정자산세-평가액-확정치-및-감가상각비-안분-資料１-반영">6-2. 레이와 8년도(2026년도) 고정자산세 평가액 확정치 및 감가상각비 안분 (資料１ 반영)</a>
-<a class="toc-h1" href="#7-운영-코스트와-캐시플로-opex-cash-flow-modeling-개시-런닝코스트-및-3대-융자안-대조" data-target="7-운영-코스트와-캐시플로-opex-cash-flow-modeling-개시-런닝코스트-및-3대-융자안-대조">7. 운영 코스트와 캐시플로 (Opex &amp; Cash Flow Modeling — 개시 런닝코스트 및 3대 융자안 대조)</a>
-<a class="toc-h3" href="#7-1-개시-러닝코스트-확정-내역-資料１-히어링-및-고도세-확정치" data-target="7-1-개시-러닝코스트-확정-내역-資料１-히어링-및-고도세-확정치">7-1. 개시 러닝코스트 확정 내역 (資料１ 히어링 및 고도세 확정치)</a>
-<a class="toc-h3" href="#7-2-실질-경비normalized-opex의-산정" data-target="7-2-실질-경비normalized-opex의-산정">7-2. 실질 경비(Normalized OPEX)의 산정</a>
-<a class="toc-h3" href="#7-3-금융기관별-융자-시뮬레이션-대조표-오릭스은행au지분은행-공식-제안-vs-당사-표준안" data-target="7-3-금융기관별-융자-시뮬레이션-대조표-오릭스은행au지분은행-공식-제안-vs-당사-표준안">7-3. 금융기관별 융자 시뮬레이션 대조표 (오릭스은행・au지분은행 공식 제안 vs 당사 표준안)</a>
-<a class="toc-h1" href="#8-임대료-인상-및-밸류애드-시나리오-value-add-rent-upside" data-target="8-임대료-인상-및-밸류애드-시나리오-value-add-rent-upside">8. 임대료 인상 및 밸류애드 시나리오 (Value-Add &amp; Rent Upside)</a>
-<a class="toc-h3" href="#8-1-구-서브리스-저가-호실2023년-계약군-임대료-정상화-시나리오" data-target="8-1-구-서브리스-저가-호실2023년-계약군-임대료-정상화-시나리오">8-1. 구 서브리스 저가 호실(2023년 계약군) 임대료 정상화 시나리오</a>
-<a class="toc-h1" href="#9-입지수요리스크-location-demographics-risk-analysis" data-target="9-입지수요리스크-location-demographics-risk-analysis">9. 입지・수요・리스크 (Location, Demographics &amp; Risk Analysis)</a>
-<a class="toc-h3" href="#9-1-입지-및-도심-통근-접근성" data-target="9-1-입지-및-도심-통근-접근성">9-1. 입지 및 도심 통근 접근성</a>
-<a class="toc-h3" href="#9-2-재해-리스크-및-침수-이력-검증-히로세-담당자-확인-완료" data-target="9-2-재해-리스크-및-침수-이력-검증-히로세-담당자-확인-완료">9-2. 재해 리스크 및 침수 이력 검증 (히로세 담당자 확인 완료)</a>
-<a class="toc-h1" href="#10-종합-평가-comprehensive-conclusion-scorecard" data-target="10-종합-평가-comprehensive-conclusion-scorecard">10. 종합 평가 (Comprehensive Conclusion &amp; Scorecard)</a>
-<a class="toc-h3" href="#10-1-스코어카드-scorecard-6개-축-5점-만점-총-30점-만점-1차-원장-반영-상향" data-target="10-1-스코어카드-scorecard-6개-축-5점-만점-총-30점-만점-1차-원장-반영-상향">10-1. 스코어카드 (Scorecard: 6개 축 5점 만점, 총 30점 만점 — 1차 원장 반영 상향)</a>
-<a class="toc-h3" href="#10-2-강세-재료-bull-case" data-target="10-2-강세-재료-bull-case">10-2. 강세 재료 (Bull Case)</a>
-<a class="toc-h3" href="#10-3-약세-재료-bear-case" data-target="10-3-약세-재료-bear-case">10-3. 약세 재료 (Bear Case)</a>
-<a class="toc-h1" href="#부록-출전-일람-appendix-sources-references" data-target="부록-출전-일람-appendix-sources-references">부록: 출전 일람 (Appendix: Sources &amp; References)</a>
-<a class="toc-h3" href="#1차-실사-원장-자료-2026년-9월-29일-입수-20260929-hrs-リーブルファイン三郷中央-폴더-전수-검증" data-target="1차-실사-원장-자료-2026년-9월-29일-입수-20260929-hrs-リーブルファイン三郷中央-폴더-전수-검증">1차 실사 원장 자료 (2026년 9월 29일 입수 20260929 HRS リーブルファイン三郷中央 폴더 전수 검증)</a>
-    </div>
-  </nav>
-  <article class="article">
-<h1 id="수익형-부동산-정밀-투자분석-보고서-投資分析レポート">수익형 부동산 정밀 투자분석 보고서 (投資分析レポート)<a class="anchor" href="#수익형-부동산-정밀-투자분석-보고서-投資分析レポート" aria-label="link">#</a></h1>
-<h2 id="리브르-파인-미사토추오-リーブルファイン三郷中央-livre-fine-misato-chuo">리브르 파인 미사토추오 (リーブルファイン三郷中央 / Livre Fine Misato-Chuo)<a class="anchor" href="#리브르-파인-미사토추오-リーブルファイン三郷中央-livre-fine-misato-chuo" aria-label="link">#</a></h2>
-<hr>
-<h1 id="1-에그제큐티브-서머리-executive-summary">1. 에그제큐티브 서머리 (Executive Summary)<a class="anchor" href="#1-에그제큐티브-서머리-executive-summary" aria-label="link">#</a></h1>
-<p>본 보고서는 사이타마현 미사토시 야구치(埼玉県三郷市谷口386-5)에 소재한 축 5.6년 차(2021년 2월 25일 신축) 1동 수익형 목조 3층 공동주택인 <strong>「리브르 파인 미사토추오 (リーブルファイン三郷中央)」</strong>(총 11세대: 1LDK × 3세대, 1K × 8세대 + 평면 주차장 4구획)에 대하여, 매도자 및 중개사(히로세 담당자)로부터 추가 입수한 <strong>1차 실사 원장 패키지(『資料１: 2026년 8월 기준 공식 렌트롤·레이와 8년도 고정자산세·런닝코스트·오릭스/au지분은행 35년 융자 시뮬레이션·건축도면』, 『資料２: 토지공동사용협정서 원본』, 『資料３: 토지 3필지·건물 등기사항전부증명서·공도·측량도』 및 중개사 히어링 노트)</strong>를 전수 반영하여 작성한 정밀 실사(Full Due Diligence) 보고서입니다.</p>
-<p>금번 1차 원장 서류 검증을 통해 <strong>기존에 가장 우려되었던 3대 권리·재무 불확실성이 대폭 해소</strong>되었습니다:</p>
-<ol>
-<li><strong>사도(私道) 지분 1/2 보유 및 『토지공동사용협정서(土地共同使用協定書)』 원본 확인 완료</strong>: 등기부(資料３) 및 협정서(資料２) 대조 결과, 남측 건축기준법 제42조 제1항 제5호 위치지정도로(<code>386番3</code>, 공중용도로 128㎡, 폭원 4.00m)에 대해 <strong>매도자가 정식 소유권 지분 1/2(<code>持分2分の1</code>)을 보유</strong>하고 있으며, 자루형 진입 통로(<code>386番7</code> 16.21㎡[폭 2.00m] + 인접지 <code>386番6</code> 2.88㎡[폭 2.00m] = 합계 폭원 4.00m)에 대해서도 인접지 소유자(樋口陽介)와 체결된 <strong>무상 공동사용 및 제3자 매수인 자동 승계(제8조) 협정서 원본(인감증명서 첨부)</strong>이 완벽히 구비되어 있음이 확인되었습니다.</li>
-<li><strong>레이와 8년도(2026년도) 고정자산세 과세평가액 확정 — 건물 비중 50.09% 및 연 389.6만 엔 감가상각 절세 효과</strong>: 공식 과세자료(資料１) 확인 결과, 토지 평가액 <strong>2,705.4만 엔(49.91%)</strong>, 건물 평가액 <strong>2,715.3만 엔(50.09%)</strong>으로 건물 평가 비중이 50.09%에 달하며, 연간 고도세(고정자산세·도시계획세) 실납부액은 <strong>474,221엔/년</strong>(추정치 대비 -15.1만 엔 절감)으로 확정되었습니다. 이에 따라 실질 NOI는 <strong>745.6만 엔(Cap Rate 5.33%, 본하수 전환 후 정화조 유지비 소멸 시 757.6만 엔 / 5.41%)</strong>으로 상승하며, 법인 취득 시 건물 안분가액(7,012.8만 엔) 기준 18년간 매년 <strong>389.6만 엔</strong>의 강력한 감가상각비 손금산입이 가능합니다.</li>
-<li><strong>오릭스은행(풀론 1.4억·35년·2.625%) 및 au지분은행(95%론 1.33억·35년·2.65%) 사전 금융평가 통과</strong>: 열화대책등급 3급을 바탕으로 제1금융권·대형 논뱅크에서 <strong>최장 35년 초장기 융자</strong>가 가능함이 실증되었으며, 매도자 히어링 결과 <strong>과거 집중호우를 포함해 침수 피해 이력이 전무(浸水履歴無し)</strong>함이 확인되었습니다.</li>
-</ol>
-<p>다만, 원장 포렌식을 통해 새롭게 확인된 <strong>3대 실무 리스크 및 가격 조정 요인</strong>은 다음과 같습니다:</p>
-<ol>
-<li><strong>레이와 8년도 본하수도 접속공사비(세금포함 약 180만 엔) + 수익자부담금(시청 조사 중, 약 19.1만 엔) 매수자 부담</strong>: 중개사 확인 결과 본하수 직결 공사비는 <strong>세금포함 약 180만 엔(수익자부담금 합산 시 약 200만 엔)</strong>으로 추산되며, 매수자 부담 조건입니다(단, 공사 완료 후 현행 정화조 유지비 <strong>연 12만 엔이 영구 절감</strong>됨).</li>
-<li><strong>2026년 3월 다이하츠하우스리빙(大和ハウスリビング) 서브리스 해지 및 스타츠 어메니티 관리 전환에 따른 『보증회사 미가입 6세대(연대보증인 2세대 별도)』 존재</strong>: 2026년 3월 서브리스 해지 시 기존 다이하츠 계열 보증회사 계약을 승계하지 못해 현재 11세대 중 6세대(<code>103, 201[법인], 202, 204, 301, 304호</code>)가 보증회사 미가입(<code>無</code>) 상태입니다. 반면 <strong>2023년 서브리스 시절 저가 계약된 1K 4세대(<code>202호</code> 6.7만, <code>203호</code> 6.8만, <code>302호</code> 6.8만, <code>304호</code> 6.9만)는 최근 직영 성약 시세(<code>204호</code> 7.5만, <code>303호</code> 7.0만) 대비 월 +2.3만 엔(연 +27.6만 엔)의 확실한 임대료 상승(Upside) 여력</strong>을 품고 있습니다.</li>
-<li><strong>전실 시키킨(敷金) 및 리뉴얼 코스트(RC) 『조사 중(調査中)』 상태</strong>: 렌트롤상 시키킨 예치금이 <code>調査中</code>으로 표기되어 있어 매매대금 정산 시 승계 대상 보증금 액수를 확정해야 합니다.</li>
-</ol>
-<p>종합하면, 본 물건은 사도 지분(1/2) 및 토지공동사용협정서 완비, 건물 비중 50.09%(연 상각 389.6만 엔), 35년 장기 융자 적격성, J:COM 무료 인터넷 완비 등 펀더멘털이 기존 추정보다 훨씬 탄탄합니다. 본하수 공사비(약 200만 엔) 매수자 부담 및 보증회사 미가입 세대 리스크를 반영하여 <strong>1억 2,800만 ~ 1억 3,300만 엔(표면 7.43~7.72%, 실질 Cap Rate 5.61~5.83%) 수준으로 가격 네고</strong>를 타결할 경우 우량 현금흐름 자산으로 기능하므로, 최종 판정을 <strong>【조건부 검토 (평점 21.5 / 30.0점: 본하수 공사비 반영 1.28억~1.33억 엔 지가 협상 권고)】</strong>로 상향 조정합니다.</p>
-<hr>
-<h3 id="주요-지표-요약-key-metrics-1차-원장-검증-확정치">주요 지표 요약 (Key Metrics — 1차 원장 검증 확정치)<a class="anchor" href="#주요-지표-요약-key-metrics-1차-원장-검증-확정치" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">항목</th><th class="ta-right">수치</th><th class="ta-left">비고 (資料１〜３ 및 중개사 확인 반영)</th></tr></thead><tbody><tr><td class="ta-left"><strong>매매가격 (物件価格)</strong></td><td class="ta-right"><strong>14,000.0만 엔</strong></td><td class="ta-left">세금 포함・현황 인도 (본하수 접속공사 약 180만 엔+부담금 매수자 부담)</td></tr><tr><td class="ta-left"><strong>현황 연간수입 (現況年収入)</strong></td><td class="ta-right"><strong>987.6만 엔</strong></td><td class="ta-left">11세대(입주 10+신청 1) + 주차 4대(계약 3+신청 1) = <strong>월 823,000엔</strong></td></tr><tr><td class="ta-left"><strong>현황 표면수익률 (現況利回り)</strong></td><td class="ta-right"><strong>7.05%</strong></td><td class="ta-left">102호 및 주차장 4구획째 입주·계약 신청 완료 (<code>申込み有り</code>, 가동률 100%)</td></tr><tr><td class="ta-left"><strong>만실 상정 연간수입 (満室想定年収入)</strong></td><td class="ta-right"><strong>987.6만 엔</strong></td><td class="ta-left">차임 월 759,000엔 + 공익비 월 42,000엔 + 주차장 월 22,000엔</td></tr><tr><td class="ta-left"><strong>만실 상정 표면수익률 (満室想定利回り)</strong></td><td class="ta-right"><strong>7.05%</strong></td><td class="ta-left">구 서브리스 저가 호실(202·203·302·304호) 퇴거 시 <strong>연 +27.6만 엔 상승 여력</strong></td></tr><tr><td class="ta-left"><strong>토지 공적 적산가액 (路線価積算)</strong></td><td class="ta-right"><strong>4,779.1만 엔</strong></td><td class="ta-left">택지 382.33㎡(386-5·386-7) × 12.5만 엔/㎡ + 사도(386-3, 128㎡ 지분 1/2)</td></tr><tr><td class="ta-left"><strong>건물 표준 적산가액 (建物積算)</strong></td><td class="ta-right"><strong>4,917.6만 엔</strong></td><td class="ta-left">353.55㎡ × 18만 엔/㎡ × 잔존(17/22년) → <strong>합산 적산 9,696.7만 엔 (69.3%)</strong></td></tr><tr><td class="ta-left"><strong>고정자산세 과세평가액 (令和8年度 확정)</strong></td><td class="ta-right"><strong>5,420.7만 엔</strong></td><td class="ta-left"><strong>토지 2,705.4만(49.91%) + 건물 2,715.3만(50.09%)</strong> / <strong>연세액 474,221엔 확정</strong></td></tr><tr><td class="ta-left"><strong>실질 연간경비 (実質年間経費, OPEX)</strong></td><td class="ta-right"><strong>242.0만 엔</strong></td><td class="ta-left">개시 실비·세금(169.8만) + 수해보험·원상복구·수선충당(72.2만, <strong>경비율 24.50%</strong>)</td></tr><tr><td class="ta-left"><strong>순영업소득 (純営業収益, NOI)</strong></td><td class="ta-right"><strong>745.6만 엔</strong></td><td class="ta-left">만실 기준 (<strong>본하수 직결 후 정화조 유지비 12만 엔 소멸 시 NOI 757.6만 엔</strong>)</td></tr><tr><td class="ta-left"><strong>실질 Cap Rate (NOI 利回り)</strong></td><td class="ta-right"><strong>5.33%</strong></td><td class="ta-left">본하수 직결 후 <strong>5.41%</strong> (구 서브리스 임대료 정상화 시 <strong>5.60%</strong>)</td></tr><tr><td class="ta-left"><strong>차입금 상정 (표준 85% / 오릭스 100%)</strong></td><td class="ta-right"><strong>11,900.0만 엔</strong></td><td class="ta-left">표준: LTV 85%·30년·2.5% (※오릭스은행 <strong>1.4억·35년·2.625%</strong>, au지분 <strong>1.33억·35년·2.65%</strong> 가능)</td></tr><tr><td class="ta-left"><strong>연간 원리금상환액 (ADS, 30년/2.5%)</strong></td><td class="ta-right"><strong>564.2만 엔</strong></td><td class="ta-left">월 470,194엔 (au지분 95%·35년·2.65% 시 월 486,229엔 / 연 583.5만 엔)</td></tr><tr><td class="ta-left"><strong>연간 캐시플로 (세전 CF, 30년/85%)</strong></td><td class="ta-right"><strong>181.4만 엔</strong></td><td class="ta-left">세전 CF 수익률 1.30% (<strong>세후 CF 166.0만 엔 [1.19%]</strong>, 감가상각 연 389.6만 엔 반영)</td></tr><tr><td class="ta-left"><strong>부채상환배율 (DSCR)</strong></td><td class="ta-right"><strong>1.32배</strong></td><td class="ta-left">본하수 전환 후 1.34배 (1.28억 엔 네고 시 <strong>1.48배</strong>로 안정권 대폭 확대)</td></tr><tr><td class="ta-left"><strong>손익분기 가동률 (損益分岐稼働率)</strong></td><td class="ta-right"><strong>81.64%</strong></td><td class="ta-left">허용 공실 수: <strong>2.02실</strong> / 전체 11실</td></tr><tr><td class="ta-left"><strong>초기 필요 자기자금 (Equity)</strong></td><td class="ta-right"><strong>3,281.6만 엔</strong></td><td class="ta-left">표준 LTV 85% 기준 (※오릭스 풀론 시 <strong>약 900만 엔</strong>, au지분 95%론 시 <strong>약 1,740만 엔</strong>)</td></tr><tr><td class="ta-left"><strong>자기자본수익률 (CCR)</strong></td><td class="ta-right"><strong>5.53%</strong></td><td class="ta-left">표준 85% 세전 기준 (오릭스 풀론 시 세전 CF 133.7만 ÷ 자기자금 897.6만 = <strong>CCR 14.89%</strong>)</td></tr><tr><td class="ta-left"><strong>잠재 임대료 증액 여지 (賃上げ余地)</strong></td><td class="ta-right"><strong>연 +27.6만 엔</strong></td><td class="ta-left">2023년 구 서브리스 저가 호실(202·203·302·304호) 직영 시세(7.0~7.3만) 현실화</td></tr></tbody></table></div>
-<hr>
-<h3 id="1-2-결산서-디자인형-판정-output-key-metrics">1.2 결산서 디자인형 판정 (Output &amp; Key Metrics)<a class="anchor" href="#1-2-결산서-디자인형-판정-output-key-metrics" aria-label="link">#</a></h3>
-<div class="alert alert-note"><p>※ 본 분석은 법인의 재무 건전성 및 금융기관 추가 여신 한도 극대화를 위해, 레이와 8년도 고정자산세 과세평가 비율(<strong>건물 50.09% : 토지 49.91%</strong>)을 적용하여 본 부동산 취득 시 법인 결산서에 미치는 핵심 재무 지표를 정밀 검증한 결과입니다.</p></div>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">항목 (Key Metrics)</th><th class="ta-center">검증대상 부동산 (단품 실적)</th><th class="ta-left">지표 정의 및 결산서 디자인상의 의미 (Description &amp; Financial Significance)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 장부상 세전순이익</strong></td><td class="ta-center"><strong>약 61.6만 엔</strong></td><td class="ta-left">NOI(745.6만)에서 초년도 지급이자(294.4만) 및 건물 감가상각비(<strong>18년 상각, 연 389.6만 엔</strong>)를 차감한 회계상 순이익. 건전한 흑자 유지 및 과세표준 최소화 달성.</td></tr><tr><td class="ta-left"><strong>2. 세전 현금흐름 (Pre-tax CF)</strong></td><td class="ta-center"><strong>181.4만 엔 (1.30%)</strong></td><td class="ta-left">순영업소득에서 연간 원리금상환액(ADS 564.2만)을 차감한 실제 현금 유입액 (본하수 직결 후 정화조 비용 소멸 시 <strong>연 193.4만 엔</strong>으로 상승).</td></tr><tr><td class="ta-left"><strong>3. 추정 법인세액 (25% 과세 가정)</strong></td><td class="ta-center"><strong>약 15.4만 엔</strong></td><td class="ta-left">건물 평가 비중이 <strong>50.09%(건물 장부가 7,012.8만 엔)</strong>로 높아 연간 389.6만 엔의 감가상각비가 발생, 법인세 유출을 연 15.4만 엔 수준으로 강력하게 방어.</td></tr><tr><td class="ta-left"><strong>4. 세후 현금흐름 (Post-tax CF)</strong></td><td class="ta-center"><strong>약 166.0만 엔 (1.19%)</strong></td><td class="ta-left">감가상각 절세 효과 덕분에 세전 CF(181.4만)의 <strong>91.5%가 세후 순현금(166.0만 엔)으로 보존</strong>됨.</td></tr><tr><td class="ta-left"><strong>5. 채무상환년수 (Debt Coverage)</strong></td><td class="ta-center"><strong>27.3년</strong></td><td class="ta-left">차입금(1억 1,900만) ÷ (세후순이익 46.2만 + 감가상각비 389.6만 = 435.8만). 금융기관 여신 심사 우량 기준(30년 이내)을 안정적으로 통과 (1.28억 네고 시 <strong>23.5년</strong>).</td></tr><tr><td class="ta-left"><strong>6. 이자보상배율 (ICR)</strong></td><td class="ta-center"><strong>1.21배 (NOI 기준 2.53배)</strong></td><td class="ta-left">영업이익(NOI - 감가상각비 = 356.0만) ÷ 지급이자(294.4만). 현금 NOI 기준 이자보상배율은 <strong>2.53배</strong>로 금리 상승 방어력 우수.</td></tr><tr><td class="ta-left"><strong>7. 부채상환배율 (DSCR)</strong></td><td class="ta-center"><strong>1.32배</strong></td><td class="ta-left">순영업소득(745.6만) ÷ 원리금상환액(564.2만). 금융기관 안전 기준(1.20배 이상) 충족.</td></tr><tr><td class="ta-left"><strong>8. 담보평가 LTV (고정자산세 기준)</strong></td><td class="ta-center"><strong>258.19%</strong></td><td class="ta-left">차입금(1억 1,900만) ÷ 공적 과세평가액(토지×0.7 + 건물 = 4,609.0만). 신축급 목조 특성상 수익환원 평가 병용 은행(오릭스·au지분 등) 활용이 적합.</td></tr><tr><td class="ta-left"><strong>9. 자기자본수익률 (CCR / Cash-on-Cash)</strong></td><td class="ta-center"><strong>5.53% (풀론 시 14.89%)</strong></td><td class="ta-left">표준 LTV 85% 기준 5.53%, 오릭스은행 35년 풀론(자기자금 약 900만 엔) 활용 시 <strong>CCR 14.89%</strong> 시현.</td></tr></tbody></table></div>
-<hr>
-<h3 id="평가-서머리-evaluation-summary">평가 서머리 (Evaluation Summary)<a class="anchor" href="#평가-서머리-evaluation-summary" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">평가축</th><th class="ta-center">판정</th><th class="ta-left">근거 (1차 원장 서류 검증 결과)</th></tr></thead><tbody><tr><td class="ta-left"><strong>가격 타당성</strong></td><td class="ta-center"><strong>다소 고평가 (네고 권고)</strong></td><td class="ta-left">건물 과세비중 50.09%(연 상각 389.6만 엔) 및 고도세 47.4만 엔 확정으로 세후 수익성은 개선되었으나, 본하수 접속공사비(약 180만 엔)+부담금을 감안해 <strong>1.28억~1.33억 엔</strong> 네고 권고.</td></tr><tr><td class="ta-left"><strong>임대료 수준</strong></td><td class="ta-center"><strong>적정 + 업사이드 보유</strong></td><td class="ta-left">2023년 다이하츠 서브리스 시절 계약된 1K 4실(월 6.7~6.9만 엔)이 최근 직영 성약가(7.0~7.5만 엔) 대비 저평가되어 있어 퇴거 시 <strong>연 +27.6만 엔 인상 여력</strong> 확인.</td></tr><tr><td class="ta-left"><strong>수익의 질</strong></td><td class="ta-center"><strong>양호 (무보증 6실 관리 요망)</strong></td><td class="ta-left">전실 28.4~43.3㎡ 광폭 설계 + J:COM 무료 인터넷 + 주차장 4대로 100% 만실 가동 중. 단, 서브리스 해지 승계로 보증회사 미가입 6실이 존재하여 갱신·교체 시 보증회사 가입 유도 필요.</td></tr><tr><td class="ta-left"><strong>건물 상태</strong></td><td class="ta-center"><strong>매우 우량 (축 5.6년 / 열화 3급)</strong></td><td class="ta-left">2021년 2월 하지메건설 시공(2×4 공법), 열화대책등급 3급 취득, 건축도면(평면·입면·배치도) 완비, 과거 침수·수선 이력 없음 확인 완료.</td></tr><tr><td class="ta-left"><strong>수익 구조</strong></td><td class="ta-center"><strong>양호 (Cap Rate 5.33%→5.41%)</strong></td><td class="ta-left">실비 러닝코스트(월 10.2만) 및 고도세(연 47.4만)가 낮아 실질 OPEX 24.50%로 양호. 본하수 전환 완료 시 정화조 유지비(연 12만 엔)가 추가 절감됨.</td></tr><tr><td class="ta-left"><strong>미래 가치</strong></td><td class="ta-center"><strong>양호 (사도지분·협정서 완비)</strong></td><td class="ta-left">남측 위치지정도로(<code>386-3</code>) 지분 1/2 보유 및 인접지와의 『토지공동사용협정서(무상·자동승계)』 원본 완비로 자루형 대지의 법적·물리적 리스크가 해소됨.</td></tr><tr><td class="ta-left"><strong>금융/대출</strong></td><td class="ta-center"><strong>최우수 (35년 95~100% 융자)</strong></td><td class="ta-left">오릭스은행(1.4억 풀론·35년·2.625%) 및 au지분은행(1.33억 95%론·35년·2.65%) 금융평가 통과로 레버리지 극대화 가능.</td></tr></tbody></table></div>
-<hr>
-<h3 id="선행-확인-필수-5대-항목-top-5-due-diligence-action-items-원장-검증-후-잔여-과제">선행 확인 필수 5대 항목 (Top 5 Due Diligence Action Items — 원장 검증 후 잔여 과제)<a class="anchor" href="#선행-확인-필수-5대-항목-top-5-due-diligence-action-items-원장-검증-후-잔여-과제" aria-label="link">#</a></h3>
-<ul>
-<li>[x] <strong>1. [검증 완료] 남측 사도(<code>386番3</code>) 지분 1/2 보유 및 『토지공동사용협정서(<code>386番6</code>·<code>386番7</code>)』 원본 확인 완료</strong>: 위치지정도로(소화 51년 제1496호, 폭 4m) 지분 1/2 이전 및 4m 협정통로 무상 사용·자동 승계(제8조)가 등기부·협정서 원본으로 완벽히 입증됨. <strong>잔여 체크</strong>: 본하수 인입 배관 공사 시 자가 소유 통로(<code>386-7</code>, 폭 2m) 내 단독 매설 가능 여부 및 사도(<code>386-3</code>) 굴착 시 인접 공유자(樋口陽介) 동의 절차만 공사점과 최종 확인.</li>
-<li>[ ] <strong>2. [중개사/시청 조사 중] 레이와 8년도 본하수도 접속공사(세금포함 약 180만 엔) 상세 견적서 및 미사토시 수익자부담금 확정액 수령</strong>: 히로세 담당자가 확인한 공사 개산액(약 180만 엔)의 상세 내역서와 현재 미사토시청에 조회 중인 수익자부담금(예상 약 19.1만 엔) 확정치를 수령하여 매매가 공제(네고) 근거로 활용.</li>
-<li>[ ] <strong>3. [렌트롤 『調査中』 항목 확정] 전 11세대 시키킨(敷金) 예치 현황 및 102호·주차장 4구획째 신규 계약 조건 확인</strong>: 렌트롤(資料１)상 <code>調査中</code>으로 표기된 각 호실의 시키킨(보증금) 잔액 및 퇴거 정산 특약(RC)을 임대차계약서 사본으로 대조하고, <code>申込み有り</code> 상태인 102호(월 8.0만 엔) 및 주차장 4구획째(월 5,500엔)의 본계약 체결 완료 확인.</li>
-<li>[ ] <strong>4. [무보증 6세대 관리 대책] 다이하츠 서브리스 해지 승계 호실(보증회사 『無』 6실)의 체납 유무 확인 및 보증회사 가입 전환</strong>: 2026년 3월 관리 전환 시 보증회사가 승계되지 않은 6세대(<code>103, 201[법인], 202, 204, 301, 304호</code>)의 과거 6개월간 임대료 입금 내역(체납 0건 여부)을 확인하고, 차기 갱신 시 오너 부담 또는 조건부로 보증회사(에포스·어시스트렌트 등) 가입을 추가하는 방안 협의.</li>
-<li>[ ] <strong>5. [설비/인증 서류 징구] 열화대책등급 3급 주택성능평가서·검사필증 사본 및 프로판가스(LPG) 공급 계약서(무상대여 잔존 유무) 확인</strong>: 본계약 및 금융기관 본심사용 성능평가서·검사필증 사본과 LPG 설비 무상대여 약정서 유무를 최종 확인.</li>
-</ul>
-<hr>
-<h1 id="2-물건-개요-property-overview">2. 물건 개요 (Property Overview)<a class="anchor" href="#2-물건-개요-property-overview" aria-label="link">#</a></h1>
-<h3 id="기본-제원표-등기부건축도면과세명세-원장-대조-확정">기본 제원표 (등기부・건축도면・과세명세 원장 대조 확정)<a class="anchor" href="#기본-제원표-등기부건축도면과세명세-원장-대조-확정" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">항목</th><th class="ta-left">내용</th><th class="ta-left">비고 (1차 원장 검증 근거)</th></tr></thead><tbody><tr><td class="ta-left"><strong>물건명</strong></td><td class="ta-left">리브르 파인 미사토추오 (リーブルファイン三郷中央)</td><td class="ta-left">영문: Livre Fine Misato-Chuo</td></tr><tr><td class="ta-left"><strong>소재지 (주거표시)</strong></td><td class="ta-left">埼玉県三郷市谷口386-5</td><td class="ta-left">사이타마현 미사토시 야구치 386-5</td></tr><tr><td class="ta-left"><strong>토지 지번 및 필지 내역</strong></td><td class="ta-left">① <strong>택지 본부지</strong>: <code>三郷市谷口字根通386番5</code> (<strong>366.12 ㎡</strong>, 소유권 100%)<br>② <strong>택지 통로부</strong>: <code>三郷市谷口字根通386番7</code> (<strong>16.21 ㎡</strong>, 폭 2.00m, 소유권 100%)<br>③ <strong>사도(공중용도로)</strong>: <code>三郷市谷口字根通386番3</code> (<strong>128 ㎡ 중 지분 1/2</strong>, 폭 4.00m)</td><td class="ta-left"><strong>택지 합계 382.33 ㎡ (115.65 평)</strong> + 사도 128㎡(지분 1/2) 별도 (資料３ 등기부·측량도 확정)</td></tr><tr><td class="ta-left"><strong>교통 (대중교통)</strong></td><td class="ta-left">つくばエクスプレス(TX) 「三郷中央」駅 <strong>徒歩 14分</strong> (실측 15~16분 / 1,150m)<br>JR武蔵野線 「三郷」駅 <strong>徒歩 39分</strong> (약 3.1km, 버스/자전거 권역)</td><td class="ta-left">아키하바라역까지 TX 직통 약 20분</td></tr><tr><td class="ta-left"><strong>건물 구조 / 공법</strong></td><td class="ta-left"><strong>목조 아연도금강판지붕 지상 3층건</strong> (<code>木造亜鉛メッキ鋼板ぶき3階建</code>)</td><td class="ta-left"><strong>2×4(투바이포) 목조 프레임 공법</strong>・<strong>열화대책등급 3급</strong> (資料１ 도면 확인)</td></tr><tr><td class="ta-left"><strong>등기 연면적 / 건축면적</strong></td><td class="ta-left"><strong>연면적 353.55 ㎡ (106.94 평)</strong> — 1F: 117.85㎡ / 2F: 117.85㎡ / 3F: 117.85㎡</td><td class="ta-left">건축면적 123.59㎡ (건폐율 32.33% / 용적률 92.47%, 資料１·３ 완전 일치)</td></tr><tr><td class="ta-left"><strong>시공회사 / 설계회사</strong></td><td class="ta-left">시공: <strong>하지메건설 주식회사 (一建設株式会社)</strong> / 설계: (주)나카무라설계</td><td class="ta-left">이이다그룹홀딩스(飯田GHD) 핵심 자회사 시공</td></tr><tr><td class="ta-left"><strong>신축 준공일 (築年月日)</strong></td><td class="ta-left"><strong>2021년 2월 25일 신축 (令和3年2月25日新築 / 축 5.6년)</strong></td><td class="ta-left">건물 등기사항전부증명서(資料３) 표제부 원장 확인 완료</td></tr><tr><td class="ta-left"><strong>총 호수 / 세대 구성</strong></td><td class="ta-left"><strong>총 11세대 (1LDK × 3세대, 1K × 8세대) + 부지 내 평면 주차장 4구획</strong></td><td class="ta-left">1F: 1LDK×3실 / 2F: 1K×4실 / 3F: 1K×4실 (전 호실 남향 발코니)</td></tr><tr><td class="ta-left"><strong>호실별 전유면적</strong></td><td class="ta-left"><strong>1LDK</strong>: 101호(43.32㎡), 102호·103호(각 37.26㎡)<br><strong>1K</strong>: 201호·301호(각 28.41㎡), 202~204호·302~304호(각 29.81㎡)</td><td class="ta-left">전 호실 28.4㎡ 이상의 광폭 설계 (전유 합계 353.52㎡)</td></tr><tr><td class="ta-left"><strong>도시계획 / 용도지역</strong></td><td class="ta-left">시가지화구역 (市街化区域) / <strong>제1종 주거지역 (第一種住居地域)</strong></td><td class="ta-left">건축기준법 제22조 구역 (건폐율 60% / 기준용적률 160%[법정 200%])</td></tr><tr><td class="ta-left"><strong>도로 접도 및 협정 내역</strong></td><td class="ta-left">남측 <strong>건축기준법 제42조 제1항 제5호 위치지정도로</strong>(<code>386番3</code>, 소화 51.10.18 제1496호, 폭원 4.00m, <strong>지분 1/2 보유</strong>)에 <strong>협정통로</strong>(<code>386番7</code>[폭 2.00m] + 인접 <code>386番6</code>[폭 2.00m] = <strong>합계 폭원 4.00m</strong>)로 접도</td><td class="ta-left"><strong>『토지공동사용협정서』(2020.10.29 체결, 資料２)</strong>에 의거 폭 4.00m 통로 일체 무상 사용 및 매수인 자동 승계 보장</td></tr><tr><td class="ta-left"><strong>설비 및 인프라</strong></td><td class="ta-left">공영 상수도 / <strong>정화조 (연 12만 엔)</strong> / <strong>프로판가스 (LPG)</strong> / <strong>J:COM 무료 인터넷 (월 20,086엔)</strong> / 택배박스 / 평면 주차장 4대</td><td class="ta-left"><strong>레이와 8년도 본하수 접속공사(세금포함 약 180만 엔) + 수익자부담금 매수자 부담</strong></td></tr><tr><td class="ta-left"><strong>현 소유자 / 관리회사</strong></td><td class="ta-left">소유자: <strong>주식회사 오토타로 (<code>株式会社オートタロー</code>)</strong><br>관리회사: <strong>스타츠 어메니티 주식회사 (<code>スターツアメニティー株式会社</code>)</strong></td><td class="ta-left">2026년 3월 다이하츠하우스리빙 서브리스 해지 후 스타츠 어메니티(수수료 5%+세)로 관리 전환</td></tr><tr><td class="ta-left"><strong>고정자산세 평가액 (R8)</strong></td><td class="ta-left"><strong>합계 54,206,664 엔</strong> (토지 <code>27,054,052엔</code> + 건물 <code>27,152,612엔</code>)</td><td class="ta-left"><strong>레이와 8년도 고도세 연세액 474,221엔 확정</strong> (사도 <code>386-3</code>은 비과세)</td></tr><tr><td class="ta-left"><strong>금융기관 사전평가</strong></td><td class="ta-left">① <strong>오릭스은행</strong>: <strong>1.4억 엔(풀론 100%) / 35년 / 금리 2.625%</strong><br>② <strong>au지분은행</strong>: <strong>1.33억 엔(95%론) / 35년 / 금리 2.650%</strong></td><td class="ta-left">資料１ 내 금융기관 융자 시뮬레이션 시트 확인 완료</td></tr></tbody></table></div>
-<hr>
-<h3 id="2-1-구글맵-실측-보행거리-검증-및-1분-괴리율-분석">2.1 구글맵 실측 보행거리 검증 및 1분 괴리율 분석<a class="anchor" href="#2-1-구글맵-실측-보행거리-검증-및-1분-괴리율-분석" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">노선・역명</th><th class="ta-center">개요서 공시 도보시간</th><th class="ta-center">Google Maps 실측 보행거리</th><th class="ta-center">Google Maps 실측 소요시간</th><th class="ta-left">보행 환경 및 지형 특성 (경사도・신호・쾌적성)</th><th class="ta-center">Google Maps 경로 확인 링크</th></tr></thead><tbody><tr><td class="ta-left"><strong>츠쿠바 익스프레스 「미사토추오」역</strong> (三郷中央駅)</td><td class="ta-center"><strong>도보 14분</strong> (약 1,120m)</td><td class="ta-center"><strong>약 1,150 m</strong></td><td class="ta-center"><strong>도보 15~16분</strong></td><td class="ta-left">고저차 없는 완전 평탄지(해발 2m 내외). 다이니오바가와(第二大場川) 교량 횡단 및 교차로 신호 대기 2~3회 반영 시 공시 대비 약 1~2분 추가 소요. 역 주변은 구획정리 완료 신시가지로 보도 폭이 넓음.</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=埼玉県三郷市谷口386-5&amp;destination=三郷中央駅&amp;travelmode=walking" target="_blank" rel="noopener">도보 경로 확인</a></td></tr><tr><td class="ta-left"><strong>JR 무사시노선 「미사토」역</strong> (三郷駅)</td><td class="ta-center">도보 39분 (포털 표기)</td><td class="ta-center"><strong>약 3,100 m</strong></td><td class="ta-center">도보 40분 (자전거 약 12분)</td><td class="ta-left">평탄한 시가지 도로. 자전거 및 노선버스 이용 시 JR 무사시노선 접근 가능.</td><td class="ta-center"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=埼玉県三郷市谷口386-5&amp;destination=三郷駅&amp;travelmode=walking" target="_blank" rel="noopener">도보 경로 확인</a></td></tr></tbody></table></div>
-<hr>
-<h3 id="건폐율용적률의-소화-상황-건축도면-資料１-기준-확정">건폐율・용적률의 소화 상황 (건축도면 資料１ 기준 확정)<a class="anchor" href="#건폐율용적률의-소화-상황-건축도면-資料１-기준-확정" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">항목</th><th class="ta-right">법정 상한 (전면도로 4m 제한 반영)</th><th class="ta-right">현 건물 실적 (도면 확정)</th><th class="ta-right">법정 상한 대비 소화율</th><th class="ta-left">비고</th></tr></thead><tbody><tr><td class="ta-left"><strong>건축면적 (건폐율)</strong></td><td class="ta-right">229.40 ㎡ (60.0%)</td><td class="ta-right"><strong>123.59 ㎡ (32.33%)</strong></td><td class="ta-right"><strong>53.9% 소화</strong></td><td class="ta-left">남측 주차장 4구획·통로부 및 일조 이격거리 확보</td></tr><tr><td class="ta-left"><strong>연면적 (용적률)</strong></td><td class="ta-right">법정 764.66 ㎡ (200.0%)<br>※ 4m 도로제한: <strong>611.73 ㎡ (160.0%)</strong></td><td class="ta-right"><strong>353.55 ㎡ (92.47%)</strong></td><td class="ta-right">법정 대비 <strong>46.2% 소화</strong><br>(도로제한 대비 <strong>57.8%</strong>)</td><td class="ta-left">1F·2F·3F 각 117.85㎡ 정방형 3층 설계</td></tr></tbody></table></div>
-<hr>
-<h1 id="3-물건의-내력-및-권리분석-property-history-title-chain-등기부-및-협정서-포렌식">3. 물건의 내력 및 권리분석 (Property History &amp; Title Chain — 등기부 및 협정서 포렌식)<a class="anchor" href="#3-물건의-내력-및-권리분석-property-history-title-chain-등기부-및-협정서-포렌식" aria-label="link">#</a></h1>
-<p>금번 입수한 <strong>『資料３: 토지 3필지(386-5, 386-7, 386-3) 및 건물 등기사항전부증명서·공도·지적측량도』</strong>와 <strong>『資料２: 토지공동사용협정서(土地共同使用協定書)』</strong>를 통해 본 물건의 개발·권리·담보 이력을 100% 규명하였습니다.</p>
-<h3 id="3-1-등기부-갑구소유권-및-을구담보권-시계열-변천사">3-1. 등기부 갑구(소유권) 및 을구(담보권) 시계열 변천사<a class="anchor" href="#3-1-등기부-갑구소유권-및-을구담보권-시계열-변천사" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-center">일자</th><th class="ta-left">등기 사건 및 권리 변동 내역</th><th class="ta-left">당사자 및 금융기관 조건</th><th class="ta-left">포렌식 시사점</th></tr></thead><tbody><tr><td class="ta-center"><strong>1976.10.18</strong></td><td class="ta-left">남측 도로(<code>386番3</code>, 공중용도로 128㎡) <strong>건축기준법 제42조 제1항 제5호 위치지정도로</strong> 지정 (<code>제1496호</code>)</td><td class="ta-left">미사토시 지정 (폭원 4.00m, 연장 32.00m)</td><td class="ta-left">건축법상 적법한 도로(위치지정도로)로 재건축·접도 적법성 완비</td></tr><tr><td class="ta-center"><strong>2020.03.27</strong></td><td class="ta-left">디벨로퍼 <strong>하지메건설 주식회사(<code>一建設株式会社</code>)</strong>가 종전 소유자(<code>有限会社三郷中央土地</code>)로부터 본부지(<code>386番5</code>) 및 사도(<code>386番3</code> 지분 1/2) 매입</td><td class="ta-left">매매 취득</td><td class="ta-left">리브르 파인 신축 개발용지 매입</td></tr><tr><td class="ta-center"><strong>2020.06.23 ~ 07.07</strong></td><td class="ta-left">인접지(<code>386番1</code>, 소유자 <code>樋口陽介</code>)에서 통로부 <code>386番6</code>(2.88㎡, 폭 2.00m) 및 <code>386番7</code>(16.21㎡, 폭 2.00m) 분필 후, <strong>하지메건설이 <code>386番7</code> 매입</strong></td><td class="ta-left"><code>386番5</code>(366.12㎡) + <code>386番7</code>(16.21㎡) = <strong>택지 382.33㎡ 완성</strong></td><td class="ta-left">사이타마현 건축안전조례상 공동주택의 도로 접도 폭원(4.0m) 확보를 위한 정교한 분필 작업</td></tr><tr><td class="ta-center"><strong>2020.10.29</strong></td><td class="ta-left">인접지 소유자(<code>樋口陽介</code>)와 하지메건설 간 <strong>『토지공동사용협정서(土地共同使用協定書)』 체결</strong> (인감증명서 완비)</td><td class="ta-left"><code>386番6</code>(폭 2m) + <code>386番7</code>(폭 2m) = <strong>폭 4.00m 협정통로</strong> 일체 사용</td><td class="ta-left"><strong>제6조(사용료 무상)</strong> 및 <strong>제8조(제3자 양도 시 매수인에게 협정 지위 자동 승계)</strong> 명문화!</td></tr><tr><td class="ta-center"><strong>2021.02.25</strong></td><td class="ta-left"><strong>「리브르 파인 미사토추오」 건물 신축 준공</strong> (가옥번호 <code>386番5</code>, 각 층 117.85㎡ × 3층 = 353.55㎡)</td><td class="ta-left">시공: 하지메건설(주)</td><td class="ta-left">신축 소유권보존등기 완료 (2021.03.19)</td></tr><tr><td class="ta-center"><strong>2021.08.31</strong></td><td class="ta-left">현 소유자 법인인 <strong>주식회사 오토타로(<code>株式会社オートタロー</code>, 대표 나카무라 타로)</strong>가 하지메건설로부터 매입</td><td class="ta-left"><strong>치바은행 야기리지점(<code>株式会社千葉銀行 矢切支店</code>)</strong> 저당권 설정: <strong>채권액 1억 2,660만 엔 / 금리 연 0.50000%</strong></td><td class="ta-left">지바현 마츠도시 소재 중고 오토바이·부품 유통 법인이 수익·절세 목적으로 매입 (초저금리 0.5% 조달)</td></tr><tr><td class="ta-center"><strong>2023.03.14</strong></td><td class="ta-left">구 법인(<code>株式会社バイクパーツメンテナンス博士</code>로 상호변경)에서 신설 <strong>주식회사 오토타로(<code>株式会社オートタロー</code>)</strong>로 <strong>회사분할(会社分割)</strong> 이전</td><td class="ta-left">치바은행 저당권 면책적 채무인수 완료 (동일 대표자 <code>中村太郎</code> 지배 그룹 내 조직재편)</td><td class="ta-left">외부 제3자 전매가 아닌 동일 오너의 법인 분할 승계임이 등기부로 확인됨</td></tr><tr><td class="ta-center"><strong>2026.03</strong></td><td class="ta-left"><strong>다이하츠하우스리빙(<code>大和ハウスリビング</code>) 서브리스 해지</strong> 및 <strong>스타츠 어메니티(<code>スターツアメニティー</code>)</strong>로 일반 관리 전환 (수수료 5%+세)</td><td class="ta-left">서브리스 수수료(약 12~15%)를 일반관리(5%)로 낮춰 표면수익을 만실 987.6만 엔으로 극대화</td><td class="ta-left"><strong>금번 매각(Exit)을 앞두고 외형 수익률을 끌어올리기 위해 2026년 3월에 관리 전환을 단행함</strong></td></tr></tbody></table></div>
-<hr>
-<h3 id="3-2-토지공동사용협정서資料２-및-사도386番3-권리-포렌식-결론">3-2. 『토지공동사용협정서(資料２)』 및 사도(<code>386番3</code>) 권리 포렌식 결론<a class="anchor" href="#3-2-토지공동사용협정서資料２-및-사도386番3-권리-포렌식-결론" aria-label="link">#</a></h3>
-<p>기존에 가장 큰 리스크로 지목되었던 <strong>자루형 대지 접도 및 사도 권리관계는 1차 서류 검증 결과 매우 깔끔하게 해결</strong>되어 있습니다:</p>
-<ol>
-<li><strong>남측 사도(<code>386番3</code>, 공중용도로 128㎡, 폭 4.00m)</strong>: 건축기준법 제42조 제1항 제5호 위치지정도로이며, 현 소유자가 <strong>정식 공유지분 1/2(<code>持分2分の1</code>)</strong>을 보유하고 있어 매수자에게 그대로 이전됩니다(나머지 1/2 지분은 서측 인접지 <code>386番1</code> 소유자 <code>樋口陽介</code> 보유). 또한 비과세 공중용도로이므로 고정자산세 부담이 없습니다.</li>
-<li><strong>진입 통로(<code>386番7</code> 16.21㎡ + 인접 <code>386番6</code> 2.88㎡)</strong>: 본 물건 소유지인 <code>386番7</code>(폭 2.00m)과 서측 인접지 소유자의 <code>386番6</code>(폭 2.00m)을 합쳐 <strong>폭 4.00m의 『협정통로부분(協定通路部分)』</strong>으로 공동 사용하는 『토지공동사용협정서』(2020.10.29 체결)가 완비되어 있습니다.</li>
-<ul>
-<li><strong>제2조·제3조</strong>: 쌍방이 폭 4.0m 통로 전체를 일상 통행 및 재해 시 피난 통로로 일체 이용하며, 통행을 방해하는 공작물 설치나 주차를 금지함.</li>
-<li><strong>제5조·제6조</strong>: 자기 소유 토지 부분은 각자 책임과 비용으로 유지관리하며, <strong>상호 사용료는 무상(無料)</strong>으로 함.</li>
-<li><strong>제8조(협정의 승계)</strong>: 어느 일방이 토지 소유권을 제3자에게 양도할 경우, <strong>양수인(매수인)에게 본 협정상 지위를 의무적으로 승계</strong>시키도록 규정하여 매수 후에도 법적 안정성이 100% 보장됩니다.</li>
-</ul>
-<li><strong>본하수 접속공사 굴착 관련 실무 체크포인트</strong>: 본 물건의 자체 소유 통로인 <code>386番7</code>의 폭원이 <strong>2.00m</strong> 확보되어 있으므로, 남측 사도(<code>386番3</code>, 본 물건이 1/2 지분 보유)에서 <code>386番7</code> 내부로 상하수도 배관을 인입할 때 인접지(<code>386番6</code>)를 침범하지 않고 단독 시공이 가능한 구조입니다. 다만 사도(<code>386番3</code>) 본관 분기 굴착 시 공유자(<code>樋口陽介</code>)의 통상적인 굴착 동의서 징구 절차가 원활한지만 중개사를 통해 재확인하면 충분합니다.</li>
-</ol>
-<hr>
-<h1 id="4-수익-상황렌트롤-포렌식-분석-rent-roll-forensics-2026년-8월-공식-렌트롤-대조">4. 수익 상황（렌트롤 포렌식 분석） (Rent Roll Forensics — 2026년 8월 공식 렌트롤 대조)<a class="anchor" href="#4-수익-상황렌트롤-포렌식-분석-rent-roll-forensics-2026년-8월-공식-렌트롤-대조" aria-label="link">#</a></h1>
-<h3 id="4-1-수익률의-구분-확정치">4-1. 수익률의 구분 (확정치)<a class="anchor" href="#4-1-수익률의-구분-확정치" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">구분</th><th class="ta-right">연간 수입</th><th class="ta-right">수익률</th><th class="ta-left">산정 기준 및 포렌식 비고</th></tr></thead><tbody><tr><td class="ta-left"><strong>표면 수익률 (현황 = 만실)</strong></td><td class="ta-right"><strong>9,876,000 엔</strong></td><td class="ta-right"><strong>7.05%</strong></td><td class="ta-left">차임 759,000엔 + 공익비 42,000엔 + 주차장 22,000엔 = <strong>월 823,000엔</strong></td></tr><tr><td class="ta-left"><strong>실질 NOI 수익률 (Cap Rate)</strong></td><td class="ta-right"><strong>7,456,000 엔</strong></td><td class="ta-right"><strong>5.33%</strong></td><td class="ta-left">실질 OPEX(2,420,000엔, 경비율 24.50%) 공제 후 순영업소득 기준</td></tr><tr><td class="ta-left"><strong>본하수 전환 후 NOI 수익률</strong></td><td class="ta-right"><strong>7,576,000 엔</strong></td><td class="ta-right"><strong>5.41%</strong></td><td class="ta-left">본하수 직결 후 <strong>정화조 유지비(연 120,000엔) 소멸</strong> 시 NOI</td></tr><tr><td class="ta-left"><strong>잠재 임대료 정상화 시 NOI</strong></td><td class="ta-right"><strong>7,852,000 엔</strong></td><td class="ta-right"><strong>5.61%</strong></td><td class="ta-left">구 서브리스 저가 4호실 시세 현실화(+27.6만 엔/년) + 정화조 폐지 후 기준</td></tr></tbody></table></div>
-<hr>
-<h3 id="4-2-호실별-공식-렌트롤-정밀-분석표-資料１-2026년-8월-기준-원장-100-반영">4-2. 호실별 공식 렌트롤 정밀 분석표 (資料１: 2026년 8월 기준 원장 100% 반영)<a class="anchor" href="#4-2-호실별-공식-렌트롤-정밀-분석표-資料１-2026년-8월-기준-원장-100-반영" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-center">호실</th><th class="ta-center">층</th><th class="ta-center">타입</th><th class="ta-center">전유면적(㎡)</th><th class="ta-center">계약구분 / 현황</th><th class="ta-right">차임(円)</th><th class="ta-right">공익비(円)</th><th class="ta-right">월액합계(円)</th><th class="ta-right">㎡단가(円/㎡)</th><th class="ta-center">주차장 계약</th><th class="ta-center">계약기간 (최초 계약년월)</th><th class="ta-center">보증회사 가입 현황</th><th class="ta-left">포렌식 진단 및 업사이드 판정</th></tr></thead><tbody><tr><td class="ta-center"><strong>101호</strong></td><td class="ta-center">1F</td><td class="ta-center"><strong>1LDK</strong></td><td class="ta-center"><strong>43.32㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">79,000</td><td class="ta-right">3,000</td><td class="ta-right"><strong>82,000</strong></td><td class="ta-right">1,893</td><td class="ta-center">-</td><td class="ta-center"><code>2026/11/30 ~ 2028/11/29</code><br>(2024.11 최초 / 갱신확정)</td><td class="ta-center"><strong>에포스 (エポス)</strong></td><td class="ta-left">코너 최대 평형 (DOM 62일 실측) / 우량 보증 완비</td></tr><tr><td class="ta-center"><strong>102호</strong></td><td class="ta-center">1F</td><td class="ta-center"><strong>1LDK</strong></td><td class="ta-center"><strong>37.26㎡</strong></td><td class="ta-center"><strong>申込み有り</strong><br>(입주신청완료)</td><td class="ta-right">75,000</td><td class="ta-right">5,000</td><td class="ta-right"><strong>80,000</strong></td><td class="ta-right"><strong>2,147</strong></td><td class="ta-center">-</td><td class="ta-center">신규 입주 예정</td><td class="ta-center">신규 보증 가입 예정</td><td class="ta-left"><strong>종전 추정(7.5만) 대비 +5,000엔 높은 8.0만 엔에 신청 완료!</strong></td></tr><tr><td class="ta-center"><strong>103호</strong></td><td class="ta-center">1F</td><td class="ta-center"><strong>1LDK</strong></td><td class="ta-center"><strong>37.26㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">75,000</td><td class="ta-right">5,000</td><td class="ta-right"><strong>80,000</strong></td><td class="ta-right"><strong>2,147</strong></td><td class="ta-center">-</td><td class="ta-center"><code>2025/10/31 ~ 2027/10/30</code><br>(2025.10 계약)</td><td class="ta-center"><strong>無 (미가입)</strong></td><td class="ta-left"><strong>2025.10 신규 계약 시 7.5만→8.0만 엔으로 +5,000엔 인상 성약 실증!</strong></td></tr><tr><td class="ta-center"><strong>201호</strong></td><td class="ta-center">2F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>28.41㎡</strong></td><td class="ta-center"><strong>법인 (法人)</strong></td><td class="ta-right">68,000</td><td class="ta-right">3,500</td><td class="ta-right"><strong>71,500</strong></td><td class="ta-right"><strong>2,517</strong></td><td class="ta-center"><strong>유 (5,500엔)</strong></td><td class="ta-center"><code>2025/12/12 ~ 2027/12/11</code><br>(2023.12 최초 / 1회 갱신)</td><td class="ta-center"><strong>無 (법인계약)</strong></td><td class="ta-left"><strong>우량 법인 사택 계약 (차량 보유)</strong> / ㎡당 2,517엔 고단가</td></tr><tr><td class="ta-center"><strong>202호</strong></td><td class="ta-center">2F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">64,000</td><td class="ta-right">3,000</td><td class="ta-right"><strong>67,000</strong></td><td class="ta-right">2,248</td><td class="ta-center">-</td><td class="ta-center"><code>2025/04/28 ~ 2027/04/27</code><br>(2023.04 최초 / 1회 갱신)</td><td class="ta-center"><strong>無 (서브리스 승계)</strong></td><td class="ta-left">💡 <strong>구 서브리스 저가 호실 → 퇴거 시 +5,000~6,000엔 상승 여력!</strong></td></tr><tr><td class="ta-center"><strong>203호</strong></td><td class="ta-center">2F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">65,000</td><td class="ta-right">3,000</td><td class="ta-right"><strong>68,000</strong></td><td class="ta-right">2,281</td><td class="ta-center">-</td><td class="ta-center"><code>2025/04/17 ~ 2027/04/16</code><br>(2023.04 최초 / 1회 갱신)</td><td class="ta-center"><strong>연대보증인</strong></td><td class="ta-left">💡 <strong>구 서브리스 저가 호실 → 퇴거 시 +4,000~5,000엔 상승 여력!</strong></td></tr><tr><td class="ta-center"><strong>204호</strong></td><td class="ta-center">2F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">70,000</td><td class="ta-right">5,000</td><td class="ta-right"><strong>75,000</strong></td><td class="ta-right"><strong>2,516</strong></td><td class="ta-center"><strong>유 (5,500엔)</strong></td><td class="ta-center"><code>2025/08/31 ~ 2027/08/30</code><br>(2025.08 계약)</td><td class="ta-center"><strong>無 (서브리스 승계)</strong></td><td class="ta-left"><strong>최근 성약 최고가 (7.5만 엔, DOM 49일)</strong> — 1K 벤치마크 상단 입증</td></tr><tr><td class="ta-center"><strong>301호</strong></td><td class="ta-center">3F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>28.41㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">67,000</td><td class="ta-right">3,500</td><td class="ta-right"><strong>70,500</strong></td><td class="ta-right">2,482</td><td class="ta-center">-</td><td class="ta-center"><code>2025/11/12 ~ 2027/11/11</code><br>(2023.11 최초 / 1회 갱신)</td><td class="ta-center"><strong>無 (서브리스 승계)</strong></td><td class="ta-left">최상층 서측 코너 / 시세 부합 (퇴거 시 +1,500엔 여력)</td></tr><tr><td class="ta-center"><strong>302호</strong></td><td class="ta-center">3F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">65,000</td><td class="ta-right">3,000</td><td class="ta-right"><strong>68,000</strong></td><td class="ta-right">2,281</td><td class="ta-center">-</td><td class="ta-center"><code>2025/06/01 ~ 2027/05/31</code><br>(2023.06 최초 / 1회 갱신)</td><td class="ta-center"><strong>연대보증인</strong></td><td class="ta-left">💡 <strong>구 서브리스 저가 호실 → 퇴거 시 +4,000~5,000엔 상승 여력!</strong></td></tr><tr><td class="ta-center"><strong>303호</strong></td><td class="ta-center">3F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (8월 입주)</td><td class="ta-right">65,000</td><td class="ta-right">5,000</td><td class="ta-right"><strong>70,000</strong></td><td class="ta-right">2,348</td><td class="ta-center">-</td><td class="ta-center"><code>2026/08/01 ~ 2028/07/31</code><br>(<strong>2026.08 신규 입주</strong>)</td><td class="ta-center"><strong>어시스트렌트</strong></td><td class="ta-left"><strong>스타츠 관리 전환 후 첫 신규 계약</strong> (공익비 5,000엔 + 보증회사 완비)</td></tr><tr><td class="ta-center"><strong>304호</strong></td><td class="ta-center">3F</td><td class="ta-center"><strong>1K</strong></td><td class="ta-center"><strong>29.81㎡</strong></td><td class="ta-center">개인 (입주중)</td><td class="ta-right">66,000</td><td class="ta-right">3,000</td><td class="ta-right"><strong>69,000</strong></td><td class="ta-right">2,315</td><td class="ta-center"><strong>유 (5,500엔)</strong></td><td class="ta-center"><code>2025/04/18 ~ 2027/04/17</code><br>(2023.03 최초 / 1회 갱신)</td><td class="ta-center"><strong>無 (서브리스 승계)</strong></td><td class="ta-left">💡 <strong>최상층 동측 코너 저가 호실 → 퇴거 시 +4,000~6,000엔 상승 여력!</strong></td></tr><tr><td class="ta-center"><strong>주차장</strong></td><td class="ta-center">평면</td><td class="ta-center"><strong>4구획</strong></td><td class="ta-center">부지 남측</td><td class="ta-center">3대 입주자+<br><strong>1대 申込み有り</strong></td><td class="ta-right">22,000</td><td class="ta-right">0</td><td class="ta-right"><strong>22,000</strong></td><td class="ta-right">-</td><td class="ta-center">201·204·304<br>+ 신규 1대</td><td class="ta-center">각 구획 월 <strong>5,500엔</strong></td><td class="ta-center">-</td><td class="ta-left">4구획 전수 가동 (월 22,000엔 / 연 264,000엔)</td></tr><tr class="total-row"><td class="ta-center"><strong>합계</strong></td><td class="ta-center">-</td><td class="ta-center"><strong>11호+4P</strong></td><td class="ta-center"><strong>353.52㎡</strong></td><td class="ta-center"><strong>11/11 만실</strong></td><td class="ta-right"><strong>759,000</strong></td><td class="ta-right"><strong>42,000</strong></td><td class="ta-right"><strong>823,000</strong></td><td class="ta-right"><strong>평균 2,266</strong></td><td class="ta-center"><strong>4 / 4 대</strong></td><td class="ta-center">평균 거주 약 2.3년</td><td class="ta-center">보증2 / 연대2 / 무6 / 신청1</td><td class="ta-left"><strong>연간 만실 수입 9,876,000엔 (표면 7.05%)</strong></td></tr></tbody></table></div>
-<hr>
-<h3 id="4-3-공식-렌트롤-포렌식-3대-핵심-발견-사항">4-3. 공식 렌트롤 포렌식 3대 핵심 발견 사항<a class="anchor" href="#4-3-공식-렌트롤-포렌식-3대-핵심-발견-사항" aria-label="link">#</a></h3>
-<ol>
-<li><strong>다이하츠하우스리빙(大和ハウスリビング) 서브리스 시절(2023년) 계약분과 최근 계약분(2025~2026년)의 명확한 임대료 단차 확인</strong>:</li>
-<ul>
-<li>기존에는 모든 1K가 7.1만 엔으로 균일할 것으로 추정했으나, 실제 렌트롤을 열어본 결과 <strong>2023년 봄 다이하츠하우스 서브리스 시절 입주한 1K 4세대(<code>202호</code> 67,000엔, <code>203호</code> 68,000엔, <code>302호</code> 68,000엔, <code>304호</code> 69,000엔)는 차임 6.4만~6.6만 엔 + 공익비 3,000엔의 보수적 조건</strong>으로 묶여 있었습니다.</li>
-<li>반면 <strong>2025년 하반기~2026년 8월에 신규 계약된 호실들은 공익비를 전부 5,000엔으로 인상</strong>하고 총임대료를 대폭 끌어올렸습니다:</li>
-<ul>
-<li><code>102호·103호</code> (1LDK, 37.26㎡): 종전 75,000엔 → <strong>80,000엔 (차임 75,000 + 공익비 5,000, +5,000엔 인상 성공!)</strong></li>
-<li><code>204호</code> (1K, 29.81㎡): <strong>75,000엔 (차임 70,000 + 공익비 5,000)</strong></li>
-<li><code>303호</code> (1K, 29.81㎡): <strong>70,000엔 (차임 65,000 + 공익비 5,000, 2026년 8월 입주)</strong></li>
-</ul>
-<li>즉, 본 물건은 임대료가 상한에 막혀 있는 것이 아니라, <strong>구 서브리스 시절 저가로 묶인 1K 4~5세대가 퇴거할 때마다 호실당 월 +3,000~+6,000엔(연간 합계 +276,000엔)의 확정적 임대료 업사이드(Rent Upside)가 실현되는 구조</strong>임이 밝혀졌습니다!</li>
-</ul>
-<li><strong>2026년 3월 관리 전환에 따른 『보증회사 미가입(無) 6세대』 리스크 및 해법</strong>:</li>
-<ul>
-<li>렌트롤 비고란에 <strong>「3月までは大和ハウスリビングにてサブリースしており、管理切替により保証会社引き継げず保証会社無しの住戸があります」</strong>라고 명시되어 있습니다.</li>
-<li>다이하츠하우스리빙은 자체 그룹 보증(D-support 등)을 쓰기 때문에 마스터리스를 해지하면 보증이 자동 소멸합니다. 다만 해당 입주자들(<code>201호[법인], 202호, 203호[연대보증], 301호, 302호[연대보증], 304호</code>)은 <strong>2023년부터 2.5~3.5년 이상 장기 거주하며 이미 2025년에 1차 갱신을 마친 우량 입주자들</strong>입니다.</li>
-<li><strong>실무 대응</strong>: 매매계약 전 최근 6개월간 임대료 수납 대장(체납 이력 유무)을 검수하고, 향후 퇴거 교체 시(303호·101호처럼) 스타츠 어메니티 지정 보증회사(어시스트렌트·에포스 등) 100% 가입으로 자연 전환시키면 됩니다.</li>
-</ul>
-<li><strong>J:COM 전 호실 인터넷 도입 확인</strong>:</li>
-<ul>
-<li>러닝코스트 명세(資料１)에서 <strong>J:COM 인터넷 비용(월 20,086엔 / 연 241,032엔)</strong>이 이미 건물주 부담으로 들어가 있어, 임차인에게 <strong>무료 인터넷(Wi-Fi) 혜택</strong>이 제공되고 있음이 확인되었습니다. 이는 역 도보 14분 입지에서도 102호·303호가 공실 즉시 성약되는 강력한 무기입니다.</li>
-</ul>
-</ol>
-<hr>
-<h1 id="5-임대료-수준의-검증-및-공실회전율-정밀-분석-market-rent-benchmarking-vacancy-analysis">5. 임대료 수준의 검증 및 공실·회전율 정밀 분석 (Market Rent Benchmarking &amp; Vacancy Analysis)<a class="anchor" href="#5-임대료-수준의-검증-및-공실회전율-정밀-분석-market-rent-benchmarking-vacancy-analysis" aria-label="link">#</a></h1>
-<h3 id="5-1-미사토추오역-권역-시장-시세와-본-물건-코호트별-비교">5-1. 미사토추오역 권역 시장 시세와 본 물건 코호트별 비교<a class="anchor" href="#5-1-미사토추오역-권역-시장-시세와-본-물건-코호트별-비교" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">평형 구분</th><th class="ta-center">면적대</th><th class="ta-center">시장 하위 25%</th><th class="ta-center">시장 중앙값 (Median)</th><th class="ta-center">시장 상위 25%</th><th class="ta-center">본 물건 구 서브리스군 (2023년 계약)</th><th class="ta-center">본 물건 최근 성약군 (2025~2026년)</th><th class="ta-left">시세 포지션 및 업사이드 판정</th></tr></thead><tbody><tr><td class="ta-left"><strong>1K (광폭)</strong></td><td class="ta-center">28.4~29.8㎡</td><td class="ta-center">65,000엔</td><td class="ta-center"><strong>70,000엔</strong></td><td class="ta-center">74,000엔</td><td class="ta-center"><strong>67,000 ~ 70,500엔</strong> (6실)</td><td class="ta-center"><strong>70,000 ~ 75,000엔</strong> (204·303호)</td><td class="ta-left"><strong>구 서브리스 4실은 시세 하단 → 퇴거 시 7.2만 엔 회복 가능</strong></td></tr><tr><td class="ta-left"><strong>1LDK</strong></td><td class="ta-center">37.3~43.3㎡</td><td class="ta-center">74,000엔</td><td class="ta-center"><strong>79,000엔</strong></td><td class="ta-center">83,000엔</td><td class="ta-center">-</td><td class="ta-center"><strong>80,000 ~ 82,000엔</strong> (101~103호)</td><td class="ta-left"><strong>102·103호 모두 월 8.0만 엔으로 시세 중상단 안착</strong></td></tr><tr><td class="ta-left"><strong>평면 주차장</strong></td><td class="ta-center">1구획</td><td class="ta-center">5,000엔</td><td class="ta-center"><strong>6,600엔</strong></td><td class="ta-center">8,800엔</td><td class="ta-center"><strong>5,500엔</strong> (3구획)</td><td class="ta-center"><strong>5,500엔</strong> (1구획 신청중)</td><td class="ta-left">시세 대비 저렴하여 100% 가동 유지</td></tr></tbody></table></div>
-<hr>
-<h3 id="5-2-계약-개시일-분포-및-실적-회전-공실률-분석">5-2. 계약 개시일 분포 및 실적 회전 공실률 분석<a class="anchor" href="#5-2-계약-개시일-분포-및-실적-회전-공실률-분석" aria-label="link">#</a></h3>
-<ul>
-<li><strong>계약 코호트 분포 (2026년 8월 기준)</strong>:</li>
-<ul>
-<li><strong>2023년 계약군 (거주 2년 9개월~3년 5개월, 1회 갱신 완료)</strong>: <code>201호(법인), 202호, 203호, 301호, 302호, 304호</code> — <strong>총 6세대 (54.5%)</strong></li>
-<li><strong>2024년 말~2025년 계약군 (거주 1년~2년)</strong>: <code>101호, 103호, 204호</code> — <strong>총 3세대 (27.3%)</strong></li>
-<li><strong>2026년 8월 신규 입주 및 신청군</strong>: <code>303호(8월 입주), 102호(신청 완료)</code> — <strong>총 2세대 (18.2%)</strong></li>
-</ul>
-<li><strong>회전율 및 DOM(모집소요기간) 검증</strong>:</li>
-<ul>
-<li>최근 퇴거 발생 호실(<code>204호</code> DOM 49일, <code>303호</code> 8월 즉시 입주, <code>102호</code> 공실 즉시 <code>申込み有り</code>) 모두 스타츠 어메니티의 선행모집·중개망을 통해 빠른 성약 속도를 보여주고 있으며, 실적 회전 공실률은 <strong>약 4.5% ~ 5.0%</strong> 내외로 매우 우수합니다.</li>
-</ul>
-</ul>
-<hr>
-<h1 id="6-가격-타당성-price-valuation-rigor-레이와-8년도-과세명세-확정-반영">6. 가격 타당성 (Price &amp; Valuation Rigor — 레이와 8년도 과세명세 확정 반영)<a class="anchor" href="#6-가격-타당성-price-valuation-rigor-레이와-8년도-과세명세-확정-반영" aria-label="link">#</a></h1>
-<h3 id="6-1-적산가격재조달원가법-및-금융기관-35년-평가-대조">6-1. 적산가격(재조달원가법) 및 금융기관 35년 평가 대조<a class="anchor" href="#6-1-적산가격재조달원가법-및-금융기관-35년-평가-대조" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">시나리오 구분</th><th class="ta-right">채용 재조달단가 (㎡)</th><th class="ta-right">건물 적산가액</th><th class="ta-right">토지 적산가액 (노선가 기준)</th><th class="ta-right">적산가격 합계</th><th class="ta-right">매매가(1.4억) 대비 비율</th><th class="ta-left">금융기관 심사 실증 결과 (資料１)</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 보수적 법정잔존 기준</strong></td><td class="ta-right"><strong>150,000 엔/㎡</strong> (17/22년)</td><td class="ta-right">4,098.0만 엔</td><td class="ta-right">4,779.1만 엔</td><td class="ta-right"><strong>8,877.1만 엔</strong></td><td class="ta-right"><strong>63.41%</strong></td><td class="ta-left">일반 신협·지방은행 법정연수 심사 시</td></tr><tr><td class="ta-left"><strong>② 국세청 표준단가 기준</strong></td><td class="ta-right"><strong>180,000 엔/㎡</strong> (17/22년)</td><td class="ta-right">4,917.6만 엔</td><td class="ta-right">4,779.1만 엔</td><td class="ta-right"><strong>9,696.7만 엔</strong></td><td class="ta-right"><strong>69.26%</strong></td><td class="ta-left">표준 적산 평가선</td></tr><tr><td class="ta-left"><strong>③ 열화3급(35년) 수익병용</strong></td><td class="ta-right"><strong>230,000 엔/㎡</strong> (30/35년)</td><td class="ta-right">6,970.0만 엔</td><td class="ta-right">5,402.3만 엔 (실세)</td><td class="ta-right"><strong>12,372.3만 엔</strong></td><td class="ta-right"><strong>88.37%</strong></td><td class="ta-left"><strong>오릭스은행 1.4억(100% 풀론·35년) 및 au지분은행 1.33억(95%·35년) 실제 승인권!</strong></td></tr></tbody></table></div>
-<hr>
-<h3 id="6-2-레이와-8년도2026년도-고정자산세-평가액-확정치-및-감가상각비-안분-資料１-반영">6-2. 레이와 8년도(2026년도) 고정자산세 평가액 확정치 및 감가상각비 안분 (資料１ 반영)<a class="anchor" href="#6-2-레이와-8년도2026년도-고정자산세-평가액-확정치-및-감가상각비-안분-資料１-반영" aria-label="link">#</a></h3>
-<p>기존 추정치와 실제 레이와 8년도 과세원장 확정치의 비교는 다음과 같습니다:</p>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">구분</th><th class="ta-center">과세 대상 면적</th><th class="ta-right">레이와 8년도 과세평가액 (확정)</th><th class="ta-right">고정자산세 (年)</th><th class="ta-right">도시계획세 (年)</th><th class="ta-right">연간 고도세 합계</th><th class="ta-center">평가액 구성 비중</th></tr></thead><tbody><tr><td class="ta-left"><strong>토지 2필지 (<code>386-5</code>, <code>386-7</code>)</strong></td><td class="ta-center">382.33 ㎡</td><td class="ta-right"><strong>27,054,052 엔</strong></td><td class="ta-right">63,125 엔</td><td class="ta-right">13,526 엔</td><td class="ta-right"><strong>76,651 엔</strong></td><td class="ta-center"><strong>49.91%</strong></td></tr><tr><td class="ta-left"><strong>사도 1필지 (<code>386-3</code>, 지분 1/2)</strong></td><td class="ta-center">128.00 ㎡ (1/2)</td><td class="ta-right">비과세 (公衆用道路)</td><td class="ta-right">0 엔</td><td class="ta-right">0 엔</td><td class="ta-right"><strong>0 엔</strong></td><td class="ta-center">0.00%</td></tr><tr><td class="ta-left"><strong>건물 1동 (<code>386-5</code> 목조 3층)</strong></td><td class="ta-center">353.55 ㎡</td><td class="ta-right"><strong>27,152,612 엔</strong></td><td class="ta-right">356,842 엔</td><td class="ta-right">40,728 엔</td><td class="ta-right"><strong>397,570 엔</strong></td><td class="ta-center"><strong>50.09%</strong></td></tr><tr class="total-row"><td class="ta-left"><strong>합계 (Total)</strong></td><td class="ta-center">-</td><td class="ta-right"><strong>54,206,664 엔</strong></td><td class="ta-right"><strong>419,967 엔</strong></td><td class="ta-right"><strong>54,254 엔</strong></td><td class="ta-right"><strong>474,221 엔</strong></td><td class="ta-center"><strong>100.00%</strong></td></tr></tbody></table></div>
-<ul>
-<li><strong>핵심 재무적 수혜</strong>:</li>
-<ol>
-<li><strong>연간 고도세 실납부액이 474,221엔(월 39,518엔)으로 확정</strong>되어, 기존 추정(62.5만~84.0만 엔) 대비 <strong>매년 15만~36.5만 엔의 확정 경비 절감</strong> 효과가 발생합니다.</li>
-<li><strong>건물 과세평가 비중이 50.09%</strong>에 달하므로, 매매가 1억 4,000만 엔을 공적 평가 비율로 안분할 때 <strong>건물 취득가액으로 70,127,509엔(약 7,013만 엔)을 적법하게 계상</strong>할 수 있습니다.</li>
-<li>중고 감가상각 내용연수 <strong>18년</strong> 적용 시 연간 감가상각비는 <strong>3,895,973엔(약 389.6만 엔/년)</strong>으로, 기존 추정(314.4만 엔)보다 <strong>매년 +75.2만 엔의 추가 비현금 비용 공제(Tax Shield)</strong>가 창출됩니다!</li>
-</ol>
-</ul>
-<hr>
-<h1 id="7-운영-코스트와-캐시플로-opex-cash-flow-modeling-개시-런닝코스트-및-3대-융자안-대조">7. 운영 코스트와 캐시플로 (Opex &amp; Cash Flow Modeling — 개시 런닝코스트 및 3대 융자안 대조)<a class="anchor" href="#7-운영-코스트와-캐시플로-opex-cash-flow-modeling-개시-런닝코스트-및-3대-융자안-대조" aria-label="link">#</a></h1>
-<h3 id="7-1-개시-러닝코스트-확정-내역-資料１-히어링-및-고도세-확정치">7-1. 개시 러닝코스트 확정 내역 (資料１ 히어링 및 고도세 확정치)<a class="anchor" href="#7-1-개시-러닝코스트-확정-내역-資料１-히어링-및-고도세-확정치" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">비용 항목</th><th class="ta-right">월간 금액</th><th class="ta-right">연간 금액</th><th class="ta-right">매출 대비 비중</th><th class="ta-left">산출 근거 (資料１ 원장 데이터)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 임대관리 위탁수수료 (PM Fee)</strong></td><td class="ta-right">45,265 엔</td><td class="ta-right"><strong>543,180 엔</strong></td><td class="ta-right">5.50%</td><td class="ta-left">스타츠 어메니티 관리수수료 5.0% + 소비세(5.5%)</td></tr><tr><td class="ta-left"><strong>2. 정기청소비 (定期清掃)</strong></td><td class="ta-right">19,250 엔</td><td class="ta-right"><strong>231,000 엔</strong></td><td class="ta-right">2.34%</td><td class="ta-left">월 19,250엔 (세금포함 확정)</td></tr><tr><td class="ta-left"><strong>3. 공용부 전기요금 (共用部電気代)</strong></td><td class="ta-right">5,300 엔</td><td class="ta-right"><strong>63,600 엔</strong></td><td class="ta-right">0.64%</td><td class="ta-left">월 약 5,300엔</td></tr><tr><td class="ta-left"><strong>4. 공용부 수도요금 (共用部水道代)</strong></td><td class="ta-right">1,000 엔</td><td class="ta-right"><strong>12,000 엔</strong></td><td class="ta-right">0.12%</td><td class="ta-left">월 약 1,000엔</td></tr><tr><td class="ta-left"><strong>5. 소방점검비 (消防点検・年2回)</strong></td><td class="ta-right">1,100 엔</td><td class="ta-right"><strong>13,200 엔</strong></td><td class="ta-right">0.13%</td><td class="ta-left">1회 6,600엔 × 연 2회 = 13,200엔</td></tr><tr><td class="ta-left"><strong>6. 전 호실 무료 인터넷 (J:COM)</strong></td><td class="ta-right">20,086 엔</td><td class="ta-right"><strong>241,032 엔</strong></td><td class="ta-right">2.44%</td><td class="ta-left">제이콤(ジェイコム) 인터넷 월 20,086엔</td></tr><tr><td class="ta-left"><strong>7. 정화조 유지보수비 (浄化槽維持費)</strong></td><td class="ta-right">10,000 엔</td><td class="ta-right"><strong>120,000 엔</strong></td><td class="ta-right">1.22%</td><td class="ta-left">월 10,000엔 (<strong>※ 본하수 접속공사 완료 후 0원으로 영구 소멸!</strong>)</td></tr><tr><td class="ta-left"><strong>8. 고정자산세・도시계획세 (R8 확정)</strong></td><td class="ta-right">39,518 엔</td><td class="ta-right"><strong>474,221 엔</strong></td><td class="ta-right">4.80%</td><td class="ta-left">레이와 8년도 고도세 확정액 (고정자산세 419,967 + 도계세 54,254)</td></tr><tr class="total-row"><td class="ta-left"><strong>개시 러닝코스트 소계 (Disclosed OPEX)</strong></td><td class="ta-right"><strong>141,519 엔</strong></td><td class="ta-right"><strong>1,698,233 엔</strong></td><td class="ta-right"><strong>17.20%</strong></td><td class="ta-left">본하수 직결 후에는 <strong>연 1,578,233엔 (15.98%)</strong>으로 감소</td></tr></tbody></table></div>
-<hr>
-<h3 id="7-2-실질-경비normalized-opex의-산정">7-2. 실질 경비(Normalized OPEX)의 산정<a class="anchor" href="#7-2-실질-경비normalized-opex의-산정" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">구분</th><th class="ta-right">연간 금액</th><th class="ta-right">매출 대비 비중</th><th class="ta-left">산정 근거</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 개시 러닝코스트 + 확정 고도세</strong></td><td class="ta-right"><strong>1,698,233 엔</strong></td><td class="ta-right">17.20%</td><td class="ta-left">위 7-1 표 확정치 합계</td></tr><tr><td class="ta-left"><strong>② 화재・지진・수해보험료</strong></td><td class="ta-right"><strong>110,000 엔</strong></td><td class="ta-right">1.11%</td><td class="ta-left">에도가와 침수 구역 대비 수해(水災) 특약 포함 기준</td></tr><tr><td class="ta-left"><strong>③ 퇴거 원상복구(오너 부담) 및 모집 AD</strong></td><td class="ta-right"><strong>330,000 엔</strong></td><td class="ta-right">3.34%</td><td class="ta-left">연평균 2.5~3실 교체 시 AD 및 소모품 보수 (클리닝은 임차인 부담)</td></tr><tr><td class="ta-left"><strong>④ 장기 대수선 적립금 (CapEx Reserve)</strong></td><td class="ta-right"><strong>281,767 엔</strong></td><td class="ta-right">2.85%</td><td class="ta-left">축 5.6년 열화3급 건물 외벽·지붕 예방보전 적립</td></tr><tr class="total-row"><td class="ta-left"><strong>실질 연간 운영경비 (Real OPEX) 합계</strong></td><td class="ta-right"><strong>2,420,000 엔</strong></td><td class="ta-right"><strong>24.50%</strong></td><td class="ta-left"><strong>순영업소득 (NOI) = 987.6만 - 242.0만 = 745.6만 엔 (Cap Rate 5.33%)</strong></td></tr></tbody></table></div>
-<div class="alert alert-important"><div class="alert-head">📌 중요</div><p><strong>레이와 8년도 본하수 접속공사 전후 현금흐름 변화 (히로세 담당자 확인 수치)</strong>:</p>
-<ul>
-<li><strong>일시 자본적 지출 (One-off CapEx)</strong>: 본하수 접속공사비 <strong>세금포함 약 180만 엔(<code>税込180万円程度</code>)</strong> + 미사토시 수익자부담금(시청 조사 중, 약 19.1만 엔) = <strong>합계 약 200만 엔</strong>.</li>
-<li><strong>영구 경비 절감 효과</strong>: 본하수 직결 즉시 기존 정화조 유지보수비(<strong>연 120,000엔</strong>)가 영구 소멸하므로, 공사 완료 후 연간 실질 OPEX는 <strong>230.0만 엔(23.29%)</strong>, <strong>NOI는 757.6만 엔(Cap Rate 5.41%)</strong>으로 향상됩니다.</li>
-</ul></div>
-<hr>
-<h3 id="7-3-금융기관별-융자-시뮬레이션-대조표-오릭스은행au지분은행-공식-제안-vs-당사-표준안">7-3. 금융기관별 융자 시뮬레이션 대조표 (오릭스은행・au지분은행 공식 제안 vs 당사 표준안)<a class="anchor" href="#7-3-금융기관별-융자-시뮬레이션-대조표-오릭스은행au지분은행-공식-제안-vs-당사-표준안" aria-label="link">#</a></h3>
-<p><code>資料１</code>에 첨부된 오릭스은행 및 au지분은행의 35년 융자 시뮬레이션과 당사 법인 표준 모델(LTV 85%·30년) 및 목표 네고안(1.28억 엔)을 비교한 결과입니다:</p>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">재무 지표</th><th class="ta-center"><strong>① 당사 법인 표준안 (1.4억 / LTV 85% / 30년 / 2.5%)</strong></th><th class="ta-center"><strong>② 오릭스은행 풀론안 (1.4억 / LTV 100% / 35년 / 2.625%)</strong></th><th class="ta-center"><strong>③ au지분은행 95%안 (1.4억 / LTV 95% / 35년 / 2.65%)</strong></th><th class="ta-center"><strong>④ 목표 네고 타결안 (1.28억 / LTV 85% / 30년 / 2.5%)</strong></th></tr></thead><tbody><tr><td class="ta-left"><strong>매매가격 / 차입금</strong></td><td class="ta-center">14,000만 / <strong>11,900만 엔</strong></td><td class="ta-center">14,000만 / <strong>14,000만 엔 (Full)</strong></td><td class="ta-center">14,000만 / <strong>13,300만 엔 (95%)</strong></td><td class="ta-center"><strong>12,800만 / 10,880만 엔</strong></td></tr><tr><td class="ta-left"><strong>만실 연간수입 (GPI)</strong></td><td class="ta-center">987.6만 엔 (7.05%)</td><td class="ta-center">987.6만 엔 (7.05%)</td><td class="ta-center">987.6만 엔 (7.05%)</td><td class="ta-center"><strong>987.6만 엔 (7.72%)</strong></td></tr><tr><td class="ta-left"><strong>실질 운영경비 (OPEX)</strong></td><td class="ta-center">242.0만 엔 (24.50%)</td><td class="ta-center">242.0만 엔 (24.50%)</td><td class="ta-center">242.0만 엔 (24.50%)</td><td class="ta-center"><strong>240.0만 엔 (24.30%)</strong></td></tr><tr><td class="ta-left"><strong>순영업소득 (NOI / Cap)</strong></td><td class="ta-center"><strong>745.6만 엔 (5.33%)</strong></td><td class="ta-center"><strong>745.6만 엔 (5.33%)</strong></td><td class="ta-center"><strong>745.6만 엔 (5.33%)</strong></td><td class="ta-center"><strong>747.6만 엔 (5.84%)</strong></td></tr><tr><td class="ta-left"><strong>연간 원리금상환액 (ADS)</strong></td><td class="ta-center">564.2만 엔 (월 47.0만)</td><td class="ta-center"><strong>611.9만 엔 (월 51.0만)</strong></td><td class="ta-center"><strong>583.5만 엔 (월 48.6만)</strong></td><td class="ta-center"><strong>515.9만 엔 (월 43.0만)</strong></td></tr><tr><td class="ta-left"><strong>세전 캐시플로 (Pre-tax CF)</strong></td><td class="ta-center"><strong>181.4만 엔 (1.30%)</strong></td><td class="ta-center"><strong>133.7만 엔 (0.95%)</strong></td><td class="ta-center"><strong>162.1만 엔 (1.16%)</strong></td><td class="ta-center"><strong>231.7만 엔 (1.81%)</strong></td></tr><tr><td class="ta-left"><strong>세후 캐시플로 (Post-tax CF)</strong></td><td class="ta-center"><strong>166.0만 엔 (1.19%)</strong></td><td class="ta-center"><strong>126.7만 엔 (0.91%)</strong></td><td class="ta-center"><strong>151.1만 엔 (1.08%)</strong></td><td class="ta-center"><strong>205.5만 엔 (1.61%)</strong></td></tr><tr><td class="ta-left"><strong>부채상환배율 (DSCR)</strong></td><td class="ta-center"><strong>1.32배</strong></td><td class="ta-center">1.22배</td><td class="ta-center">1.28배</td><td class="ta-center"><strong>1.45배 (우량)</strong></td></tr><tr><td class="ta-left"><strong>손익분기 가동률 (BEP)</strong></td><td class="ta-center"><strong>81.64% (허용 2.0실)</strong></td><td class="ta-center">86.46% (허용 1.5실)</td><td class="ta-center">83.58% (허용 1.8실)</td><td class="ta-center"><strong>76.54% (허용 2.6실)</strong></td></tr><tr><td class="ta-left"><strong>초기 필요 자기자금 (Equity)</strong></td><td class="ta-center">3,281.6만 엔</td><td class="ta-center"><strong>897.6만 엔 (제비용만)</strong></td><td class="ta-center"><strong>1,736.2만 엔 (두금700+제비용)</strong></td><td class="ta-center"><strong>2,999.0만 엔</strong></td></tr><tr><td class="ta-left"><strong>자기자본수익률 (세전 CCR)</strong></td><td class="ta-center"><strong>5.53%</strong></td><td class="ta-center"><strong>14.89% (초고효율)</strong></td><td class="ta-center"><strong>9.34% (고효율)</strong></td><td class="ta-center"><strong>7.73%</strong></td></tr></tbody></table></div>
-<hr>
-<h1 id="8-임대료-인상-및-밸류애드-시나리오-value-add-rent-upside">8. 임대료 인상 및 밸류애드 시나리오 (Value-Add &amp; Rent Upside)<a class="anchor" href="#8-임대료-인상-및-밸류애드-시나리오-value-add-rent-upside" aria-label="link">#</a></h1>
-<h3 id="8-1-구-서브리스-저가-호실2023년-계약군-임대료-정상화-시나리오">8-1. 구 서브리스 저가 호실(2023년 계약군) 임대료 정상화 시나리오<a class="anchor" href="#8-1-구-서브리스-저가-호실2023년-계약군-임대료-정상화-시나리오" aria-label="link">#</a></h3>
-<p>공식 렌트롤(資料１)에서 확인된 호실별 실제 임대료와 최근 직영 성약가(<code>204호</code> 75,000엔, <code>303호</code> 70,000엔, <code>102·103호</code> 80,000엔)를 비교하면, <strong>다음 5개 호실의 자연 퇴거 시 인위적 리모델링 없이도 공익비 현실화(3,000→5,000엔) 및 차임 정상화를 통해 연간 +27.6만 엔의 수익 증대가 가능</strong>합니다:</p>
-<div class="table-wrap"><table><thead><tr><th class="ta-center">대상 호실</th><th class="ta-center">층 / 평형 / 면적</th><th class="ta-center">현행 월총액 (차임+공익비)</th><th class="ta-center">최근 동일타입 성약 실례</th><th class="ta-center">퇴거 시 목표 월총액</th><th class="ta-center">월 증액폭 (연간 증액폭)</th><th class="ta-left">실행 근거</th></tr></thead><tbody><tr><td class="ta-center"><strong>202호</strong></td><td class="ta-center">2F / 1K (29.81㎡)</td><td class="ta-center"><strong>67,000엔</strong> (64,000+3,000)</td><td class="ta-center">303호(70,000) / 204호(75,000)</td><td class="ta-center"><strong>72,000엔</strong> (67,000+5,000)</td><td class="ta-center"><strong>+5,000엔 (+6.0만/년)</strong></td><td class="ta-left">2023.04 서브리스 최저가 호실 → 표준 시세 회복</td></tr><tr><td class="ta-center"><strong>203호</strong></td><td class="ta-center">2F / 1K (29.81㎡)</td><td class="ta-center"><strong>68,000엔</strong> (65,000+3,000)</td><td class="ta-center">303호(70,000) / 204호(75,000)</td><td class="ta-center"><strong>72,000엔</strong> (67,000+5,000)</td><td class="ta-center"><strong>+4,000엔 (+4.8만/년)</strong></td><td class="ta-left">공익비 5,000엔 통일 및 차임 +2,000엔</td></tr><tr><td class="ta-center"><strong>301호</strong></td><td class="ta-center">3F / 1K (28.41㎡)</td><td class="ta-center"><strong>70,500엔</strong> (67,000+3,500)</td><td class="ta-center">201호(71,500)</td><td class="ta-center"><strong>72,000엔</strong> (67,000+5,000)</td><td class="ta-center"><strong>+1,500엔 (+1.8만/년)</strong></td><td class="ta-left">최상층 코너 공익비 5,000엔 현실화</td></tr><tr><td class="ta-center"><strong>302호</strong></td><td class="ta-center">3F / 1K (29.81㎡)</td><td class="ta-center"><strong>68,000엔</strong> (65,000+3,000)</td><td class="ta-center">303호(70,000, 바로 옆집)</td><td class="ta-center"><strong>72,000엔</strong> (67,000+5,000)</td><td class="ta-center"><strong>+4,000엔 (+4.8만/년)</strong></td><td class="ta-left">최상층 29.8㎡ 광폭 1K 시세 회복</td></tr><tr><td class="ta-center"><strong>304호</strong></td><td class="ta-center">3F / 1K (29.81㎡)</td><td class="ta-center"><strong>69,000엔</strong> (66,000+3,000)</td><td class="ta-center">204호(75,000, 직하층 코너)</td><td class="ta-center"><strong>74,000엔</strong> (69,000+5,000)</td><td class="ta-center"><strong>+5,000엔 (+6.0만/년)</strong></td><td class="ta-left">최상층 동측 코너 프리미엄 반영</td></tr><tr><td class="ta-center"><strong>주차장 4대</strong></td><td class="ta-center">부지 내 평면</td><td class="ta-center"><strong>22,000엔</strong> (각 5,500엔)</td><td class="ta-center">인근 시세 6,600엔</td><td class="ta-center"><strong>25,500엔</strong> (신규 6,600엔)</td><td class="ta-center"><strong>+3,500엔 (+4.2만/년)</strong></td><td class="ta-left">차량 교체 시 단계적 현실화</td></tr><tr class="total-row"><td class="ta-center"><strong>합계</strong></td><td class="ta-center">-</td><td class="ta-center">현행 연 <strong>9,876,000엔</strong></td><td class="ta-center">-</td><td class="ta-center">잠재 연 <strong>10,152,000엔</strong></td><td class="ta-center"><strong>월 +23,000엔 (연 +276,000엔)</strong></td><td class="ta-left"><strong>잠재 만실 표면수익률 7.25% (1.28억 매입 시 7.93%)</strong></td></tr></tbody></table></div>
-<hr>
-<h1 id="9-입지수요리스크-location-demographics-risk-analysis">9. 입지・수요・리스크 (Location, Demographics &amp; Risk Analysis)<a class="anchor" href="#9-입지수요리스크-location-demographics-risk-analysis" aria-label="link">#</a></h1>
-<h3 id="9-1-입지-및-도심-통근-접근성">9-1. 입지 및 도심 통근 접근성<a class="anchor" href="#9-1-입지-및-도심-통근-접근성" aria-label="link">#</a></h3>
-<ul>
-<li>미사토시 총인구는 2035년까지 <strong>+1.1% 증가(143,727명)</strong>가 예상되는 수도권 유수의 인구 성장 지자체이며, TX 「미사토추오」역 승차인원 역시 매년 3% 이상 증가(일일 승하차 약 3.2만 명)하고 있습니다.</li>
-<li>아키하바라역 직통 20분, 오테마치·도쿄역까지 Door-to-Door 48~50분에 주파 가능하며, 전 호실 <strong>J:COM 무료 인터넷 완비 + 28.4~43.3㎡ 광폭 설계 + 평면 주차장 4대</strong>로 단신 직장인·법인 사택(201호)·신혼 수요를 폭넓게 흡수합니다.</li>
-</ul>
-<h3 id="9-2-재해-리스크-및-침수-이력-검증-히로세-담당자-확인-완료">9-2. 재해 리스크 및 침수 이력 검증 (히로세 담당자 확인 완료)<a class="anchor" href="#9-2-재해-리스크-및-침수-이력-검증-히로세-담당자-확인-완료" aria-label="link">#</a></h3>
-<ul>
-<li><strong>하저드맵 상정 vs 실제 침수 이력</strong>:</li>
-<ul>
-<li>미사토시 홍수 하저드맵상 에도가와 대범람 시 예상 침수심 3.0~5.0m 구역에 위치하나, 금번 매도자 측 공식 히어링(<code>추가정보 w/Hirose-san</code>) 결과 <strong>「최근의 집중호우(2023년 태풍 2호 등)를 포함하여 본 물건에 침수 피해 이력은 일체 없음(浸水の履歴は無い)」</strong>이 확인되었습니다.</li>
-<li>건축도면(資料１ 입면도) 확인 결과 1층 바닥 레벨(1FL)이 설계 GL로부터 <strong>+450mm</strong> 높게 시공되어 있어 일반적인 도로 관수 시 실내 유입을 방어하는 구조입니다.</li>
-</ul>
-</ul>
-<hr>
-<h1 id="10-종합-평가-comprehensive-conclusion-scorecard">10. 종합 평가 (Comprehensive Conclusion &amp; Scorecard)<a class="anchor" href="#10-종합-평가-comprehensive-conclusion-scorecard" aria-label="link">#</a></h1>
-<h3 id="10-1-스코어카드-scorecard-6개-축-5점-만점-총-30점-만점-1차-원장-반영-상향">10-1. 스코어카드 (Scorecard: 6개 축 5점 만점, 총 30점 만점 — 1차 원장 반영 상향)<a class="anchor" href="#10-1-스코어카드-scorecard-6개-축-5점-만점-총-30점-만점-1차-원장-반영-상향" aria-label="link">#</a></h3>
-<div class="table-wrap"><table><thead><tr><th class="ta-left">평가축</th><th class="ta-center">스코어</th><th class="ta-left">평가 근거 (1차 원장 검증 반영)</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 가격 타당성 (Price &amp; Valuation)</strong></td><td class="ta-center"><strong>3.0 / 5.0</strong></td><td class="ta-left">건물 과세평가 비중 50.09%(연 감가상각 389.6만 엔) 및 낮은 고도세(연 47.4만 엔) 확인으로 세후 CF 효율 상승. 단, 본하수 접속공사비(약 180만 엔)+부담금 반영을 위해 1.28억~1.33억 엔 네고 권고.</td></tr><tr><td class="ta-left"><strong>2. 에리어 임대수요 (Area Demand)</strong></td><td class="ta-center"><strong>3.5 / 5.0</strong></td><td class="ta-left">TX 미사토추오역 승객 증가세 및 102호·주차장 4구획째 즉시 입주 신청(<code>申込み有り</code>)으로 100% 만실 수요 입증.</td></tr><tr><td class="ta-left"><strong>3. 경합 우위성 (Competitiveness)</strong></td><td class="ta-center"><strong>4.0 / 5.0</strong></td><td class="ta-left">전실 28.4~43.3㎡ 광폭 평면 + <strong>J:COM 무료 인터넷 완비</strong> + 평면 주차장 4대 + 구 서브리스 4세대의 <strong>연 +27.6만 엔 임대료 업사이드</strong> 보유.</td></tr><tr><td class="ta-left"><strong>4. 미래 가치 (Future Value)</strong></td><td class="ta-center"><strong>3.0 / 5.0</strong></td><td class="ta-left">남측 위치지정도로(<code>386-3</code>) 지분 1/2 보유 및 인접지와의 『토지공동사용협정서(폭 4m·무상·자동승계)』 원본 완비, 침수 이력 전무 확인으로 토지 리스크 대폭 완화.</td></tr><tr><td class="ta-left"><strong>5. 수익성 (Profitability &amp; CF)</strong></td><td class="ta-center"><strong>3.5 / 5.0</strong></td><td class="ta-left">실질 NOI 745.6만 엔(Cap 5.33%, 본하수 전환 후 757.6만 엔 / 5.41%), 30년 융자 시 DSCR 1.32배, 채무상환년수 27.3년으로 우량 기준 충족.</td></tr><tr><td class="ta-left"><strong>6. 건물・준법성 (Building &amp; Legal)</strong></td><td class="ta-center"><strong>4.5 / 5.0</strong></td><td class="ta-left">토지 3필지·건물 등기부, 건축도면, 토지공동사용협정서 원본 완비 및 <strong>오릭스은행·au지분은행 35년 장기 융자 적격 평가</strong> 확인 완료.</td></tr><tr class="total-row"><td class="ta-left"><strong>종합 평점 (Total Score)</strong></td><td class="ta-center"><strong>21.5 / 30.0</strong></td><td class="ta-left"><strong>【조건부 검토 (Conditional Review: 본하수 공사비 약 200만 엔 반영 1.28억~1.33억 엔 지가 네고 권고)】</strong></td></tr></tbody></table></div>
-<hr>
-<h3 id="10-2-강세-재료-bull-case">10-2. 강세 재료 (Bull Case)<a class="anchor" href="#10-2-강세-재료-bull-case" aria-label="link">#</a></h3>
-<ol>
-<li><strong>사도 지분 1/2(<code>386番3</code>) 및 『토지공동사용협정서(<code>386番6</code>·<code>386番7</code>)』 원본 완비</strong>: 자루형 대지의 최대 약점인 통행·굴착·승계 리스크가 등기부 및 인감증명서 첨부 협정서로 100% 해소되었습니다.</li>
-<li><strong>오릭스은행(100% 풀론·35년·2.625%) &amp; au지분은행(95%론·35년·2.65%) 35년 융자 가능</strong>: 열화대책등급 3급의 위력이 금융기관 사전 시뮬레이션으로 입증되어 자기자본 투입을 최소화(900만~1,740만 엔)할 수 있습니다.</li>
-<li><strong>건물 과세평가 비중 50.09% 확정 — 연간 389.6만 엔 감가상각 절세 및 연 47.4만 엔의 저렴한 고도세</strong>: 법인 결산서상 세금을 연 15.4만 엔으로 억제하며 세후 CF를 극대화합니다.</li>
-<li><strong>구 서브리스 저가 호실(202·203·302·304호) 퇴거 시 연 +27.6만 엔의 확실한 임대료 업사이드</strong>: 이미 204호(7.5만), 303호(7.0만), 102·103호(8.0만)에서 인상된 임대료로 성약된 실적이 존재합니다.</li>
-</ol>
-<h3 id="10-3-약세-재료-bear-case">10-3. 약세 재료 (Bear Case)<a class="anchor" href="#10-3-약세-재료-bear-case" aria-label="link">#</a></h3>
-<ol>
-<li><strong>레이와 8년도 본하수 접속공사비(세금포함 약 180만 엔) + 수익자부담금 매수자 부담</strong>: 초년도 약 200만 엔의 일시 CapEx 지출이 발생하므로 반드시 매수가 인하 협상에 반영해야 합니다.</li>
-<li><strong>다이하츠 서브리스 해지 승계에 따른 보증회사 미가입 6세대 존재</strong>: 장기 거주 입주자들이나, 체납 리스크 관리를 위해 수납 이력 검수 및 점진적 보증 가입 전환이 필요합니다.</li>
-<li><strong>전실 시키킨(敷金) 예치액 『調査中』</strong>: 매매계약 전 임대차계약서 원본 대조를 통해 승계 보증금 정산액을 확정해야 합니다.</li>
-</ol>
-<hr>
-<h1 id="부록-출전-일람-appendix-sources-references">부록: 출전 일람 (Appendix: Sources &amp; References)<a class="anchor" href="#부록-출전-일람-appendix-sources-references" aria-label="link">#</a></h1>
-<h3 id="1차-실사-원장-자료-2026년-9월-29일-입수-20260929-hrs-リーブルファイン三郷中央-폴더-전수-검증">1차 실사 원장 자료 (2026년 9월 29일 입수 <code>20260929 HRS リーブルファイン三郷中央</code> 폴더 전수 검증)<a class="anchor" href="#1차-실사-원장-자료-2026년-9월-29일-입수-20260929-hrs-リーブルファイン三郷中央-폴더-전수-검증" aria-label="link">#</a></h3>
-<ul>
-<li><strong>資料１ (<code>資料１（レントロール、建物図面等）.pdf</code>)</strong>:</li>
-<ul>
-<li>2026년 8월 기준 공식 렌트롤 (스타츠 어메니티 관리 전환 내역, 호실별 계약기간·보증회사·주차장 현황)</li>
-<li>레이와 8년도 고정자산세·도시계획세 과세평가액 및 연세액 확정표 (<code>474,221엔</code>), 히어링 기반 러닝코스트 명세</li>
-<li>오릭스은행(1.4억·35년·2.625%) 및 au지분은행(1.33억·35년·2.65%) 융자 시뮬레이션 시트</li>
-<li>하지메건설 시공 건축도면 일식 (배치도, 1~3층 평면도, 입면도, 면적표)</li>
-</ul>
-<li><strong>資料２ (<code>資料２（土地共同使用協定書）.pdf</code>)</strong>:</li>
-<ul>
-<li>2020년 10월 29일 자 인접지 소유자(<code>樋口陽介</code>)와 하지메건설(주) 간 체결 『토지공동사용협정서』 원본 및 인감증명서</li>
-</ul>
-<li><strong>資料３ (<code>資料３（謄本等）.pdf</code>)</strong>:</li>
-<ul>
-<li>토지 3필지(<code>386番5</code>, <code>386番7</code>, <code>386番3</code>[지분 1/2]) 및 건물(<code>家屋番号 386番5</code>) 등기사항전부증명서 (2026년 5월 1일 발행)</li>
-<li>법무국 공도(公図), 지적측량도(地積測量図), 지번 참고도</li>
-</ul>
-<li><strong>중개사 추가 히어링 노트 (<code>추가정보 w/Hirose-san</code>)</strong>:</li>
-<ul>
-<li>침수 이력 유무(없음), 본하수 접속공사 개산 견적(세금포함 약 180만 엔 + 수익자부담금 시청 조사 중), 수선 이력(없음), 타운하우징 실내 사진 레퍼런스</li>
-</ul>
-<li><strong>물건개요서 (<code>３．三郷市谷口アパート.pdf</code>)</strong>: 미쓰이스미토모 트러스트 부동산 시부야센터 발행 마이소쿠 (개인 전화번호 마스킹 완료)</li>
-</ul>
-  </article>
-</div>
+    <!-- Main Report Container -->
+    <article class="lg:col-span-9 space-y-6">
+      <!-- Report Cover Card -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-800">
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+          <span id="coverPortalBadge" class="px-2.5 py-0.5 text-[11px] font-mono font-bold rounded bg-amber-500/20 text-amber-300 border border-amber-500/30"></span>
+          <span id="coverStageBadge" class="px-2.5 py-0.5 text-[11px] font-mono font-bold rounded bg-sky-500/20 text-sky-300 border border-sky-500/30"></span>
+        </div>
+        <h1 id="coverTitle" class="text-2xl sm:text-3xl font-black tracking-tight"></h1>
+        <p id="coverSubtitle" class="text-xs sm:text-sm text-slate-300 mt-1.5"></p>
+        <div id="coverMetricsStrip" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-5 border-t border-slate-800 text-xs"></div>
+      </div>
 
-<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+      <!-- Missing Data Alert Box (Rendered automatically from Data_Collection_Audit) -->
+      <div id="missingBannerBox" class="bg-rose-50 border-2 border-rose-200 rounded-2xl p-5 hidden">
+        <h3 class="text-sm font-extrabold text-rose-900 flex items-center gap-2 mb-2">
+          <span>🚨</span> 미수집(MISSING) 및 추정(ESTIMATED) 항목 고지 (데이터 저장소 자동 감지)
+        </h3>
+        <p class="text-xs text-rose-800 mb-3">
+          아래 항목은 마이소쿠/물건개요서에 포함되지 않아 아직 원본 서류가 미수집되었거나 표준 산식 추정치가 적용된 항목입니다. 청약(買付) 전 중개사를 통해 반드시 원본을 징구하시기 바랍니다.
+        </p>
+        <div id="missingBannerTags" class="flex flex-wrap gap-1.5"></div>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'base',
-    themeVariables: {
-      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
-      primaryBorderColor: '#0369a1', lineColor: '#64748b',
-      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
-    }
-  });
-</script>
-<script>
-// Language preference auto-redirect
-(function() {
-  const PAGE_LANG = 'ko';
-  const savedLang = localStorage.getItem('myrealbiz_lang');
-  if (savedLang && savedLang !== PAGE_LANG) {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.has('stay')) {
-      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
-      window.location.replace(target);
-    }
-  }
-})();
+      <!-- Structured 10 Chapters Container -->
+      <div id="chaptersContainer" class="space-y-6"></div>
+    </article>
+  </main>
 
-// Math
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.renderMathInElement) {
-    renderMathInElement(document.querySelector('.article'), {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$',  right: '$',  display: false }
-      ],
-      throwOnError: false
-    });
-  }
-});
+  <script>
+    let R_DATA = null;
+    let R_LANG = localStorage.getItem('myrealbiz_lang') || 'ko';
 
-// Reading progress + back-to-top
-const bar = document.getElementById('progress');
-const toTop = document.getElementById('toTop');
-function onScroll() {
-  const h = document.documentElement;
-  const max = h.scrollHeight - h.clientHeight;
-  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-  toTop.classList.toggle('show', h.scrollTop > 700);
-}
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+    function mdToHtml(md) {
+      if (!md) return '';
+      let lines = md.split('\n');
+      let out = [];
+      let inTable = false;
+      let tableRows = [];
 
-// TOC scroll-spy
-const links = [...document.querySelectorAll('.sidebar a')];
-const byId = new Map(links.map(a => [a.dataset.target, a]));
-const targets = links
-  .map(a => document.getElementById(a.dataset.target))
-  .filter(Boolean);
-
-const spy = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    links.forEach(a => a.classList.remove('active'));
-    const a = byId.get(e.target.id);
-    if (a) {
-      a.classList.add('active');
-      const box = a.closest('.sidebar-scroll');
-      if (box && window.innerWidth > 1080) {
-        const top = a.offsetTop - box.clientHeight / 2;
-        box.scrollTo({ top, behavior: 'smooth' });
+      function flushTable() {
+        if (!inTable || tableRows.length === 0) return;
+        let h = '<div class="overflow-x-auto"><table><thead><tr>';
+        const headers = tableRows[0];
+        headers.forEach(c => { h += `<th>${inlineMd(c.trim())}</th>`; });
+        h += '</tr></thead><tbody>';
+        const startIdx = (tableRows.length > 1 && tableRows[1].every(c => /^[\s:\-]+$/.test(c))) ? 2 : 1;
+        for (let i = startIdx; i < tableRows.length; i++) {
+          h += '<tr>';
+          tableRows[i].forEach(c => { h += `<td>${inlineMd(c.trim())}</td>`; });
+          h += '</tr>';
+        }
+        h += '</tbody></table></div>';
+        out.push(h);
+        inTable = false;
+        tableRows = [];
       }
+
+      function inlineMd(s) {
+        return s
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 bg-slate-100 rounded font-mono text-xs">$1</code>')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
+      }
+
+      for (let raw of lines) {
+        let line = raw.trimEnd();
+        if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+          inTable = true;
+          const cells = line.trim().slice(1, -1).split('|');
+          tableRows.push(cells);
+          continue;
+        } else if (inTable) {
+          flushTable();
+        }
+
+        if (line.startsWith('### ')) {
+          out.push(`<h3>${inlineMd(line.slice(4))}</h3>`);
+        } else if (line.startsWith('## ')) {
+          out.push(`<h2>${inlineMd(line.slice(3))}</h2>`);
+        } else if (line.startsWith('# ')) {
+          out.push(`<h1>${inlineMd(line.slice(2))}</h1>`);
+        } else if (line.startsWith('> ')) {
+          out.push(`<blockquote>${inlineMd(line.slice(2))}</blockquote>`);
+        } else if (line.startsWith('- ') || line.startsWith('* ')) {
+          out.push(`<ul><li>${inlineMd(line.slice(2))}</li></ul>`);
+        } else if (line.trim() === '---') {
+          out.push('<hr class="my-4 border-slate-200"/>');
+        } else if (line.trim() !== '') {
+          out.push(`<p>${inlineMd(line)}</p>`);
+        }
+      }
+      if (inTable) flushTable();
+      return out.join('\n').replace(/<\/ul>\n<ul>/g, '\n');
     }
-  });
-}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
-targets.forEach(t => spy.observe(t));
-</script>
+
+    async function initReport() {
+      try {
+        const res = await fetch('./data.json', { cache: 'no-store' });
+        if (res.ok) {
+          R_DATA = await res.json();
+          renderReport();
+          return;
+        }
+      } catch (e) {}
+      if (window.__DATASTORE_PAYLOAD__) {
+        R_DATA = window.__DATASTORE_PAYLOAD__;
+        renderReport();
+        return;
+      }
+      setTimeout(() => {
+        if (window.__DATASTORE_PAYLOAD__) {
+          R_DATA = window.__DATASTORE_PAYLOAD__;
+          renderReport();
+        }
+      }, 150);
+    }
+
+    function setReportLang(lang) {
+      R_LANG = lang;
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.getElementById('btnKO').className = lang === 'ko'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      document.getElementById('btnJA').className = lang === 'ja'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      renderReport();
+    }
+
+    function renderReport() {
+      if (!R_DATA) return;
+      const m = R_DATA.master || {};
+      const audits = R_DATA.collection_audit || [];
+      const chapters = R_DATA.chapters || [];
+
+      const total = audits.length || 1;
+      const collected = audits.filter(a => a.status === 'COLLECTED' || a.status === 'VERIFIED').length;
+      const estimated = audits.filter(a => a.status === 'ESTIMATED').length;
+      const missing = audits.filter(a => a.status === 'MISSING').length;
+      const ratePct = ((collected / total) * 100).toFixed(1);
+
+      document.getElementById('sideCollectionRate').textContent = `${ratePct}%`;
+      document.getElementById('sideBarCollected').style.width = `${(collected / total) * 100}%`;
+      document.getElementById('sideBarEstimated').style.width = `${(estimated / total) * 100}%`;
+      document.getElementById('sideBarMissing').style.width = `${(missing / total) * 100}%`;
+      document.getElementById('sideAuditCounts').textContent = `✅ 수집 ${collected} · ⚠️ 추정 ${estimated} · ❌ 미수집 ${missing}`;
+
+      const title = R_LANG === 'ja' ? (m.name_ja || m.name_ko) : m.name_ko;
+      document.title = `${title} | 10대 챕터 정밀 투자분석 보고서`;
+      document.getElementById('hdrReportTitle').textContent = title;
+      document.getElementById('coverPortalBadge').textContent = R_DATA.portal_mode === 'moabiz' ? '🔒 MOABIZ INTERNAL REPORT' : '🌐 STANDARD INVESTMENT REPORT';
+      document.getElementById('coverStageBadge').textContent = `데이터 수집률 ${ratePct}% (${m.data_stage_badge || 'AUDIT'})`;
+      document.getElementById('coverTitle').textContent = title;
+      document.getElementById('coverSubtitle').textContent = `${m.address_road || ''} · ${m.structure_display || ''} · ${m.total_units || 0}세대`;
+
+      document.getElementById('coverMetricsStrip').innerHTML = `
+        <div><span class="text-slate-400 block">매매가격</span><strong class="text-base font-mono text-white">${m.price_display_ko || '-'}</strong></div>
+        <div><span class="text-slate-400 block">만실 표면 / Cap Rate</span><strong class="text-base font-mono text-emerald-400">${m.gross_yield_full_pct || '-'}% / ${m.cap_rate_full_pct || '-'}%</strong></div>
+        <div><span class="text-slate-400 block">DSCR / 손익분기</span><strong class="text-base font-mono text-sky-400">${m.dscr || '-'}x / ${m.breakeven_occ_pct || '-'}%</strong></div>
+        <div><span class="text-slate-400 block">종합 평점</span><strong class="text-base font-mono text-amber-400">${m.score_total || '-'} / 30 (${m.verdict_short || '-'})</strong></div>
+      `;
+
+      const missingItems = audits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED');
+      const bannerBox = document.getElementById('missingBannerBox');
+      if (missingItems.length > 0) {
+        bannerBox.classList.remove('hidden');
+        document.getElementById('missingBannerTags').innerHTML = missingItems.map(a => {
+          const cls = a.status === 'MISSING' ? 'bg-rose-200/80 text-rose-900 border-rose-300' : 'bg-amber-200/80 text-amber-900 border-amber-300';
+          const icon = a.status === 'MISSING' ? '❌ 미수집' : '⚠️ 추정';
+          return `<span class="px-2.5 py-1 rounded-lg border text-xs font-semibold ${cls}">${icon}: ${R_LANG === 'ja' ? (a.item_name_ja || a.item_name_ko) : a.item_name_ko}</span>`;
+        }).join('');
+      } else {
+        bannerBox.classList.add('hidden');
+      }
+
+      // Render chapters
+      document.getElementById('tocList').innerHTML = chapters.map(ch => `
+        <a href="#ch-${ch.chapter_no}" class="block py-1.5 px-2.5 rounded-lg hover:bg-slate-100 text-slate-700 font-medium truncate">
+          ${ch.chapter_no}. ${R_LANG === 'ja' ? (ch.title_ja || ch.title_ko) : ch.title_ko}
+        </a>
+      `).join('');
+
+      document.getElementById('chaptersContainer').innerHTML = chapters.map(ch => {
+        const bodyMd = R_LANG === 'ja' ? (ch.content_ja || ch.content_ko) : ch.content_ko;
+        return `<section id="ch-${ch.chapter_no}" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm prose-report">
+          <div class="flex items-center justify-between border-b-2 border-slate-900 pb-3 mb-4">
+            <h2 class="!m-0 !p-0 !border-0 text-lg sm:text-xl font-black text-slate-900">
+              Chapter ${ch.chapter_no}. ${R_LANG === 'ja' ? (ch.title_ja || ch.title_ko) : ch.title_ko}
+            </h2>
+            <span class="text-xs font-mono text-slate-400">CH-0${ch.chapter_no}</span>
+          </div>
+          <div>${mdToHtml(bodyMd)}</div>
+        </section>`;
+      }).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', initReport);
+  </script>
 </body>
 </html>
