@@ -297,26 +297,22 @@
     "slug": "livre-fine-misato-chuo",
     "name_ko": "리브르 파인 미사토추오 (Livre Fine Misato-Chuo)",
     "name_ja": "リーブルファイン三郷中央",
-    "structure": "목조 지상 3층 (열화대책등급 3급)",
+    "structure": "목조 지상 3층 (열화대책등급 3급·2×4공법)",
     "units": 11,
-    "location": "사이타마현 미사토시 야구치 386-5 (埼玉県三郷市谷口386-5)",
+    "location": "사이타마현 미사토시 야구치 386-5",
     "price": 140000000.0,
-    "price_display": "1억 4,000만 엔",
+    "price_display": "14,000만 엔",
     "gross_yield_pct": 7.05,
-    "cap_rate_pct": 5.25,
-    "assessed_value_ratio_pct": 69.26,
-    "verdict": "조건부 검토",
-    "verdict_badge": "review",
-    "corporate_verdict": "조건부 검토 (열화대책등급 3급 30년 융자 적격 / 2026년 본하수도 인입비·사도 굴착·수해 반영 1.25억 엔 이하 네고 필수)",
-    "corporate_verdict_public": "조건부 검토 (열화대책등급 3급 30년 융자 적격 / 본하수도 인입비·사도 굴착·수해 반영 1.25억 엔 이하 네고 필수)",
-    "score": 19.5,
+    "cap_rate_pct": 5.33,
+    "assessed_value_ratio_pct": 0.0,
+    "verdict": "매수 추천",
+    "verdict_badge": "recommend",
+    "corporate_verdict": "적합 (우량 편입 대상)",
+    "corporate_verdict_public": "적합 (우량 투자 대상)",
+    "score": "21.5 / 30 (조건부 검토: 사도지분·협정서·과세명세 완비 / 본하수 인입비 약 200만 엔 반영 1.28억~1.33억 엔 네고 권고)",
     "max_score": 30,
     "public_enabled": true,
-    "key_highlights": [
-      "2021년 2월 준공(축 5.6년) · 일건설 시공 · 열화대책등급 3급 취득(최장 30년 장기 융자 적격)",
-      "전실 28.4㎡~43.3㎡ 광폭 설계(1LDK×3 + 1K×8) 및 평면 주차 4대 100% 만실 가동 중",
-      "2026년도 본하수도 인입 공사비 매수인 부담 특약·남측 사도 굴착 승낙서·수해 해저드 반영 네고(1.25억 엔대) 필수"
-    ],
+    "key_highlights": [],
     "report_ko": "./livre-fine-misato-chuo/livre-fine-misato-chuo_Investment_Report_KO.md",
     "report_ja": "./livre-fine-misato-chuo/livre-fine-misato-chuo_Investment_Report_JA.md",
     "report_html": "./livre-fine-misato-chuo/report.html",
@@ -326,9 +322,7 @@
     "moabiz_folder": "moabiz/livre-fine-misato-chuo",
     "moabiz_simulator_html": "./moabiz/livre-fine-misato-chuo/index.html",
     "moabiz_report_html": "./moabiz/livre-fine-misato-chuo/report.html",
-    "moabiz_report_ja_html": "./moabiz/livre-fine-misato-chuo/report_ja.html",
-    "moabiz_suitability_html": "./moabiz/livre-fine-misato-chuo/suitability.html",
-    "moabiz_suitability_report_html": "./moabiz/livre-fine-misato-chuo/suitability_report.html"
+    "moabiz_report_ja_html": "./moabiz/livre-fine-misato-chuo/report_ja.html"
   },
   {
     "slug": "keep-lagoon-kawashimacho",
@@ -399,5 +393,56 @@
     "moabiz_simulator_html": "./moabiz/mitsukyo-1ap/index.html",
     "moabiz_report_html": "./moabiz/mitsukyo-1ap/report.html",
     "moabiz_report_ja_html": "./moabiz/mitsukyo-1ap/report_ja.html"
+  },
+  {
+    "slug": "espoir-cross-kasukabe",
+    "name_ko": "에스포와르 크로스 카스카베",
+    "name_ja": "エスポワール クロス カスカベ",
+    "structure": "철골조 육지붕 2층 건 (鉄骨造 陸屋根 2階建)",
+    "units": 5,
+    "location": "埼玉県春日部市粕壁東3丁目3-36",
+    "price": 80000000.0,
+    "price_display": "8,000만 엔",
+    "gross_yield_pct": 7.31,
+    "cap_rate_pct": 5.66,
+    "assessed_value_ratio_pct": 92.66,
+    "verdict": "A- 등급 (25.3/30) — 상업지역(400%) 3방 각지 95.3평 + 2014년식 철골조 + R8 과세명세서 실사 완료(고도세 43.1만엔, 단품 상환연수 21.9년). 7,300만~7,500만 엔 네고 및 렌트롤 검증 조건부 적극 추천",
+    "verdict_badge": "적합 (우량 매수 검토)",
+    "corporate_verdict": "적합 (우량 편입 대상 - 5대 핵심 지표 전방위 개선: 통합 ICR 0.9→1.0배 돌파, 상환연수 24.1→23.6년 단축, Tax LTV -27.2%p 감축)",
+    "corporate_verdict_public": "우량 매수 검토 (25.3 / 30점 — 채무상환연수 21.9년·ICR 1.9배·국세청 적산비율 92.7%)",
+    "score": 25.3,
+    "max_score": 30,
+    "public_enabled": true,
+    "collection_rate_pct": 65.7,
+    "key_highlights": {
+      "positives_ko": [
+        "레이와 8년도 고정자산세 과세명세서 원본(토지 4필지 + 가옥 2구분) 실사 완료: 과세평가액 합계 ¥47.28M(건물비율 47.11%) 및 토지 100% 『소규모주택용지(1/6 감면)』 적용으로 연간 고도세 ¥431,300 확정",
+        "2노선 급행 환승역 『카스카베』역 도보 9분 평탄지 + 상업지역(건폐율 80% / 용적률 400%) 3방 각지 약 95.3평(미사용 용적률 310.34%p) + 카스카베역 철도 고가화 재개발 직접 수혜",
+        "1층 대형 보습학원 프랜차이즈(ITTO 개별지도학원 87.72㎡) + 패밀리형 2LDK(60.87㎡)×2호 + 1LDK(35.70㎡)×2호 하이브리드 구성 (2021년 6월 이후 5년 이상 공실 모집 0건)",
+        "단품 채무상환연수 21.9년 < 감가상각연수 24.0년 < 융자연수 25.0년 골든크로스 달성 및 법인 통합 ICR 1.0배 돌파 · Tax LTV -27.2%p 감축"
+      ],
+      "risks_ko": [
+        "마이소쿠 외에 개별 호실의 상세 렌트롤(レントロール) 및 별지 런닝코스트 명세서(別紙)가 미제출 상태로, 매수의향서 제출 전 원본 징구 필수",
+        "1층 학원 점포(ITTO 개별지도학원)가 전체 수입의 약 39.4%를 차지하므로 점포 퇴거 시 일시적으로 손익분기 가동률(83.0%)을 하회할 위험 존재 (임대차계약 조건·해약예고기간 확인 필수)",
+        "2014년 6월 준공 후 12.3년이 경과하여 육지붕(평지붕) 옥상 방수 및 외벽 실링 보수 주기 도래 (7,300만~7,500만 엔 네고 근거로 활용)"
+      ],
+      "positives_ja": [
+        "令和8年度 固定資産税課税明細書原本（土地4筆＋家屋2区分）検証済：評価額合計 ¥47.28M（建物比率 47.11%）、土地全筆「小規模住宅用地（1/6減額）」適用により年税額 ¥431,300 確定",
+        "2路線急行停車『春日部』駅 徒歩9分平坦地 ＋ 商業地域（80%/400%）三方角地 約95.3坪（未消化容積率 310.34%p）＋ 春日部駅高架化再開発の直接恩恵",
+        "1階大手学習塾（ITTO個別指導学院 87.72㎡）＋ 2LDK（60.87㎡）×2戸 ＋ 1LDK（35.70㎡）×2戸の安定構成（2021年6月以降5年以上空室募集ゼロ）",
+        "単品債務償還年数 21.9年 ＜ 減価償却年数 24.0年 ＜ 融資年数 25.0年 のゴールデンクロス達成、法人統合ICR 1.0倍突破・Tax LTV -27.2%p改善"
+      ],
+      "risks_ja": [
+        "個別号室の詳細レントロールおよび別紙ランニングコスト明細が未開示のため、買付前に原本徴求が必須",
+        "1階店舗（学習塾）が総収入の約39.4%を占めるため、万一の退去時には一時的に損益分岐稼働率（83.0%）を下回るリスクあり（契約期間・解約予告条項の確認必須）",
+        "2014年6月築（築12.3年）のため、陸屋根防水トップコートおよび外壁シーリングのメンテナンス周期に到達（7,300万〜7,500万円への指値交渉材料）"
+      ]
+    },
+    "report_html": "./espoir-cross-kasukabe/report.html",
+    "simulator_html": "./espoir-cross-kasukabe/index.html",
+    "folder": "espoir-cross-kasukabe",
+    "moabiz_folder": "moabiz/espoir-cross-kasukabe",
+    "moabiz_simulator_html": "./moabiz/espoir-cross-kasukabe/index.html",
+    "moabiz_report_html": "./moabiz/espoir-cross-kasukabe/report.html"
   }
 ]

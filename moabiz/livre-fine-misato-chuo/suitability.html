@@ -221,11 +221,11 @@
         </div>
         <div>
           <label class="text-slate-400 block mb-1">건물비율 (建物割合 %)</label>
-          <input type="number" id="propBldgRatio" step="0.01" value="40.42" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propBldgRatio" step="0.01" value="50.09" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">운영경비율 (経費率 %)</label>
-          <input type="number" id="propOpexRatio" step="0.1" value="25.62" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propOpexRatio" step="0.1" value="24.50" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">상정 입주율 (入居率 %)</label>
@@ -237,11 +237,11 @@
         </div>
         <div>
           <label class="text-slate-400 block mb-1">고정자산세 토지평가</label>
-          <input type="number" id="propTaxLand" value="42018000" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propTaxLand" value="27054052" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">고정자산세 건물평가</label>
-          <input type="number" id="propTaxBldg" value="28500000" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propTaxBldg" value="27152612" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">토지면적 (㎡) / 노선가</label>
@@ -774,12 +774,12 @@
       document.getElementById('propRent').value = 9876000;
       document.getElementById('propStructure').value = "木造";
       document.getElementById('propAge').value = 5;
-      document.getElementById('propBldgRatio').value = 40.42;
-      document.getElementById('propOpexRatio').value = 25.62;
+      document.getElementById('propBldgRatio').value = 50.09;
+      document.getElementById('propOpexRatio').value = 24.50;
       document.getElementById('propOccRatio').value = 100.0;
       document.getElementById('propTaxRate').value = 25.0;
-      document.getElementById('propTaxLand').value = 42018000;
-      document.getElementById('propTaxBldg').value = 28500000;
+      document.getElementById('propTaxLand').value = 27054052;
+      document.getElementById('propTaxBldg').value = 27152612;
       document.getElementById('propLandSqm').value = 382.33;
       document.getElementById('propRoadPrice').value = 125000;
       document.getElementById('propFloorSqm').value = 353.55;
@@ -805,8 +805,8 @@
     }
 
     function applyTargetPrice() {
-      document.getElementById('propPrice').value = 125000000;
-      document.getElementById('inpLoanAmount').value = 106250000;
+      document.getElementById('propPrice').value = 128000000;
+      document.getElementById('inpLoanAmount').value = 108800000;
       document.getElementById('rngLoanLtv').value = 85;
       document.getElementById('dispLtvBadge').textContent = "85.0% LTV";
       recalculateAll();
@@ -817,13 +817,13 @@
       const rentFull = parseFloat(document.getElementById('propRent').value) || 9876000;
       const structure = document.getElementById('propStructure').value;
       const age = parseFloat(document.getElementById('propAge').value) || 5;
-      const bldgRatio = (parseFloat(document.getElementById('propBldgRatio').value) || 40.42) / 100.0;
-      const opexRatio = (parseFloat(document.getElementById('propOpexRatio').value) || 25.62) / 100.0;
+      const bldgRatio = (parseFloat(document.getElementById('propBldgRatio').value) || 50.09) / 100.0;
+      const opexRatio = (parseFloat(document.getElementById('propOpexRatio').value) || 24.50) / 100.0;
       const occRatio = (parseFloat(document.getElementById('propOccRatio').value) || 100.0) / 100.0;
       const taxRate = (parseFloat(document.getElementById('propTaxRate').value) || 25.0) / 100.0;
       
-      const taxLand = parseFloat(document.getElementById('propTaxLand').value) || 42018000;
-      const taxBldg = parseFloat(document.getElementById('propTaxBldg').value) || 28500000;
+      const taxLand = parseFloat(document.getElementById('propTaxLand').value) || 27054052;
+      const taxBldg = parseFloat(document.getElementById('propTaxBldg').value) || 27152612;
 
       const loanAmount = parseFloat(document.getElementById('inpLoanAmount').value) || 119000000;
       const loanRate = (parseFloat(document.getElementById('inpLoanRate').value) || 2.5) / 100.0;

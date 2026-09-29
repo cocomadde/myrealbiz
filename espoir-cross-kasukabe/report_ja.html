@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>エスポワール クロス カスカベ | 投資分析レポート | MyRealBiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+:root {
+  --bg: #f8fafc; --surface: #fff; --ink: #1e293b; --muted: #64748b;
+  --line: #e2e8f0; --brand: #0369a1; --brand-soft: #e0f2fe;
+  --accent: #b45309; --ok: #047857; --bad: #be123c;
+  --sidebar: 300px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif;
+  font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ───────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 60; background: #0f172a; color: #fff;
+  border-bottom: 1px solid #1e293b;
+}
+.topbar-inner {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-badge {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  display: grid; place-items: center; font-size: 17px;
+}
+.brand-text { min-width: 0; }
+.brand-title {
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.brand-sub { font-size: 11px; color: #94a3b8; }
+.tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 7px 12px; border-radius: 9px; font-size: 12px; font-weight: 600;
+  background: #1e293b; color: #e2e8f0; border: 1px solid #334155;
+  text-decoration: none; transition: .15s; white-space: nowrap;
+}
+.btn:hover { background: #334155; color: #fff; }
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1c1917; border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #1c1917; }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 3px; width: 0;
+  background: linear-gradient(90deg, #38bdf8, #f59e0b);
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.shell {
+  max-width: 1500px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); gap: 36px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky; top: 60px; max-height: calc(100vh - 60px);
+  overflow-y: auto; padding: 24px 8px 40px 0;
+}
+.toc-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--muted);
+  text-transform: uppercase; padding: 0 10px; margin-bottom: 10px;
+}
+.sidebar a {
+  display: block; text-decoration: none; color: var(--muted);
+  border-left: 2px solid transparent; transition: .12s;
+}
+.toc-h1 {
+  font-size: 13px; font-weight: 700; color: #334155;
+  padding: 7px 10px; margin-top: 4px;
+}
+.toc-h3 { font-size: 12px; padding: 4px 10px 4px 22px; }
+.sidebar a:hover { color: var(--brand); background: #f1f5f9; }
+.sidebar a.active {
+  color: var(--brand); border-left-color: var(--brand);
+  background: var(--brand-soft); font-weight: 700;
+}
+
+/* ── Article ───────────────────────────────────────────── */
+.article {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 44px 52px 64px; margin: 24px 0 56px;
+  box-shadow: 0 1px 3px rgba(15,23,42,.05);
+}
+.article > h1:first-of-type { margin-top: 0; }
+h1, h2, h3, h4, h5 {
+  line-height: 1.35; letter-spacing: -.015em; scroll-margin-top: 90px;
+  position: relative;
+}
+h1 {
+  font-size: 27px; font-weight: 900; margin: 60px 0 20px;
+  padding-bottom: 14px; border-bottom: 3px solid #0f172a;
+}
+h2 { font-size: 21px; font-weight: 800; margin: 44px 0 16px; }
+h3 {
+  font-size: 17px; font-weight: 800; margin: 38px 0 14px;
+  padding-left: 13px; border-left: 4px solid var(--brand);
+}
+h4 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; color: #334155; }
+h5 { font-size: 14px; font-weight: 700; margin: 22px 0 8px; color: var(--muted); }
+.anchor {
+  position: absolute; left: -22px; color: var(--line); text-decoration: none;
+  opacity: 0; transition: .12s; font-weight: 400;
+}
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+.anchor:hover { color: var(--brand); }
+
+p { margin: 12px 0; }
+strong { font-weight: 700; color: #0f172a; }
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 6px 0; }
+li > ul, li > ol { margin: 6px 0; }
+code {
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 5px;
+  padding: 1.5px 5px; font-size: .87em;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+.codeblock {
+  background: #0f172a; color: #e2e8f0; border-radius: 12px;
+  padding: 20px 22px; overflow-x: auto; font-size: 13px; line-height: 1.7;
+}
+.codeblock code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ── Tables ────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; margin: 18px 0; border: 1px solid var(--line);
+  border-radius: 12px; background: #fff;
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 10px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: #f1f5f9; font-weight: 700; color: #334155; white-space: nowrap;
+  position: sticky; top: 0; border-bottom: 2px solid #cbd5e1;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+tbody tr.total-row { background: #fffbeb; }
+tbody tr.total-row td {
+  font-weight: 700; color: #92400e; border-top: 2px solid #fcd34d;
+}
+.ta-left { text-align: left; }
+.ta-right { text-align: right; font-variant-numeric: tabular-nums; }
+.ta-center { text-align: center; }
+
+/* ── Alerts ────────────────────────────────────────────── */
+.alert {
+  margin: 20px 0; padding: 16px 20px; border-radius: 12px;
+  border: 1px solid var(--line); border-left-width: 4px; background: #f8fafc;
+}
+.alert p:first-child { margin-top: 0; }
+.alert p:last-child, .alert ul:last-child { margin-bottom: 0; }
+.alert-head { font-weight: 800; font-size: 13px; margin-bottom: 6px; }
+.alert-caution { border-left-color: var(--bad); background: #fff1f2; }
+.alert-caution .alert-head { color: var(--bad); }
+.alert-warning { border-left-color: #d97706; background: #fffbeb; }
+.alert-warning .alert-head { color: #b45309; }
+.alert-important { border-left-color: #7c3aed; background: #f5f3ff; }
+.alert-important .alert-head { color: #6d28d9; }
+.alert-tip { border-left-color: var(--ok); background: #ecfdf5; }
+.alert-tip .alert-head { color: var(--ok); }
+.alert-note { border-left-color: var(--brand); background: #f0f9ff; }
+.alert-note .alert-head { color: var(--brand); }
+
+/* ── Diagram ───────────────────────────────────────────── */
+.diagram {
+  margin: 24px 0; padding: 24px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 14px; overflow-x: auto;
+}
+.diagram pre { margin: 0; text-align: center; }
+
+/* ── Math ──────────────────────────────────────────────── */
+.katex-display {
+  margin: 18px 0; padding: 16px; background: #f8fafc;
+  border: 1px solid var(--line); border-radius: 10px; overflow-x: auto;
+}
+
+/* ── Floating back-to-top ──────────────────────────────── */
+#toTop {
+  position: fixed; right: 26px; bottom: 26px; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: #fff;
+  color: var(--brand); font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 6px 20px rgba(15,23,42,.14); z-index: 50;
+}
+#toTop.show { display: block; }
+
+/* ── Language Toggle ────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex; align-items: center; background: #0b1329;
+  padding: 3px; border-radius: 10px; border: 1px solid #334155; margin-right: 4px;
+}
+.lang-btn {
+  display: inline-block; padding: 5px 10px; border-radius: 7px; font-size: 11px;
+  font-weight: 700; text-decoration: none; color: #94a3b8; transition: .15s;
+}
+.lang-btn:hover { color: #fff; }
+.lang-btn.active {
+  background: #0284c7; color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar {
+    position: static; max-height: none; padding: 18px 0 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sidebar-scroll { max-height: 210px; overflow-y: auto; }
+  .toc-h3 { display: none; }
+  .article { padding: 28px 20px 48px; border-radius: 14px; }
+  h1 { font-size: 22px; }
+  .brand-sub { display: none; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .topbar, .sidebar, #toTop { display: none !important; }
+  body { background: #fff; font-size: 10.5pt; }
+  .shell { display: block; padding: 0; max-width: none; }
+  .article { border: 0; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
+  h1 { page-break-before: always; font-size: 17pt; }
+  .article > h1:first-of-type { page-break-before: avoid; }
+  h2, h3, h4 { page-break-after: avoid; }
+  .table-wrap, .diagram, .alert { page-break-inside: avoid; }
+  th { position: static; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-badge">📑</div>
+      <div class="brand-text">
+        <div class="brand-title">エスポワール クロス カスカベ | 投資分析レポート</div>
+        <div class="brand-sub">埼玉県春日部市粕壁東3-3-36 | 2014年築 鉄骨造2階建 5戸</div>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="lang-toggle">
+        <a class="lang-btn " href="./report.html" onclick="localStorage.setItem('myrealbiz_lang', 'ko')">한국어</a>
+        <a class="lang-btn active" href="./report_ja.html" onclick="localStorage.setItem('myrealbiz_lang', 'ja')">日本語</a>
+      </div>
+      <a class="btn" href="../">🏠 ポートフォリオ</a>
+      <a class="btn btn-primary" href="./">🧮 融資シミュレーター</a>
+      <button class="btn" onclick="window.print()">🖨️ 印刷 / PDF</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="toc-label">目次 (Contents)</div>
+    <div class="sidebar-scroll">
+<a class="toc-h1" href="#エスポワール-クロス-カスカベ-espoir-cross-kasukabe-収益不動産-投資分析レポート" data-target="エスポワール-クロス-カスカベ-espoir-cross-kasukabe-収益不動産-投資分析レポート">エスポワール クロス カスカベ (Espoir Cross Kasukabe) 収益不動産 投資分析レポート</a>
+<a class="toc-h3" href="#1-1-核心的投資判断" data-target="1-1-核心的投資判断">1.1 核心的投資判断</a>
+<a class="toc-h3" href="#1-2-主要財務指標サマリー" data-target="1-2-主要財務指標サマリー">1.2 主要財務指標サマリー</a>
+<a class="toc-h3" href="#1-3-法人取得時の単体決算税務指標サマリー" data-target="1-3-法人取得時の単体決算税務指標サマリー">1.3 法人取得時の単体決算・税務指標サマリー</a>
+<a class="toc-h3" href="#2-1-土地4筆の課税明細内訳全筆小規模住宅用地特例適用を確認" data-target="2-1-土地4筆の課税明細内訳全筆小規模住宅用地特例適用を確認">2.1 土地4筆の課税明細内訳（全筆「小規模住宅用地」特例適用を確認）</a>
+<a class="toc-h3" href="#2-2-家屋建物2区分の課税明細内訳家屋番号-1750-4--平成26年築" data-target="2-2-家屋建物2区分の課税明細内訳家屋番号-1750-4--平成26年築">2.2 家屋（建物）2区分の課税明細内訳（家屋番号 1750-4--、平成26年築）</a>
+    </div>
+  </nav>
+  <article class="article">
+<h1 id="エスポワール-クロス-カスカベ-espoir-cross-kasukabe-収益不動産-投資分析レポート">エスポワール クロス カスカベ (Espoir Cross Kasukabe) 収益不動産 投資分析レポート<a class="anchor" href="#エスポワール-クロス-カスカベ-espoir-cross-kasukabe-収益不動産-投資分析レポート" aria-label="link">#</a></h1>
+<div class="alert alert-note"><p><strong>分析基準日</strong>: 2026年9月29日 <strong>対象物件</strong>: エスポワール クロス カスカベ (Espoir Cross Kasukabe) <strong>所在地</strong>: 埼玉県春日部市粕壁東3丁目3-36 <strong>根拠資料</strong>:</p>
+<ol>
+<li>販売図面（マイソク / 物件概要書）— 株式会社リブライフマーケティング 発行</li>
+<li><strong>令和8年度（2026年度）固定資産税・都市計画税 納税通知書および課税明細書 原本</strong>（春日部市発行、土地4筆＋家屋2区分 実査検証済）</li>
+<li>LIFULL HOME'S 建物アーカイブ（<code>b-40030480</code>）過去募集履歴フォレンジックデータ</li>
+<li>国税庁路線価図（令和7年）、春日部市都市計画図・洪水ハザードマップ、春日部駅付近連続立体交差事業（高架化）公表資料</li>
+</ol></div>
+<hr>
+<h2 id="1-投資ハイライトおよびエグゼクティブサマリー-executive-summary">1. 投資ハイライトおよびエグゼクティブ・サマリー (Executive Summary)<a class="anchor" href="#1-投資ハイライトおよびエグゼクティブサマリー-executive-summary" aria-label="link">#</a></h2>
+<h3 id="1-1-核心的投資判断">1.1 核心的投資判断<a class="anchor" href="#1-1-核心的投資判断" aria-label="link">#</a></h3>
+<p><strong>エスポワール クロス カスカベ（Espoir Cross Kasukabe）</strong>は、東武スカイツリーライン（伊勢崎線）と東武アーバンパークライン（野田線）の2路線が交差する主要急行停車駅<strong>『春日部』駅 徒歩9分（実測約720m）</strong>の平坦な幹線道路交差点（学校どおり 幅員16.1m × 公園橋通り）に位置する、<strong>2014年6月新築（築12.3年）鉄骨造（S造）陸屋根 2階建の複合収益不動産（総戸数5戸：1階店舗1室＋1〜2階共同住宅4戸）</strong>です。</p>
+<ol>
+<li><strong>商業地域（建蔽率80% / 容積率400%）・三方角地 約95.3坪の圧倒的な土地ポテンシャル</strong>: 南側幅員約16.1m公道（学校どおり）、西側公園橋通り、北東側道路に囲まれた<strong>三方角地</strong>であり、法定容積率400%に対し現況建物延床面積は<strong>282.41㎡（消化容積率 89.66%、未消化容積率 310.34%p）</strong>です。</li>
+<li><strong>令和8年度（2026年度）課税明細書原本により裏付けられた優秀な税務・担保指標</strong>:</li>
+<ul>
+<li><strong>固都税年税額の確定</strong>: 年間 <strong>¥431,300</strong>（固定資産税 ¥370,100 ＋ 都市計画税 ¥61,200 ／ 満室年収比 7.38%）。</li>
+<li><strong>土地4筆（計314.98㎡）すべてに『小規模住宅用地』の減額特例が100%適用済</strong>: 居住用床面積比率（68.94%）要件を満たすため、土地4筆すべてが<strong>固定資産税課税標準 1/6、都市計画税 1/3</strong>の特例適用を受けていることを課税明細書原本で実証しました。</li>
+<li><strong>固定資産税評価額合計 ¥47,281,812（売出価格比 59.1%）</strong>: 土地評価額 <strong>¥25,008,141（52.89%）</strong> ＋ 家屋評価額 <strong>¥22,273,671（47.11%）</strong> であり、鉄骨造の簡便法耐用年数（<strong>24年</strong>）にわたり<strong>年間 ¥1,570,277 の安定的な減価償却費計上</strong>が可能です。</li>
+</ul>
+<li><strong>1階大手学習塾フランチャイズ（ITTO個別指導学院）＋ 住居4戸（2LDK・1LDK）のハイブリッド構成</strong>:</li>
+<ul>
+<li>1階店舗区画（87.72㎡）には大手個別指導塾<strong>『ITTO個別指導学院 春日部東校』</strong>が入居し、住居区画は<strong>2LDK（60.87㎡・南向き）×2戸 ＋ 1LDK（35.70㎡・北東向き）×2戸</strong>で構成され、2021年6月以降5年以上にわたりポータル上の空室募集がゼロ（長期定着稼働）です。</li>
+</ul>
+<li><strong>法人取得時の財務健全性</strong>:</li>
+<ul>
+<li>売出価格8,000万円（LTV 85%、金利2.2%、融資期間25年）において、<strong>債務償還年数 21.9年</strong>、<strong>ICR 1.9倍</strong>、<strong>固定資産税評価額ベースLTV 170.94%</strong>、<strong>帳簿上税引前当期純利益 ¥2,039,529/年</strong>を達成する優良収益物件です。</li>
+</ul>
+</ol>
+<hr>
+<h3 id="1-2-主要財務指標サマリー">1.2 主要財務指標サマリー<a class="anchor" href="#1-2-主要財務指標サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-right">数値</th><th class="ta-left">備考</th></tr></thead><tbody><tr><td class="ta-left"><strong>物件価格</strong></td><td class="ta-right"><strong>8,000.0 万円</strong></td><td class="ta-left">税込（建物消費税含む）</td></tr><tr><td class="ta-left"><strong>現況年収入 / 満室想定年収入</strong></td><td class="ta-right"><strong>584.4 万円</strong></td><td class="ta-left">月収 48.7 万円 / 満室賃貸中（全5戸稼働）</td></tr><tr><td class="ta-left"><strong>現況 / 満室表面利回り</strong></td><td class="ta-right"><strong>7.31%</strong></td><td class="ta-left">マイソク記載値と完全一致</td></tr><tr><td class="ta-left"><strong>実質年間経費 (OPEX)</strong></td><td class="ta-right"><strong>131.2 万円</strong></td><td class="ta-left">実質経費率: <strong>22.46%</strong>（令和8年度固都税実額 ¥431,300 反映）</td></tr><tr><td class="ta-left"><strong>純営業収益 (NOI)</strong></td><td class="ta-right"><strong>453.2 万円</strong></td><td class="ta-left">NOI利回り (Cap Rate): <strong>5.66%</strong></td></tr><tr><td class="ta-left"><strong>積算価格（売主マイソク基準 15万円/㎡）</strong></td><td class="ta-right"><strong>5,703.2 万円</strong></td><td class="ta-left">土地 3,086.8万 ＋ 建物 2,616.4万（価格比 <strong>71.3%</strong>）</td></tr><tr><td class="ta-left"><strong>積算価格（国税庁標準 24万円/㎡基準）</strong></td><td class="ta-right"><strong>7,412.7 万円</strong></td><td class="ta-left">土地 3,086.8万 ＋ 建物 4,325.9万（価格比 <strong>92.7%</strong>）</td></tr><tr><td class="ta-left"><strong>令和8年度 固定資産税評価額合計</strong></td><td class="ta-right"><strong>4,728.2 万円</strong></td><td class="ta-left">土地 2,500.8万(52.89%) ＋ 家屋 2,227.4万(47.11%) — <strong>公募原本確認済</strong></td></tr><tr><td class="ta-left"><strong>年間元利返済額 (ADS)</strong></td><td class="ta-right"><strong>353.9 万円</strong></td><td class="ta-left">借入 6,800万円 (LTV 85.0%), 金利 2.2%, 期間 <strong>25年</strong></td></tr><tr><td class="ta-left"><strong>年間キャッシュフロー (満室税引前)</strong></td><td class="ta-right"><strong>99.3 万円</strong></td><td class="ta-left">空室率5%控除後の安定稼働ベース税引前CF: <strong>76.6 万円</strong></td></tr><tr><td class="ta-left"><strong>DSCR (返済余裕率)</strong></td><td class="ta-right"><strong>1.28倍</strong></td><td class="ta-left">満室NOI基準（財務諸表ベース <strong>1.40倍</strong> — 安全基準1.20倍超）</td></tr><tr><td class="ta-left"><strong>損益分岐稼働率 (BEP)</strong></td><td class="ta-right"><strong>83.0%</strong></td><td class="ta-left">許容空室数: <strong>0.8 室 / 全5室</strong></td></tr><tr><td class="ta-left"><strong>初期必要自己資金</strong></td><td class="ta-right"><strong>1,876.6 万円</strong></td><td class="ta-left">頭金(1,200.0万) + 諸費用(676.6万)</td></tr><tr><td class="ta-left"><strong>CCR (自己資本利回り)</strong></td><td class="ta-right"><strong>5.29%</strong></td><td class="ta-left">満室CFベース（空室5%控除後ROI: <strong>4.35%</strong>）</td></tr></tbody></table></div>
+<hr>
+<h3 id="1-3-法人取得時の単体決算税務指標サマリー">1.3 法人取得時の単体決算・税務指標サマリー<a class="anchor" href="#1-3-法人取得時の単体決算税務指標サマリー" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">項目</th><th class="ta-center">売出価格 8,000万円 基準</th><th class="ta-center">指値目標 7,300万円 基準</th><th class="ta-left">財務・税務評価</th></tr></thead><tbody><tr><td class="ta-left"><strong>1. 帳簿上税引前当期純利益</strong></td><td class="ta-center"><strong>¥2,039,529</strong></td><td class="ta-center"><strong>¥2,305,820</strong></td><td class="ta-left">減価償却費（年¥1.57M）計上後も安定黒字</td></tr><tr><td class="ta-left"><strong>2. 税引前手残りCF（空室5%控除後）</strong></td><td class="ta-center"><strong>¥766,212</strong></td><td class="ta-center"><strong>¥1,075,844</strong></td><td class="ta-left">満室時は ¥992,946（指値時は満室 ¥1,302,578）</td></tr><tr><td class="ta-left">・<strong>推定法人税額 (実効税率25%)</strong></td><td class="ta-center"><strong>¥509,882</strong></td><td class="ta-center"><strong>¥576,455</strong></td><td class="ta-left">高い建物評価比率(47.11%)による節税効果</td></tr><tr><td class="ta-left">・<strong>税引後手残りCF</strong></td><td class="ta-center"><strong>¥256,329</strong></td><td class="ta-center"><strong>¥499,389</strong></td><td class="ta-left">指値7,300万円時に税引後CFが約2倍へ拡大</td></tr><tr><td class="ta-left"><strong>3. 債務償還年数 (年)</strong></td><td class="ta-center"><strong>21.9年</strong></td><td class="ta-center"><strong>18.9年</strong></td><td class="ta-left">融資期間(25年)・償却年数(24年)以内を達成</td></tr><tr><td class="ta-left"><strong>4. ICR (Interest Coverage Ratio)</strong></td><td class="ta-center"><strong>1.9倍</strong></td><td class="ta-center"><strong>2.1倍</strong></td><td class="ta-left">金融機関優良基準(1.5倍以上)をクリア</td></tr><tr><td class="ta-left"><strong>5. 負債返済割合 (DSCR)</strong></td><td class="ta-center"><strong>1.4倍 (満室1.28)</strong></td><td class="ta-center"><strong>1.6倍 (満室1.40)</strong></td><td class="ta-left">金利上昇ストレステスト耐性良好</td></tr><tr><td class="ta-left"><strong>6. LTV (固定資産税評価額に基づく)</strong></td><td class="ta-center"><strong>170.94%</strong></td><td class="ta-center"><strong>155.98%</strong></td><td class="ta-left">公的評価額(¥47.28M)に基づく強固な担保力</td></tr></tbody></table></div>
+<hr>
+<h2 id="2-物件概要および令和8年度課税明細書の精査-property-tax-assessment-audit">2. 物件概要および令和8年度課税明細書の精査 (Property &amp; Tax Assessment Audit)<a class="anchor" href="#2-物件概要および令和8年度課税明細書の精査-property-tax-assessment-audit" aria-label="link">#</a></h2>
+<h3 id="2-1-土地4筆の課税明細内訳全筆小規模住宅用地特例適用を確認">2.1 土地4筆の課税明細内訳（全筆「小規模住宅用地」特例適用を確認）<a class="anchor" href="#2-1-土地4筆の課税明細内訳全筆小規模住宅用地特例適用を確認" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">所在地番</th><th class="ta-center">登記/現況地目</th><th class="ta-right">地積 (㎡)</th><th class="ta-right">令和8年度 価格(評価額)</th><th class="ta-right">固税 本則課税標準額 (1/6特例)</th><th class="ta-right">都計税 本則課税標準額 (1/3特例)</th><th class="ta-right">固税相当税額 (1.4%)</th><th class="ta-right">都計税相当税額 (0.2%)</th></tr></thead><tbody><tr><td class="ta-left"><strong>粕壁東三丁目 1750-2</strong></td><td class="ta-center">宅地 / 宅地</td><td class="ta-right">65.95 ㎡</td><td class="ta-right"><strong>¥5,236,156</strong></td><td class="ta-right">¥872,694</td><td class="ta-right">¥1,745,388</td><td class="ta-right">¥12,217</td><td class="ta-right">¥3,490</td></tr><tr><td class="ta-left"><strong>粕壁東三丁目 1750-4</strong></td><td class="ta-center">宅地 / 宅地</td><td class="ta-right">161.98 ㎡</td><td class="ta-right"><strong>¥12,860,564</strong></td><td class="ta-right">¥2,143,427</td><td class="ta-right">¥4,286,854</td><td class="ta-right">¥30,007</td><td class="ta-right">¥8,573</td></tr><tr><td class="ta-left"><strong>粕壁東三丁目 1750-5</strong></td><td class="ta-center">宅地 / 宅地</td><td class="ta-right">72.72 ㎡</td><td class="ta-right"><strong>¥5,773,677</strong></td><td class="ta-right">¥962,279</td><td class="ta-right">¥1,924,559</td><td class="ta-right">¥13,471</td><td class="ta-right">¥3,849</td></tr><tr><td class="ta-left"><strong>粕壁東三丁目 1751-1</strong></td><td class="ta-center">宅地 / 宅地</td><td class="ta-right">14.33 ㎡</td><td class="ta-right"><strong>¥1,137,744</strong></td><td class="ta-right">¥189,624</td><td class="ta-right">¥379,248</td><td class="ta-right">¥2,654</td><td class="ta-right">¥758</td></tr><tr class="total-row"><td class="ta-left"><strong>土地合計 (4筆)</strong></td><td class="ta-center"><strong>小規模住宅用地</strong></td><td class="ta-right"><strong>314.98 ㎡</strong></td><td class="ta-right"><strong>¥25,008,141</strong></td><td class="ta-right"><strong>¥4,168,024</strong></td><td class="ta-right"><strong>¥8,336,049</strong></td><td class="ta-right"><strong>¥58,349</strong></td><td class="ta-right"><strong>¥16,670</strong></td></tr></tbody></table></div>
+<h3 id="2-2-家屋建物2区分の課税明細内訳家屋番号-1750-4--平成26年築">2.2 家屋（建物）2区分の課税明細内訳（家屋番号 <code>1750-4--</code>、平成26年築）<a class="anchor" href="#2-2-家屋建物2区分の課税明細内訳家屋番号-1750-4--平成26年築" aria-label="link">#</a></h3>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">種類（用途区分）</th><th class="ta-center">構造</th><th class="ta-right">登記床面積</th><th class="ta-right">課税床面積 (㎡)</th><th class="ta-center">面積比率</th><th class="ta-right">令和8年度 価格(評価額)</th><th class="ta-right">㎡単価</th><th class="ta-right">固税相当税額 (1.4%)</th><th class="ta-right">都計税相当税額 (0.2%)</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 教習所・住宅</strong></td><td class="ta-center">非木造</td><td class="ta-right">282.41 ㎡</td><td class="ta-right"><strong>194.69 ㎡</strong></td><td class="ta-center"><strong>68.94%</strong></td><td class="ta-right"><strong>¥13,911,178</strong></td><td class="ta-right">¥71,453/㎡</td><td class="ta-right">¥194,756</td><td class="ta-right">¥27,822</td></tr><tr><td class="ta-left"><strong>② 教習所・店舗</strong></td><td class="ta-center">非木造</td><td class="ta-right">—</td><td class="ta-right"><strong>87.72 ㎡</strong></td><td class="ta-center"><strong>31.06%</strong></td><td class="ta-right"><strong>¥8,362,493</strong></td><td class="ta-right">¥95,332/㎡</td><td class="ta-right">¥117,074</td><td class="ta-right">¥16,724</td></tr><tr class="total-row"><td class="ta-left"><strong>家屋合計</strong></td><td class="ta-center"><strong>鉄骨造2階建</strong></td><td class="ta-right"><strong>282.41 ㎡</strong></td><td class="ta-right"><strong>282.41 ㎡</strong></td><td class="ta-center"><strong>100.00%</strong></td><td class="ta-right"><strong>¥22,273,671</strong></td><td class="ta-right"><strong>¥78,870/㎡</strong></td><td class="ta-right"><strong>¥311,830</strong></td><td class="ta-right"><strong>¥44,546</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="3-立地商圏および春日部駅高架化再開発の恩恵-location-urban-redevelopment">3. 立地・商圏および春日部駅高架化再開発の恩恵 (Location &amp; Urban Redevelopment)<a class="anchor" href="#3-立地商圏および春日部駅高架化再開発の恩恵-location-urban-redevelopment" aria-label="link">#</a></h2>
+<ul>
+<li><strong>2路線急行停車『春日部』駅 徒歩9分のフラットアプローチ</strong>（東武スカイツリーライン・東武アーバンパークライン）。</li>
+<li><strong>春日部駅付近連続立体交差事業（高架化プロジェクト）</strong>により、東西市街地の一体化と東口商業地域（容積率400%）の地価上昇が期待されます。</li>
+<li><strong>市立粕壁小学校交差点前の角地</strong>であり、1階テナント『ITTO個別指導学院 春日部東校』の集客力と敷地内平置き駐車場（5〜6台以上）の競争力が際立ちます。</li>
+</ul>
+<hr>
+<h2 id="4-積算価格および担保評価の検証-reproduction-cost-valuation">4. 積算価格および担保評価の検証 (Reproduction Cost &amp; Valuation)<a class="anchor" href="#4-積算価格および担保評価の検証-reproduction-cost-valuation" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">シナリオ</th><th class="ta-right">採用再調達単価 (㎡)</th><th class="ta-right">建物積算評価</th><th class="ta-right">土地積算評価 (路線価98D)</th><th class="ta-right">積算価格合計</th><th class="ta-right">売出価格(8,000万)比</th><th class="ta-left">金融機関評価の解釈</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 売主マイソク基準</strong> (<code>seller_maisoku_150k</code>)</td><td class="ta-right">150,000 円/㎡</td><td class="ta-right">2,703.7 万円 <em>(21年基準 2,616.4万)</em></td><td class="ta-right">3,086.8 万円</td><td class="ta-right"><strong>5,790.5 万円</strong> <em>(5,703.2万)</em></td><td class="ta-right"><strong>72.4%</strong> <em>(71.3%)</em></td><td class="ta-left">木造並み単価(15万円/㎡)による超保守的下限値</td></tr><tr><td class="ta-left"><strong>② 銀行保守基準</strong> (<code>bank_conservative</code>)</td><td class="ta-right">180,000 円/㎡</td><td class="ta-right">3,244.4 万円</td><td class="ta-right">3,086.8 万円</td><td class="ta-right"><strong>6,331.2 万円</strong></td><td class="ta-right"><strong>79.1%</strong></td><td class="ta-left">地銀・信金の保守的な担保評価目線</td></tr><tr><td class="ta-left"><strong>③ 国税庁標準鉄骨基準</strong> (<code>nta_standard</code>)</td><td class="ta-right">240,000 円/㎡</td><td class="ta-right">4,325.9 万円</td><td class="ta-right">3,086.8 万円</td><td class="ta-right"><strong>7,412.7 万円</strong></td><td class="ta-right"><strong>92.7%</strong></td><td class="ta-left">鉄骨造(S造)標準単価反映時、<strong>売出価格の92.7%をカバー</strong></td></tr><tr><td class="ta-left"><strong>④ 現行建築費相場基準</strong> (<code>seller_market</code>)</td><td class="ta-right">320,000 円/㎡</td><td class="ta-right">5,767.8 万円</td><td class="ta-right">3,086.8 万円</td><td class="ta-right"><strong>8,854.6 万円</strong></td><td class="ta-right"><strong>110.7%</strong></td><td class="ta-left">2026年現在の鉄骨造再建築原価を反映</td></tr></tbody></table></div>
+<hr>
+<h2 id="5-レントロール復元およびlifull-homes空室回転率分析-rent-roll-vacancy-analysis">5. レントロール復元およびLIFULL HOME'S空室・回転率分析 (Rent Roll &amp; Vacancy Analysis)<a class="anchor" href="#5-レントロール復元およびlifull-homes空室回転率分析-rent-roll-vacancy-analysis" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-center">区画 / 号室</th><th class="ta-center">階層 / 向き</th><th class="ta-center">用途 / 間取り</th><th class="ta-center">専有面積 (㎡)</th><th class="ta-center">過去HOME'S募集実績</th><th class="ta-right">現況推定月額総収入 (共益費・駐車場・税込)</th><th class="ta-right">年換算収入 (円)</th><th class="ta-center">収入比率 (%)</th><th class="ta-left">検証ステータス</th></tr></thead><tbody><tr><td class="ta-center"><strong>1F 店舗</strong></td><td class="ta-center">1F / 南西角</td><td class="ta-center"><strong>店舗（ITTO個別指導学院）</strong></td><td class="ta-center"><strong>87.72 ㎡</strong></td><td class="ta-center">非公開（長期入居）</td><td class="ta-right"><strong>¥192,000 / 月</strong></td><td class="ta-right">¥2,304,000</td><td class="ta-center"><strong>39.4%</strong></td><td class="ta-left">面積<strong>VERIFIED</strong> / 賃料<strong>ESTIMATED</strong></td></tr><tr><td class="ta-center"><strong>101号室</strong></td><td class="ta-center">1F / 南向き</td><td class="ta-center">住居 / <strong>2LDK</strong></td><td class="ta-center"><strong>60.87 ㎡</strong></td><td class="ta-center">募集履歴なし（長期）</td><td class="ta-right"><strong>¥86,000 / 月</strong></td><td class="ta-right">¥1,032,000</td><td class="ta-center"><strong>17.7%</strong></td><td class="ta-left"><strong>ESTIMATED</strong></td></tr><tr><td class="ta-center"><strong>201号室</strong></td><td class="ta-center">2F / 南向き</td><td class="ta-center">住居 / <strong>2LDK</strong> (<code>u-33279661</code>)</td><td class="ta-center"><strong>60.87 ㎡</strong></td><td class="ta-center"><strong>¥85,000</strong> (2021年5〜6月)</td><td class="ta-right"><strong>¥87,000 / 月</strong></td><td class="ta-right">¥1,044,000</td><td class="ta-center"><strong>17.9%</strong></td><td class="ta-left"><strong>COLLECTED</strong></td></tr><tr><td class="ta-center"><strong>202号室</strong></td><td class="ta-center">2F / 北東向き</td><td class="ta-center">住居 / <strong>1LDK</strong> (<code>u-33279663</code>)</td><td class="ta-center"><strong>35.70 ㎡</strong></td><td class="ta-center"><strong>¥59,000</strong> (2018年7〜11月)</td><td class="ta-right"><strong>¥61,000 / 月</strong></td><td class="ta-right">¥732,000</td><td class="ta-center"><strong>12.5%</strong></td><td class="ta-left"><strong>COLLECTED</strong></td></tr><tr><td class="ta-center"><strong>203号室</strong></td><td class="ta-center">2F / 北東向き</td><td class="ta-center">住居 / <strong>1LDK</strong></td><td class="ta-center"><strong>35.70 ㎡</strong></td><td class="ta-center">募集履歴なし（長期）</td><td class="ta-right"><strong>¥61,000 / 月</strong></td><td class="ta-right">¥732,000</td><td class="ta-center"><strong>12.5%</strong></td><td class="ta-left"><strong>ESTIMATED</strong></td></tr><tr class="total-row"><td class="ta-center"><strong>合計 (5戸)</strong></td><td class="ta-center"><strong>1F〜2F</strong></td><td class="ta-center"><strong>店舗1＋住居4</strong></td><td class="ta-center"><strong>280.86 ㎡</strong> <em>(共用1.55㎡別)</em></td><td class="ta-center">—</td><td class="ta-right"><strong>¥487,000 / 月</strong></td><td class="ta-right"><strong>¥5,844,000</strong></td><td class="ta-center"><strong>100.0%</strong></td><td class="ta-left"><strong>総額 VERIFIED / 個別レントロール要徴求</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="6-運営経費opexの正規化および純営業収益noi分析-opex-noi-modeling">6. 運営経費(OPEX)の正規化および純営業収益(NOI)分析 (OPEX &amp; NOI Modeling)<a class="anchor" href="#6-運営経費opexの正規化および純営業収益noi分析-opex-noi-modeling" aria-label="link">#</a></h2>
+<div class="table-wrap"><table><thead><tr><th class="ta-left">経費項目</th><th class="ta-right">年間金額 (円)</th><th class="ta-center">満室収入比</th><th class="ta-left">算出根拠および検証ステータス</th></tr></thead><tbody><tr><td class="ta-left"><strong>① 固定資産税・都市計画税 (固都税)</strong></td><td class="ta-right"><strong>¥431,300</strong></td><td class="ta-center"><strong>7.38%</strong></td><td class="ta-left"><strong>[VERIFIED]</strong> 令和8年度 納税通知書実額（固税 ¥370,100 ＋ 都計税 ¥61,200）</td></tr><tr><td class="ta-left"><strong>② 賃貸管理委託手数料 (PM Fee)</strong></td><td class="ta-right"><strong>¥315,600</strong></td><td class="ta-center"><strong>5.40%</strong></td><td class="ta-left"><strong>[ESTIMATED]</strong> 年間賃料の5.0%＋消費税10%</td></tr><tr><td class="ta-left"><strong>③ 共用部清掃・定期点検・水道光熱費</strong></td><td class="ta-right"><strong>¥240,000</strong></td><td class="ta-center"><strong>4.11%</strong></td><td class="ta-left"><strong>[ESTIMATED]</strong> 月額20,000円（エレベーター無し・本下水のため低コスト）</td></tr><tr><td class="ta-left"><strong>④ 日常修繕費・原状回復引当金</strong></td><td class="ta-right"><strong>¥175,300</strong></td><td class="ta-center"><strong>3.00%</strong></td><td class="ta-left"><strong>[ESTIMATED]</strong> 年間収入の3.0%</td></tr><tr><td class="ta-left"><strong>⑤ 火災・地震・水災保険料（年換算）</strong></td><td class="ta-right"><strong>¥150,200</strong></td><td class="ta-center"><strong>2.57%</strong></td><td class="ta-left"><strong>[ESTIMATED]</strong> 鉄骨造282.41㎡ 水災特約付帯想定</td></tr><tr class="total-row"><td class="ta-left"><strong>実質年間運営経費 合計 (Total OPEX)</strong></td><td class="ta-right"><strong>¥1,312,400</strong></td><td class="ta-center"><strong>22.46%</strong></td><td class="ta-left"><strong>満室時NOI: ¥4,531,600（NOI利回り 5.66%）</strong></td></tr></tbody></table></div>
+<hr>
+<h2 id="7-資金調達キャッシュフローおよび金利ストレステスト-financing-stress-test">7. 資金調達・キャッシュフローおよび金利ストレステスト (Financing &amp; Stress Test)<a class="anchor" href="#7-資金調達キャッシュフローおよび金利ストレステスト-financing-stress-test" aria-label="link">#</a></h2>
+<ul>
+<li>借入額 <strong>6,800万円（LTV 85.0%）</strong>、金利 <strong>2.20%</strong>、融資期間 <strong>25年</strong> → 年間元利返済額（ADS）<strong>¥3,538,654</strong>。</li>
+<li>金利が <strong>3.20%（+1.0%p）</strong> まで上昇した場合でも満室時 <strong>+55.5万円/年</strong>、空室率5%時 <strong>+32.8万円/年</strong> の黒字キャッシュフローを維持します。</li>
+</ul>
+<hr>
+<h2 id="8-長期保有税務効果および10年15年イグジット分析-long-term-tax-exit-analysis">8. 長期保有税務効果および10年〜15年イグジット分析 (Long-Term Tax &amp; Exit Analysis)<a class="anchor" href="#8-長期保有税務効果および10年15年イグジット分析-long-term-tax-exit-analysis" aria-label="link">#</a></h2>
+<ul>
+<li><strong>債務償還年数（21.9年）＜ 減価償却年数（24.0年）＜ 融資年数（25.0年）</strong> のゴールデンクロスを達成。</li>
+<li><strong>指値交渉（7,300万円〜7,500万円）</strong> により表面利回り <strong>7.79%〜8.01%</strong>、債務償還年数 <strong>18.9年〜19.8年</strong> へとさらに向上します。</li>
+</ul>
+<hr>
+<h2 id="9-ハザード建物エンジニアリングおよび法的リスク診断-hazard-engineering-due-diligence">9. ハザード・建物エンジニアリングおよび法的リスク診断 (Hazard &amp; Engineering Due Diligence)<a class="anchor" href="#9-ハザード建物エンジニアリングおよび法的リスク診断-hazard-engineering-due-diligence" aria-label="link">#</a></h2>
+<ul>
+<li>春日部市洪水ハザードマップ（L2）では浸水深0.5m〜3.0m未満想定区域のため、<strong>水災補償特約付帯の火災保険加入（OPEX反映済）</strong>を必須とします。</li>
+<li>築12.3年経過に伴い、陸屋根防水トップコートおよび外壁シーリングの過去修繕履歴を確認します。</li>
+</ul>
+<hr>
+<h2 id="10-総合意思決定スコアカードおよび仲介会社への必須確認事項-scorecard-action-plan">10. 総合意思決定スコアカードおよび仲介会社への必須確認事項 (Scorecard &amp; Action Plan)<a class="anchor" href="#10-総合意思決定スコアカードおよび仲介会社への必須確認事項-scorecard-action-plan" aria-label="link">#</a></h2>
+<ul>
+<li><strong>総合評価スコア</strong>: <strong>25.3 / 30.0点（ランク A-：7,300万〜7,500万円への指値交渉およびレントロール・店舗契約書精査を条件に推奨）</strong></li>
+<li><strong>仲介会社（株式会社リブライフマーケティング）への必須確認事項</strong>:</li>
+<ol>
+<li><strong>詳細レントロール</strong> および <strong>別紙ランニングコスト明細</strong> の開示請求。</li>
+<li><strong>1階店舗（ITTO個別指導学院 春日部東校）の賃貸借契約書写し</strong> の確認。</li>
+<li><strong>建築確認済証・検査済証</strong> の有無および<strong>過去の修繕履歴</strong>の確認。</li>
+</ol>
+</ul>
+  </article>
+</div>
+
+<button id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2fe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#64748b',
+      fontFamily: 'Pretendard, sans-serif', fontSize: '13px'
+    }
+  });
+</script>
+<script>
+// Language preference auto-redirect
+(function() {
+  const PAGE_LANG = 'ja';
+  const savedLang = localStorage.getItem('myrealbiz_lang');
+  if (savedLang && savedLang !== PAGE_LANG) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('stay')) {
+      const target = PAGE_LANG === 'ko' ? './report_ja.html' : './report.html';
+      window.location.replace(target);
+    }
+  }
+})();
+
+// Math
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.querySelector('.article'), {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$',  right: '$',  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+// Reading progress + back-to-top
+const bar = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// TOC scroll-spy
+const links = [...document.querySelectorAll('.sidebar a')];
+const byId = new Map(links.map(a => [a.dataset.target, a]));
+const targets = links
+  .map(a => document.getElementById(a.dataset.target))
+  .filter(Boolean);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.remove('active'));
+    const a = byId.get(e.target.id);
+    if (a) {
+      a.classList.add('active');
+      const box = a.closest('.sidebar-scroll');
+      if (box && window.innerWidth > 1080) {
+        const top = a.offsetTop - box.clientHeight / 2;
+        box.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+targets.forEach(t => spy.observe(t));
+</script>
+</body>
+</html>

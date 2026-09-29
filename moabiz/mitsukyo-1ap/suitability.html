@@ -76,7 +76,7 @@
         </div>
         <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" data-t="banner_title">미츠쿄 1AP 사사노다이 | 결산서 적합성 정밀 분석</h1>
         <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl" data-t="banner_desc">
-          매매가(1.347억 엔 vs 네고가 1.27억 엔), 융자기간(열화대책등급 3급 30년 vs 35년)을 조정하면 <strong class="text-amber-400">결산서 디자인형 7대 지표</strong> 및 <strong class="text-emerald-400">3대 가중 연수(감가상각·융자·상환연수)</strong>의 개선 여부를 즉각 검증하고, <strong class="text-sky-400">20~30년 장기 캐시플로우 및 매각년차별 4대 엑시트 지표</strong>를 실시간으로 산출합니다.
+          매매가(1.347억 엔 vs 네고가 1.24억 엔), 융자기간(열화대책등급 3급 30년 vs 35년)을 조정하면 <strong class="text-amber-400">결산서 디자인형 7대 지표</strong> 및 <strong class="text-emerald-400">3대 가중 연수(감가상각·융자·상환연수)</strong>의 개선 여부를 즉각 검증하고, <strong class="text-sky-400">20~30년 장기 캐시플로우 및 매각년차별 4대 엑시트 지표</strong>를 실시간으로 산출합니다.
         </p>
       </div>
       <div class="flex items-center gap-3 shrink-0 no-print">
@@ -84,7 +84,7 @@
           기본값 복원 (1.347억엔)
         </button>
         <button onclick="applyTargetPrice()" class="px-4 py-2 rounded-xl text-xs font-semibold text-amber-300 hover:text-white bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition">
-          네고가 1.27억엔 적용
+          네고가 1.24억엔 적용
         </button>
         <button onclick="window.print()" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-emerald-400 hover:from-amber-300 hover:to-emerald-300 shadow-lg shadow-amber-500/20 transition flex items-center gap-2">
           <span>🖨️</span>
@@ -225,7 +225,7 @@
         </div>
         <div>
           <label class="text-slate-400 block mb-1">운영경비율 (経費率 %)</label>
-          <input type="number" id="propOpexRatio" step="0.1" value="20.00" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propOpexRatio" step="0.1" value="19.80" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">상정 입주율 (入居率 %)</label>
@@ -237,11 +237,11 @@
         </div>
         <div>
           <label class="text-slate-400 block mb-1">고정자산세 토지평가</label>
-          <input type="number" id="propTaxLand" value="52857000" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propTaxLand" value="36985271" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">고정자산세 건물평가</label>
-          <input type="number" id="propTaxBldg" value="32688000" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
+          <input type="number" id="propTaxBldg" value="26627700" onchange="recalculateAll()" class="w-full bg-slate-800 border border-slate-700 rounded px-2.5 py-1 font-mono text-white">
         </div>
         <div>
           <label class="text-slate-400 block mb-1">토지면적 (㎡) / 노선가</label>
@@ -271,7 +271,7 @@
           <p class="text-xs text-slate-400" data-t="p1_subtitle">스프레드시트 '결산서디자인형검토' 시트 기준 3열 착지 비교 (물건 자체 | 모아비즈 4기 현재 | 매입 후 착지)</p>
         </div>
         <div id="verdictBadgeOverall" class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-          ✅ 적합 / 최우선 우량 편입 대상 (ICR 1.04배 돌파 & LTV ▲41.7%p 개선)
+          ✅ 적합 / 조건부 편입 (ICR 1.05배 돌파·R8 공과증명서 LTV ▲15.6%p 개선 / 옹벽 리스크 반영 1.24억 네고 필수)
         </div>
       </div>
 
@@ -778,8 +778,8 @@
       document.getElementById('propOpexRatio').value = 19.8;
       document.getElementById('propOccRatio').value = 93.0;
       document.getElementById('propTaxRate').value = 25.0;
-      document.getElementById('propTaxLand').value = 52857000;
-      document.getElementById('propTaxBldg').value = 32688000;
+      document.getElementById('propTaxLand').value = 36985271;
+      document.getElementById('propTaxBldg').value = 26627700;
       document.getElementById('propLandSqm').value = 397.42;
       document.getElementById('propRoadPrice').value = 190000;
       document.getElementById('propFloorSqm').value = 242.07;
@@ -805,8 +805,8 @@
     }
 
     function applyTargetPrice() {
-      document.getElementById('propPrice').value = 127000000;
-      document.getElementById('inpLoanAmount').value = 107950000;
+      document.getElementById('propPrice').value = 124000000;
+      document.getElementById('inpLoanAmount').value = 105400000;
       document.getElementById('rngLoanLtv').value = 85;
       document.getElementById('dispLtvBadge').textContent = "85.0% LTV";
       recalculateAll();

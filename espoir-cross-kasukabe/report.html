@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>수익형 부동산 10대 챕터 정밀 투자분석 보고서 (Data-Driven Report Template)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./data_loader.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', 'Pretendard', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .prose-report h1 { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; }
+    .prose-report h2 { font-size: 1.2rem; font-weight: 700; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose-report h3 { font-size: 1.05rem; font-weight: 700; color: #334155; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .prose-report p { font-size: 0.925rem; line-height: 1.75; color: #334155; margin-bottom: 0.85rem; }
+    .prose-report ul, .prose-report ol { padding-left: 1.4rem; margin-bottom: 1rem; font-size: 0.925rem; color: #334155; }
+    .prose-report ul { list-style-type: disc; }
+    .prose-report ol { list-style-type: decimal; }
+    .prose-report li { margin-bottom: 0.35rem; line-height: 1.65; }
+    .prose-report table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.825rem; }
+    .prose-report th { background: #f1f5f9; color: #1e293b; font-weight: 700; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e1; text-align: left; }
+    .prose-report td { padding: 0.55rem 0.75rem; border: 1px solid #e2e8f0; color: #334155; }
+    .prose-report tr:nth-child(even) td { background: #f8fafc; }
+    .prose-report blockquote { border-left: 4px solid #0284c7; background: #f0f9ff; padding: 0.85rem 1rem; border-radius: 0.5rem; margin: 1rem 0; font-size: 0.875rem; }
+    @media print { .no-print { display: none !important; } }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
+
+  <!-- Top Navigation -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow border-b border-slate-800 no-print">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-amber-300 border border-slate-700 transition">
+          ← 시뮬레이터 & 수집현황 대시보드
+        </a>
+        <a href="../datasheet.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-sky-300 border border-slate-700 transition">
+          📊 스프레드쉬트 저장소
+        </a>
+        <span id="hdrReportTitle" class="text-sm font-bold text-white truncate max-w-md"></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-0.5">
+          <button id="btnKO" onclick="setReportLang('ko')" class="px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950">한국어 (KO)</button>
+          <button id="btnJA" onclick="setReportLang('ja')" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white">日本語 (JA)</button>
+        </div>
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700">
+          🖨️ 인쇄 / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Left Sidebar TOC & Collection Audit Mini Card -->
+    <aside class="lg:col-span-3 space-y-4 no-print">
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm sticky top-20 space-y-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Data Completeness</span>
+          <div class="flex items-baseline justify-between mt-1">
+            <span class="text-xs font-semibold text-slate-700">데이터 수집 완료율</span>
+            <span id="sideCollectionRate" class="text-base font-black font-mono text-emerald-600">-</span>
+          </div>
+          <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden flex mt-1.5">
+            <div id="sideBarCollected" class="bg-emerald-500 h-full" style="width:0%"></div>
+            <div id="sideBarEstimated" class="bg-amber-400 h-full" style="width:0%"></div>
+            <div id="sideBarMissing" class="bg-rose-500 h-full" style="width:0%"></div>
+          </div>
+          <p id="sideAuditCounts" class="text-[11px] text-slate-500 mt-1.5"></p>
+        </div>
+
+        <div class="border-t border-slate-100 pt-3">
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">📑 10대 챕터 목차</h3>
+          <nav id="tocList" class="space-y-1 text-xs"></nav>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Report Container -->
+    <article class="lg:col-span-9 space-y-6">
+      <!-- Report Cover Card -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-800">
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+          <span id="coverPortalBadge" class="px-2.5 py-0.5 text-[11px] font-mono font-bold rounded bg-amber-500/20 text-amber-300 border border-amber-500/30"></span>
+          <span id="coverStageBadge" class="px-2.5 py-0.5 text-[11px] font-mono font-bold rounded bg-sky-500/20 text-sky-300 border border-sky-500/30"></span>
+        </div>
+        <h1 id="coverTitle" class="text-2xl sm:text-3xl font-black tracking-tight"></h1>
+        <p id="coverSubtitle" class="text-xs sm:text-sm text-slate-300 mt-1.5"></p>
+        <div id="coverMetricsStrip" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-5 border-t border-slate-800 text-xs"></div>
+      </div>
+
+      <!-- Missing Data Alert Box (Rendered automatically from Data_Collection_Audit) -->
+      <div id="missingBannerBox" class="bg-rose-50 border-2 border-rose-200 rounded-2xl p-5 hidden">
+        <h3 class="text-sm font-extrabold text-rose-900 flex items-center gap-2 mb-2">
+          <span>🚨</span> 미수집(MISSING) 및 추정(ESTIMATED) 항목 고지 (데이터 저장소 자동 감지)
+        </h3>
+        <p class="text-xs text-rose-800 mb-3">
+          아래 항목은 마이소쿠/물건개요서에 포함되지 않아 아직 원본 서류가 미수집되었거나 표준 산식 추정치가 적용된 항목입니다. 청약(買付) 전 중개사를 통해 반드시 원본을 징구하시기 바랍니다.
+        </p>
+        <div id="missingBannerTags" class="flex flex-wrap gap-1.5"></div>
+      </div>
+
+      <!-- Structured 10 Chapters Container -->
+      <div id="chaptersContainer" class="space-y-6"></div>
+    </article>
+  </main>
+
+  <script>
+    let R_DATA = null;
+    let R_LANG = localStorage.getItem('myrealbiz_lang') || 'ko';
+
+    function mdToHtml(md) {
+      if (!md) return '';
+      let lines = md.split('\n');
+      let out = [];
+      let inTable = false;
+      let tableRows = [];
+
+      function flushTable() {
+        if (!inTable || tableRows.length === 0) return;
+        let h = '<div class="overflow-x-auto"><table><thead><tr>';
+        const headers = tableRows[0];
+        headers.forEach(c => { h += `<th>${inlineMd(c.trim())}</th>`; });
+        h += '</tr></thead><tbody>';
+        const startIdx = (tableRows.length > 1 && tableRows[1].every(c => /^[\s:\-]+$/.test(c))) ? 2 : 1;
+        for (let i = startIdx; i < tableRows.length; i++) {
+          h += '<tr>';
+          tableRows[i].forEach(c => { h += `<td>${inlineMd(c.trim())}</td>`; });
+          h += '</tr>';
+        }
+        h += '</tbody></table></div>';
+        out.push(h);
+        inTable = false;
+        tableRows = [];
+      }
+
+      function inlineMd(s) {
+        return s
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 bg-slate-100 rounded font-mono text-xs">$1</code>')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
+      }
+
+      for (let raw of lines) {
+        let line = raw.trimEnd();
+        if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+          inTable = true;
+          const cells = line.trim().slice(1, -1).split('|');
+          tableRows.push(cells);
+          continue;
+        } else if (inTable) {
+          flushTable();
+        }
+
+        if (line.startsWith('### ')) {
+          out.push(`<h3>${inlineMd(line.slice(4))}</h3>`);
+        } else if (line.startsWith('## ')) {
+          out.push(`<h2>${inlineMd(line.slice(3))}</h2>`);
+        } else if (line.startsWith('# ')) {
+          out.push(`<h1>${inlineMd(line.slice(2))}</h1>`);
+        } else if (line.startsWith('> ')) {
+          out.push(`<blockquote>${inlineMd(line.slice(2))}</blockquote>`);
+        } else if (line.startsWith('- ') || line.startsWith('* ')) {
+          out.push(`<ul><li>${inlineMd(line.slice(2))}</li></ul>`);
+        } else if (line.trim() === '---') {
+          out.push('<hr class="my-4 border-slate-200"/>');
+        } else if (line.trim() !== '') {
+          out.push(`<p>${inlineMd(line)}</p>`);
+        }
+      }
+      if (inTable) flushTable();
+      return out.join('\n').replace(/<\/ul>\n<ul>/g, '\n');
+    }
+
+    async function initReport() {
+      try {
+        const res = await fetch('./data.json', { cache: 'no-store' });
+        if (res.ok) {
+          R_DATA = await res.json();
+          renderReport();
+          return;
+        }
+      } catch (e) {}
+      if (window.__DATASTORE_PAYLOAD__) {
+        R_DATA = window.__DATASTORE_PAYLOAD__;
+        renderReport();
+        return;
+      }
+      setTimeout(() => {
+        if (window.__DATASTORE_PAYLOAD__) {
+          R_DATA = window.__DATASTORE_PAYLOAD__;
+          renderReport();
+        }
+      }, 150);
+    }
+
+    function setReportLang(lang) {
+      R_LANG = lang;
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.getElementById('btnKO').className = lang === 'ko'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      document.getElementById('btnJA').className = lang === 'ja'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      renderReport();
+    }
+
+    function renderReport() {
+      if (!R_DATA) return;
+      const m = R_DATA.master || {};
+      const audits = R_DATA.collection_audit || [];
+      const chapters = R_DATA.chapters || [];
+
+      const total = audits.length || 1;
+      const collected = audits.filter(a => a.status === 'COLLECTED' || a.status === 'VERIFIED').length;
+      const estimated = audits.filter(a => a.status === 'ESTIMATED').length;
+      const missing = audits.filter(a => a.status === 'MISSING').length;
+      const ratePct = ((collected / total) * 100).toFixed(1);
+
+      document.getElementById('sideCollectionRate').textContent = `${ratePct}%`;
+      document.getElementById('sideBarCollected').style.width = `${(collected / total) * 100}%`;
+      document.getElementById('sideBarEstimated').style.width = `${(estimated / total) * 100}%`;
+      document.getElementById('sideBarMissing').style.width = `${(missing / total) * 100}%`;
+      document.getElementById('sideAuditCounts').textContent = `✅ 수집 ${collected} · ⚠️ 추정 ${estimated} · ❌ 미수집 ${missing}`;
+
+      const title = R_LANG === 'ja' ? (m.name_ja || m.name_ko) : m.name_ko;
+      document.title = `${title} | 10대 챕터 정밀 투자분석 보고서`;
+      document.getElementById('hdrReportTitle').textContent = title;
+      document.getElementById('coverPortalBadge').textContent = R_DATA.portal_mode === 'moabiz' ? '🔒 MOABIZ INTERNAL REPORT' : '🌐 STANDARD INVESTMENT REPORT';
+      document.getElementById('coverStageBadge').textContent = `데이터 수집률 ${ratePct}% (${m.data_stage_badge || 'AUDIT'})`;
+      document.getElementById('coverTitle').textContent = title;
+      document.getElementById('coverSubtitle').textContent = `${m.address_road || ''} · ${m.structure_display || ''} · ${m.total_units || 0}세대`;
+
+      document.getElementById('coverMetricsStrip').innerHTML = `
+        <div><span class="text-slate-400 block">매매가격</span><strong class="text-base font-mono text-white">${m.price_display_ko || '-'}</strong></div>
+        <div><span class="text-slate-400 block">만실 표면 / Cap Rate</span><strong class="text-base font-mono text-emerald-400">${m.gross_yield_full_pct || '-'}% / ${m.cap_rate_full_pct || '-'}%</strong></div>
+        <div><span class="text-slate-400 block">DSCR / 손익분기</span><strong class="text-base font-mono text-sky-400">${m.dscr || '-'}x / ${m.breakeven_occ_pct || '-'}%</strong></div>
+        <div><span class="text-slate-400 block">종합 평점</span><strong class="text-base font-mono text-amber-400">${m.score_total || '-'} / 30 (${m.verdict_short || '-'})</strong></div>
+      `;
+
+      const missingItems = audits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED');
+      const bannerBox = document.getElementById('missingBannerBox');
+      if (missingItems.length > 0) {
+        bannerBox.classList.remove('hidden');
+        document.getElementById('missingBannerTags').innerHTML = missingItems.map(a => {
+          const cls = a.status === 'MISSING' ? 'bg-rose-200/80 text-rose-900 border-rose-300' : 'bg-amber-200/80 text-amber-900 border-amber-300';
+          const icon = a.status === 'MISSING' ? '❌ 미수집' : '⚠️ 추정';
+          return `<span class="px-2.5 py-1 rounded-lg border text-xs font-semibold ${cls}">${icon}: ${R_LANG === 'ja' ? (a.item_name_ja || a.item_name_ko) : a.item_name_ko}</span>`;
+        }).join('');
+      } else {
+        bannerBox.classList.add('hidden');
+      }
+
+      // Render chapters
+      document.getElementById('tocList').innerHTML = chapters.map(ch => `
+        <a href="#ch-${ch.chapter_no}" class="block py-1.5 px-2.5 rounded-lg hover:bg-slate-100 text-slate-700 font-medium truncate">
+          ${ch.chapter_no}. ${R_LANG === 'ja' ? (ch.title_ja || ch.title_ko) : ch.title_ko}
+        </a>
+      `).join('');
+
+      document.getElementById('chaptersContainer').innerHTML = chapters.map(ch => {
+        const bodyMd = R_LANG === 'ja' ? (ch.content_ja || ch.content_ko) : ch.content_ko;
+        return `<section id="ch-${ch.chapter_no}" class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm prose-report">
+          <div class="flex items-center justify-between border-b-2 border-slate-900 pb-3 mb-4">
+            <h2 class="!m-0 !p-0 !border-0 text-lg sm:text-xl font-black text-slate-900">
+              Chapter ${ch.chapter_no}. ${R_LANG === 'ja' ? (ch.title_ja || ch.title_ko) : ch.title_ko}
+            </h2>
+            <span class="text-xs font-mono text-slate-400">CH-0${ch.chapter_no}</span>
+          </div>
+          <div>${mdToHtml(bodyMd)}</div>
+        </section>`;
+      }).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', initReport);
+  </script>
+</body>
+</html>

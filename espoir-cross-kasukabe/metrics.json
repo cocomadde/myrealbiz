@@ -1,0 +1,118 @@
+{
+  "price": 80000000.0,
+  "total_units": 5,
+  "specs": {
+    "property_name_ja": "エスポワール クロス カスカベ",
+    "property_name_ko": "에스포와르 크로스 카스카베 (Espoir Cross Kasukabe)",
+    "address": "埼玉県春日部市粕壁東3丁目3-36",
+    "Station": "東武スカイツリーライン・東武アーバンパークライン「春日部」駅 徒歩9分 (実測約720m・平坦)",
+    "land_area_sqm": 314.98,
+    "land_area_tsubo": 95.28,
+    "building_area_sqm": 282.41,
+    "building_area_tsubo": 85.42,
+    "structure": "鉄骨造 陸屋根 2階建",
+    "built_date": "2014年6月 (平成26年6月 / 築12.3年)",
+    "builder": "要確認（建築確認済証・検査済証照会中）",
+    "inspection_cert": "要確認（2014年6月新築物件・仲介照会中）",
+    "zoning": "商業地域 (建蔽率80% / 容積率400%・法第22・23条区域)",
+    "road_access": "南側 公道（学校どおり）幅員約16.1m接道（実質三方角地：南・西・北東）",
+    "utilities": "公営水道・都市ガス・東京電力・公共下水"
+  },
+  "yields": {
+    "current_annual_income": 5844000.0,
+    "current_gross_yield_pct": 7.31,
+    "full_annual_income": 5844000.0,
+    "full_gross_yield_pct": 7.31,
+    "real_opex_annual": 1312400.0,
+    "real_opex_ratio_pct": 22.46,
+    "full_noi_annual": 4531600.0,
+    "full_cap_rate_pct": 5.66
+  },
+  "valuations_cost_approach": {
+    "seller_maisoku_150k": {
+      "unit_price_sqm": 150000,
+      "building_value": 27036604.41,
+      "land_value": 30868040.0,
+      "total_assessed_value": 57904644.41,
+      "value_to_price_ratio_pct": 72.38
+    },
+    "bank_conservative": {
+      "unit_price_sqm": 180000,
+      "building_value": 32443925.29,
+      "land_value": 30868040.0,
+      "total_assessed_value": 63311965.29,
+      "value_to_price_ratio_pct": 79.14
+    },
+    "nta_standard": {
+      "unit_price_sqm": 240000,
+      "building_value": 43258567.06,
+      "land_value": 30868040.0,
+      "total_assessed_value": 74126607.06,
+      "value_to_price_ratio_pct": 92.66
+    },
+    "seller_market": {
+      "unit_price_sqm": 320000,
+      "building_value": 57678089.41,
+      "land_value": 30868040.0,
+      "total_assessed_value": 88546129.41,
+      "value_to_price_ratio_pct": 110.68
+    }
+  },
+  "debt_service": {
+    "loan_amount": 68000000.0,
+    "loan_ltv_pct": 85.0,
+    "loan_rate_pct": 2.2,
+    "loan_term_years": 25,
+    "monthly_pmt": 294888.0,
+    "ads_annual": 3538654.0,
+    "full_annual_cf": 992946.0,
+    "current_annual_cf": 992946.0,
+    "dcr": 1.28,
+    "breakeven_occupancy_pct": 83.01,
+    "allowable_vacant_units": 0.8
+  },
+  "initial_investment": {
+    "down_payment": 12000000.0,
+    "acquisition_costs": 6766000.0,
+    "initial_total_equity": 18766000.0,
+    "ccr_pct": 5.29
+  },
+  "allocation": {
+    "fixed_asset_tax_land": 25008141,
+    "fixed_asset_tax_building": 22273671,
+    "fixed_asset_tax_total": 47281812,
+    "land_ratio_pct": 52.89,
+    "building_ratio_pct": 47.11,
+    "allocated_land_price": 42313360,
+    "allocated_building_price": 37686640,
+    "depreciation_years": 24,
+    "annual_depreciation": 1570277
+  },
+  "corporate_landing": {
+    "standalone": {
+      "price": 80000000.0,
+      "loan": 68000000.0,
+      "tax_land": 25008141.0,
+      "tax_bldg": 22273671.0,
+      "gross_income": 5551800.0,
+      "opex": 1246934.28,
+      "depr": 1570276.67,
+      "ads": 3538654.18,
+      "interest": 1475276.85,
+      "principal": 2063377.33,
+      "pretax_profit": 2039528.87,
+      "pretax_cf": 766211.54,
+      "pretax_cf_yield": 0.0096,
+      "tax": 509882.22,
+      "posttax_cf": 256329.32,
+      "posttax_cf_yield": 0.0032,
+      "debt_years": 21.9,
+      "easy_cf": 256329.32,
+      "icr": 1.9,
+      "dscr": 1.4,
+      "ltv_tax": 1.7094,
+      "roi": 0.0435
+    }
+  },
+  "score": "25.3 / 30 (A- 우량 매수 검토: 7,300만~7,500만엔 네고 및 렌트롤·1층 학원계약서 검증 조건부 추천)"
+}
