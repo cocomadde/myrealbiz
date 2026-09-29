@@ -1,0 +1,3 @@
+﻿baseline_id,name_ko,name_ja,price,loan,tax_land,tax_bldg,tax_total,gross_income,opex,depr,ads,interest,principal,pretax_profit,pretax_cf,pretax_cf_yield,tax,posttax_cf,posttax_cf_yield,debt_years,easy_cf,icr,dscr,ltv_tax,roi
+moabiz_4th_term,모아비즈 4기현재,モアビズ4期現在,267538767,240729467,71857096,41905687,113762783,16929000,2539350,7188563,12647749,8123958,4523791,3722450,1741901,0.0065,930613,811289,0.003,24.1,811289,0.9,1.5,2.6108,0.0383
+public_standard,표준 투자법인 기준선,標準投資法人基準,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0,0,0.0,20.0,0,1.2,1.2,1.5,0.05

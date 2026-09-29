@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>부동산 스프레드쉬트 데이터 저장소 & 수집현황 매트릭스 (Spreadsheet Data Store Explorer)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./data/datastore_loader.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .cell-ok { background: #ecfdf5; color: #047857; font-weight: 700; }
+    .cell-est { background: #fffbeb; color: #b45309; font-weight: 700; }
+    .cell-miss { background: #fff1f2; color: #be123c; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition">
+          ← 포트폴리오 허브
+        </a>
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📊</span>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-base sm:text-lg font-extrabold text-white">Spreadsheet Data Store & Collection Audit</h1>
+              <span id="storePortalBadge" class="px-2 py-0.5 text-[10px] font-mono font-bold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">SSOT</span>
+            </div>
+            <p class="text-[11px] text-slate-400">전체 매물 스프레드쉬트 원본 데이터 탐색기 및 수집완료(Collected) vs 미수집(Missing) 감사 매트릭스</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Google Sheets & Download Spreadsheet / CSVs -->
+      <div class="flex flex-wrap items-center gap-2">
+        <a id="btnOpenGsheet" href="https://docs.google.com/spreadsheets/d/1sWVTbHNrHVzC85PCLq9woVGNYbE9xEt4ZHEBLWTYEM8/edit" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 text-xs font-extrabold shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 transition">
+          <span>🟢</span> Google Sheets 원본 열기 ↗
+        </a>
+        <a id="dlXlsx" href="./data/real_estate_datastore.xlsx" download class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 text-xs font-bold shadow flex items-center gap-1.5 transition">
+          <span>📥</span> Excel 통합파일 (`.xlsx`)
+        </a>
+        <a id="dlMasterCsv" href="./data/properties_master.csv" download class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 text-xs font-semibold border border-slate-700 transition">
+          CSV: Master
+        </a>
+        <a id="dlAuditCsv" href="./data/data_collection_audit.csv" download class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-semibold border border-slate-700 transition">
+          CSV: 수집감사표
+        </a>
+        <a id="dlRentCsv" href="./data/rent_roll.csv" download class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 text-xs font-semibold border border-slate-700 transition">
+          CSV: 렌트롤
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- Top Summary Strip -->
+    <section class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <span class="text-xs text-slate-400 block">등록 매물 총계 (`Properties_Master`)</span>
+        <span id="kpiTotalProps" class="text-2xl font-black font-mono text-white mt-1 block">0건</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <span class="text-xs text-slate-400 block">평균 데이터 수집 완료율</span>
+        <span id="kpiAvgRate" class="text-2xl font-black font-mono text-emerald-400 mt-1 block">0.0%</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <span class="text-xs text-slate-400 block">총 수집/검증 항목 (`COLLECTED`)</span>
+        <span id="kpiTotalCollected" class="text-2xl font-black font-mono text-sky-400 mt-1 block">0건</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <span class="text-xs text-slate-400 block">총 미수집/추정 항목 (`MISSING`/`EST`)</span>
+        <span id="kpiTotalMissing" class="text-2xl font-black font-mono text-rose-400 mt-1 block">0건</span>
+      </div>
+    </section>
+
+    <!-- Sheet Tabs Selector -->
+    <div class="flex flex-wrap border-b border-slate-800 gap-2">
+      <button id="tabMatrix" onclick="switchTab('matrix')" class="px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-amber-500 text-slate-950">
+        🗂️ 1. 매물별 수집/미수집 감사 매트릭스 (Collection Matrix)
+      </button>
+      <button id="tabMaster" onclick="switchTab('master')" class="px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-slate-900 text-slate-400 hover:text-white border border-b-0 border-slate-800">
+        🏢 2. 시트1: `Properties_Master` (매물 마스터)
+      </button>
+      <button id="tabRentRoll" onclick="switchTab('rentroll')" class="px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-slate-900 text-slate-400 hover:text-white border border-b-0 border-slate-800">
+        🔑 3. 시트2: `Rent_Roll` (호실별 렌트롤)
+      </button>
+      <button id="tabAudit" onclick="switchTab('audit')" class="px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-slate-900 text-slate-400 hover:text-white border border-b-0 border-slate-800">
+        🔍 4. 시트3: `Data_Collection_Audit` (상세 수집감사 & 질의서)
+      </button>
+    </div>
+
+    <!-- TAB 1: COLLECTION MATRIX VIEW -->
+    <section id="viewMatrix" class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h2 class="text-sm font-bold text-white">매물별 7대 실사 카테고리 수집 현황 매트릭스</h2>
+          <p class="text-xs text-slate-400">각 매물에서 어떤 서류/데이터가 수집 완료되었고 어떤 데이터가 미수집 상태인지 한눈에 비교합니다.</p>
+        </div>
+        <div class="flex gap-2 text-xs">
+          <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">✅ 완비</span>
+          <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">⚠️ 일부추정</span>
+          <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">❌ 미수집존재</span>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="py-3 px-3">매물명 (슬러그)</th>
+              <th class="py-3 px-3 text-right">수집률(%)</th>
+              <th class="py-3 px-3 text-center">1.기본/마이소쿠</th>
+              <th class="py-3 px-3 text-center">2.토지/도계</th>
+              <th class="py-3 px-3 text-center">3.건물/검사필증/수선</th>
+              <th class="py-3 px-3 text-center">4.렌트롤 상세</th>
+              <th class="py-3 px-3 text-center">5.경비/과세명세</th>
+              <th class="py-3 px-3 text-center">6.등기/소유권내력</th>
+              <th class="py-3 px-3 text-center">7.구글맵/홈즈DOM</th>
+              <th class="py-3 px-3">주요 미수집/추정 항목 요약</th>
+              <th class="py-3 px-3 text-center">이동</th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody" class="divide-y divide-slate-800/80"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: PROPERTIES_MASTER SHEET VIEW -->
+    <section id="viewMaster" class="hidden bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-slate-800">
+        <h2 class="text-sm font-bold text-white">시트 1: `Properties_Master` (매물 마스터 테이블)</h2>
+        <p class="text-xs text-slate-400">`data/properties_master.csv` 와 1:1 동기화된 정형 데이터 레코드</p>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left whitespace-nowrap">
+          <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="py-2.5 px-3">slug</th>
+              <th class="py-2.5 px-3">물건명(KO)</th>
+              <th class="py-2.5 px-3">구조/세대</th>
+              <th class="py-2.5 px-3 text-right">매매가(엔)</th>
+              <th class="py-2.5 px-3 text-right">표면(%)</th>
+              <th class="py-2.5 px-3 text-right">Cap(%)</th>
+              <th class="py-2.5 px-3 text-right">적산비율(%)</th>
+              <th class="py-2.5 px-3 text-right">DSCR</th>
+              <th class="py-2.5 px-3 text-right">손익분기(%)</th>
+              <th class="py-2.5 px-3 text-center">검사필증</th>
+              <th class="py-2.5 px-3 text-right">수집률(%)</th>
+              <th class="py-2.5 px-3 text-center">평점</th>
+              <th class="py-2.5 px-3">판정</th>
+            </tr>
+          </thead>
+          <tbody id="masterBody" class="divide-y divide-slate-800/80"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: RENT_ROLL SHEET VIEW -->
+    <section id="viewRentRoll" class="hidden bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h2 class="text-sm font-bold text-white">시트 2: `Rent_Roll` (전 매물 호실별 렌트롤 테이블)</h2>
+          <p class="text-xs text-slate-400">매물별 필터링 및 미수집 필드(계약시작일/입주자속성) 확인</p>
+        </div>
+        <select id="selRentSlug" onchange="renderRentSheet()" class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white"></select>
+      </div>
+      <div class="overflow-x-auto max-h-[540px] overflow-y-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-950 text-slate-400 sticky top-0 border-b border-slate-800">
+            <tr>
+              <th class="py-2.5 px-3">매물(slug)</th>
+              <th class="py-2.5 px-3">호실</th>
+              <th class="py-2.5 px-3">층/타입</th>
+              <th class="py-2.5 px-3 text-right">면적(㎡)</th>
+              <th class="py-2.5 px-3">현황</th>
+              <th class="py-2.5 px-3">입주자속성</th>
+              <th class="py-2.5 px-3">계약시작일</th>
+              <th class="py-2.5 px-3 text-right">월차임</th>
+              <th class="py-2.5 px-3 text-right">공익비</th>
+              <th class="py-2.5 px-3 text-right">월합계</th>
+              <th class="py-2.5 px-3 text-center">추정DOM</th>
+            </tr>
+          </thead>
+          <tbody id="rentSheetBody" class="divide-y divide-slate-800/80"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 4: DATA_COLLECTION_AUDIT SHEET VIEW -->
+    <section id="viewAudit" class="hidden bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h2 class="text-sm font-bold text-white">시트 3: `Data_Collection_Audit` (35개 표준 항목별 수집 여부 & 중개사 질의서)</h2>
+          <p class="text-xs text-slate-400">매물 및 수집 상태(`MISSING` / `ESTIMATED` / `COLLECTED`) 필터링</p>
+        </div>
+        <div class="flex gap-2">
+          <select id="selAuditSlug" onchange="renderAuditSheet()" class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white"></select>
+          <select id="selAuditStatus" onchange="renderAuditSheet()" class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white">
+            <option value="ALL">전체 상태</option>
+            <option value="MISSING">❌ 미수집 (MISSING)</option>
+            <option value="ESTIMATED">⚠️ 추정치 (ESTIMATED)</option>
+            <option value="COLLECTED">✅ 수집/검증완료</option>
+          </select>
+        </div>
+      </div>
+      <div class="overflow-x-auto max-h-[540px] overflow-y-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-950 text-slate-400 sticky top-0 border-b border-slate-800">
+            <tr>
+              <th class="py-2.5 px-3">매물(slug)</th>
+              <th class="py-2.5 px-3">체크ID</th>
+              <th class="py-2.5 px-3">분류</th>
+              <th class="py-2.5 px-3">점검 항목</th>
+              <th class="py-2.5 px-3">현재 기록값</th>
+              <th class="py-2.5 px-3 text-center">수집 상태</th>
+              <th class="py-2.5 px-3">중개사 확인 요청 문구 (JA/KO)</th>
+            </tr>
+          </thead>
+          <tbody id="auditSheetBody" class="divide-y divide-slate-800/80"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let S_STORE = null;
+
+    async function loadStore() {
+      const candidates = ['./data/datastore_internal.json', './data/datastore_public.json', '../data/datastore_public.json'];
+      for (const url of candidates) {
+        try {
+          const r = await fetch(url, { cache: 'no-store' });
+          if (r.ok) {
+            S_STORE = await r.json();
+            initExplorer();
+            return;
+          }
+        } catch (e) {}
+      }
+      if (window.__GLOBAL_DATASTORE__) {
+        S_STORE = window.__GLOBAL_DATASTORE__;
+        initExplorer();
+        return;
+      }
+      setTimeout(() => {
+        if (window.__GLOBAL_DATASTORE__) {
+          S_STORE = window.__GLOBAL_DATASTORE__;
+          initExplorer();
+        }
+      }, 150);
+    }
+
+    function switchTab(tab) {
+      ['matrix', 'master', 'rentroll', 'audit'].forEach(t => {
+        document.getElementById('view' + t.charAt(0).toUpperCase() + t.slice(1).replace('rentroll', 'RentRoll')).classList.toggle('hidden', t !== tab);
+      });
+      const mapBtn = { matrix: 'tabMatrix', master: 'tabMaster', rentroll: 'tabRentRoll', audit: 'tabAudit' };
+      Object.entries(mapBtn).forEach(([k, id]) => {
+        document.getElementById(id).className = (k === tab)
+          ? 'px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-amber-500 text-slate-950'
+          : 'px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl bg-slate-900 text-slate-400 hover:text-white border border-b-0 border-slate-800';
+      });
+    }
+
+    function initExplorer() {
+      if (!S_STORE) return;
+      const props = S_STORE.properties || [];
+      const audits = S_STORE.collection_audit || [];
+      const rents = S_STORE.rent_roll || [];
+
+      document.getElementById('storePortalBadge').textContent = S_STORE.portal_mode === 'moabiz' ? 'MOABIZ INTERNAL SSOT' : 'PUBLIC SSOT';
+
+      // KPIs
+      document.getElementById('kpiTotalProps').textContent = `${props.length}건`;
+      const avgRate = props.length ? (props.reduce((s, p) => s + (parseFloat(p.collection_rate_pct) || 0), 0) / props.length).toFixed(1) : '0.0';
+      document.getElementById('kpiAvgRate').textContent = `${avgRate}%`;
+
+      const colCnt = audits.filter(a => a.status === 'COLLECTED' || a.status === 'VERIFIED').length;
+      const missCnt = audits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED').length;
+      document.getElementById('kpiTotalCollected').textContent = `${colCnt}건`;
+      document.getElementById('kpiTotalMissing').textContent = `${missCnt}건`;
+
+      // Populate filters
+      const slugOpts = `<option value="ALL">전체 매물 (${props.length})</option>` + props.map(p => `<option value="${p.slug}">${p.name_ko} (${p.slug})</option>`).join('');
+      document.getElementById('selRentSlug').innerHTML = slugOpts;
+      document.getElementById('selAuditSlug').innerHTML = slugOpts;
+
+      renderMatrix(props, audits);
+      renderMasterSheet(props);
+      renderRentSheet();
+      renderAuditSheet();
+    }
+
+    function renderMatrix(props, audits) {
+      const catNames = ['1.기본/가격', '2.토지/도계', '3.건물/적법', '4.렌트롤', '5.경비/세금', '6.등기/내력', '7.외부실사'];
+      document.getElementById('matrixBody').innerHTML = props.map(p => {
+        const pAudits = audits.filter(a => a.slug === p.slug);
+        const catCells = catNames.map(cat => {
+          const sub = pAudits.filter(a => a.category === cat);
+          const tot = sub.length || 1;
+          const ok = sub.filter(a => a.status === 'COLLECTED' || a.status === 'VERIFIED').length;
+          const miss = sub.filter(a => a.status === 'MISSING').length;
+          const badgeCls = miss > 0 ? 'bg-rose-500/20 text-rose-300 border-rose-500/30' : (ok === tot ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : 'bg-amber-500/20 text-amber-300 border-amber-500/30');
+          return `<td class="py-2.5 px-2 text-center"><span class="px-2 py-0.5 rounded border font-mono text-[11px] ${badgeCls}">${ok}/${tot}</span></td>`;
+        }).join('');
+
+        const missingNames = pAudits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED').map(a => a.item_name_ko).slice(0, 4);
+        const missingStr = missingNames.length > 0 ? missingNames.join(', ') + (pAudits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED').length > 4 ? ' 외' : '') : '✅ 전 항목 완비';
+
+        return `<tr class="hover:bg-slate-800/50">
+          <td class="py-3 px-3 font-bold text-white">${p.name_ko}<span class="block text-[10px] font-mono text-slate-400">${p.slug}</span></td>
+          <td class="py-3 px-3 text-right font-mono font-bold text-amber-400">${p.collection_rate_pct}%</td>
+          ${catCells}
+          <td class="py-3 px-3 text-slate-300 max-w-xs truncate" title="${missingStr}">${missingStr}</td>
+          <td class="py-3 px-3 text-center">
+            <a href="./${p.slug}/index.html" class="px-2.5 py-1 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-[11px]">대시보드 ↗</a>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderMasterSheet(props) {
+      document.getElementById('masterBody').innerHTML = props.map(p => `
+        <tr class="hover:bg-slate-800/50">
+          <td class="py-2.5 px-3 font-mono text-sky-400"><a href="./${p.slug}/index.html" class="underline">${p.slug}</a></td>
+          <td class="py-2.5 px-3 font-bold text-white">${p.name_ko}</td>
+          <td class="py-2.5 px-3 text-slate-300">${p.structure_display || '-'} (${p.total_units}실)</td>
+          <td class="py-2.5 px-3 text-right font-mono">${Number(p.price_yen || 0).toLocaleString()}</td>
+          <td class="py-2.5 px-3 text-right font-mono text-emerald-400">${p.gross_yield_full_pct}%</td>
+          <td class="py-2.5 px-3 text-right font-mono text-sky-400">${p.cap_rate_full_pct}%</td>
+          <td class="py-2.5 px-3 text-right font-mono">${p.assessed_ratio_pct}%</td>
+          <td class="py-2.5 px-3 text-right font-mono">${p.dscr}x</td>
+          <td class="py-2.5 px-3 text-right font-mono">${p.breakeven_occ_pct}%</td>
+          <td class="py-2.5 px-3 text-center">${(p.has_inspection_cert || '').includes('미수집') ? '<span class="text-rose-400 font-bold">❌미수집</span>' : p.has_inspection_cert}</td>
+          <td class="py-2.5 px-3 text-right font-mono font-bold text-amber-400">${p.collection_rate_pct}%</td>
+          <td class="py-2.5 px-3 text-center font-mono">${p.score_total}/30</td>
+          <td class="py-2.5 px-3 font-semibold">${p.verdict_short}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderRentSheet() {
+      const slug = document.getElementById('selRentSlug').value;
+      const rents = (S_STORE.rent_roll || []).filter(r => slug === 'ALL' || r.slug === slug);
+      document.getElementById('rentSheetBody').innerHTML = rents.map(r => `
+        <tr class="hover:bg-slate-800/50">
+          <td class="py-2 px-3 font-mono text-slate-400">${r.slug}</td>
+          <td class="py-2 px-3 font-mono font-bold text-white">${r.unit_no}</td>
+          <td class="py-2 px-3">${r.floor || '-'} / ${r.layout_type || '-'}</td>
+          <td class="py-2 px-3 text-right font-mono">${r.area_sqm || '-'}</td>
+          <td class="py-2 px-3">${r.occupancy_status || '-'}</td>
+          <td class="py-2 px-3">${r.tenant_type === '[미수집]' ? '<span class="text-rose-400">❌미수집</span>' : r.tenant_type}</td>
+          <td class="py-2 px-3 font-mono">${r.contract_start_date === '[미수집]' ? '<span class="text-rose-400">❌미수집</span>' : r.contract_start_date}</td>
+          <td class="py-2 px-3 text-right font-mono">${Number(r.monthly_rent_yen || 0).toLocaleString()}</td>
+          <td class="py-2 px-3 text-right font-mono">${Number(r.monthly_common_fee_yen || 0).toLocaleString()}</td>
+          <td class="py-2 px-3 text-right font-mono font-bold text-sky-300">${Number(r.monthly_total_yen || 0).toLocaleString()}</td>
+          <td class="py-2 px-3 text-center font-mono">${r.estimated_dom_days || '-'}일</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderAuditSheet() {
+      const slug = document.getElementById('selAuditSlug').value;
+      const st = document.getElementById('selAuditStatus').value;
+      const audits = (S_STORE.collection_audit || []).filter(a => {
+        if (slug !== 'ALL' && a.slug !== slug) return false;
+        if (st === 'ALL') return true;
+        if (st === 'COLLECTED') return a.status === 'COLLECTED' || a.status === 'VERIFIED';
+        return a.status === st;
+      });
+      document.getElementById('auditSheetBody').innerHTML = audits.map(a => {
+        const sBadge = a.status === 'MISSING'
+          ? '<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold">❌ 미수집</span>'
+          : (a.status === 'ESTIMATED'
+            ? '<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">⚠️ 추정치</span>'
+            : '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">✅ 수집완료</span>');
+        return `<tr class="hover:bg-slate-800/50">
+          <td class="py-2 px-3 font-mono text-slate-400">${a.slug}</td>
+          <td class="py-2 px-3 font-mono text-slate-500">${a.check_id}</td>
+          <td class="py-2 px-3 text-slate-300">${a.category}</td>
+          <td class="py-2 px-3 font-bold text-white">${a.item_name_ko}</td>
+          <td class="py-2 px-3 font-mono text-slate-200 max-w-xs truncate">${a.collected_value || '[미수집]'}</td>
+          <td class="py-2 px-3 text-center">${sBadge}</td>
+          <td class="py-2 px-3 text-slate-400">${a.broker_inquiry_ja || '-'}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', loadStore);
+  </script>
+</body>
+</html>

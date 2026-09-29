@@ -1,0 +1,2 @@
+﻿baseline_id,name_ko,name_ja,price,loan,tax_land,tax_bldg,tax_total,gross_income,opex,depr,ads,interest,principal,pretax_profit,pretax_cf,pretax_cf_yield,tax,posttax_cf,posttax_cf_yield,debt_years,easy_cf,icr,dscr,ltv_tax,roi
+public_standard,표준 투자법인 기준선,標準投資法人基準,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0,0,0,0.0,20.0,0,1.2,1.2,1.5,0.05
