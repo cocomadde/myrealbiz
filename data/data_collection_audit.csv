@@ -398,12 +398,12 @@ livre-fine-misato-chuo,CHK_11,3.건물/적법,structure_display,건물 구조 �
 livre-fine-misato-chuo,CHK_12,3.건물/적법,built_year_month,신축 준공년월 및 경과연수,築年月,2021年2月25日新築 (令和3年2月 / 築5.6年),VERIFIED,마이소쿠/등기부,,
 livre-fine-misato-chuo,CHK_13,3.건물/적법,bldg_area_reg_sqm,등기 연면적 vs 확인대장 연면적,延床面積（登記・確認台帳）,353.55,VERIFIED,등기부/건축확인대장,,
 livre-fine-misato-chuo,CHK_14,3.건물/적법,has_confirm_cert,건축확인필증(確認済証) 및 대장 유무,建築確認済証・台帳記載事項証明,유 (건축도면·배치도·평면도·입면도 일식 확인완료),VERIFIED,건축확인대장,,
-livre-fine-misato-chuo,CHK_15,3.건물/적법,has_inspection_cert,준공검사필증(検査済証) 취득 여부,検査済証の有無,유 (2021.2 신축·오릭스/au지분은행 열화3급 35년 융자평가 확인완료 / 원본사본 징구예정),COLLECTED,검사필증/대장,,
+livre-fine-misato-chuo,CHK_15,3.건물/적법,has_inspection_cert,준공검사필증(検査済証) 취득 여부,検査済証の有無,유 (2021.2 신축·오릭스/au지분은행 열화3급 35년 융자평가 확인완료 / 원본사본 징구예정),ESTIMATED,오릭스·au지분 35년 융자평가 확인 (원본사본 미징구),"준공검사필증(検査済証) 및 열화대책등급 3급 주택성능평가서 사본, 프로판가스(LPG) 무상대여 약정서 유무 공유 요청",検査済証および劣化対策等級3級の住宅性能評価書の写し、ならびにプロパンガス無償貸与契約の有無のご確認
 livre-fine-misato-chuo,CHK_16,3.건물/적법,repair_history_summary,외벽도장·옥상방수 등 대규모 수선이력,大規模修繕履歴（外壁・屋上防水）,축 5.6년 신축급으로 과거 대규모 수선이력 및 침수이력 없음 (중개사·매도자 공식 확인완료),VERIFIED,수선이력서,,
 livre-fine-misato-chuo,CHK_17,4.렌트롤,full_annual_income_yen,호실별 월 차임 및 공익비 내역,各戸賃料・共益費一覧,9876000,VERIFIED,렌트롤,,
 livre-fine-misato-chuo,CHK_18,4.렌트롤,unit_composition,호실별 전유면적(㎡) 및 평형 타입,各戸専有面積・間取り,총 11세대 (1F: 1LDK×3실 [37.26~43.32㎡] / 2~3F: 1K×8실 [28.41~29.81㎡]),VERIFIED,렌트롤/도면,,
 livre-fine-misato-chuo,CHK_19,4.렌트롤,rent_roll_contract_dates,호실별 계약시작일(契約始期) 및 갱신주기,各戸の契約始期・更新時期,전수/일부 확인 (12실),VERIFIED,렌트롤 상세판,,
-livre-fine-misato-chuo,CHK_20,4.렌트롤,rent_roll_tenant_types,호실별 입주자 속성(법인/직장인/학생/보증회사),入居者属性・保証会社加入状況,속성 확인 (12실),COLLECTED,렌트롤 상세판,,
+livre-fine-misato-chuo,CHK_20,4.렌트롤,rent_roll_tenant_types,호실별 입주자 속성(법인/직장인/학생/보증회사),入居者属性・保証会社加入状況,속성 확인 (12실),ESTIMATED,공식 렌트롤 (敷金·RC 『調査中』 표기),렌트롤상 『調査中』인 전 호실 시키킨(敷金)·RC 확정 금액 및 서브리스 해지 승계 무보증 6세대의 최근 6개월 수납 내역 확인,レントロール上「調査中」となっている各戸敷金・RCの確定額、および保証会社無しの6戸における直近6ヶ月の家賃入金状況のご確認
 livre-fine-misato-chuo,CHK_21,4.렌트롤,parking_info,주차장·자판기·안테나 등 부대수입 계약현황,駐車場・付帯収入の契約状況,"부지 내 평면 주차장 4구획 (각 월 5,500엔 × 4대 = 월 22,000엔 만차)",VERIFIED,렌트롤/개요서,,
 livre-fine-misato-chuo,CHK_22,5.경비/세금,disclosed_opex_yen,PM 관리위탁비 및 정기청소비 실비,PM管理委託費・定期清掃費,1698233,VERIFIED,런닝코스트 명세,,
 livre-fine-misato-chuo,CHK_23,5.경비/세금,utilities_water_sewer,공용 전기·수도·정화조·인터넷 유지비,共用光熱費・浄化槽・ネット費用,현재 정화조(월 1만엔) → R8 본하수 접속공사(세금포함 약 180만엔+부담금 시청조사중) 후 직결,VERIFIED,런닝코스트 명세,,
@@ -413,7 +413,7 @@ livre-fine-misato-chuo,CHK_26,5.경비/세금,fixed_tax_annual_yen,고정자산�
 livre-fine-misato-chuo,CHK_27,6.등기/내력,registry_owner_match,토지·건물 등기부 소유자 일치 여부,土地・建物登記簿の所有者一致,[등기부 원장 확인완료],VERIFIED,등기사항전부증명서,,
 livre-fine-misato-chuo,CHK_28,6.등기/내력,registry_history_갑구,과거 소유권 변천내력(갑구) 및 매각동기,所有権移転履歴・売却理由,[등기부 원장 확인완료],VERIFIED,등기부 갑구/중개사,,
 livre-fine-misato-chuo,CHK_29,6.등기/내력,registry_liens_을구,담보권·근저당·압류·지역권 유무(을구),抵当権・地役権等の権利関係,[등기부 원장 확인완료],VERIFIED,등기부 을구,,
-livre-fine-misato-chuo,CHK_30,7.외부실사,roadside_price_sqm,국세청 상속세 노선가(路線価) 조회,相続税路線価,125000,ESTIMATED,표준산식 역산 추정,국세청 최신 노선가 기준 토지 적산단가 대조,国税庁路線価図に基づく土地評価額の算出
+livre-fine-misato-chuo,CHK_30,7.외부실사,roadside_price_sqm,국세청 상속세 노선가(路線価) 조회,相続税路線価,125000,ESTIMATED,공시지가 기반 노선가 산정 / 본하수 부담금 시청 조사중,현재 미사토시청에 조사 중인 하수도 수익자부담금 확정액 및 본하수 접속공사(세금포함 약 180만 엔) 상세 견적서 공유 요청,現在三郷市役所にて調査中の下水道受益者負担金の確定額、および本下水接続工事（税込約180万円）の詳細見積書のご共有
 livre-fine-misato-chuo,CHK_31,7.외부실사,walk_min_gmaps,Google Maps 실측 도보거리 및 소요시간,Googleマップ実測徒歩距離・時間,도보 15~16분 (구글맵 실측 검증완료),VERIFIED,Google Maps,,
 livre-fine-misato-chuo,CHK_32,7.외부실사,walk_slope_note,보행 동선 고저차(경사/계단) 및 혐오시설 실사,徒歩経路の高低差・周辺嫌悪施設,고저차 없는 평탄지 (다이니오바가와 교량 횡단·1층 바닥 GL+450mm 확인),VERIFIED,Google 스트리트뷰,,
 livre-fine-misato-chuo,CHK_33,7.외부실사,hazard_flood,지자체 홍수·내수 침수 해저드맵 검증,洪水・内水浸水ハザードマップ,하저드맵 3.0~5.0m 구역이나 『과거 집중호우 포함 침수 피해 이력 전무』 매도자 공식 확인완료,VERIFIED,지자체 하저드맵,,

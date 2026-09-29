@@ -1,6 +1,6 @@
 {
   "portal_mode": "moabiz",
-  "updated_at": "2026-09-29T10:29:37.607255",
+  "updated_at": "2026-09-29T10:31:15.760547",
   "properties": [
     {
       "slug": "foresthills",
@@ -1257,9 +1257,9 @@
       "moabiz_verdict": "조건부 적합 (사도지분 1/2·협정서·과세명세 완비 / 세후CF +166만·상환연수 27.3년 / 본하수 공사비 약 200만 반영 1.28억~1.33억 네고 권고)",
       "public_verdict": "조건부 검토 (사도지분 1/2·협정서·과세명세 완비 / 오릭스·au지분 35년 융자 적격 / 본하수 공사비 약 200만 반영 1.28억~1.33억 네고 권고)",
       "has_registry_dd": true,
-      "collection_rate_pct": 97.1,
-      "collected_count": 34,
-      "estimated_count": 1,
+      "collection_rate_pct": 91.4,
+      "collected_count": 32,
+      "estimated_count": 3,
       "missing_count": 0,
       "data_stage_badge": "FULL_DD (정밀실사완료)"
     }
@@ -8951,10 +8951,10 @@
       "item_name_ko": "준공검사필증(検査済証) 취득 여부",
       "item_name_ja": "検査済証の有無",
       "collected_value": "유 (2021.2 신축·오릭스/au지분은행 열화3급 35년 융자평가 확인완료 / 원본사본 징구예정)",
-      "status": "COLLECTED",
-      "source_doc": "검사필증/대장",
-      "broker_inquiry_ko": "",
-      "broker_inquiry_ja": ""
+      "status": "ESTIMATED",
+      "source_doc": "오릭스·au지분 35년 융자평가 확인 (원본사본 미징구)",
+      "broker_inquiry_ko": "준공검사필증(検査済証) 및 열화대책등급 3급 주택성능평가서 사본, 프로판가스(LPG) 무상대여 약정서 유무 공유 요청",
+      "broker_inquiry_ja": "検査済証および劣化対策等級3級の住宅性能評価書の写し、ならびにプロパンガス無償貸与契約の有無のご確認"
     },
     {
       "slug": "livre-fine-misato-chuo",
@@ -9016,10 +9016,10 @@
       "item_name_ko": "호실별 입주자 속성(법인/직장인/학생/보증회사)",
       "item_name_ja": "入居者属性・保証会社加入状況",
       "collected_value": "속성 확인 (12실)",
-      "status": "COLLECTED",
-      "source_doc": "렌트롤 상세판",
-      "broker_inquiry_ko": "",
-      "broker_inquiry_ja": ""
+      "status": "ESTIMATED",
+      "source_doc": "공식 렌트롤 (敷金·RC 『調査中』 표기)",
+      "broker_inquiry_ko": "렌트롤상 『調査中』인 전 호실 시키킨(敷金)·RC 확정 금액 및 서브리스 해지 승계 무보증 6세대의 최근 6개월 수납 내역 확인",
+      "broker_inquiry_ja": "レントロール上「調査中」となっている各戸敷金・RCの確定額、および保証会社無しの6戸における直近6ヶ月の家賃入金状況のご確認"
     },
     {
       "slug": "livre-fine-misato-chuo",
@@ -9147,9 +9147,9 @@
       "item_name_ja": "相続税路線価",
       "collected_value": "125000",
       "status": "ESTIMATED",
-      "source_doc": "표준산식 역산 추정",
-      "broker_inquiry_ko": "국세청 최신 노선가 기준 토지 적산단가 대조",
-      "broker_inquiry_ja": "国税庁路線価図に基づく土地評価額の算出"
+      "source_doc": "공시지가 기반 노선가 산정 / 본하수 부담금 시청 조사중",
+      "broker_inquiry_ko": "현재 미사토시청에 조사 중인 하수도 수익자부담금 확정액 및 본하수 접속공사(세금포함 약 180만 엔) 상세 견적서 공유 요청",
+      "broker_inquiry_ja": "現在三郷市役所にて調査中の下水道受益者負担金の確定額、および本下水接続工事（税込約180万円）の詳細見積書のご共有"
     },
     {
       "slug": "livre-fine-misato-chuo",
