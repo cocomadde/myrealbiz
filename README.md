@@ -10,8 +10,8 @@
 
 | 포털 구분 | 대상 및 성격 | 라이브 URL | 주요 특징 |
 | :--- | :--- | :--- | :--- |
-| **🌐 외부공개용 인트로** | 일반/파트너 오픈용 | `https://cocomadde.github.io/myrealbiz/` | 후나바시 제외(12개 물건 노출), 모아비즈 법인 결산서 베이스라인 제외/단품 지표 중심 |
-| **🏢 모아비즈 전용 포털** | 모아비즈 법인 내부용 | `https://cocomadde.github.io/myrealbiz/moabiz/` | 후나바시 포함 13개 물건 전수 수록, 모아비즈 4기 결산서 베이스라인 및 9호 판정 완비 |
+| **🌐 외부공개용 인트로** | 일반/파트너 오픈용 | `https://cocomadde.github.io/myrealbiz/` | 후나바시 제외(13개 물건 노출), 모아비즈 법인 결산서 베이스라인 제외/단품 지표 중심 |
+| **🏢 모아비즈 전용 포털** | 모아비즈 법인 내부용 | `https://cocomadde.github.io/myrealbiz/moabiz/` | 후나바시 포함 14개 물건 전수 수록, 모아비즈 4기 결산서 베이스라인 및 9호 판정 완비 |
 | **⚙️ 어드민 관리 콘솔** | 외부공개 온오프 관리 | `https://cocomadde.github.io/myrealbiz/moabiz/admin.html` | 물건별 외부공개 스위치(ON/OFF), 실시간 통계, 변경사항 저장 및 Git 배포 명령어 연동 |
 
 ---
@@ -31,6 +31,7 @@
 - **[물건 10] 미츠쿄 1AP 사사노다이 (요코하마시 아사히구)**: [시뮬레이터 & 웹 대시보드](./mitsukyo-1ap/) · [종합분석 (KO)](./mitsukyo-1ap/report.html) · [投資分析 (JA)](./mitsukyo-1ap/report_ja.html)
 - **[물건 11] 에스포와르 크로스 카스카베 (사이타마현 카스카베시)**: [시뮬레이터 & 웹 대시보드](./espoir-cross-kasukabe/) · [종합분석 (KO)](./espoir-cross-kasukabe/report.html) · [投資分析 (JA)](./espoir-cross-kasukabe/report_ja.html)
 - **[물건 12] 시엘 블루 치바추오 (치바현 치바시 추오구)**: [시뮬레이터 & 웹 대시보드](./ciel-bleu-chiba-chuo/) · [종합분석 (KO)](./ciel-bleu-chiba-chuo/report.html) · [投資分析 (JA)](./ciel-bleu-chiba-chuo/report_ja.html)
+- **[물건 13] 니시타케노츠카 2초메 카렌 레지던스 (도쿄도 아다치구)**: [시뮬레이터 & 웹 대시보드](./karen-residence-nishitakenotsuka/) · [종합분석 (KO)](./karen-residence-nishitakenotsuka/report.html) · [投資分析 (JA)](./karen-residence-nishitakenotsuka/report_ja.html)
 
 #### 2. 모아비즈 전용 물건 (Moabiz Full Dossiers)
 - **[모아비즈 1] 포레스타 힐즈**: [모아비즈 시뮬레이터](./moabiz/foresthills/) · [모아비즈 보고서 (KO)](./moabiz/foresthills/report.html) · [モアビズレポート (JA)](./moabiz/foresthills/report_ja.html) · [결산서 적합성](./moabiz/foresthills/suitability.html)
@@ -46,6 +47,7 @@
 - **[모아비즈 11] 미츠쿄 1AP 사사노다이**: [모아비즈 시뮬레이터](./moabiz/mitsukyo-1ap/) · [모아비즈 보고서 (KO)](./moabiz/mitsukyo-1ap/report.html) · [モアビズレポート (JA)](./moabiz/mitsukyo-1ap/report_ja.html) · [결산서 적합성](./moabiz/mitsukyo-1ap/suitability.html)
 - **[모아비즈 12] 에스포와르 크로스 카스카베**: [모아비즈 시뮬레이터](./moabiz/espoir-cross-kasukabe/) · [모아비즈 보고서 (KO)](./moabiz/espoir-cross-kasukabe/report.html) · [モアビズレポート (JA)](./moabiz/espoir-cross-kasukabe/report_ja.html) · [결산서 적합성](./moabiz/espoir-cross-kasukabe/suitability.html)
 - **[모아비즈 13] 시엘 블루 치바추오**: [모아비즈 시뮬레이터](./moabiz/ciel-bleu-chiba-chuo/) · [모아비즈 보고서 (KO)](./moabiz/ciel-bleu-chiba-chuo/report.html) · [モアビズレポート (JA)](./moabiz/ciel-bleu-chiba-chuo/report_ja.html) · [결산서 적합성](./moabiz/ciel-bleu-chiba-chuo/suitability.html)
+- **[모아비즈 14] 니시타케노츠카 2초메 카렌 레지던스**: [모아비즈 시뮬레이터](./moabiz/karen-residence-nishitakenotsuka/) · [모아비즈 보고서 (KO)](./moabiz/karen-residence-nishitakenotsuka/report.html) · [モアビズレポート (JA)](./moabiz/karen-residence-nishitakenotsuka/report_ja.html) · [결산서 적합성](./moabiz/karen-residence-nishitakenotsuka/suitability.html)
 
 ---
 

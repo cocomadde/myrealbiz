@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title id="pageTitle">부동산 투자분석 대시보드 & 시뮬레이터 (Data-Driven Template)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="./data_loader.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Pretendard', 'Noto Sans JP', -apple-system, system-ui, sans-serif; }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', 'Pretendard', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .metric-card { transition: all .2s ease-in-out; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.08); }
+    input[type=range] { accent-color: #0284c7; }
+    .badge-verified { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .badge-collected { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-estimated { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+    .badge-missing { background: #fff1f2; color: #be123c; border: 1px dashed #fda4af; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+  <!-- ══════════ STICKY HEADER ══════════ -->
+  <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <a id="btnBackPortal" href="../index.html" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 flex items-center space-x-1 transition no-print">
+          <span>←</span>
+          <span id="lblBackHub">포털 허브</span>
+        </a>
+        <div>
+          <div class="flex items-center flex-wrap gap-2">
+            <span id="portalModeBadge" class="px-2 py-0.5 text-[10px] font-bold rounded uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">DATA-DRIVEN</span>
+            <h1 id="hdrTitle" class="text-base sm:text-lg font-extrabold tracking-tight">데이터 로딩 중...</h1>
+            <span id="hdrVerdictBadge" class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"></span>
+          </div>
+          <p id="hdrSubtitle" class="text-xs text-slate-400 mt-0.5"></p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-2 no-print">
+        <a id="btnGoogleSheet" href="https://docs.google.com/spreadsheets/d/1sWVTbHNrHVzC85PCLq9woVGNYbE9xEt4ZHEBLWTYEM8/edit" target="_blank" rel="noopener" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 flex items-center space-x-1.5 transition">
+          <span>🟢</span>
+          <span>Google Sheets 원본 ↗</span>
+        </a>
+        <a id="btnDatasheet" href="../datasheet.html" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/30 flex items-center space-x-1.5 transition">
+          <span>📊</span>
+          <span id="lblDatasheet">웹 시트 뷰어</span>
+        </a>
+        <a id="btnWebReport" href="./report.html" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 flex items-center space-x-1 shadow transition">
+          <span>📑</span>
+          <span id="lblWebReport">10대 챕터 정밀보고서</span>
+        </a>
+        <div class="inline-flex rounded-lg border border-slate-700 bg-slate-800 p-0.5">
+          <button id="btnLangKO" onclick="switchLanguage('ko')" class="px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950">한국어</button>
+          <button id="btnLangJA" onclick="switchLanguage('ja')" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white">日本語</button>
+        </div>
+        <button onclick="window.print()" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          🖨️ PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- ══════════ 1. DATA COLLECTION STATUS & MISSING DATA TRACKER (핵심 요구사항) ══════════ -->
+    <section class="bg-white rounded-2xl border-2 border-slate-200 shadow-sm overflow-hidden">
+      <div class="px-6 py-4 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <span class="text-xl">🗂️</span>
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 id="auditSecTitle" class="text-sm sm:text-base font-bold">데이터 수집 현황 및 미수집 항목 감사 (Spreadsheet Data Audit)</h2>
+              <span id="auditStageBadge" class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"></span>
+            </div>
+            <p id="auditSecDesc" class="text-xs text-slate-400 mt-0.5">마이소쿠·물건개요서·렌트롤·공적장부 기준 35개 표준 실사항목의 수집완료 vs 추정치 vs 미수집 식별 현황</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <div class="text-xs text-slate-400" id="lblCollectionRate">필수 데이터 수집률</div>
+            <div class="text-lg font-black font-mono text-amber-400" id="valCollectionRate">0.0%</div>
+          </div>
+          <button onclick="toggleAuditDrawer()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-amber-300 border border-amber-500/40 transition flex items-center gap-1.5">
+            <span>📋</span>
+            <span id="btnToggleAudit">수집/미수집 상세 & 중개사 요청서 보기</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar & Summary Counts -->
+      <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
+        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden flex mb-3">
+          <div id="barCollected" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%" title="수집/검증 완료"></div>
+          <div id="barEstimated" class="bg-amber-400 h-full transition-all duration-500" style="width: 0%" title="추정치 적용"></div>
+          <div id="barMissing" class="bg-rose-500 h-full transition-all duration-500" style="width: 0%" title="미수집"></div>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-700">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span id="statCollected">✅ 수집/검증완료: 0건</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 font-semibold text-amber-700">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <span id="statEstimated">⚠️ 표준산식 추정치: 0건</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 font-semibold text-rose-700">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+              <span id="statMissing">❌ 미수집 (추가요청 필요): 0건</span>
+            </span>
+          </div>
+          <div id="docCategoryPills" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <!-- Expandable Detailed Audit Table & Broker Inquiry Generator -->
+      <div id="auditDrawer" class="hidden p-6 space-y-6 bg-white">
+        <!-- Missing / Estimated Alert & Broker Request Copy Box -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-rose-50/70 border border-rose-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 id="lblMissingTitle" class="text-xs font-extrabold text-rose-900 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🚨</span> 미수집(MISSING) 및 추정(ESTIMATED) 핵심 확인 리스트
+              </h3>
+              <span id="missingCountBadge" class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-rose-200 text-rose-900"></span>
+            </div>
+            <ul id="missingItemsList" class="text-xs text-rose-900 space-y-1.5 max-h-52 overflow-y-auto pr-2"></ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 text-slate-100 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 id="lblBrokerMsgTitle" class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                <span>✉️</span> 중개사(매도측) 미수집 자료 추가 요청문 (일본어/한국어 자동생성)
+              </h3>
+              <button onclick="copyBrokerInquiry()" class="px-2.5 py-1 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-bold transition">
+                📋 복사하기 (Copy)
+              </button>
+            </div>
+            <pre id="brokerInquiryText" class="text-[11px] font-mono text-slate-300 whitespace-pre-wrap bg-slate-950 p-3 rounded-lg border border-slate-800 max-h-48 overflow-y-auto"></pre>
+          </div>
+        </div>
+
+        <!-- Full 35-Item Collection Audit Table -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h3 id="lblFullAuditTable" class="text-xs font-bold text-slate-700">전체 35개 표준 데이터 필드 수집 상태 감사표 (`Data_Collection_Audit` 시트 연동)</h3>
+            <div class="flex gap-1.5 text-[11px]">
+              <button onclick="filterAuditTable('ALL')" class="px-2 py-0.5 rounded bg-slate-200 hover:bg-slate-300 font-semibold">전체</button>
+              <button onclick="filterAuditTable('MISSING')" class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 hover:bg-rose-200 font-semibold">❌ 미수집만</button>
+              <button onclick="filterAuditTable('ESTIMATED')" class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 hover:bg-amber-200 font-semibold">⚠️ 추정치만</button>
+              <button onclick="filterAuditTable('COLLECTED')" class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 hover:bg-emerald-200 font-semibold">✅ 수집완료만</button>
+            </div>
+          </div>
+          <div class="overflow-x-auto border border-slate-200 rounded-xl max-h-80 overflow-y-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-slate-100 text-slate-600 sticky top-0 border-b border-slate-200">
+                <tr>
+                  <th class="py-2 px-3">ID</th>
+                  <th class="py-2 px-3">분류</th>
+                  <th class="py-2 px-3">점검 항목</th>
+                  <th class="py-2 px-3">수집된 값 (Value)</th>
+                  <th class="py-2 px-3 text-center">수집 상태</th>
+                  <th class="py-2 px-3">출처 서류 / 미수집 사유</th>
+                </tr>
+              </thead>
+              <tbody id="auditTableBody" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 2. HERO KPI CARDS ══════════ -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroPrice">매매가격</span>
+        <span class="text-xl sm:text-2xl font-black text-slate-900 mt-1 block font-mono" id="valHeroPrice">-</span>
+        <span class="text-[11px] text-amber-600 font-medium block mt-0.5" id="subHeroPrice"></span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroGross">만실 표면수익률</span>
+        <span class="text-xl sm:text-2xl font-black text-emerald-600 mt-1 block font-mono" id="valHeroGross">-</span>
+        <span class="text-[11px] text-slate-400 block mt-0.5" id="subHeroGross"></span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroCap">실질 Cap Rate (NOI)</span>
+        <span class="text-xl sm:text-2xl font-black text-sky-600 mt-1 block font-mono" id="valHeroCap">-</span>
+        <span class="text-[11px] text-slate-400 block mt-0.5" id="subHeroCap"></span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroDSCR">DSCR (부채상환배율)</span>
+        <span class="text-xl sm:text-2xl font-black text-indigo-600 mt-1 block font-mono" id="valHeroDSCR">-</span>
+        <span class="text-[11px] font-medium block mt-0.5" id="subHeroDSCR"></span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroBE">손익분기 가동률</span>
+        <span class="text-xl sm:text-2xl font-black text-slate-800 mt-1 block font-mono" id="valHeroBE">-</span>
+        <span class="text-[11px] text-slate-400 block mt-0.5" id="subHeroBE"></span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm metric-card">
+        <span class="text-xs font-semibold text-slate-500 uppercase block" id="lblHeroScore">종합 스코어카드</span>
+        <span class="text-xl sm:text-2xl font-black text-amber-500 mt-1 block font-mono" id="valHeroScore">-</span>
+        <span class="text-[11px] text-emerald-600 font-bold block mt-0.5" id="subHeroScore"></span>
+      </div>
+    </section>
+
+    <!-- ══════════ 3. PROPERTY OVERVIEW (WITH FIELD COLLECTION STATUS BADGES) ══════════ -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🏢</span>
+          <h2 id="secOverviewTitle" class="text-base font-bold text-slate-900">물건 개요 및 적법성·인프라 명세 (`Properties_Master` 시트 연동)</h2>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <a id="linkGoogleMaps" href="#" target="_blank" rel="noopener" class="px-2.5 py-1 rounded-md bg-sky-50 text-sky-700 border border-sky-200 font-semibold hover:bg-sky-100 transition">📍 Google Maps 위치</a>
+          <a id="linkGoogleWalk" href="#" target="_blank" rel="noopener" class="px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200 font-semibold hover:bg-indigo-100 transition">🚶 역 도보경로 실측</a>
+        </div>
+      </div>
+      <div id="overviewGrid" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-xs sm:text-sm"></div>
+    </section>
+
+    <!-- ══════════ 4. INTERACTIVE LOAN & CASH FLOW SIMULATOR ══════════ -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+        <div>
+          <h2 id="secSimTitle" class="text-base font-bold text-slate-900">🏦 실시간 융자 & 캐시플로우 시뮬레이터</h2>
+          <p id="secSimDesc" class="text-xs text-slate-500 mt-0.5">매매가격(네고), LTV, 금리, 융자기간, 가동률, 실질경비율 조정에 따른 실시간 수지 및 안전마진 시뮬레이션</p>
+        </div>
+        <button onclick="resetSimulator()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition no-print">
+          ↺ 기준값 복원
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Sliders (Left 5 cols) -->
+        <div class="lg:col-span-5 space-y-4 bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span id="lblInPrice">매매가격 (협상가)</span>
+              <span id="valInPrice" class="font-mono font-bold text-sky-700"></span>
+            </div>
+            <input id="inPrice" type="range" min="50000000" max="350000000" step="500000" class="w-full" oninput="recalcSim()">
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-semibold mb-1">
+              <span id="lblInLtv">대출 비율 (LTV)</span>
+              <span id="valInLtv" class="font-mono font-bold text-sky-700"></span>
+            </div>
+            <input id="inLtv" type="range" min="0" max="100" step="1" class="w-full" oninput="recalcSim()">
+            <div id="subLoanAmt" class="text-[11px] text-slate-500 text-right mt-0.5 font-mono"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span id="lblInRate">대출 금리 (%)</span>
+                <span id="valInRate" class="font-mono font-bold text-sky-700"></span>
+              </div>
+              <input id="inRate" type="range" min="0.5" max="5.0" step="0.05" class="w-full" oninput="recalcSim()">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span id="lblInTerm">융자 기간 (년)</span>
+                <span id="valInTerm" class="font-mono font-bold text-sky-700"></span>
+              </div>
+              <input id="inTerm" type="range" min="5" max="35" step="1" class="w-full" oninput="recalcSim()">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span id="lblInOcc">상정 가동률 (%)</span>
+                <span id="valInOcc" class="font-mono font-bold text-sky-700"></span>
+              </div>
+              <input id="inOcc" type="range" min="50" max="100" step="1" class="w-full" oninput="recalcSim()">
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span id="lblInOpex">실질 경비율 (%)</span>
+                <span id="valInOpex" class="font-mono font-bold text-sky-700"></span>
+              </div>
+              <input id="inOpex" type="range" min="10" max="40" step="0.5" class="w-full" oninput="recalcSim()">
+            </div>
+          </div>
+        </div>
+
+        <!-- Outputs & Chart (Right 7 cols) -->
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-slate-400 block" id="lblOutEGI">유효총수입 (EGI)</span>
+              <span id="outEGI" class="text-sm font-bold font-mono text-slate-900 mt-1 block"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-slate-400 block" id="lblOutOpex">실질운영경비 (OPEX)</span>
+              <span id="outOpex" class="text-sm font-bold font-mono text-rose-600 mt-1 block"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-sky-50/70 border border-sky-200">
+              <span class="text-sky-700 font-semibold block" id="lblOutNOI">순영업소득 (NOI)</span>
+              <span id="outNOI" class="text-sm font-black font-mono text-sky-800 mt-1 block"></span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-slate-400 block" id="lblOutADS">연간원리금 (ADS)</span>
+              <span id="outADS" class="text-sm font-bold font-mono text-slate-700 mt-1 block"></span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div id="cfCardBox" class="p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/50">
+              <span class="text-xs font-bold uppercase block" id="lblOutBTCF">연간 세전 현금흐름 (BTCF)</span>
+              <span id="outBTCF" class="text-lg font-black font-mono mt-1 block"></span>
+              <span id="outMonthlyCF" class="text-[11px] font-mono opacity-80 block"></span>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <span class="text-xs text-slate-500 font-semibold block" id="lblOutEquity">초기 필요 자기자금 (자기자본+제비용)</span>
+              <span id="outEquity" class="text-base font-black font-mono text-slate-900 mt-1 block"></span>
+              <span id="outCCR" class="text-[11px] font-mono text-indigo-600 font-bold block"></span>
+            </div>
+            <div class="h-32 bg-white rounded-xl border border-slate-200 p-2">
+              <canvas id="cfBarChart"></canvas>
+            </div>
+          </div>
+
+          <div id="simVerdictBox" class="p-3.5 rounded-xl border text-xs leading-relaxed">
+            <strong id="simVerdictTitle" class="block mb-0.5"></strong>
+            <span id="simVerdictDesc"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 5. CORPORATE BALANCE SHEET LANDING TABLE (결산서 디자인형 9호 판정표) ══════════ -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h2 id="secLandingTitle" class="text-base font-bold text-slate-900">📊 결산서 디자인형 착지 판정표 (Corporate Financial Landing)</h2>
+          <p id="secLandingDesc" class="text-xs text-slate-500 mt-0.5"></p>
+        </div>
+        <span id="landingModeTag" class="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-slate-200 text-slate-800"></span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm text-left">
+          <thead id="landingTableHead" class="bg-slate-100 text-slate-700 border-b border-slate-200"></thead>
+          <tbody id="landingTableBody" class="divide-y divide-slate-100"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════ 6. RENT ROLL & DOM & UPSIDE TABLE (`Rent_Roll` 시트 연동) ══════════ -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h2 id="secRentRollTitle" class="text-base font-bold text-slate-900">🔑 호실별 렌트롤 & HOME'S 추정 DOM & 임대료 업사이드 (`Rent_Roll` 시트 연동)</h2>
+          <p id="secRentRollDesc" class="text-xs text-slate-500 mt-0.5">스프레드쉬트 `Rent_Roll` 탭에서 동적으로 로드된 세대별 임대 현황 및 미수집 항목(계약시작일/입주자속성 등) 표시</p>
+        </div>
+        <a id="linkHomesArchive" href="#" target="_blank" rel="noopener" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+          🏠 LIFULL HOME'S 게재이력 아카이브 ↗
+        </a>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-100 text-slate-600 border-b border-slate-200">
+            <tr>
+              <th class="py-2.5 px-3">호실</th>
+              <th class="py-2.5 px-3">층/타입</th>
+              <th class="py-2.5 px-3 text-right">면적(㎡)</th>
+              <th class="py-2.5 px-3 text-center">현황</th>
+              <th class="py-2.5 px-3">입주자 속성</th>
+              <th class="py-2.5 px-3">계약시작일</th>
+              <th class="py-2.5 px-3 text-right">월 차임(엔)</th>
+              <th class="py-2.5 px-3 text-right">공익비(엔)</th>
+              <th class="py-2.5 px-3 text-right">월 합계(엔)</th>
+              <th class="py-2.5 px-3 text-right">목표 차임</th>
+              <th class="py-2.5 px-3 text-center">추정 DOM</th>
+              <th class="py-2.5 px-3">비고</th>
+            </tr>
+          </thead>
+          <tbody id="rentRollBody" class="divide-y divide-slate-100"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════ 7. KEY HIGHLIGHTS & TOP 5 DUE DILIGENCE ACTION ITEMS ══════════ -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <h3 id="secHighlightsTitle" class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span>✨</span> 핵심 투자 하이라이트 (Key Highlights)
+        </h3>
+        <ul id="listHighlights" class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5"></ul>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+        <h3 id="secActionsTitle" class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span>🔍</span> 매수 청약 전 선행 확인 필수 항목 (Top Due Diligence Actions)
+        </h3>
+        <ul id="listActions" class="space-y-2 text-xs sm:text-sm text-slate-700 list-decimal pl-5"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-slate-400 border-t border-slate-200 mt-8">
+    <p id="footerInfo">Powered by Real Estate Spreadsheet Data Store (`data/real_estate_datastore.xlsx`) & Standardized Web Template Engine</p>
+  </footer>
+
+  <script>
+    let G_DATA = null;
+    let G_LANG = localStorage.getItem('myrealbiz_lang') || 'ko';
+    let G_AUDIT_FILTER = 'ALL';
+    let G_CHART = null;
+
+    function fmtYen(n) {
+      if (n === null || n === undefined || isNaN(n)) return '-';
+      const v = Number(n);
+      if (G_LANG === 'ja') {
+        if (Math.abs(v) >= 100000000) return '¥' + (v / 10000).toLocaleString('ja-JP', {maximumFractionDigits: 0}) + '万';
+        return '¥' + Math.round(v).toLocaleString('ja-JP');
+      }
+      return '¥' + Math.round(v).toLocaleString('ko-KR');
+    }
+
+    function fmtManYen(n) {
+      if (n === null || n === undefined || isNaN(n)) return '-';
+      const man = Number(n) / 10000;
+      return man.toLocaleString(undefined, {maximumFractionDigits: 1}) + (G_LANG === 'ja' ? '万円' : '만 엔');
+    }
+
+    function statusBadgeHtml(status) {
+      const s = (status || 'COLLECTED').toUpperCase();
+      if (s === 'VERIFIED') {
+        return `<span class="px-1.5 py-0.5 text-[10px] font-bold rounded badge-verified">${G_LANG === 'ja' ? '🛡️ 検証済' : '🛡️ 교차검증'}</span>`;
+      }
+      if (s === 'COLLECTED') {
+        return `<span class="px-1.5 py-0.5 text-[10px] font-bold rounded badge-collected">${G_LANG === 'ja' ? '✅ 収集済' : '✅ 수집완료'}</span>`;
+      }
+      if (s === 'ESTIMATED') {
+        return `<span class="px-1.5 py-0.5 text-[10px] font-bold rounded badge-estimated">${G_LANG === 'ja' ? '⚠️ 推定値' : '⚠️ 추정치'}</span>`;
+      }
+      return `<span class="px-1.5 py-0.5 text-[10px] font-bold rounded badge-missing">${G_LANG === 'ja' ? '❌ 未収集' : '❌ 미수집'}</span>`;
+    }
+
+    async function loadPropertyData() {
+      // 1. Try fetch('./data.json')
+      try {
+        const res = await fetch('./data.json', { cache: 'no-store' });
+        if (res.ok) {
+          G_DATA = await res.json();
+          initTemplate();
+          return;
+        }
+      } catch (e) {
+        // Fallback to window.__DATASTORE_PAYLOAD__ for local file:// viewing
+      }
+      if (window.__DATASTORE_PAYLOAD__) {
+        G_DATA = window.__DATASTORE_PAYLOAD__;
+        initTemplate();
+        return;
+      }
+      // Wait briefly if defer script hasn't fired yet
+      setTimeout(() => {
+        if (window.__DATASTORE_PAYLOAD__) {
+          G_DATA = window.__DATASTORE_PAYLOAD__;
+          initTemplate();
+        } else {
+          document.getElementById('hdrTitle').textContent = '데이터 스토어를 불러올 수 없습니다 (data.json 미존재)';
+        }
+      }, 150);
+    }
+
+    function initTemplate() {
+      if (!G_DATA) return;
+      const m = G_DATA.master || {};
+      document.getElementById('inPrice').min = Math.round((m.price_yen || 100000000) * 0.6);
+      document.getElementById('inPrice').max = Math.round((m.price_yen || 100000000) * 1.2);
+      resetSimulator();
+      renderAll();
+    }
+
+    function switchLanguage(lang) {
+      G_LANG = lang;
+      localStorage.setItem('myrealbiz_lang', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('btnLangKO').className = lang === 'ko'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      document.getElementById('btnLangJA').className = lang === 'ja'
+        ? 'px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-500 text-slate-950'
+        : 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white';
+      renderAll();
+    }
+
+    function toggleAuditDrawer() {
+      const el = document.getElementById('auditDrawer');
+      el.classList.toggle('hidden');
+    }
+
+    function filterAuditTable(filter) {
+      G_AUDIT_FILTER = filter;
+      renderAuditSection();
+    }
+
+    function copyBrokerInquiry() {
+      const txt = document.getElementById('brokerInquiryText').textContent;
+      navigator.clipboard.writeText(txt).then(() => {
+        alert(G_LANG === 'ja' ? '仲介会社への確認依頼文をコピーしました。' : '중개사 추가 자료 요청 질의서가 클립보드에 복사되었습니다.');
+      });
+    }
+
+    function renderAuditSection() {
+      const m = G_DATA.master || {};
+      const audits = G_DATA.collection_audit || [];
+      const total = audits.length || 1;
+      const collected = audits.filter(a => a.status === 'COLLECTED' || a.status === 'VERIFIED').length;
+      const estimated = audits.filter(a => a.status === 'ESTIMATED').length;
+      const missing = audits.filter(a => a.status === 'MISSING').length;
+      const ratePct = ((collected / total) * 100).toFixed(1);
+
+      document.getElementById('valCollectionRate').textContent = `${ratePct}% (${collected}/${total})`;
+      document.getElementById('auditStageBadge').textContent = m.data_stage_badge || (missing === 0 ? 'FULL_DD' : 'PARTIAL_DD');
+      document.getElementById('barCollected').style.width = `${(collected / total) * 100}%`;
+      document.getElementById('barEstimated').style.width = `${(estimated / total) * 100}%`;
+      document.getElementById('barMissing').style.width = `${(missing / total) * 100}%`;
+
+      document.getElementById('statCollected').textContent = G_LANG === 'ja'
+        ? `✅ 収集・検証済: ${collected}件`
+        : `✅ 수집/검증완료: ${collected}건`;
+      document.getElementById('statEstimated').textContent = G_LANG === 'ja'
+        ? `⚠️ 推定値適用: ${estimated}件`
+        : `⚠️ 표준산식 추정치: ${estimated}건`;
+      document.getElementById('statMissing').textContent = G_LANG === 'ja'
+        ? `❌ 未収集(要確認): ${missing}件`
+        : `❌ 미수집(추가요청 필요): ${missing}건`;
+
+      // Category summary pills
+      const cats = {};
+      audits.forEach(a => {
+        const c = a.category || '기타';
+        if (!cats[c]) cats[c] = { ok: 0, tot: 0, miss: 0 };
+        cats[c].tot++;
+        if (a.status === 'COLLECTED' || a.status === 'VERIFIED') cats[c].ok++;
+        if (a.status === 'MISSING') cats[c].miss++;
+      });
+      document.getElementById('docCategoryPills').innerHTML = Object.entries(cats).map(([cat, st]) => {
+        const cls = st.miss > 0 ? 'badge-missing' : (st.ok === st.tot ? 'badge-verified' : 'badge-estimated');
+        return `<span class="px-2 py-0.5 rounded text-[11px] font-semibold ${cls}">${cat}: ${st.ok}/${st.tot}</span>`;
+      }).join('');
+
+      // Missing & Estimated bullet list + Broker Inquiry text
+      const actionable = audits.filter(a => a.status === 'MISSING' || a.status === 'ESTIMATED');
+      document.getElementById('missingCountBadge').textContent = `${actionable.length}건`;
+      if (actionable.length === 0) {
+        document.getElementById('missingItemsList').innerHTML = `<li class="text-emerald-700 font-semibold">✅ 모든 필수 서류 및 실사 데이터가 수집 완료되었습니다.</li>`;
+      } else {
+        document.getElementById('missingItemsList').innerHTML = actionable.map(a => {
+          const badge = statusBadgeHtml(a.status);
+          const label = G_LANG === 'ja' ? (a.item_name_ja || a.item_name_ko) : a.item_name_ko;
+          const note = G_LANG === 'ja' ? (a.broker_inquiry_ja || a.note) : (a.broker_inquiry_ko || a.note);
+          return `<li class="flex items-start justify-between gap-2 border-b border-rose-200/60 pb-1">
+            <div><strong>[${a.category}] ${label}</strong>: <span class="text-slate-600">${note || ''}</span></div>
+            <div class="shrink-0">${badge}</div>
+          </li>`;
+        }).join('');
+      }
+
+      // Broker inquiry generator (Japanese + Korean)
+      const propNameJa = m.name_ja || m.name_ko;
+      const propNameKo = m.name_ko;
+      if (actionable.length === 0) {
+        document.getElementById('brokerInquiryText').textContent = '모든 자료가 확보되어 추가 요청할 미수집 항목이 없습니다.';
+      } else {
+        const jaLines = actionable.map((a, idx) => `${idx + 1}. ${a.item_name_ja || a.item_name_ko}: ${a.broker_inquiry_ja || '資料のご共有をお願いいたします。'}`).join('\n');
+        const koLines = actionable.map((a, idx) => `${idx + 1}. ${a.item_name_ko}: ${a.broker_inquiry_ko || '관련 증빙서류 요청'}`).join('\n');
+        document.getElementById('brokerInquiryText').textContent =
+`【日本語 (중개사 발송용)】
+お世話になっております。「${propNameJa}」の買付検討にあたり、未確認の下記資料・情報をご教示いただけますでしょうか。
+${jaLines}
+
+----------------------------------------
+【한국어 요약 (내부 체크용 - ${propNameKo})】
+${koLines}`;
+      }
+
+      // Full table
+      const filtered = audits.filter(a => {
+        if (G_AUDIT_FILTER === 'ALL') return true;
+        if (G_AUDIT_FILTER === 'COLLECTED') return a.status === 'COLLECTED' || a.status === 'VERIFIED';
+        return a.status === G_AUDIT_FILTER;
+      });
+      document.getElementById('auditTableBody').innerHTML = filtered.map(a => `
+        <tr class="hover:bg-slate-50">
+          <td class="py-2 px-3 font-mono text-[11px] text-slate-500">${a.check_id}</td>
+          <td class="py-2 px-3 font-semibold text-slate-700">${a.category}</td>
+          <td class="py-2 px-3 font-medium text-slate-900">${G_LANG === 'ja' ? (a.item_name_ja || a.item_name_ko) : a.item_name_ko}</td>
+          <td class="py-2 px-3 font-mono text-slate-800">${a.collected_value || '<span class="text-rose-600 font-bold">[미수집]</span>'}</td>
+          <td class="py-2 px-3 text-center">${statusBadgeHtml(a.status)}</td>
+          <td class="py-2 px-3 text-slate-500">${a.source_doc || '-'}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderOverviewSection() {
+      const m = G_DATA.master || {};
+      const audits = G_DATA.collection_audit || [];
+      const auditMap = {};
+      audits.forEach(a => { auditMap[a.field_key] = a.status; });
+
+      const fields = [
+        { key: 'address_road', ko: '소재지 (도로명/지번)', ja: '所在地 (住居表示/地番)', val: `${m.address_road || ''} ${m.address_lot ? '(' + m.address_lot + ')' : ''}`.trim() },
+        { key: 'station_access_summary', ko: '교통 (공시 vs 구글맵 실측)', ja: '交通 (表示 vs Google実測)', val: m.station_access_summary },
+        { key: 'structure_display', ko: '건물 구조 및 규모', ja: '建物構造・規模', val: `${m.structure_display || ''} · ${m.total_units || 0}세대 (${m.unit_composition || ''})` },
+        { key: 'built_year_month', ko: '준공년월 (경과연수)', ja: '築年月 (経過年数)', val: `${m.built_year_month || '-'} (축 ${m.building_age_years || '-'}년 / 잔존 내용연수 ${m.remaining_life_years || '-'}년)` },
+        { key: 'land_area_sqm', ko: '토지 면적 (공부)', ja: '土地面積 (公簿)', val: `${m.land_area_sqm || '-'}㎡ (${m.land_area_tsubo || '-'}평) · ${m.land_right || '소유권'}` },
+        { key: 'bldg_area_reg_sqm', ko: '건물 연면적 (등기/대장)', ja: '延床面積 (登記/台帳)', val: `등기 ${m.bldg_area_reg_sqm || '-'}㎡ / 확인대장 ${m.bldg_area_cert_sqm || '[미수집]'}` },
+        { key: 'road_access', ko: '도로 접도 및 사도부담', ja: '接道状況・私道負担', val: `${m.road_access || '-'} (${m.private_road_burden || '사도부담 확인필요'})` },
+        { key: 'zoning', ko: '용도지역 (건폐율/용적률)', ja: '用途地域 (建蔽率/容積率)', val: `${m.zoning || '-'} (법정 ${m.bcr_legal_pct || '-'}% / ${m.far_legal_pct || '-'}%)` },
+        { key: 'has_inspection_cert', ko: '준공검사필증 (検査済証)', ja: '検査済証の有無', val: m.has_inspection_cert },
+        { key: 'repair_history_summary', ko: '대규모 수선이력 (외벽/옥상)', ja: '大規模修繕履歴', val: m.repair_history_summary },
+        { key: 'utilities_gas', ko: '설비 (가스 / 상하수도)', ja: '設備 (ガス・上下水道)', val: `${m.utilities_gas || '-'} / ${m.utilities_water_sewer || '-'}` },
+        { key: 'fixed_tax_annual_yen', ko: '고정자산세 평가액 / 연세액', ja: '固定資産税評価額 / 年税額', val: `토지 ${fmtManYen(m.fixed_tax_land_eval_yen)} · 건물 ${fmtManYen(m.fixed_tax_bldg_eval_yen)} (연세액 ${fmtManYen(m.fixed_tax_annual_yen)})` },
+        { key: 'hazard_flood', ko: '재해 리스크 (침수 / 토사)', ja: 'ハザード (浸水・土砂)', val: `침수: ${m.hazard_flood || '-'} / 토사: ${m.hazard_landslide || '-'}` },
+        { key: 'avg_dom_days', ko: 'HOME\'S 평균 DOM / 회전공실률', ja: 'HOME\'S 平均DOM / 空室率', val: `평균 DOM: ${m.avg_dom_days || '-'}일 / 실적 회전공실률: ${m.turnover_vacancy_pct || '-'}%` }
+      ];
+
+      document.getElementById('overviewGrid').innerHTML = fields.map(f => {
+        const rawVal = f.val || '[미수집]';
+        const isMissing = rawVal.includes('[미수집]') || rawVal === '-';
+        const status = auditMap[f.key] || (isMissing ? 'MISSING' : 'COLLECTED');
+        return `<div class="flex items-start justify-between border-b border-slate-100 pb-2.5 gap-2">
+          <span class="text-slate-500 font-medium shrink-0">${G_LANG === 'ja' ? f.ja : f.ko}</span>
+          <div class="text-right flex flex-col sm:flex-row sm:items-center gap-1.5 justify-end">
+            <span class="font-semibold ${status === 'MISSING' ? 'text-rose-600' : 'text-slate-900'}">${rawVal}</span>
+            ${statusBadgeHtml(status)}
+          </div>
+        </div>`;
+      }).join('');
+
+      document.getElementById('linkGoogleMaps').href = m.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.address_road || m.name_ja || '')}`;
+      document.getElementById('linkGoogleWalk').href = m.google_maps_walk_url || document.getElementById('linkGoogleMaps').href;
+    }
+
+    function renderLandingTable() {
+      const isMoabiz = G_DATA.portal_mode === 'moabiz';
+      const cl = G_DATA.corporate_landing || {};
+      const st = cl.standalone || {};
+      const base = cl.baseline || {};
+      const comb = cl.combined || {};
+      const m = G_DATA.master || {};
+
+      document.getElementById('landingModeTag').textContent = isMoabiz
+        ? '🔒 모아비즈 내부전용 (4기 결산서 3열 대조)'
+        : '🌐 외부공개용 (단품 회계·세무 착지)';
+      document.getElementById('secLandingDesc').textContent = isMoabiz
+        ? '단품 부동산 수지 vs 모아비즈 4기 결산서 베이스라인 vs 매입 편입 후 합산 착지 비교'
+        : '단품 부동산 기준 장부상 세전순이익, 세후 현금흐름, 채무상환연수, ICR, DSCR 종합 판정';
+
+      if (isMoabiz) {
+        document.getElementById('landingTableHead').innerHTML = `
+          <tr>
+            <th class="py-3 px-4">지표 항목 (決算書デザイン型指標)</th>
+            <th class="py-3 px-4 text-right">검증대상 단품</th>
+            <th class="py-3 px-4 text-right">모아비즈 4기 현재 (Baseline)</th>
+            <th class="py-3 px-4 text-right bg-amber-50/80 text-amber-900">편입 후 합산 착지</th>
+          </tr>`;
+        const rows = [
+          ['1. 장부상 세전 당기순이익 (税引前当期純利益)', fmtManYen(st.pretax_profit), fmtManYen(base.pretax_profit), fmtManYen(comb.pretax_profit)],
+          ['2. 세전 잔여 CF (税引前手残りCF)', fmtManYen(st.pretax_cf), fmtManYen(base.pretax_cf), fmtManYen(comb.pretax_cf)],
+          ['　・세후 잔여 CF (税引後手残りCF)', fmtManYen(st.posttax_cf), fmtManYen(base.posttax_cf), fmtManYen(comb.posttax_cf)],
+          ['3. 채무상환연수 (債務償還年数)', `${(st.debt_years || 0).toFixed(1)}년`, `${(base.debt_years || 24.1).toFixed(1)}년`, `${(comb.debt_years || 0).toFixed(1)}년`],
+          ['4. 간이 Cash Flow (=세후CF)', fmtManYen(st.posttax_cf), fmtManYen(base.posttax_cf), fmtManYen(comb.posttax_cf)],
+          ['5. ICR (이자보상배율)', `${(st.icr || 0).toFixed(2)}배`, `${(base.icr || 0.9).toFixed(2)}배`, `${(comb.icr || 0).toFixed(2)}배`],
+          ['6. DSCR (부채상환여유율)', `${(st.dscr || 0).toFixed(2)}배`, `${(base.dscr || 1.5).toFixed(2)}배`, `${(comb.dscr || 0).toFixed(2)}배`],
+          ['7. 고정자산세 평가액 대비 LTV', `${((st.ltv_tax || 0) * 100).toFixed(1)}%`, `${((base.ltv_tax || 2.6108) * 100).toFixed(1)}%`, `${((comb.ltv_tax || 0) * 100).toFixed(1)}%`],
+          ['8. 초기 자기자본 대비 ROI (CCR)', `${((st.roi || 0) * 100).toFixed(2)}%`, `${((base.roi || 0.0383) * 100).toFixed(2)}%`, `${((comb.roi || 0) * 100).toFixed(2)}%`],
+          ['9. 모아비즈 법인 편입 종합 판정', m.verdict_short || '-', '기준선 (ICR 0.9배)', m.moabiz_verdict || '-']
+        ];
+        document.getElementById('landingTableBody').innerHTML = rows.map((r, i) => `
+          <tr class="${i === rows.length - 1 ? 'bg-amber-50 font-bold text-slate-900' : 'hover:bg-slate-50'}">
+            <td class="py-2.5 px-4 font-medium">${r[0]}</td>
+            <td class="py-2.5 px-4 text-right font-mono">${r[1]}</td>
+            <td class="py-2.5 px-4 text-right font-mono text-slate-500">${r[2]}</td>
+            <td class="py-2.5 px-4 text-right font-mono font-bold bg-amber-50/40 text-indigo-900">${r[3]}</td>
+          </tr>`).join('');
+      } else {
+        document.getElementById('landingTableHead').innerHTML = `
+          <tr>
+            <th class="py-3 px-4">지표 항목 (Financial & Tax Landing Metrics)</th>
+            <th class="py-3 px-4 text-right">본 물건 단품 착지 수치</th>
+            <th class="py-3 px-4">비고 및 재무 건전성 기준</th>
+          </tr>`;
+        const rows = [
+          ['1. 장부상 세전 당기순이익', fmtManYen(st.pretax_profit), '감가상각비 및 지급이자 공제 후 회계상 순이익'],
+          ['2. 세전 잔여 현금흐름 (BTCF)', fmtManYen(st.pretax_cf), 'NOI - 원리금상환액(ADS)'],
+          ['3. 세후 잔여 현금흐름 (ATCF)', fmtManYen(st.posttax_cf), '추정 법인세 차감 후 순현금 유입'],
+          ['4. 채무상환연수', `${(st.debt_years || 0).toFixed(1)}년`, '융자기간 이내 상환 적격성 검증'],
+          ['5. ICR (이자보상배율)', `${(st.icr || 0).toFixed(2)}배`, '1.20배 이상 권장'],
+          ['6. DSCR (부채상환배율)', `${(st.dscr || 0).toFixed(2)}배`, '은행 심사 안전기준 1.20배 이상'],
+          ['7. 초기 자기자본 수익률 (CCR)', `${((st.roi || 0) * 100).toFixed(2)}%`, '취득 제비용 포함 총 자기자금 대비'],
+          ['8. 종합 투자 적격성 판정', m.verdict_short || '-', m.public_verdict || '-']
+        ];
+        document.getElementById('landingTableBody').innerHTML = rows.map((r, i) => `
+          <tr class="${i === rows.length - 1 ? 'bg-emerald-50/60 font-bold text-slate-900' : 'hover:bg-slate-50'}">
+            <td class="py-2.5 px-4 font-medium">${r[0]}</td>
+            <td class="py-2.5 px-4 text-right font-mono font-bold">${r[1]}</td>
+            <td class="py-2.5 px-4 text-slate-600">${r[2]}</td>
+          </tr>`).join('');
+      }
+    }
+
+    function renderRentRollSection() {
+      const units = G_DATA.rent_roll || [];
+      const m = G_DATA.master || {};
+      if (m.homes_archive_url && m.homes_archive_url !== '[미수집]') {
+        document.getElementById('linkHomesArchive').href = m.homes_archive_url;
+      } else {
+        document.getElementById('linkHomesArchive').style.display = 'none';
+      }
+
+      if (units.length === 0) {
+        document.getElementById('rentRollBody').innerHTML = `
+          <tr>
+            <td colspan="12" class="py-6 text-center text-rose-600 font-semibold">
+              ❌ 호실별 상세 렌트롤(Rent Roll)이 아직 수집되지 않았습니다. 스프레드쉬트 <code>Rent_Roll</code> 탭에 데이터를 추가하거나 중개사에 렌트롤을 요청하세요.
+            </td>
+          </tr>`;
+        return;
+      }
+
+      let totArea = 0, totRent = 0, totCommon = 0, totSum = 0, totTarget = 0;
+      const htmlRows = units.map(u => {
+        const area = parseFloat(u.area_sqm) || 0;
+        const rent = parseFloat(u.monthly_rent_yen) || 0;
+        const comm = parseFloat(u.monthly_common_fee_yen) || 0;
+        const sum = parseFloat(u.monthly_total_yen) || (rent + comm);
+        const target = parseFloat(u.market_target_rent_yen) || rent;
+        totArea += area; totRent += rent; totCommon += comm; totSum += sum; totTarget += target;
+
+        const occBadge = (u.occupancy_status || '').includes('공실')
+          ? `<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold">공실</span>`
+          : `<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">${u.occupancy_status || '입주중'}</span>`;
+        const tenantHtml = (!u.tenant_type || u.tenant_type === '[미수집]')
+          ? `<span class="px-1.5 py-0.5 rounded badge-missing text-[10px]">❌ 미수집</span>`
+          : u.tenant_type;
+        const startHtml = (!u.contract_start_date || u.contract_start_date === '[미수집]')
+          ? `<span class="px-1.5 py-0.5 rounded badge-missing text-[10px]">❌ 미수집</span>`
+          : u.contract_start_date;
+
+        return `<tr class="hover:bg-slate-50">
+          <td class="py-2 px-3 font-mono font-bold text-slate-900">${u.unit_no}</td>
+          <td class="py-2 px-3">${u.floor || '-'} / ${u.layout_type || '-'}</td>
+          <td class="py-2 px-3 text-right font-mono">${area ? area.toFixed(2) : '-'}</td>
+          <td class="py-2 px-3 text-center">${occBadge}</td>
+          <td class="py-2 px-3">${tenantHtml}</td>
+          <td class="py-2 px-3 font-mono">${startHtml}</td>
+          <td class="py-2 px-3 text-right font-mono">${fmtYen(rent)}</td>
+          <td class="py-2 px-3 text-right font-mono text-slate-500">${fmtYen(comm)}</td>
+          <td class="py-2 px-3 text-right font-mono font-bold">${fmtYen(sum)}</td>
+          <td class="py-2 px-3 text-right font-mono text-indigo-700">${fmtYen(target)}</td>
+          <td class="py-2 px-3 text-center font-mono">${u.estimated_dom_days ? u.estimated_dom_days + '일' : '-'}</td>
+          <td class="py-2 px-3 text-slate-500">${u.note || ''}</td>
+        </tr>`;
+      }).join('');
+
+      const footerRow = `<tr class="bg-slate-100 font-bold border-t-2 border-slate-300">
+        <td class="py-2.5 px-3" colspan="2">합계 (${units.length}구획)</td>
+        <td class="py-2.5 px-3 text-right font-mono">${totArea.toFixed(2)}㎡</td>
+        <td class="py-2.5 px-3 text-center">-</td>
+        <td class="py-2.5 px-3">-</td>
+        <td class="py-2.5 px-3">-</td>
+        <td class="py-2.5 px-3 text-right font-mono">${fmtYen(totRent)}</td>
+        <td class="py-2.5 px-3 text-right font-mono">${fmtYen(totCommon)}</td>
+        <td class="py-2.5 px-3 text-right font-mono text-sky-800">${fmtYen(totSum)}/월</td>
+        <td class="py-2.5 px-3 text-right font-mono text-indigo-800">${fmtYen(totTarget)}/월</td>
+        <td class="py-2.5 px-3 text-center font-mono">평균 ${m.avg_dom_days || '-'}일</td>
+        <td class="py-2.5 px-3">연간 ${fmtManYen(totSum * 12)}</td>
+      </tr>`;
+
+      document.getElementById('rentRollBody').innerHTML = htmlRows + footerRow;
+    }
+
+    function resetSimulator() {
+      if (!G_DATA || !G_DATA.master) return;
+      const m = G_DATA.master;
+      document.getElementById('inPrice').value = m.price_yen || 100000000;
+      document.getElementById('inLtv').value = m.loan_ltv_pct || 80;
+      document.getElementById('inRate').value = m.loan_rate_pct || 2.2;
+      document.getElementById('inTerm').value = m.loan_term_years || 25;
+      document.getElementById('inOcc').value = 100;
+      document.getElementById('inOpex').value = m.opex_ratio_pct || 23.0;
+      recalcSim();
+    }
+
+    function recalcSim() {
+      if (!G_DATA || !G_DATA.master) return;
+      const m = G_DATA.master;
+      const price = parseFloat(document.getElementById('inPrice').value) || m.price_yen;
+      const ltv = (parseFloat(document.getElementById('inLtv').value) || 0) / 100.0;
+      const rate = (parseFloat(document.getElementById('inRate').value) || 0) / 100.0;
+      const term = parseInt(document.getElementById('inTerm').value, 10) || 25;
+      const occ = (parseFloat(document.getElementById('inOcc').value) || 100) / 100.0;
+      const opexRatio = (parseFloat(document.getElementById('inOpex').value) || 23) / 100.0;
+
+      const fullGross = m.full_annual_income_yen || 0;
+      const units = m.total_units || 10;
+      const egi = fullGross * occ;
+      const opex = fullGross * opexRatio;
+      const noi = egi - opex;
+      const loanAmt = price * ltv;
+
+      const rm = rate / 12.0;
+      const nm = term * 12;
+      const monthlyPmt = (rm > 0 && nm > 0)
+        ? loanAmt * (rm * Math.pow(1 + rm, nm)) / (Math.pow(1 + rm, nm) - 1)
+        : (nm > 0 ? loanAmt / nm : 0);
+      const ads = monthlyPmt * 12;
+      const btcf = noi - ads;
+      const dscr = ads > 0 ? (noi / ads) : 9.99;
+      const beOcc = fullGross > 0 ? ((opex + ads) / fullGross) * 100 : 0;
+      const allowVacant = Math.max(0, units * (1 - beOcc / 100.0));
+      const capRate = price > 0 ? (noi / price) * 100 : 0;
+      const grossYield = price > 0 ? (fullGross / price) * 100 : 0;
+
+      const acqCosts = price * 0.075;
+      const totalEquity = price * (1 - ltv) + acqCosts;
+      const ccr = totalEquity > 0 ? (btcf / totalEquity) * 100 : 0;
+
+      // Update slider labels
+      document.getElementById('valInPrice').textContent = fmtManYen(price);
+      document.getElementById('valInLtv').textContent = (ltv * 100).toFixed(0) + '%';
+      document.getElementById('subLoanAmt').textContent = `대출원금: ${fmtManYen(loanAmt)}`;
+      document.getElementById('valInRate').textContent = (rate * 100).toFixed(2) + '%';
+      document.getElementById('valInTerm').textContent = term + '년';
+      document.getElementById('valInOcc').textContent = (occ * 100).toFixed(0) + '%';
+      document.getElementById('valInOpex').textContent = (opexRatio * 100).toFixed(1) + '%';
+
+      // Update outputs
+      document.getElementById('outEGI').textContent = fmtManYen(egi);
+      document.getElementById('outOpex').textContent = '- ' + fmtManYen(opex);
+      document.getElementById('outNOI').textContent = fmtManYen(noi);
+      document.getElementById('outADS').textContent = '- ' + fmtManYen(ads);
+      document.getElementById('outBTCF').textContent = (btcf >= 0 ? '+ ' : '- ') + fmtManYen(Math.abs(btcf));
+      document.getElementById('outMonthlyCF').textContent = `월 평균 ${fmtYen(btcf / 12)} / PMT ${fmtYen(monthlyPmt)}`;
+      document.getElementById('outEquity').textContent = fmtManYen(totalEquity);
+      document.getElementById('outCCR').textContent = `세전 CCR: ${ccr.toFixed(2)}%`;
+
+      const cfCard = document.getElementById('cfCardBox');
+      cfCard.className = btcf >= 0
+        ? 'p-4 rounded-xl border-2 border-emerald-500 bg-emerald-50/50 text-emerald-900'
+        : 'p-4 rounded-xl border-2 border-rose-500 bg-rose-50/50 text-rose-900';
+
+      // Update Hero Cards
+      document.getElementById('valHeroPrice').textContent = fmtManYen(price);
+      document.getElementById('subHeroPrice').textContent = `적산비율 ${(m.assessed_ratio_pct || 0).toFixed(1)}%`;
+      document.getElementById('valHeroGross').textContent = grossYield.toFixed(2) + '%';
+      document.getElementById('subHeroGross').textContent = `만실수입 ${fmtManYen(fullGross)}`;
+      document.getElementById('valHeroCap').textContent = capRate.toFixed(2) + '%';
+      document.getElementById('subHeroCap').textContent = `실질 NOI ${fmtManYen(noi)}`;
+      document.getElementById('valHeroDSCR').textContent = dscr.toFixed(2) + 'x';
+      document.getElementById('subHeroDSCR').textContent = dscr >= 1.20 ? '✅ 안전 기준 충족 (>=1.20)' : '⚠️ 안전마진 주의 (<1.20)';
+      document.getElementById('subHeroDSCR').className = dscr >= 1.20 ? 'text-[11px] font-semibold text-emerald-600 block mt-0.5' : 'text-[11px] font-semibold text-rose-600 block mt-0.5';
+      document.getElementById('valHeroBE').textContent = beOcc.toFixed(1) + '%';
+      document.getElementById('subHeroBE').textContent = `허용 공실 ${allowVacant.toFixed(1)}실 / ${units}실`;
+      document.getElementById('valHeroScore').textContent = `${m.score_total || '-'} / 30`;
+      document.getElementById('subHeroScore').textContent = m.verdict_short || '';
+
+      // Sim verdict
+      const vbox = document.getElementById('simVerdictBox');
+      const vtitle = document.getElementById('simVerdictTitle');
+      const vdesc = document.getElementById('simVerdictDesc');
+      if (dscr >= 1.25 && beOcc <= 80) {
+        vbox.className = 'p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/60 text-emerald-950 text-xs leading-relaxed';
+        vtitle.textContent = '✅ 우량 현금흐름 구간 (안전마진 확보)';
+        vdesc.textContent = `DSCR ${dscr.toFixed(2)}배 및 손익분기 가동률 ${beOcc.toFixed(1)}%(허용공실 ${allowVacant.toFixed(1)}실)로 공실 및 금리 스트레스에 강건합니다.`;
+      } else if (dscr >= 1.10 && btcf > 0) {
+        vbox.className = 'p-3.5 rounded-xl border-2 border-amber-500 bg-amber-50/60 text-amber-950 text-xs leading-relaxed';
+        vtitle.textContent = '⚠️ 조건부 수지 균형 구간 (가격 네고 또는 자기자본 조정 권장)';
+        vdesc.textContent = `흑자이나 DSCR(${dscr.toFixed(2)}배) 안전마진 확충을 위해 매매가 절충(指値) 또는 장기 융자 조건 확보가 유리합니다.`;
+      } else {
+        vbox.className = 'p-3.5 rounded-xl border-2 border-rose-500 bg-rose-50/60 text-rose-950 text-xs leading-relaxed';
+        vtitle.textContent = '🚨 현금흐름 취약 / 역마진 주의 구간';
+        vdesc.textContent = `원리금 상환 부담 대비 순영업소득(NOI) 여유가 부족합니다. 매수가 인하 또는 LTV 조정이 필수적입니다.`;
+      }
+
+      // Chart
+      const chartData = [Math.round(noi / 10000), Math.round(ads / 10000), Math.round(btcf / 10000)];
+      const ctx = document.getElementById('cfBarChart').getContext('2d');
+      if (G_CHART) {
+        G_CHART.data.datasets[0].data = chartData;
+        G_CHART.data.datasets[0].backgroundColor = ['#0284c7', '#64748b', btcf >= 0 ? '#10b981' : '#f43f5e'];
+        G_CHART.update();
+      } else {
+        G_CHART = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['NOI', 'ADS', 'BTCF'],
+            datasets: [{
+              data: chartData,
+              backgroundColor: ['#0284c7', '#64748b', btcf >= 0 ? '#10b981' : '#f43f5e'],
+              borderRadius: 5
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+    }
+
+    function renderAll() {
+      if (!G_DATA) return;
+      const m = G_DATA.master || {};
+      const isMoabiz = G_DATA.portal_mode === 'moabiz';
+
+      document.title = `${G_LANG === 'ja' ? (m.name_ja || m.name_ko) : m.name_ko} | 데이터 연동형 투자분석 대시보드`;
+      document.getElementById('portalModeBadge').textContent = isMoabiz ? 'MOABIZ INTERNAL' : 'PUBLIC PORTAL';
+      document.getElementById('hdrTitle').textContent = G_LANG === 'ja' ? (m.name_ja || m.name_ko) : m.name_ko;
+      document.getElementById('hdrVerdictBadge').textContent = m.verdict_short || '';
+      document.getElementById('hdrSubtitle').textContent = `${m.address_road || ''} · ${m.structure_display || ''} · ${m.total_units || 0}세대`;
+
+      const highlights = G_DATA.key_highlights || [];
+      document.getElementById('listHighlights').innerHTML = highlights.map(h => `<li>${h}</li>`).join('');
+
+      const actions = G_DATA.top5_action_items || [];
+      document.getElementById('listActions').innerHTML = actions.map(a => `<li>${a}</li>`).join('');
+
+      renderAuditSection();
+      renderOverviewSection();
+      renderLandingTable();
+      renderRentRollSection();
+      recalcSim();
+    }
+
+    window.addEventListener('DOMContentLoaded', loadPropertyData);
+  </script>
+</body>
+</html>
