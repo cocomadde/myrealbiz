@@ -419,3 +419,38 @@ mitsukyo-1ap,CHK_32,7.외부실사,walk_slope_note,보행 동선 고저차(경�
 mitsukyo-1ap,CHK_33,7.외부실사,hazard_flood,지자체 홍수·내수 침수 해저드맵 검증,洪水・内水浸水ハザードマップ,고대(高台) 입지로 홍수·내수 침수 해저드 해당 없음 (교차검증 완료),VERIFIED,지자체 하저드맵,,
 mitsukyo-1ap,CHK_34,7.외부실사,hazard_landslide,토사재해 경계구역(옐로/레드존) 검증,土砂災害警戒区域（イエロー/レッド）,부지 북서측 모서리 옹벽 부분(가측량도 약 4.69㎡)이 토사재해경계구역(옐로우존/잠정 레드존 경계)에 일부 저촉 확인완료 (건물 본체는 2m 이격되어 구역 외),VERIFIED,지자체 하저드맵,,
 mitsukyo-1ap,CHK_35,7.외부실사,avg_dom_days,LIFULL HOME'S 아카이브 과거 모집이력(DOM),HOME'S過去の掲載履歴・DOM分析,30~45일 (REINS 근린 성약 50건 및 일 피오레 사사노다이 교차검증 완료),VERIFIED,LIFULL HOME'S,,
+ciel-bleu-chiba-chuo,CHK_01,1.기본/가격,name_ko,물건명 (한/일),物件名称,시엘 블루 치바추오,COLLECTED,마이소쿠/개요서,,
+ciel-bleu-chiba-chuo,CHK_02,1.기본/가격,address_road,소재지 도로명주소 (住居表示),住居表示,千葉県千葉市中央区松波1丁目19-12,COLLECTED,마이소쿠/개요서,,
+ciel-bleu-chiba-chuo,CHK_03,1.기본/가격,address_lot,토지 지번 (地番),土地地番,[미수집],MISSING,미수령 (중개사 요청 필요),등기부상 정확한 토지 지번 확인,登記簿上の正確な地番のご教示
+ciel-bleu-chiba-chuo,CHK_04,1.기본/가격,price_yen,매매가격 및 소비세 조건,売買価格・消費税,222000000,COLLECTED,마이소쿠/개요서,,
+ciel-bleu-chiba-chuo,CHK_05,1.기본/가격,delivery_condition,인도조건 및 계약부적합책임 면책 여부,引渡条件・契約不適合免責,상담 (相談 — 계약부적합책임 면책 특약 유무 확인 필요),COLLECTED,물건개요서,,
+ciel-bleu-chiba-chuo,CHK_06,2.토지/도계,land_area_sqm,토지 공부면적 (㎡/평),土地公簿面積,185.88,COLLECTED,마이소쿠/등기부,,
+ciel-bleu-chiba-chuo,CHK_07,2.토지/도계,land_right,토지 권리형태 및 지목,土地権利・地目,소유권 (所有権),COLLECTED,마이소쿠/등기부,,
+ciel-bleu-chiba-chuo,CHK_08,2.토지/도계,zoning,용도지역 및 법정 건폐율·용적률,用途地域・建蔽率・容積率,제1종주거지역 (第一種住居地域),COLLECTED,마이소쿠/개요서,,
+ciel-bleu-chiba-chuo,CHK_09,2.토지/도계,road_access,도로 접도 방위·폭원·접도길이,接道状況（幅員・間口）,[미수집],MISSING,미수령 (중개사 요청 필요),건축기준법상 도로 종류 및 정확한 접도 폭원/길이,建築基準法上の道路種別および正確な幅員・接道間口
+ciel-bleu-chiba-chuo,CHK_10,2.토지/도계,private_road_burden,사도부담 및 굴착·통행승낙서 유무,私道負担・掘削通行承諾,[미수집],MISSING,미수령 (중개사 요청 필요),사도 지분 유무 및 타인 지분 굴착승낙서 유무,私道負担・持分の有無および通行掘削承諾書の有無
+ciel-bleu-chiba-chuo,CHK_11,3.건물/적법,structure_display,건물 구조 및 층수,建物構造・規模,철골조 지상 4층 건 (鉄骨造 4階建),COLLECTED,마이소쿠/등기부,,
+ciel-bleu-chiba-chuo,CHK_12,3.건물/적법,built_year_month,신축 준공년월 및 경과연수,築年月,2011년 2월 (平成23年2月),COLLECTED,마이소쿠/등기부,,
+ciel-bleu-chiba-chuo,CHK_13,3.건물/적법,bldg_area_reg_sqm,등기 연면적 vs 확인대장 연면적,延床面積（登記・確認台帳）,359.79,COLLECTED,등기부/건축확인대장,,
+ciel-bleu-chiba-chuo,CHK_14,3.건물/적법,has_confirm_cert,건축확인필증(確認済証) 및 대장 유무,建築確認済証・台帳記載事項証明,[미수집],MISSING,미수령 (중개사 요청 필요),건축확인필증 또는 대장기재사항증명서 사본 요청,建築確認済証または台帳記載事項証明書の写しのご共有
+ciel-bleu-chiba-chuo,CHK_15,3.건물/적법,has_inspection_cert,준공검사필증(検査済証) 취득 여부,検査済証の有無,[미수집],MISSING,미수령 (중개사 요청 필요),준공검사필증(検査済証) 교부 유무 및 번호 확인 (은행융자 필수),検査済証の有無および交付番号のご確認（融資審査上必須）
+ciel-bleu-chiba-chuo,CHK_16,3.건물/적법,repair_history_summary,외벽도장·옥상방수 등 대규모 수선이력,大規模修繕履歴（外壁・屋上防水）,[미수집],MISSING,미수령 (중개사 요청 필요),과거 외벽도장·옥상방수·급배수관 수선이력서 및 견적서 요청,過去の外壁塗装・屋上防水・設備等の修繕履歴一覧のご共有
+ciel-bleu-chiba-chuo,CHK_17,4.렌트롤,full_annual_income_yen,호실별 월 차임 및 공익비 내역,各戸賃料・共益費一覧,14475600,COLLECTED,렌트롤,,
+ciel-bleu-chiba-chuo,CHK_18,4.렌트롤,unit_composition,호실별 전유면적(㎡) 및 평형 타입,各戸専有面積・間取り,"전 호실 1K (24.16㎡) × 16호 (100% 단일 평형, 만실 가동 중)",COLLECTED,렌트롤/도면,,
+ciel-bleu-chiba-chuo,CHK_19,4.렌트롤,rent_roll_contract_dates,호실별 계약시작일(契約始期) 및 갱신주기,各戸の契約始期・更新時期,[미수집 - 계약시작일 미기재],MISSING,미수령 (중개사 요청 필요),렌트롤상 호실별 최초 계약시작일(입주일) 기재본 요청,レントロールにおける各戸の契約始期（入居年月）のご教示
+ciel-bleu-chiba-chuo,CHK_20,4.렌트롤,rent_roll_tenant_types,호실별 입주자 속성(법인/직장인/학생/보증회사),入居者属性・保証会社加入状況,[미수집 - 입주자속성 미기재],MISSING,미수령 (중개사 요청 필요),호실별 입주자 속성(법인/개인) 및 임대보증회사 가입 유무 확인,各戸の入居者属性（法人・社会人・学生等）および保証会社加入状況のご教示
+ciel-bleu-chiba-chuo,CHK_21,4.렌트롤,parking_info,주차장·자판기·안테나 등 부대수입 계약현황,駐車場・付帯収入の契約状況,주륜장 완비 (駐輪場有 — 자동차 주차장 유무 및 수입 확인 필요),COLLECTED,렌트롤/개요서,,
+ciel-bleu-chiba-chuo,CHK_22,5.경비/세금,disclosed_opex_yen,PM 관리위탁비 및 정기청소비 실비,PM管理委託費・定期清掃費,[미수집],MISSING,미수령 (중개사 요청 필요),현재 위탁 중인 PM 관리수수료율 및 정기청소비 월액 확인,現行のPM管理委託料率および定期清掃費等のランニングコスト明細のご共有
+ciel-bleu-chiba-chuo,CHK_23,5.경비/세금,utilities_water_sewer,공용 전기·수도·정화조·인터넷 유지비,共用光熱費・浄化槽・ネット費用,공영수도 · 공공하수 (추정 — 중요사항설명서 확인 필요),ESTIMATED,표준산식 역산 추정,"연간 공용 전기/수도료, 정화조 보수점검비, 무료인터넷 월액 확인",共用部電気・水道代、浄化槽保守点検費、ネット月額費用の実績値のご教示
+ciel-bleu-chiba-chuo,CHK_24,5.경비/세금,fixed_tax_land_eval_yen,고정자산세 토지 과세평가액,固定資産税評価額（土地）,56112525,ESTIMATED,표준산식 역산 추정,최신 연도 고정자산세·도시계획세 과세명세서(토지 평가액) 사본 요청,最新年度の固定資産税・都市計画税課税明細書（土地評価額）の写しのご共有
+ciel-bleu-chiba-chuo,CHK_25,5.경비/세금,fixed_tax_bldg_eval_yen,고정자산세 건물 과세평가액,固定資産税評価額（建物）,37529761,ESTIMATED,표준산식 역산 추정,최신 연도 고정자산세·도시계획세 과세명세서(건물 평가액) 사본 요청,最新年度の固定資産税・都市計画税課税明細書（建物評価額）の写しのご共有
+ciel-bleu-chiba-chuo,CHK_26,5.경비/세금,fixed_tax_annual_yen,고정자산세·도시계획세 연간 실납부세액,固都税 年間納付税額,825000,ESTIMATED,표준산식 역산 추정,고정자산세·도시계획세 연간 납부세액 확정치 확인,固定資産税・都市計画税の年間納付税額（確定値）のご教示
+ciel-bleu-chiba-chuo,CHK_27,6.등기/내력,registry_owner_match,토지·건물 등기부 소유자 일치 여부,土地・建物登記簿の所有者一致,[미수집 - 등기부 미수령],MISSING,미수령 (중개사 요청 필요),토지 및 건물 등기사항전부증명서(전부사항) 사본 요청,土地・建物の全部事項証明書（登記簿謄本）のご共有
+ciel-bleu-chiba-chuo,CHK_28,6.등기/내력,registry_history_갑구,과거 소유권 변천내력(갑구) 및 매각동기,所有権移転履歴・売却理由,[미수집 - 등기부 미수령],MISSING,미수령 (중개사 요청 필요),현 소유자의 취득 경위 및 금번 매각 사유 확인,現所有者様の取得経緯および今回のご売却理由のご教示
+ciel-bleu-chiba-chuo,CHK_29,6.등기/내력,registry_liens_을구,담보권·근저당·압류·지역권 유무(을구),抵当権・地役権等の権利関係,[미수집 - 등기부 미수령],MISSING,미수령 (중개사 요청 필요),등기부 을구 권리관계 및 말소 조건 확인,登記簿乙区の権利関係および引渡時抹消条件の確認
+ciel-bleu-chiba-chuo,CHK_30,7.외부실사,roadside_price_sqm,국세청 상속세 노선가(路線価) 조회,相続税路線価,345000,VERIFIED,국세청 노선가도,,
+ciel-bleu-chiba-chuo,CHK_31,7.외부실사,walk_min_gmaps,Google Maps 실측 도보거리 및 소요시간,Googleマップ実測徒歩距離・時間,12,VERIFIED,Google Maps,,
+ciel-bleu-chiba-chuo,CHK_32,7.외부실사,walk_slope_note,보행 동선 고저차(경사/계단) 및 혐오시설 실사,徒歩経路の高低差・周辺嫌悪施設,대체로 평탄한 주택·문교지구 동선 (치바역 북구~마츠나미 1초메 직선 접근),VERIFIED,Google 스트리트뷰,,
+ciel-bleu-chiba-chuo,CHK_33,7.외부실사,hazard_flood,지자체 홍수·내수 침수 해저드맵 검증,洪水・内水浸水ハザードマップ,치바시 홍수 해저드맵 하천범람 구역 외 (국지성 호우 시 내수침수 0.1~0.5m 가능성 확인 및 수재보험 특약 권장),VERIFIED,지자체 하저드맵,,
+ciel-bleu-chiba-chuo,CHK_34,7.외부실사,hazard_landslide,토사재해 경계구역(옐로/레드존) 검증,土砂災害警戒区域（イエロー/レッド）,해당 없음 (평탄한 제1종주거지역 — 토사재해 경계구역 외),VERIFIED,지자체 하저드맵,,
+ciel-bleu-chiba-chuo,CHK_35,7.외부실사,avg_dom_days,LIFULL HOME'S 아카이브 과거 모집이력(DOM),HOME'S過去の掲載履歴・DOM分析,60,ESTIMATED,표준산식 역산 추정,과거 포털 게재이력 기반 평균 모집소요기간(DOM) 및 저항선 실측,LIFULL HOME'Sアーカイブ履歴に基づく募集所要日数(DOM)の検証

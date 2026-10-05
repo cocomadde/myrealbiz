@@ -10,8 +10,8 @@
 
 | 포털 구분 | 대상 및 성격 | 라이브 URL | 주요 특징 |
 | :--- | :--- | :--- | :--- |
-| **🌐 외부공개용 인트로** | 일반/파트너 오픈용 | `https://cocomadde.github.io/myrealbiz/` | 후나바시 제외(11개 물건 노출), 모아비즈 법인 결산서 베이스라인 제외/단품 지표 중심 |
-| **🏢 모아비즈 전용 포털** | 모아비즈 법인 내부용 | `https://cocomadde.github.io/myrealbiz/moabiz/` | 후나바시 포함 12개 물건 전수 수록, 모아비즈 4기 결산서 베이스라인 및 9호 판정 완비 |
+| **🌐 외부공개용 인트로** | 일반/파트너 오픈용 | `https://cocomadde.github.io/myrealbiz/` | 후나바시 제외(12개 물건 노출), 모아비즈 법인 결산서 베이스라인 제외/단품 지표 중심 |
+| **🏢 모아비즈 전용 포털** | 모아비즈 법인 내부용 | `https://cocomadde.github.io/myrealbiz/moabiz/` | 후나바시 포함 13개 물건 전수 수록, 모아비즈 4기 결산서 베이스라인 및 9호 판정 완비 |
 | **⚙️ 어드민 관리 콘솔** | 외부공개 온오프 관리 | `https://cocomadde.github.io/myrealbiz/moabiz/admin.html` | 물건별 외부공개 스위치(ON/OFF), 실시간 통계, 변경사항 저장 및 Git 배포 명령어 연동 |
 
 ---
@@ -30,6 +30,7 @@
 - **[물건 9] 킵 라군 카와시마초 (요코하마시 호도가야구)**: [시뮬레이터 & 웹 대시보드](./keep-lagoon-kawashimacho/) · [종합분석 (KO)](./keep-lagoon-kawashimacho/report.html) · [投資分析 (JA)](./keep-lagoon-kawashimacho/report_ja.html)
 - **[물건 10] 미츠쿄 1AP 사사노다이 (요코하마시 아사히구)**: [시뮬레이터 & 웹 대시보드](./mitsukyo-1ap/) · [종합분석 (KO)](./mitsukyo-1ap/report.html) · [投資分析 (JA)](./mitsukyo-1ap/report_ja.html)
 - **[물건 11] 에스포와르 크로스 카스카베 (사이타마현 카스카베시)**: [시뮬레이터 & 웹 대시보드](./espoir-cross-kasukabe/) · [종합분석 (KO)](./espoir-cross-kasukabe/report.html) · [投資分析 (JA)](./espoir-cross-kasukabe/report_ja.html)
+- **[물건 12] 시엘 블루 치바추오 (치바현 치바시 추오구)**: [시뮬레이터 & 웹 대시보드](./ciel-bleu-chiba-chuo/) · [종합분석 (KO)](./ciel-bleu-chiba-chuo/report.html) · [投資分析 (JA)](./ciel-bleu-chiba-chuo/report_ja.html)
 
 #### 2. 모아비즈 전용 물건 (Moabiz Full Dossiers)
 - **[모아비즈 1] 포레스타 힐즈**: [모아비즈 시뮬레이터](./moabiz/foresthills/) · [모아비즈 보고서 (KO)](./moabiz/foresthills/report.html) · [モアビズレポート (JA)](./moabiz/foresthills/report_ja.html) · [결산서 적합성](./moabiz/foresthills/suitability.html)
@@ -44,6 +45,7 @@
 - **[모아비즈 10] 킵 라군 카와시마초**: [모아비즈 시뮬레이터](./moabiz/keep-lagoon-kawashimacho/) · [모아비즈 보고서 (KO)](./moabiz/keep-lagoon-kawashimacho/report.html) · [モアビズレポート (JA)](./moabiz/keep-lagoon-kawashimacho/report_ja.html) · [결산서 적합성](./moabiz/keep-lagoon-kawashimacho/suitability.html)
 - **[모아비즈 11] 미츠쿄 1AP 사사노다이**: [모아비즈 시뮬레이터](./moabiz/mitsukyo-1ap/) · [모아비즈 보고서 (KO)](./moabiz/mitsukyo-1ap/report.html) · [モアビズレポート (JA)](./moabiz/mitsukyo-1ap/report_ja.html) · [결산서 적합성](./moabiz/mitsukyo-1ap/suitability.html)
 - **[모아비즈 12] 에스포와르 크로스 카스카베**: [모아비즈 시뮬레이터](./moabiz/espoir-cross-kasukabe/) · [모아비즈 보고서 (KO)](./moabiz/espoir-cross-kasukabe/report.html) · [モアビズレポート (JA)](./moabiz/espoir-cross-kasukabe/report_ja.html) · [결산서 적합성](./moabiz/espoir-cross-kasukabe/suitability.html)
+- **[모아비즈 13] 시엘 블루 치바추오**: [모아비즈 시뮬레이터](./moabiz/ciel-bleu-chiba-chuo/) · [모아비즈 보고서 (KO)](./moabiz/ciel-bleu-chiba-chuo/report.html) · [モアビズレポート (JA)](./moabiz/ciel-bleu-chiba-chuo/report_ja.html) · [결산서 적합성](./moabiz/ciel-bleu-chiba-chuo/suitability.html)
 
 ---
 
@@ -59,7 +61,7 @@
 
 ```text
 myrealbiz/
-├── index.html                           # [외부공개용] 포트폴리오 인트로 대시보드 (후나바시 제외 11개 물건)
+├── index.html                           # [외부공개용] 포트폴리오 인트로 대시보드 (후나바시 제외 12개 물건)
 ├── robots.txt                           # 크롤러 & AI 스크래퍼 전면 차단 정책
 ├── properties.json                      # 포트폴리오 중앙 데이터베이스 (public_enabled 플래그 탑재)
 ├── README.md                            # 전체 프로젝트 가이드
@@ -67,7 +69,7 @@ myrealbiz/
 ├── publish_to_github.py                 # 듀얼 퍼블리싱 자동화 CLI 스크립트
 │
 ├── moabiz/                              # [모아비즈 전용 내부 포털]
-│   ├── index.html                       # 모아비즈 포트폴리오 메인 (후나바시 포함 12건 전수 수록)
+│   ├── index.html                       # 모아비즈 포트폴리오 메인 (후나바시 포함 13건 전수 수록)
 │   ├── admin.html                       # 어드민 콘솔 (물건별 외부공개 ON/OFF 제어 및 설정 적용)
 │   ├── properties.json                  # 내부 동기화 DB
 │   ├── foresthills/                     # 모아비즈 결산서 착지 지표 완비
@@ -81,7 +83,8 @@ myrealbiz/
 │   ├── livre-fine-misato-chuo/          # 모아비즈 결산서 착지 지표 완비
 │   ├── keep-lagoon-kawashimacho/        # 모아비즈 결산서 착지 지표 완비
 │   ├── mitsukyo-1ap/                    # 모아비즈 결산서 착지 지표 완비
-│   └── espoir-cross-kasukabe/           # 모아비즈 결산서 착지 지표 완비
+│   ├── espoir-cross-kasukabe/           # 모아비즈 결산서 착지 지표 완비
+│   └── ciel-bleu-chiba-chuo/            # 모아비즈 결산서 착지 지표 완비
 │
 ├── foresthills/                         # [외부공개용 1] 포레스타 힐즈 (모아비즈 정보 제외/정제)
 ├── matsudo-kawaharazuka/                # [외부공개용 2] 익시드 애로우 (모아비즈 정보 제외/정제)
@@ -94,6 +97,7 @@ myrealbiz/
 ├── keep-lagoon-kawashimacho/            # [외부공개용 9] 킵 라군 카와시마초 (모아비즈 정보 제외/정제)
 ├── mitsukyo-1ap/                        # [외부공개용 10] 미츠쿄 1AP 사사노다이 (모아비즈 정보 제외/정제)
 ├── espoir-cross-kasukabe/               # [외부공개용 11] 에스포와르 크로스 카스카베 (모아비즈 정보 제외/정제)
+├── ciel-bleu-chiba-chuo/                # [외부공개용 12] 시엘 블루 치바추오 (모아비즈 정보 제외/정제)
 └── funabashi-miyamoto/                  # [외부 리스트 제외] 후나바시 미야모토
 ```
 
